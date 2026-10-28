@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Archivo, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
+import { seoDe } from '@/lib/atos-seo';
 
 const archivo = Archivo({
   variable: '--font-archivo',
@@ -15,8 +16,10 @@ const cormorant = Cormorant_Garamond({
   style: ['normal', 'italic'],
 });
 
-const title = 'Urbis EU · Apartamentos en Torices, Cartagena';
-const description = 'Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos desde $275 millones COP en 10 tipologías. Solicita información.';
+// Título y descripción de la portada: los mantiene AT OS en atos/seo.json
+const portada = seoDe('/');
+const title = portada.titulo ?? 'Urbis EU · Apartamentos en Torices, Cartagena';
+const description = portada.descripcion ?? 'Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos desde $275 millones COP en 10 tipologías. Solicita información.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://urbis-web.vercel.app'),
