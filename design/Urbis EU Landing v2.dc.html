@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#14403E"/><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#F4EDE1">EU</text></svg></template>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urbis EU · Apartamentos en Torices, Cartagena</title>
+<meta name="description" content="Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos desde $275 millones COP en 10 tipologías. Solicita información.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#F4EDE1;color:#14403E;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+::selection{background:#E7D6BC;color:#14403E}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+a:hover{color:inherit}
+:focus-visible{outline:2px solid #C4744C;outline-offset:3px}
+button,input{font:inherit;color:inherit}
+@keyframes urbFade{from{opacity:0}to{opacity:1}}
+@keyframes urbRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes urbSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+
+<a href="#formulario" onClick="{{ goForm }}" style="position:absolute;left:12px;top:-60px;z-index:100;background:#14403E;color:#F4EDE1;padding:14px 16px;font-weight:600;text-decoration:none" style-focus="top:12px">Ir al formulario de contacto</a>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ hdr.bg }};border-bottom:1px solid {{ hdr.border }};color:{{ hdr.fg }};transition:background-color .35s ease, border-color .35s ease, color .35s ease">
+  
+</header>
+
+<div aria-hidden="true" ref="{{ galSrcRef }}" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none">
+  <img data-galsrc="assets/web/apto-c-sala.jpg" src="assets/web/apto-c-sala.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/apto-a-cocina.jpg" src="assets/web/apto-a-cocina.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/apto-a-comedor.jpg" src="assets/web/apto-a-comedor.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/apto-b-sala.jpg" src="assets/web/apto-b-sala.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/apto-c-cocina.jpg" src="assets/web/apto-c-cocina.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/piscina-rooftop.jpg" src="assets/web/piscina-rooftop.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/lobby-recepcion.jpg" src="assets/web/lobby-recepcion.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/salon-social.jpg" src="assets/web/salon-social.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/salon-juegos.jpg" src="assets/web/salon-juegos.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/gimnasio.jpg" src="assets/web/gimnasio.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/web/terraza-aire-libre.jpg" src="assets/web/terraza-aire-libre.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/plantas/amoblado-a.jpg" src="assets/plantas/amoblado-a.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/plantas/amoblado-b.jpg" src="assets/plantas/amoblado-b.jpg" alt="" loading="lazy" width="1" height="1">
+  <img data-galsrc="assets/plantas/amoblado-c.jpg" src="assets/plantas/amoblado-c.jpg" alt="" loading="lazy" width="1" height="1">
+</div>
+
+<main>
+
+<section id="inicio" data-screen-label="01 Hero con formulario" style="position:relative;min-height:{{ heroMinH }};display:flex;align-items:center;background:#14403E;color:#F4EDE1;overflow:hidden">
+  <div data-reveal="fade" style="position:absolute;inset:0">
+    <div ref="{{ heroImg }}" style="position:absolute;inset:-6% 0 -6% 0;will-change:transform">
+      <image-slot id="hero-render" shape="rect" src="assets/web/urbis-hero-f2.jpg" placeholder="Render oficial · Urbis EU"></image-slot>
+    </div>
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:{{ heroOverlay }}"></div>
+  </div>
+
+  <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(104px,14vh,140px) clamp(20px,4vw,56px) clamp(40px,6vh,72px);display:grid;grid-template-columns:{{ cols.hero }};gap:clamp(32px,5vw,96px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:clamp(16px,1.8vw,24px);min-width:0;max-width:640px">
+      <img data-reveal="up" data-delay="60" src="assets/urbis-logo-horizontal-blanco.png" alt="Urbis EU" style="display:block;height:clamp(40px,4.2vw,60px);width:auto;max-width:100%;align-self:flex-start;margin-bottom:clamp(4px,1vw,12px);filter:drop-shadow(0 1px 16px rgba(20,64,62,.5))">
+      <p data-reveal="up" data-delay="120" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1.3 'Archivo',sans-serif;letter-spacing:.28em;text-shadow:0 1px 20px rgba(20,64,62,.6)"><span style="width:40px;height:1px;background:#C4744C;flex:none"></span>URBIS EU · TORICES, CARTAGENA</p>
+      <h1 data-reveal="up" data-delay="180" style="margin:0;font:300 clamp(40px,4.8vw,76px)/1 'Cormorant Garamond',serif;letter-spacing:-.015em;text-wrap:balance;text-shadow:0 1px 24px rgba(20,64,62,.6)">Tu próximo hogar en Cartagena <em style="font-style:italic;font-weight:300">comienza aquí.</em></h1>
+      <div data-reveal="up" data-delay="240" style="margin:0;max-width:520px;font:400 clamp(15px,1.15vw,17px)/1.6 'Archivo',sans-serif;text-wrap:pretty;text-shadow:0 1px 20px rgba(20,64,62,.6)"><p data-pm-slice="1 1 []" style="margin:0;font-size:{{ heroSubFs }};line-height:1.45;width:100%;max-width:496px">Encuentra opciones desde&nbsp;<strong style="font-size:{{ heroStrongFs }};white-space:nowrap">$275 millones COP</strong> <br>y da el primer paso hacia tu próximo proyecto.</p></div>
+      <p data-reveal="up" data-delay="300" style="margin:0;display:flex;align-items:center;gap:10px;font:500 13px/1.4 'Archivo',sans-serif;color:#E7D6BC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><path d="M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path></svg>Torices, Cartagena de Indias</p>
+    </div>
+
+    <div id="formulario" ref="{{ formRef }}" data-reveal="up" data-delay="200" style="scroll-margin-top:84px;background:#F4EDE1;color:#14403E;padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:20px;min-width:0;width:100%;max-width:{{ heroFormMaxW }};justify-self:{{ heroFormJustify }}">
+      <sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+        <div role="status" tabindex="-1" ref="{{ successRef }}" style="display:flex;flex-direction:column;gap:14px;padding:8px 0;animation:urbRise .45s ease">
+          <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+          <h2 style="margin:0;font:400 30px/1.05 'Cormorant Garamond',serif">Recibimos tu solicitud, {{ firstName }}.</h2>
+          <p style="margin:0;font:400 14px/1.6 'Archivo',sans-serif;color:#41605E">El equipo comercial de Urbis EU se comunicará contigo con la información de Urbis EU.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <p style="margin:0;font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#C4744C">Recibe información</p>
+          <h2 style="margin:0;font:400 clamp(26px,2.2vw,32px)/1.05 'Cormorant Garamond',serif">Conoce Urbis EU</h2>
+          <p style="margin:4px 0 0;font:400 14px/1.55 'Archivo',sans-serif;color:#41605E">Déjanos tus datos y recibe información para dar el siguiente paso.</p>
+        </div>
+        <form novalidate="" onSubmit="{{ submit }}" aria-label="Solicitud de información de Urbis EU" style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label for="lf-name" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.03em">Nombre</label>
+            <input id="lf-name" name="name" ref="{{ nameRef }}" autocomplete="name" placeholder="Tu nombre y apellido" value="{{ form.name }}" onChange="{{ onField }}" aria-invalid="{{ inv.name }}" aria-describedby="lf-name-e" style="width:100%;min-height:48px;padding:10px 14px;background:#FFFFFF;border:1px solid {{ fb.name }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+            <span id="lf-name-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.name }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label for="lf-wa" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.03em">Teléfono / WhatsApp</label>
+            <input id="lf-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="300 000 0000" value="{{ form.wa }}" onChange="{{ onField }}" aria-invalid="{{ inv.wa }}" aria-describedby="lf-wa-e" style="width:100%;min-height:48px;padding:10px 14px;background:#FFFFFF;border:1px solid {{ fb.wa }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+            <span id="lf-wa-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.wa }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label for="lf-email" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.03em">Correo electrónico</label>
+            <input id="lf-email" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" value="{{ form.email }}" onChange="{{ onField }}" aria-invalid="{{ inv.email }}" aria-describedby="lf-email-e" style="width:100%;min-height:48px;padding:10px 14px;background:#FFFFFF;border:1px solid {{ fb.email }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+            <span id="lf-email-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.email }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;min-height:44px">
+              <input type="checkbox" name="consent" checked="{{ form.consent }}" onChange="{{ onField }}" aria-invalid="{{ inv.consent }}" aria-describedby="lf-consent-e" style="width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:#14403E">
+              <span style="font:400 12px/1.55 'Archivo',sans-serif">Autorizo el tratamiento de mis datos personales para que el equipo comercial de Urbis EU me contacte, conforme a la Ley 1581 de 2012 y a la <sc-if value="{{ hasPrivacy }}" hint-placeholder-val="{{ false }}"><a href="{{ privacyHref }}" target="_blank" rel="noopener" style="color:#14403E;font-weight:600">política de tratamiento de datos</a></sc-if><sc-if value="{{ noPrivacy }}" hint-placeholder-val="{{ true }}">política de tratamiento de datos del proyecto</sc-if>.</span>
+            </label>
+            <span id="lf-consent-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.consent }}</span>
+          </div>
+          <sc-if value="{{ hasSubmitMsg }}" hint-placeholder-val="{{ false }}">
+            <div role="alert" style="padding:12px 14px;border:1px solid #8C3B1E;background:#FBEFE6;font:500 13px/1.5 'Archivo',sans-serif;color:#6E2C14">{{ submitMsg }}</div>
+          </sc-if>
+          <button type="submit" disabled="{{ isLoading }}" aria-busy="{{ isLoadingStr }}" style="width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 24px;background:#14403E;color:#F4EDE1;border:0;border-radius:2px;font:600 15px/1 'Archivo',sans-serif;cursor:pointer;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#0B2524;gap:18px"><span>{{ submitLabel }}</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ lbClose }}" style="position:fixed;inset:0;z-index:90;background:rgba(11,37,36,.94);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px);animation:urbFade .25s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="lb-title" onClick="{{ stop }}" style="width:min(1320px,100%);max-height:100%;display:flex;flex-direction:column;gap:14px;color:#F4EDE1">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:14px;min-width:0">
+          <span style="flex:none;font:500 11px/1 'Archivo',sans-serif;letter-spacing:.16em;color:#E7D6BC">{{ lb.counter }}</span>
+          <h2 id="lb-title" style="margin:0;font:300 clamp(22px,2.6vw,34px)/1.1 'Cormorant Garamond',serif">{{ lb.name }}</h2>
+        </div>
+        <button type="button" ref="{{ lbCloseRef }}" onClick="{{ lbClose }}" aria-label="Cerrar imagen" style="width:48px;height:48px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div role="img" aria-label="{{ lb.alt }}" style="width:100%;height:calc(100svh - 190px);max-height:900px;background-image:{{ lb.bg }};background-size:contain;background-position:center;background-repeat:no-repeat;animation:urbFade .3s ease"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <span style="font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">{{ lb.note }}</span>
+        <div style="display:flex;gap:8px;flex:none">
+          <button type="button" onClick="{{ lbPrev }}" aria-label="Imagen anterior" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button>
+          <button type="button" onClick="{{ lbNext }}" aria-label="Imagen siguiente" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:8px;animation:urbRise .3s ease">
+    <a href="#formulario" onClick="{{ goForm }}" data-track="cta_primary_click" style="flex:1;display:flex;align-items:center;justify-content:center;min-height:52px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px">Solicitar información</a>
+    <button type="button" onClick="{{ dismissSticky }}" aria-label="Ocultar botón de solicitud" style="width:52px;min-height:52px;display:flex;align-items:center;justify-content:center;background:#14403E;border:1px solid rgba(244,237,225,.3);border-radius:1px;cursor:pointer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;projectLat&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;projectLng&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;mapUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;mobileStickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Móvil&quot;}}">
+const LEGAL = [
+  { label: 'Política de tratamiento de datos', url: null },
+  { label: 'Aviso de privacidad', url: null }
+];
+// Five attributes. Copy uses only confirmed facts; update desc once the developer verifies more detail.
+const ATTRS = [
+  { title: 'Características del proyecto', desc: 'Diferentes tipologías para encontrar el espacio que se adapta a ti.', icon: 'M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2 M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2 M10 6h4 M10 10h4 M10 14h4 M10 18h4' },
+  { title: 'Ubicación', desc: 'En Torices, Cartagena, con conexión a diferentes puntos de la ciudad.', icon: 'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0 M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0' },
+  { title: 'Amenidades', desc: 'Espacios pensados para disfrutar, compartir y complementar tu día a día.', icon: 'M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1' },
+  { title: 'Vista', desc: 'Disfruta de una gran vista que convierte cada día en una experiencia especial.', icon: 'M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0 M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0' },
+  { title: 'Inversión', desc: 'Conoce apartamentos desde $275 millones COP y consulta las condiciones del proyecto.', icon: 'M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z' }
+];
+const GAL_APTS = [
+  { id: 'gal-apto-c-sala', name: 'Sala y balcón · Tipología C', src: 'assets/web/apto-c-sala.jpg', alt: 'Render de referencia de la sala y el balcón de un apartamento de la tipología C' },
+  { id: 'gal-apto-a-cocina', name: 'Cocina abierta · Tipología A', src: 'assets/web/apto-a-cocina.jpg', alt: 'Render de referencia de la cocina abierta y la sala de un apartamento de la tipología A' },
+  { id: 'gal-apto-a-comedor', name: 'Cocina y comedor · Tipología A', src: 'assets/web/apto-a-comedor.jpg', alt: 'Render de referencia de la cocina y el comedor de un apartamento de la tipología A' },
+  { id: 'gal-apto-b-sala', name: 'Sala y comedor · Tipología B', src: 'assets/web/apto-b-sala.jpg', alt: 'Render de referencia de la sala y el comedor de un apartamento de la tipología B' },
+  { id: 'gal-apto-c-cocina', name: 'Cocina y sala · Tipología C', src: 'assets/web/apto-c-cocina.jpg', alt: 'Render de referencia de la cocina y la sala de un apartamento de la tipología C' }
+];
+const GAL_AMEN = [
+  { id: 'gal-piscina', name: 'Piscina y rooftop', src: 'assets/web/piscina-rooftop.jpg', alt: 'Render de la piscina y el rooftop de Urbis EU al atardecer' },
+  { id: 'gal-lobby', name: 'Lobby y recepción', src: 'assets/web/lobby-recepcion.jpg', alt: 'Render del lobby y la recepción de Urbis EU' },
+  { id: 'gal-salon-social', name: 'Salón social', src: 'assets/web/salon-social.jpg', alt: 'Render del salón social de Urbis EU' },
+  { id: 'gal-salon-juegos', name: 'Salón de juegos', src: 'assets/web/salon-juegos.jpg', alt: 'Render del salón de juegos de Urbis EU' },
+  { id: 'gal-gimnasio', name: 'Gimnasio', src: 'assets/web/gimnasio.jpg', alt: 'Render del gimnasio de Urbis EU' },
+  { id: 'gal-terraza', name: 'Terraza al aire libre', src: 'assets/web/terraza-aire-libre.jpg', alt: 'Render de la terraza al aire libre de Urbis EU, con máquinas de ejercicio' }
+];
+// Source: URBIS-EU-tablones.pdf. Usable area only.
+const PLANS = [
+  { k: 'A', area: '45,59 m² útiles', src: 'assets/plantas/amoblado-a.jpg' },
+  { k: 'B', area: '43,9–46,9 m² útiles', src: 'assets/plantas/amoblado-b.jpg' },
+  { k: 'C', area: '48,05 m² útiles', src: 'assets/plantas/amoblado-c.jpg' }
+].map(p => ({ ...p, id: 'plano-' + p.k.toLowerCase(), name: 'Plano · Tipología ' + p.k, alt: 'Plano oficial amoblado de referencia del apartamento tipología ' + p.k + ' de Urbis EU' }));
+const EASE = 'cubic-bezier(.2,.7,.2,1)';
+const HDR_OFFSET = 64;
+
+class Component extends DCLogic {
+  state = { scrolled: false, w: 1440, form: { name: '', wa: '', email: '', consent: false }, errors: {}, status: 'idle', lb: null, plSel: 0, stickyHidden: false, formInView: true, ctaInView: false };
+  galSrcRef = React.createRef(); lbCloseRef = React.createRef(); lbLast = null; heroImg = React.createRef(); formRef = React.createRef(); ctaRef = React.createRef(); nameRef = React.createRef(); successRef = React.createRef();
+
+  track(event, params = {}) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event, ...params }); }
+  reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  componentDidMount() {
+    let ticking = false;
+    this.onScroll = () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = window.scrollY, vh = window.innerHeight, scrolled = y > 24;
+        if (scrolled !== this.state.scrolled) this.setState({ scrolled });
+        const h = this.heroImg.current;
+        if (h) h.style.transform = (this.state.w < 960 || this.reduced()) ? '' : `translate3d(0,${Math.min(y, vh) * 0.1}px,0)`;
+      });
+    };
+    this.onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); this.onScroll(); };
+    this.onKey = e => {
+      if (!this.state.lb) return;
+      if (e.key === 'Escape') this.closeLb();
+      else if (e.key === 'ArrowRight') this.stepLb(1);
+      else if (e.key === 'ArrowLeft') this.stepLb(-1);
+      else if (e.key === 'Tab') { const d = document.querySelector('[role="dialog"]'); const f = d ? [...d.querySelectorAll('button')] : []; if (f.length) { const i = f.indexOf(document.activeElement); if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); } else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); } } }
+    };
+    document.addEventListener('keydown', this.onKey);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+    this.forceUpdate();
+    this.setupReveal();
+    if ('IntersectionObserver' in window) {
+      this.formIO = new IntersectionObserver(([en]) => this.setState({ formInView: en.isIntersecting }), { threshold: 0.05 });
+      this.ctaIO = new IntersectionObserver(([en]) => this.setState({ ctaInView: en.isIntersecting }), { threshold: 0.2 });
+      this.formRef.current && this.formIO.observe(this.formRef.current);
+      this.ctaRef.current && this.ctaIO.observe(this.ctaRef.current);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey); document.body.style.overflow = '';
+    this.io && this.io.disconnect(); this.formIO && this.formIO.disconnect(); this.ctaIO && this.ctaIO.disconnect();
+  }
+  setupReveal() {
+    if (this.reduced() || !('IntersectionObserver' in window)) return;
+    const hide = el => {
+      const k = el.dataset.reveal;
+      if (k === 'mask') { el.style.clipPath = 'inset(100% 0 0 0)'; el.style.transition = `clip-path 1000ms ${EASE}`; }
+      else { el.style.opacity = '0'; if (k === 'up') el.style.transform = 'translateY(16px)'; el.style.transition = `opacity 600ms ${EASE}, transform 600ms ${EASE}`; }
+    };
+    const show = el => {
+      const d = +(el.dataset.delay || 0);
+      el.style.transitionDelay = d + 'ms';
+      requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = 'inset(0 0 0 0)'; });
+      setTimeout(() => { el.style.transition = ''; el.style.transitionDelay = ''; el.style.clipPath = ''; }, 1200 + d);
+    };
+    this.io = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { this.io.unobserve(en.target); show(en.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      hide(el);
+      if (el.closest('#inicio')) requestAnimationFrame(() => requestAnimationFrame(() => show(el)));
+      else this.io.observe(el);
+    });
+  }
+  scrollToEl(el, top0) {
+    const top = top0 ? 0 : el.getBoundingClientRect().top + window.scrollY - HDR_OFFSET - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: this.reduced() ? 'auto' : 'smooth' });
+  }
+  goForm = e => {
+    e && e.preventDefault();
+    const a = e && e.currentTarget;
+    if (a && a.dataset && a.dataset.track) this.track(a.dataset.track, { label: a.textContent.trim() });
+    const f = this.formRef.current; if (!f) return;
+    this.scrollToEl(f);
+    setTimeout(() => { const n = this.nameRef.current; n && n.focus({ preventScroll: true }); }, this.reduced() ? 50 : 700);
+  };
+  goSection = e => { e.preventDefault(); const el = document.getElementById((e.currentTarget.getAttribute('href') || '').slice(1)); el && this.scrollToEl(el); };
+  resolveSrc(p) {
+    const box = this.galSrcRef.current; if (!box) return p;
+    const im = [...box.querySelectorAll('img')].find(x => x.dataset.galsrc === p);
+    return (im && im.getAttribute('src')) || p;
+  }
+  lbSet(set) { return set === 'apts' ? GAL_APTS : (set === 'plans' ? PLANS : GAL_AMEN); }
+  openLb = (set, i, e) => {
+    this.lbLast = e && e.currentTarget; this.setState(set === 'plans' ? { lb: { set, i }, plSel: i } : { lb: { set, i } });
+    document.body.style.overflow = 'hidden';
+    this.track('gallery_open', { gallery: set, image: this.lbSet(set)[i].id });
+    setTimeout(() => this.lbCloseRef.current && this.lbCloseRef.current.focus(), 30);
+  };
+  closeLb = () => { this.setState({ lb: null }); document.body.style.overflow = ''; const t = this.lbLast; t && setTimeout(() => t.focus({ preventScroll: true }), 0); };
+  stepLb = d => this.setState(s => { if (!s.lb) return null; const n = this.lbSet(s.lb.set).length; const i = (s.lb.i + d + n) % n; return s.lb.set === 'plans' ? { lb: { ...s.lb, i }, plSel: i } : { lb: { ...s.lb, i } }; });
+  goTop = e => { e.preventDefault(); this.scrollToEl(null, true); };
+
+  onField = e => {
+    const { name, type, checked, value } = e.target;
+    this.setState(s => ({ form: { ...s.form, [name]: type === 'checkbox' ? checked : value }, errors: { ...s.errors, [name]: '' }, status: s.status === 'loading' ? s.status : 'idle' }));
+  };
+  validate(f) {
+    const e = {};
+    if (f.name.trim().length < 2) e.name = 'Escribe tu nombre.';
+    const d = f.wa.replace(/[^\d]/g, '');
+    if (!d) e.wa = 'Escribe tu número de teléfono o WhatsApp.';
+    else if (!((d.length === 10 && d[0] === '3') || (d.length === 12 && d.startsWith('573')) || (d.length === 10 && d[0] === '6'))) e.wa = 'Revisa el número: debe tener 10 dígitos.';
+    if (!f.email.trim()) e.email = 'Escribe tu correo electrónico.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Revisa el formato del correo electrónico.';
+    if (!f.consent) e.consent = 'Necesitamos tu autorización para poder contactarte.';
+    return e;
+  }
+  submit = async ev => {
+    ev.preventDefault();
+    const f = this.state.form, e = this.validate(f);
+    if (Object.keys(e).length) {
+      this.setState({ errors: e });
+      const first = ['name', 'wa', 'email', 'consent'].find(k => e[k]);
+      const el = ev.currentTarget.querySelector('[name="' + first + '"]'); el && el.focus();
+      return;
+    }
+    this.setState({ errors: {}, status: 'loading' });
+    const endpoint = String(this.props.formEndpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Urbis EU] Formulario sin configurar: define la prop formEndpoint con la URL que recibirá los leads. No se envió ningún dato.');
+      await new Promise(r => setTimeout(r, 500));
+      this.setState({ status: 'unconfigured' });
+      return;
+    }
+    try {
+      const payload = { name: f.name.trim(), whatsapp: f.wa.replace(/[^\d]/g, ''), email: f.email.trim(), interest: 'Apartamentos Urbis EU', consent: true, source: 'landing-urbis-eu', page: location.href, submittedAt: new Date().toISOString() };
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ status: 'success' });
+      this.track('form_submit_success', { interest: 'apartamentos' });
+      setTimeout(() => this.successRef.current && this.successRef.current.focus(), 60);
+    } catch (err) {
+      console.error('[Urbis EU] Error al enviar el formulario', err);
+      this.setState({ status: 'error' });
+    }
+  };
+
+  renderVals() {
+    const s = this.state, p = this.props, f = s.form, er = s.errors;
+    const N = s.w < 960, T = s.w < 1200, M = s.w < 640;
+    const solid = s.scrolled;
+    const priv = LEGAL.find(l => /tratamiento/i.test(l.label));
+    const wd = String(p.whatsappNumber || '').replace(/[^\d]/g, '');
+    const hasWa = wd.length >= 10;
+    const em = String(p.contactEmail || '').trim(), emOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em);
+    const lat = parseFloat(p.projectLat), lng = parseFloat(p.projectLng);
+    const coords = isFinite(lat) && isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180;
+    const mu = String(p.mapUrl || '').trim();
+    const sticky = (p.mobileStickyCta ?? true) && N && !s.stickyHidden && !s.formInView && !s.ctaInView && s.status !== 'success';
+    const attrCols = M ? 1 : (T ? 2 : 5);
+    const msgs = { error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.', unconfigured: 'El formulario todavía no está conectado al sistema de registro, así que tu solicitud no se envió. Inténtalo más tarde.' };
+    return {
+      hdr: {
+        bg: solid ? '#F4EDE1' : 'transparent', border: solid ? 'rgba(20,64,62,.15)' : 'transparent', logoOp: solid ? 1 : 0, logoVis: solid ? 'visible' : 'hidden', fg: solid ? '#14403E' : '#F4EDE1',
+        pad: solid ? '8px' : (N ? '12px' : '18px'), logoH: solid ? (N ? '26px' : '30px') : (N ? '30px' : '38px'),
+        calOp: solid ? 0 : 1, verdeOp: solid ? 1 : 0,
+        ctaBg: solid ? '#14403E' : 'rgba(20,64,62,.55)', ctaBorder: solid ? '#14403E' : 'rgba(244,237,225,.7)', ctaFg: '#F4EDE1'
+      },
+      heroMinH: N ? 'auto' : 'min(86svh, 860px)',
+      heroOverlay: N ? 'linear-gradient(180deg,rgba(20,64,62,.62) 0%,rgba(20,64,62,.5) 45%,rgba(20,64,62,.72) 100%)' : 'linear-gradient(90deg,rgba(20,64,62,.78) 0%,rgba(20,64,62,.5) 40%,rgba(20,64,62,.15) 70%,rgba(20,64,62,.35) 100%),linear-gradient(180deg,rgba(20,64,62,.5) 0%,rgba(20,64,62,0) 22%,rgba(20,64,62,0) 70%,rgba(20,64,62,.6) 100%)',
+      cols: {
+        hero: N ? 'minmax(0,1fr)' : 'minmax(0,1.2fr) minmax(0,1fr)',
+        attrs: 'repeat(' + attrCols + ',minmax(0,1fr))',
+        galApts: M ? 'repeat(2,minmax(0,1fr))' : 'repeat(4,minmax(0,1fr))',
+        galAmen: M ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))',
+        galRows: 'auto',
+        footer: N ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,2.4fr)'
+      },
+      attrs: ATTRS.map((a, i) => ({
+        ...a, n: String(i + 1).padStart(2, '0'), delay: String(i * 60),
+        dir: M ? 'row' : 'column',
+        pad: M ? '18px 0' : (attrCols === 5 ? '28px 24px 8px ' + (i === 0 ? '0' : '24px') : '24px 20px 24px ' + (i % 2 === 0 ? '0' : '20px')),
+        bl: (!M && i % attrCols !== 0) ? '1px solid rgba(20,64,62,.18)' : '0',
+        bb: (M || attrCols === 2) ? '1px solid rgba(20,64,62,.18)' : '0'
+      })),
+      galApts: GAL_APTS.map((g, i) => ({ ...g, src: this.resolveSrc(g.src), open: e => this.openLb('apts', i, e), openLabel: 'Ampliar imagen: ' + g.name, row: (!M && i === 0) ? 'span 2' : 'auto', col: i === 0 ? 'span 2' : 'auto', ratio: i === 0 ? (M ? '16/10' : 'auto') : (M ? '1/1' : '16/10') })),
+      galAmen: GAL_AMEN.map((g, i) => ({ ...g, src: this.resolveSrc(g.src), open: e => this.openLb('amen', i, e), openLabel: 'Ampliar imagen: ' + g.name, row: (!M && i === 0) ? 'span 2' : 'auto', col: (i === 0 || (M && i === 5)) ? 'span 2' : 'auto', ratio: i === 0 ? (M ? '16/10' : 'auto') : ((M && i === 5) ? '16/10' : (M ? '1/1' : '16/10')) })),
+      form: f, errors: { name: er.name || '', wa: er.wa || '', email: er.email || '', consent: er.consent || '' },
+      inv: { name: er.name ? 'true' : 'false', wa: er.wa ? 'true' : 'false', email: er.email ? 'true' : 'false', consent: er.consent ? 'true' : 'false' },
+      fb: { name: er.name ? '#8C3B1E' : '#E7D6BC', wa: er.wa ? '#8C3B1E' : '#E7D6BC', email: er.email ? '#8C3B1E' : '#E7D6BC' },
+      onField: this.onField, submit: this.submit,
+      isSuccess: s.status === 'success', showForm: s.status !== 'success',
+      isLoading: s.status === 'loading', isLoadingStr: s.status === 'loading' ? 'true' : 'false',
+      submitLabel: s.status === 'loading' ? 'Enviando…' : 'Quiero recibir información',
+      hasSubmitMsg: !!msgs[s.status], submitMsg: msgs[s.status] || '',
+      firstName: f.name.trim().split(/\s+/)[0] || '',
+      hasPrivacy: !!(priv && priv.url), noPrivacy: !(priv && priv.url), privacyHref: (priv && priv.url) || '',
+      legalLinks: LEGAL.map(l => ({ ...l, hasUrl: !!l.url })), legalPending: !LEGAL.some(l => l.url),
+      hasWa, waHref: hasWa ? 'https://wa.me/' + (wd.length === 10 ? '57' + wd : wd) : '', waDisplay: hasWa ? '+' + (wd.length === 10 ? '57 ' + wd : wd.slice(0, 2) + ' ' + wd.slice(2)) : '',
+      trackWa: () => this.track('whatsapp_click', {}),
+      hasEmail: emOk, contactEmail: em, mailHref: emOk ? 'mailto:' + em : '',
+      hasDirections: coords || /^https?:\/\//.test(mu), directionsHref: coords ? 'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng : mu,
+      oneLine: N ? 'normal' : 'nowrap',
+      hasCoords: coords, noCoords: !coords, mapEmbed: coords ? 'https://maps.google.com/maps?q=' + lat + ',' + lng + '&z=16&output=embed' : '', mapH: M ? '200px' : '200px',
+      footBrandH: N ? 'auto' : '269px', footMapColH: N ? 'auto' : '256px',
+      heroFormMaxW: N ? '100%' : '460px', heroFormJustify: N ? 'stretch' : 'end',
+      ctaOverlay: N ? 'linear-gradient(180deg,rgba(20,64,62,.88) 0%,rgba(20,64,62,.8) 100%)' : 'linear-gradient(90deg,rgba(20,64,62,.9) 0%,rgba(20,64,62,.75) 40%,rgba(20,64,62,.15) 75%,rgba(20,64,62,0) 100%)',
+      plans: PLANS.map((p, i) => { const on = i === s.plSel; return { title: 'TIPOLOGÍA ' + p.k, area: p.area, alt: p.alt, delay: String(i * 70),
+        bg: 'url("' + this.resolveSrc(p.src) + '")', open: e => this.openLb('plans', i, e), label: 'Ampliar plano de la tipología ' + p.k + ', ' + p.area,
+        pressed: on ? 'true' : 'false', border: on ? '#14403E' : '#E7D6BC', ring: on ? 'inset 0 0 0 1px #14403E' : 'none', labelColor: on ? '#14403E' : '#41605E', dot: on ? '#E66A45' : 'transparent' }; }),
+      plFlow: M ? 'column' : 'row', plCols: M ? 'none' : 'repeat(3,minmax(0,1fr))', plAutoCols: M ? '78%' : 'auto',
+      plOverflow: M ? 'auto' : 'visible', plPadB: M ? '6px' : '0', plBleed: M ? 'calc(-1 * clamp(20px,4vw,56px))' : '0', plBleedPad: M ? 'clamp(20px,4vw,56px)' : '0',
+      heroSubFs: M ? '18px' : '22px', heroStrongFs: M ? '21px' : '25px',
+      ctaRatio: N ? 'auto' : '2.23/1', ctaMinH: N ? '0' : '440px',
+      year: String(new Date().getFullYear()),
+      showSticky: sticky, dismissSticky: () => this.setState({ stickyHidden: true }),
+      footerPad: sticky ? '84px' : '0',
+      heroImg: this.heroImg, formRef: this.formRef, ctaRef: this.ctaRef, nameRef: this.nameRef, successRef: this.successRef,
+      ...(() => { const L = s.lb, arr = L ? this.lbSet(L.set) : [], it = L ? arr[L.i] : null; return {
+        lbOpen: !!L, lb: it ? { name: it.name, alt: it.alt, bg: 'url("' + this.resolveSrc(it.src) + '")', counter: String(L.i + 1).padStart(2, '0') + ' / ' + String(arr.length).padStart(2, '0'),
+          note: L.set === 'plans' ? (it.area + ' · Plano de referencia. El mobiliario es ilustrativo.') : (L.set === 'apts' ? 'Imagen de referencia. Los apartamentos se entregan en obra gris, con baño y cocina terminados.' : 'Imagen de referencia: representación digital del diseño.') } : { name: '', alt: '', bg: 'none', counter: '', note: '' } }; })(),
+      lbClose: this.closeLb, lbPrev: () => this.stepLb(-1), lbNext: () => this.stepLb(1), lbCloseRef: this.lbCloseRef, stop: e => e.stopPropagation(),
+      galSrcRef: this.galSrcRef, goForm: this.goForm, goTop: this.goTop, goSection: this.goSection
+    };
+  }
+}
+</script>
+</body>
+</html>

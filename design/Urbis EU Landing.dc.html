@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urbis EU · Apartamentos VIS en Torices, Cartagena</title>
+<meta name="description" content="Apartamentos VIS en Torices, Cartagena. Desde $275 millones, 10 tipologías de 41–42 m² privados. Entrega prevista en noviembre de 2028.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#F4EDE1;color:#14403E;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+::selection{background:#E7D6BC;color:#14403E}
+a{color:#14403E;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#0B2524}
+:focus-visible{outline:2px solid #C4744C;outline-offset:3px}
+button,input,select,textarea{font:inherit;color:inherit}
+@keyframes urbFade{from{opacity:0}to{opacity:1}}
+@keyframes urbDrawer{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes urbSpin{to{transform:rotate(360deg)}}
+@keyframes urbRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+
+<a href="#contacto" onClick="{{ go }}" data-focus="1" style="position:absolute;left:12px;top:-60px;z-index:100;background:#14403E;color:#F4EDE1;padding:12px 16px;font-weight:600;text-decoration:none" style-focus="top:12px">Ir al formulario de contacto</a>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ hdr.bg }};border-bottom:1px solid {{ hdr.border }};transition:background-color .3s ease, border-color .3s ease">
+  <div style="max-width:1320px;margin:0 auto;padding:{{ hdr.pad }} clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .3s ease">
+    <a href="#inicio" onClick="{{ go }}" aria-label="Urbis EU, volver al inicio" style="display:flex;align-items:center">
+      <img src="assets/urbis-logo.png" alt="Urbis EU Cartagena" style="height:{{ hdr.logo }};width:auto;display:block;transition:height .3s ease">
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Navegación principal" style="display:flex;gap:clamp(18px,2.4vw,36px);align-items:center">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" onClick="{{ go }}" style="color:#14403E;text-decoration:none;font:500 14px/1 'Archivo',sans-serif;letter-spacing:.02em;padding:8px 0;white-space:nowrap;background-image:linear-gradient(#14403E,#14403E);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s ease" style-hover="background-size:100% 1px">{{ l.label }}</a>
+        </sc-for>
+      </nav>
+      <a href="#contacto" onClick="{{ go }}" data-track="cta_primary_click" data-focus="1" style="display:inline-flex;align-items:center;min-height:44px;padding:0 42px 0 18px;background-color:#14403E;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%20fill=%27none%27%20stroke=%27%23F4EDE1%27%20stroke-width=%271.5%27%3E%3Cpath%20d=%27M2%208h11M9%204l4%204-4%204%27/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 18px center;background-size:14px;color:#F4EDE1;text-decoration:none;font:600 14px/1 'Archivo',sans-serif;letter-spacing:.02em;border-radius:2px;white-space:nowrap;transition:background-color .25s ease, background-position .25s ease" style-hover="background-color:#0B2524;background-position:right 14px center;color:#F4EDE1">Solicita información</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenStr }}" aria-controls="menu-movil" style="min-width:48px;min-height:48px;display:inline-flex;align-items:center;gap:10px;padding:0 4px 0 12px;background:transparent;border:1px solid rgba(20,64,62,.3);border-radius:2px;cursor:pointer;font:500 14px/1 'Archivo',sans-serif;color:#14403E">
+        <span>{{ menuLabel }}</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="{{ menuIcon }}"></path></svg>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <div id="menu-movil" style="overflow:hidden;display:grid;grid-template-rows:{{ menuRows }};transition:grid-template-rows .28s ease;background:#F4EDE1;border-bottom:{{ menuBorder }}">
+      <nav aria-label="Navegación móvil" style="min-height:0;visibility:{{ menuVis }}">
+        <div style="padding:8px clamp(20px,5vw,64px) 24px;display:flex;flex-direction:column">
+          <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+            <a href="{{ l.href }}" onClick="{{ go }}" style="display:flex;align-items:center;min-height:52px;border-bottom:1px solid rgba(20,64,62,.14);color:#14403E;text-decoration:none;font:400 26px/1.1 'Cormorant Garamond',serif">{{ l.label }}</a>
+          </sc-for>
+          <a href="#contacto" onClick="{{ go }}" data-track="cta_primary_click" data-focus="1" style="margin-top:20px;display:flex;justify-content:center;align-items:center;min-height:52px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px">Solicita información</a>
+        </div>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main>
+
+<section id="inicio" data-screen-label="02 Hero" style="padding:clamp(108px,14vw,148px) 0 clamp(56px,7vw,96px);background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,5vw,80px);align-items:center">
+    <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:28px">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em;color:#14403E">URBIS EU · CARTAGENA</p>
+      <h1 data-reveal="up" data-delay="40" style="margin:0;font:300 clamp(46px,6.4vw,96px)/.98 'Cormorant Garamond',serif;letter-spacing:-.015em;color:#14403E;text-wrap:balance">Tu próximo hogar está más cerca de lo que imaginas.</h1>
+      <p data-reveal="up" data-delay="90" style="margin:0;max-width:30em;font:400 clamp(16px,1.3vw,18px)/1.6 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">Descubre apartamentos VIS en Torices y encuentra el espacio que se adapta a tu manera de vivir.</p>
+      <div data-reveal="up" data-delay="120" style="display:flex;flex-direction:column;gap:6px;padding-top:4px">
+        <p style="margin:0;font:400 clamp(40px,4.4vw,60px)/1 'Cormorant Garamond',serif;color:#14403E"><span style="font:500 13px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;vertical-align:middle;margin-right:12px">Desde</span>$275 millones</p>
+        <p style="margin:0;font:400 13px/1.5 'Archivo',sans-serif;color:#41605E">Precio de referencia sujeto a tipología, disponibilidad y condiciones comerciales vigentes.</p>
+      </div>
+      <ul data-reveal="up" data-delay="160" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(20,64,62,.2)">
+        <li style="padding:14px 12px 14px 0;border-bottom:1px solid rgba(20,64,62,.2);font:500 14px/1.35 'Archivo',sans-serif">41–42 m² privados</li>
+        <li style="padding:14px 0 14px 14px;border-bottom:1px solid rgba(20,64,62,.2);border-left:1px solid rgba(20,64,62,.2);font:500 14px/1.35 'Archivo',sans-serif">10 tipologías</li>
+        <li style="padding:14px 12px 14px 0;border-bottom:1px solid rgba(20,64,62,.2);font:500 14px/1.35 'Archivo',sans-serif">Entrega en obra gris</li>
+        <li style="padding:14px 0 14px 14px;border-bottom:1px solid rgba(20,64,62,.2);border-left:1px solid rgba(20,64,62,.2);font:500 14px/1.35 'Archivo',sans-serif">Entrega prevista: noviembre de 2028</li>
+      </ul>
+      <div data-reveal="up" data-delay="200" style="display:flex;flex-wrap:wrap;gap:12px;padding-top:4px">
+        <a href="#compra" onClick="{{ go }}" data-track="cta_primary_click" style="display:inline-flex;align-items:center;min-height:52px;padding:0 50px 0 24px;background-color:#E66A45;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%20fill=%27none%27%20stroke=%27%230B2524%27%20stroke-width=%271.5%27%3E%3Cpath%20d=%27M2%208h11M9%204l4%204-4%204%27/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 22px center;background-size:15px;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;letter-spacing:.01em;border-radius:2px;transition:background-color .25s ease, background-position .25s ease" style-hover="background-color:#EC8361;background-position:right 17px center;color:#0B2524">Conoce las opciones de compra</a>
+        <a href="#apartamentos" onClick="{{ go }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border:1px solid #14403E;color:#14403E;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;letter-spacing:.01em;border-radius:2px;transition:background-color .25s ease" style-hover="background-color:rgba(20,64,62,.07);color:#14403E">Explora el proyecto</a>
+      </div>
+    </div>
+    <div style="flex:1.45 1 480px;min-width:0">
+      <div data-reveal="fade" data-delay="60" style="position:relative;aspect-ratio:5/6;max-height:82vh;width:100%;overflow:hidden;border:1px solid rgba(20,64,62,.2)">
+        <div ref="{{ heroImg }}" style="position:absolute;inset:-4% 0;will-change:transform">
+          <image-slot id="hero-render" shape="rect" placeholder="Render oficial de fachada · Urbis EU"></image-slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Datos clave del proyecto" data-screen-label="03 Datos clave" style="background:#14403E;color:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+    <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%/2,220px),1fr))">
+      <div data-reveal="up" style="padding:clamp(28px,4vw,48px) 20px clamp(28px,4vw,48px) 0;display:flex;flex-direction:column-reverse;gap:10px">
+        <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E7D6BC">Precio de referencia</dt>
+        <dd style="margin:0;font:300 clamp(36px,4vw,56px)/1 'Cormorant Garamond',serif">Desde $275 millones</dd>
+      </div>
+      <div data-reveal="up" data-delay="80" style="padding:clamp(28px,4vw,48px) 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column-reverse;gap:10px">
+        <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E7D6BC">Para conocer y comparar</dt>
+        <dd style="margin:0;font:400 clamp(26px,2.6vw,36px)/1.05 'Cormorant Garamond',serif">10 tipologías</dd>
+      </div>
+      <div data-reveal="up" data-delay="160" style="padding:clamp(28px,4vw,48px) 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column-reverse;gap:10px">
+        <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E7D6BC">Área privada</dt>
+        <dd style="margin:0;font:400 clamp(26px,2.6vw,36px)/1.05 'Cormorant Garamond',serif">41–42 m² privados</dd>
+      </div>
+      <div data-reveal="up" data-delay="240" style="padding:clamp(28px,4vw,48px) 0 clamp(28px,4vw,48px) 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column-reverse;gap:10px">
+        <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#E7D6BC">En obra gris</dt>
+        <dd style="margin:0;font:400 clamp(26px,2.6vw,36px)/1.05 'Cormorant Garamond',serif">Entrega prevista: noviembre de 2028</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="apartamentos" data-screen-label="04 Apartamentos" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;gap:24px 64px;align-items:end;justify-content:space-between">
+      <div style="flex:1 1 480px;display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em;color:#14403E">APARTAMENTOS</p>
+        <h2 data-reveal="up" style="margin:0;font:300 clamp(38px,4.6vw,68px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.01em;max-width:13em;text-wrap:balance">Encuentra el espacio para tu manera de vivir.</h2>
+      </div>
+      <p data-reveal="up" style="flex:0 1 380px;margin:0;font:400 17px/1.6 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">Diez tipologías para conocer y comparar, con áreas privadas de 41 a 42 m².</p>
+    </div>
+    <ul role="list" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(max(150px,calc((100% - 1px)/5)),1fr));border-top:1px solid rgba(20,64,62,.2);border-left:1px solid rgba(20,64,62,.2)">
+      <sc-for list="{{ typos }}" as="t" hint-placeholder-count="10">
+        <li data-reveal="up" data-delay="{{ t.delay }}" style="border-right:1px solid rgba(20,64,62,.2);border-bottom:1px solid rgba(20,64,62,.2)">
+          <button type="button" onClick="{{ t.open }}" aria-pressed="{{ t.pressed }}" aria-label="Ver detalle de la tipología {{ t.code }}" style="width:100%;height:100%;min-height:clamp(170px,16vw,220px);padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;text-align:left;background:{{ t.bg }};color:{{ t.fg }};border:0;box-shadow:{{ t.ring }};cursor:pointer;transition:background-color .25s ease, color .25s ease, box-shadow .25s ease" style-hover="box-shadow:inset 0 0 0 1px #14403E">
+            <span style="display:flex;justify-content:space-between;align-items:center;font:500 11px/1 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">
+              <span>Tipología</span>
+              <span>{{ t.mark }}</span>
+            </span>
+            <span style="font:300 clamp(54px,5vw,76px)/.9 'Cormorant Garamond',serif">{{ t.code }}</span>
+            <span style="display:flex;justify-content:space-between;align-items:center;font:500 13px/1 'Archivo',sans-serif">
+              <span>Ver detalle</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg>
+            </span>
+          </button>
+        </li>
+      </sc-for>
+    </ul>
+    <div data-reveal="up" style="display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between">
+      <p style="margin:0;max-width:38em;font:400 14px/1.6 'Archivo',sans-serif;color:#41605E">Solicita los planos, áreas y valores de cada tipología. Te compartimos la información vigente según disponibilidad.</p>
+      <a href="#contacto" onClick="{{ go }}" data-topic="Información de tipologías" data-track="inquiry_cta_click" style="display:inline-flex;align-items:center;min-height:52px;padding:0 50px 0 24px;background-color:#14403E;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%20fill=%27none%27%20stroke=%27%23F4EDE1%27%20stroke-width=%271.5%27%3E%3Cpath%20d=%27M2%208h11M9%204l4%204-4%204%27/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 22px center;background-size:15px;color:#F4EDE1;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease, background-position .25s ease" style-hover="background-color:#0B2524;background-position:right 17px center;color:#F4EDE1">Quiero conocer las tipologías</a>
+    </div>
+  </div>
+</section>
+
+<section id="compra" data-screen-label="05 Compra" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#14403E;color:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+    <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:22px;align-self:flex-start">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em;color:#E7D6BC">CONDICIONES DE COMPRA</p>
+      <h2 data-reveal="up" style="margin:0;font:300 clamp(38px,4.4vw,64px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em;text-wrap:balance">Comprar tu apartamento empieza con información clara.</h2>
+      <p data-reveal="up" style="margin:0;max-width:28em;font:400 17px/1.6 'Archivo',sans-serif;color:#E7D6BC;text-wrap:pretty">Conoce las condiciones comerciales y recibe orientación para planear tu compra.</p>
+    </div>
+    <div style="flex:1.3 1 480px;min-width:0;display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="up" style="border-top:1px solid rgba(244,237,225,.25)">
+        <sc-for list="{{ purchase }}" as="p" hint-placeholder-count="3">
+          <div style="border-bottom:1px solid rgba(244,237,225,.25)">
+            <h3 style="margin:0">
+              <button type="button" id="{{ p.btnId }}" onClick="{{ p.toggle }}" aria-expanded="{{ p.expanded }}" aria-controls="{{ p.panelId }}" style="width:100%;min-height:76px;display:flex;align-items:center;gap:20px;padding:18px 0;background:transparent;border:0;color:#F4EDE1;text-align:left;cursor:pointer">
+                <span style="font:500 12px/1 'Archivo',sans-serif;letter-spacing:.14em;color:#E7D6BC;width:28px">{{ p.n }}</span>
+                <span style="flex:1;font:400 clamp(24px,2.4vw,32px)/1.1 'Cormorant Garamond',serif">{{ p.title }}</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" aria-hidden="true" style="transform:{{ p.rot }};transition:transform .3s ease;flex:none"><path d="M5 12h14M12 5v14"></path></svg>
+              </button>
+            </h3>
+            <div id="{{ p.panelId }}" role="region" aria-labelledby="{{ p.btnId }}" style="display:grid;grid-template-rows:{{ p.rows }};transition:grid-template-rows .3s ease">
+              <div style="overflow:hidden;min-height:0">
+                <p style="margin:0;padding:0 0 26px 48px;max-width:38em;font:400 16px/1.65 'Archivo',sans-serif;color:#E7D6BC;opacity:{{ p.op }};transition:opacity .3s ease">{{ p.body }}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <fieldset data-reveal="up" style="margin:0;padding:0;border:0;display:flex;flex-direction:column;gap:14px">
+        <legend style="padding:0 0 16px;font:500 13px/1.4 'Archivo',sans-serif;letter-spacing:.06em;color:#F4EDE1">¿Qué te gustaría consultar primero?</legend>
+        <sc-for list="{{ purchase }}" as="p" hint-placeholder-count="3">
+          <label style="display:flex;align-items:center;gap:16px;min-height:60px;padding:14px 18px;border:{{ p.selBorder }};background:{{ p.selBg }};border-radius:2px;cursor:pointer;transition:background-color .25s ease, border-color .25s ease">
+            <input type="radio" name="consulta-compra" value="{{ p.topic }}" checked="{{ p.checked }}" onChange="{{ p.select }}" style="width:20px;height:20px;margin:0;accent-color:#E66A45;flex:none">
+            <span style="flex:1;font:500 15px/1.4 'Archivo',sans-serif">{{ p.radio }}</span>
+            <span style="font:600 11px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#F4EDE1">{{ p.selText }}</span>
+          </label>
+        </sc-for>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding-top:14px">
+          <a href="#contacto" onClick="{{ goPurchase }}" data-track="inquiry_cta_click" style="display:inline-flex;align-items:center;min-height:52px;padding:0 50px 0 24px;background-color:#E66A45;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%20fill=%27none%27%20stroke=%27%230B2524%27%20stroke-width=%271.5%27%3E%3Cpath%20d=%27M2%208h11M9%204l4%204-4%204%27/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 22px center;background-size:15px;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease, background-position .25s ease" style-hover="background-color:#EC8361;background-position:right 17px center;color:#0B2524">Consultar condiciones de compra</a>
+          <p style="margin:0;font:400 13px/1.5 'Archivo',sans-serif;color:#E7D6BC">Tu selección se guarda en el formulario.</p>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion" data-screen-label="06 Ubicación" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+    <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:22px">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em">UBICACIÓN · TORICES</p>
+      <h2 data-reveal="up" style="margin:0;font:300 clamp(38px,4.4vw,64px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em">Tu día empieza cerca de todo.</h2>
+      <p data-reveal="up" style="margin:0;max-width:26em;font:400 17px/1.6 'Archivo',sans-serif;color:#41605E">Vive en una zona conectada con lugares que hacen parte de tu rutina.</p>
+      <div data-reveal="up" role="group" aria-label="Lugares cercanos" style="display:flex;flex-direction:column;border-top:1px solid rgba(20,64,62,.2);margin-top:8px">
+        <sc-for list="{{ places }}" as="pl" hint-placeholder-count="4">
+          <button type="button" onClick="{{ pl.select }}" aria-pressed="{{ pl.pressed }}" style="display:flex;align-items:center;gap:16px;min-height:60px;padding:12px 4px;background:{{ pl.bg }};border:0;border-bottom:1px solid rgba(20,64,62,.2);text-align:left;cursor:pointer;color:#14403E;transition:background-color .25s ease" style-hover="background-color:rgba(231,214,188,.55)">
+            <span style="width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%;background:{{ pl.dotBg }};color:{{ pl.dotFg }};font:600 12px/1 'Archivo',sans-serif;transition:background-color .25s ease, color .25s ease">{{ pl.n }}</span>
+            <span style="flex:1;font:500 15px/1.35 'Archivo',sans-serif">{{ pl.name }}</span>
+            <span style="font:400 22px/1 'Cormorant Garamond',serif;white-space:nowrap">{{ pl.dist }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1.4 1 460px;min-width:0;display:flex;flex-direction:column;gap:18px">
+      <div data-reveal="fade" role="img" aria-label="Diagrama de distancias aproximadas en línea recta desde la zona de referencia de Torices" style="position:relative;border:1px solid rgba(20,64,62,.2);background:#EFE5D4;padding:clamp(24px,4vw,48px);min-height:clamp(300px,34vw,420px);display:flex;flex-direction:column;justify-content:space-between;gap:32px;background-image:linear-gradient(rgba(20,64,62,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(20,64,62,.07) 1px,transparent 1px);background-size:48px 48px">
+        <p style="margin:0;font:500 11px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase">Distancia en línea recta · km</p>
+        <div style="position:relative;height:150px;margin:0 8px">
+          <div style="position:absolute;left:0;right:0;top:75px;height:1px;background:#14403E"></div>
+          <sc-for list="{{ ticks }}" as="tk" hint-placeholder-count="4">
+            <div style="position:absolute;top:69px;left:{{ tk.left }};transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:30px">
+              <span style="width:1px;height:13px;background:#14403E"></span>
+              <span style="font:500 11px/1 'Archivo',sans-serif">{{ tk.label }}</span>
+            </div>
+          </sc-for>
+          <div style="position:absolute;left:0;top:75px;transform:translate(-50%,-50%);width:16px;height:16px;background:#14403E;border:3px solid #EFE5D4;box-shadow:0 0 0 1px #14403E;border-radius:50%"></div>
+          <span style="position:absolute;left:-6px;top:22px;font:600 11px/1.2 'Archivo',sans-serif;letter-spacing:.1em;text-transform:uppercase">Urbis EU</span>
+          <sc-for list="{{ places }}" as="pl" hint-placeholder-count="4">
+            <button type="button" onClick="{{ pl.select }}" aria-label="{{ pl.name }}, {{ pl.dist }}" aria-pressed="{{ pl.pressed }}" tabindex="-1" style="position:absolute;left:{{ pl.left }};top:{{ pl.top }};transform:translateX(-50%);display:flex;flex-direction:{{ pl.dir }};align-items:center;gap:0;padding:0;background:transparent;border:0;cursor:pointer">
+              <span style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%;background:{{ pl.dotBg }};color:{{ pl.dotFg }};font:600 12px/1 'Archivo',sans-serif;transition:background-color .25s ease, color .25s ease, transform .25s ease;transform:{{ pl.scale }}">{{ pl.n }}</span>
+              <span style="width:1px;height:20px;background:#14403E"></span>
+            </button>
+          </sc-for>
+        </div>
+        <div aria-live="polite" style="align-self:flex-start;min-width:min(100%,300px);border:1px solid #14403E;background:#F4EDE1;padding:18px 20px;display:flex;flex-direction:column;gap:8px;animation:urbRise .3s ease" key="{{ placeKey }}">
+          <span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase">{{ place.n }} · Aproximadamente</span>
+          <span style="font:400 30px/1 'Cormorant Garamond',serif">{{ place.dist }}</span>
+          <span style="font:500 15px/1.35 'Archivo',sans-serif">{{ place.name }}</span>
+        </div>
+      </div>
+      <p data-reveal="up" style="margin:0;font:400 13px/1.6 'Archivo',sans-serif;color:#41605E;max-width:46em">Distancias aproximadas en línea recta tomando como referencia la zona del Colegio Eucarístico de Torices. No corresponden a tiempos ni rutas de desplazamiento y están sujetas a verificación con la dirección exacta del proyecto.</p>
+      <a data-reveal="up" href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Eucar%C3%ADstico+de+Torices+Cartagena" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 14px/1 'Archivo',sans-serif;color:#14403E;text-decoration:none;background-image:linear-gradient(#14403E,#14403E);background-repeat:no-repeat;background-position:left 32px;background-size:100% 1px">Ver zona de referencia en Google Maps<span aria-hidden="true">↗</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">(se abre en una pestaña nueva)</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="zonas-comunes" data-screen-label="07 Zonas comunes" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#14403E;color:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+    <div style="display:flex;flex-wrap:wrap;gap:24px 64px;align-items:end;justify-content:space-between">
+      <div style="flex:1 1 480px;display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em;color:#E7D6BC">ZONAS COMUNES</p>
+        <h2 data-reveal="up" style="margin:0;font:300 clamp(38px,4.6vw,68px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.01em;max-width:12em;text-wrap:balance">Tu hogar continúa más allá de tu puerta.</h2>
+      </div>
+      <p data-reveal="up" style="flex:0 1 360px;margin:0;font:400 17px/1.6 'Archivo',sans-serif;color:#E7D6BC">Espacios para moverte, encontrarte y aprovechar tu tiempo.</p>
+    </div>
+    <sc-for list="{{ amenityRows }}" as="row" hint-placeholder-count="2">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,2.4vw,32px)">
+        <sc-for list="{{ row.items }}" as="a" hint-placeholder-count="3">
+          <figure data-reveal="up" data-delay="{{ a.delay }}" style="flex:{{ a.flex }};min-width:0;margin:0;display:flex;flex-direction:column;gap:14px">
+            <div data-reveal="mask" style="position:relative;height:{{ a.h }};overflow:hidden;border:1px solid rgba(244,237,225,.22)">
+              <div role="img" aria-label="{{ a.alt }}" style="position:absolute;inset:0;transition:transform .7s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.025)">
+                <image-slot id="{{ a.id }}" shape="rect" placeholder="{{ a.ph }}"></image-slot>
+              </div>
+              <button type="button" onClick="{{ a.open }}" aria-label="Ampliar imagen: {{ a.name }}" style="position:absolute;right:12px;bottom:12px;min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;background:#F4EDE1;border:1px solid #14403E;color:#14403E;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.06em;border-radius:2px;cursor:pointer;transition:background-color .25s ease" style-hover="background-color:#E7D6BC">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>Ampliar
+              </button>
+            </div>
+            <figcaption style="display:flex;gap:14px;align-items:baseline">
+              <span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.16em;color:#E7D6BC">{{ a.n }}</span>
+              <span style="font:400 24px/1.1 'Cormorant Garamond',serif">{{ a.name }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </sc-for>
+    <p data-reveal="up" style="margin:0;font:400 13px/1.6 'Archivo',sans-serif;color:#E7D6BC">Zonas comunes reportadas para el proyecto. Las imágenes son de carácter ilustrativo.</p>
+  </div>
+</section>
+
+<section id="entrega" data-screen-label="08 Entrega" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,56px);align-items:stretch">
+    <div data-reveal="mask" style="flex:1.2 1 420px;min-width:0;position:relative;min-height:clamp(320px,40vw,600px);border:1px solid rgba(20,64,62,.2)">
+      <image-slot id="entrega-img" shape="rect" placeholder="Render o fotografía de obra · Urbis EU"></image-slot>
+    </div>
+    <div data-reveal="up" style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:clamp(28px,4vw,56px);background:#E7D6BC;border:1px solid rgba(20,64,62,.2)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em">ENTREGA</p>
+        <h2 style="margin:0;font:300 clamp(36px,4vw,58px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em;text-wrap:balance">Empieza a planear tu próximo capítulo.</h2>
+        <p style="margin:0;font:400 17px/1.6 'Archivo',sans-serif;color:#14403E;text-wrap:pretty">Urbis EU contempla la entrega de los apartamentos en obra gris para noviembre de 2028.</p>
+      </div>
+      <dl style="margin:0;border-top:1px solid rgba(20,64,62,.3)">
+        <div style="padding:20px 0;border-bottom:1px solid rgba(20,64,62,.3);display:flex;flex-direction:column;gap:6px">
+          <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase">Modalidad de entrega</dt>
+          <dd style="margin:0;font:400 clamp(28px,2.8vw,38px)/1.05 'Cormorant Garamond',serif">Obra gris</dd>
+        </div>
+        <div style="padding:20px 0;border-bottom:1px solid rgba(20,64,62,.3);display:flex;flex-direction:column;gap:6px">
+          <dt style="font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase">Entrega prevista</dt>
+          <dd style="margin:0;font:400 clamp(28px,2.8vw,38px)/1.05 'Cormorant Garamond',serif">Noviembre de 2028</dd>
+        </div>
+      </dl>
+      <a href="#contacto" onClick="{{ go }}" data-topic="Alcance de la entrega en obra gris" data-track="inquiry_cta_click" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px/1 'Archivo',sans-serif;color:#14403E;text-decoration:none;background-image:linear-gradient(#14403E,#14403E);background-repeat:no-repeat;background-position:left 32px;background-size:100% 1px;transition:gap .25s ease" style-hover="gap:14px">Pregunta qué incluye la entrega<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="dudas" data-screen-label="09 Dudas" style="scroll-margin-top:72px;padding:0 0 clamp(80px,10vw,144px);background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <h2 data-reveal="up" style="margin:0;padding-top:clamp(56px,7vw,96px);border-top:1px solid rgba(20,64,62,.2);font:300 clamp(36px,4.2vw,60px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em">Resuelve tus dudas antes de decidir.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,2.4vw,32px)">
+      <sc-for list="{{ dudas }}" as="d" hint-placeholder-count="2">
+        <div data-reveal="up" data-delay="{{ d.delay }}" style="border:1px solid rgba(20,64,62,.25)">
+          <h3 style="margin:0">
+            <button type="button" id="{{ d.btnId }}" onClick="{{ d.toggle }}" aria-expanded="{{ d.expanded }}" aria-controls="{{ d.panelId }}" style="width:100%;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(20px,2.6vw,32px);background:transparent;border:0;text-align:left;cursor:pointer;color:#14403E">
+              <span style="font:400 clamp(26px,2.4vw,32px)/1.1 'Cormorant Garamond',serif">{{ d.title }}</span>
+              <span style="display:flex;align-items:center;gap:10px;font:500 12px/1 'Archivo',sans-serif;letter-spacing:.08em">{{ d.state }}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true" style="transform:{{ d.rot }};transition:transform .3s ease"><path d="M6 9l6 6 6-6"></path></svg></span>
+            </button>
+          </h3>
+          <div id="{{ d.panelId }}" role="region" aria-labelledby="{{ d.btnId }}" style="display:grid;grid-template-rows:{{ d.rows }};transition:grid-template-rows .3s ease">
+            <div style="overflow:hidden;min-height:0">
+              <div style="padding:0 clamp(20px,2.6vw,32px) 28px;display:flex;flex-direction:column;gap:18px;opacity:{{ d.op }};transition:opacity .3s ease">
+                <p style="margin:0;font:500 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#14403E">Estado: en verificación</p>
+                <p style="margin:0;font:400 16px/1.65 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">{{ d.body }}</p>
+                <a href="#contacto" onClick="{{ go }}" data-topic="{{ d.topic }}" data-track="inquiry_cta_click" style="align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font:600 14px/1 'Archivo',sans-serif;color:#14403E;text-decoration:underline;text-underline-offset:5px">{{ d.cta }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="documentacion" data-screen-label="10 Documentación" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#E7D6BC">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+    <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:22px;align-self:flex-start">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em">RESPALDO DEL PROYECTO</p>
+      <h2 data-reveal="up" style="margin:0;font:300 clamp(36px,4.2vw,60px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em;text-wrap:balance">Una decisión importante merece información clara.</h2>
+      <p data-reveal="up" style="margin:0;max-width:26em;font:400 16px/1.65 'Archivo',sans-serif;color:#14403E">La documentación del proyecto se publicará en esta sección. Mientras tanto, puedes solicitarla directamente al equipo comercial.</p>
+      <a data-reveal="up" href="#contacto" onClick="{{ go }}" data-topic="Documentación del proyecto" data-track="inquiry_cta_click" style="align-self:flex-start;margin-top:8px;display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border:1px solid #14403E;color:#14403E;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease" style-hover="background-color:rgba(20,64,62,.08);color:#14403E">Solicitar documentación</a>
+    </div>
+    <ul data-reveal="up" style="flex:1.3 1 480px;min-width:0;list-style:none;margin:0;padding:0;border-top:1px solid rgba(20,64,62,.3)">
+      <sc-for list="{{ docs }}" as="doc" hint-placeholder-count="7">
+        <li style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;min-height:68px;padding:16px 0;border-bottom:1px solid rgba(20,64,62,.3)">
+          <span style="display:flex;align-items:center;gap:16px;font:500 15px/1.4 'Archivo',sans-serif">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true" style="flex:none"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"></path><path d="M14 3v5h5M9 13h6M9 17h6"></path></svg>
+            {{ doc.label }}
+          </span>
+          <sc-if value="{{ doc.hasUrl }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ doc.url }}" target="_blank" rel="noopener" style="font:600 13px/1 'Archivo',sans-serif;color:#14403E">Ver documento</a>
+          </sc-if>
+          <sc-if value="{{ doc.pending }}" hint-placeholder-val="{{ true }}">
+            <span style="font:500 12px/1 'Archivo',sans-serif;letter-spacing:.08em;color:#14403E">{{ doc.status }}</span>
+          </sc-if>
+        </li>
+      </sc-for>
+    </ul>
+  </div>
+</section>
+
+<section id="preguntas-frecuentes" data-screen-label="11 Preguntas frecuentes" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+    <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:22px;align-self:flex-start">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em">PREGUNTAS FRECUENTES</p>
+      <h2 data-reveal="up" style="margin:0;font:300 clamp(36px,4.2vw,60px)/1.03 'Cormorant Garamond',serif;letter-spacing:-.01em">Lo que más nos preguntan.</h2>
+    </div>
+    <div data-reveal="up" style="flex:2 1 560px;min-width:0;border-top:1px solid rgba(20,64,62,.25)">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="10">
+        <div style="border-bottom:1px solid rgba(20,64,62,.25)">
+          <h3 style="margin:0">
+            <button type="button" id="{{ f.btnId }}" onClick="{{ f.toggle }}" aria-expanded="{{ f.expanded }}" aria-controls="{{ f.panelId }}" style="width:100%;min-height:68px;display:flex;align-items:center;gap:20px;padding:18px 0;background:transparent;border:0;text-align:left;cursor:pointer;color:#14403E">
+              <span style="flex:1;font:500 17px/1.4 'Archivo',sans-serif">{{ f.q }}</span>
+              <span aria-hidden="true" style="width:32px;height:32px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid {{ f.iconBorder }};background:{{ f.iconBg }};border-radius:50%;transition:background-color .25s ease">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ f.iconFg }}" stroke-width="1.5"><path d="{{ f.icon }}"></path></svg>
+              </span>
+            </button>
+          </h3>
+          <div id="{{ f.panelId }}" role="region" aria-labelledby="{{ f.btnId }}" style="display:grid;grid-template-rows:{{ f.rows }};transition:grid-template-rows .25s ease">
+            <div style="overflow:hidden;min-height:0">
+              <p style="margin:0;padding:0 52px 24px 0;max-width:44em;font:400 16px/1.65 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">{{ f.a }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" ref="{{ contactRef }}" data-screen-label="12 Contacto" style="scroll-margin-top:72px;padding:clamp(80px,10vw,144px) 0;background:#14403E;color:#F4EDE1">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+    <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:28px">
+      <p data-reveal="up" style="margin:0;font:600 12px/1 'Archivo',sans-serif;letter-spacing:.22em;color:#E7D6BC">URBIS EU · CARTAGENA</p>
+      <h2 data-reveal="up" style="margin:0;font:300 clamp(44px,5.6vw,84px)/.98 'Cormorant Garamond',serif;letter-spacing:-.015em;text-wrap:balance">Hablemos de tu próximo hogar.</h2>
+      <p data-reveal="up" style="margin:0;max-width:28em;font:400 17px/1.6 'Archivo',sans-serif;color:#E7D6BC;text-wrap:pretty">Conoce las tipologías, revisa las condiciones de compra y recibe orientación para dar el siguiente paso.</p>
+      <div data-reveal="up" style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#contacto" onClick="{{ go }}" data-focus="1" data-track="inquiry_cta_click" style="display:inline-flex;align-items:center;min-height:52px;padding:0 50px 0 24px;background-color:#E66A45;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%20fill=%27none%27%20stroke=%27%230B2524%27%20stroke-width=%271.5%27%3E%3Cpath%20d=%27M2%208h11M9%204l4%204-4%204%27/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 22px center;background-size:15px;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease, background-position .25s ease" style-hover="background-color:#EC8361;background-position:right 17px center;color:#0B2524">Solicita información</a>
+        <a href="#contacto" onClick="{{ go }}" data-focus="1" data-topic="Agendar una visita" data-track="visit_cta_click" style="display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border:1px solid #F4EDE1;color:#F4EDE1;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease" style-hover="background-color:rgba(244,237,225,.1);color:#F4EDE1">Agenda tu visita</a>
+        <sc-if value="{{ hasWa }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ trackWa }}" style="display:inline-flex;align-items:center;min-height:52px;padding:0 4px;color:#F4EDE1;font:600 15px/1 'Archivo',sans-serif;text-underline-offset:5px">Escríbenos por WhatsApp</a>
+        </sc-if>
+      </div>
+      <div data-reveal="mask" style="position:relative;margin-top:12px;flex:1;min-height:clamp(240px,26vw,380px);border:1px solid rgba(244,237,225,.22)">
+        <image-slot id="cierre-img" shape="rect" placeholder="Render oficial · vista del proyecto"></image-slot>
+      </div>
+    </div>
+
+    <div data-reveal="up" style="flex:1 1 440px;min-width:0;background:#F4EDE1;color:#14403E;padding:clamp(24px,3.6vw,48px);border-radius:2px;align-self:flex-start">
+      <sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+        <div role="status" tabindex="-1" ref="{{ successRef }}" style="display:flex;flex-direction:column;gap:18px;padding:24px 0;animation:urbRise .4s ease">
+          <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+          <h3 style="margin:0;font:400 36px/1.05 'Cormorant Garamond',serif">Recibimos tu solicitud, {{ firstName }}.</h3>
+          <p style="margin:0;font:400 16px/1.6 'Archivo',sans-serif;color:#41605E">El equipo comercial de Urbis EU se comunicará contigo por {{ prefLower }} para resolver tu consulta sobre {{ topicLower }}.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form novalidate="" onSubmit="{{ submit }}" aria-labelledby="form-title" style="display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3 id="form-title" style="margin:0;font:400 32px/1.05 'Cormorant Garamond',serif">Solicita información</h3>
+            <p style="margin:0;font:400 13px/1.5 'Archivo',sans-serif;color:#41605E">Los campos marcados con * son obligatorios.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <label for="f-name" style="font:600 13px/1.3 'Archivo',sans-serif">Nombre *</label>
+            <input id="f-name" name="name" ref="{{ nameRef }}" autocomplete="name" value="{{ form.name }}" onChange="{{ onField }}" aria-invalid="{{ inv.name }}" aria-describedby="e-name" style="width:100%;min-height:50px;padding:12px 14px;background:#FFFCF7;border:1px solid {{ fb.name }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;transition:border-color .2s ease">
+            <span id="e-name" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.name }}</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:22px 18px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="f-wa" style="font:600 13px/1.3 'Archivo',sans-serif">WhatsApp *</label>
+              <input id="f-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="300 000 0000" value="{{ form.wa }}" onChange="{{ onField }}" aria-invalid="{{ inv.wa }}" aria-describedby="e-wa" style="width:100%;min-height:50px;padding:12px 14px;background:#FFFCF7;border:1px solid {{ fb.wa }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E">
+              <span id="e-wa" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.wa }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="f-email" style="font:600 13px/1.3 'Archivo',sans-serif">Correo electrónico <span style="font-weight:400;color:#41605E">(opcional)</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" value="{{ form.email }}" onChange="{{ onField }}" aria-invalid="{{ inv.email }}" aria-describedby="e-email" style="width:100%;min-height:50px;padding:12px 14px;background:#FFFCF7;border:1px solid {{ fb.email }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E">
+              <span id="e-email" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.email }}</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:22px 18px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="f-typo" style="font:600 13px/1.3 'Archivo',sans-serif">Tipología de interés</label>
+              <select id="f-typo" name="typo" value="{{ form.typo }}" onChange="{{ onField }}" style="width:100%;min-height:50px;padding:12px 14px;background:#FFFCF7;border:1px solid rgba(20,64,62,.4);border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E">
+                <option value="">Aún no lo sé</option>
+                <sc-for list="{{ typos }}" as="t" hint-placeholder-count="10">
+                  <option value="{{ t.label }}">{{ t.label }}</option>
+                </sc-for>
+              </select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="f-topic" style="font:600 13px/1.3 'Archivo',sans-serif">Tema de consulta *</label>
+              <select id="f-topic" name="topic" ref="{{ topicRef }}" value="{{ form.topic }}" onChange="{{ onField }}" aria-invalid="{{ inv.topic }}" aria-describedby="e-topic" style="width:100%;min-height:50px;padding:12px 14px;background:{{ topicBg }};border:1px solid {{ fb.topic }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;transition:background-color .6s ease">
+                <option value="">Elige un tema</option>
+                <sc-for list="{{ topics }}" as="tp" hint-placeholder-count="10">
+                  <option value="{{ tp }}">{{ tp }}</option>
+                </sc-for>
+              </select>
+              <span id="e-topic" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.topic }}</span>
+            </div>
+          </div>
+
+          <fieldset style="margin:0;padding:0;border:0;display:flex;flex-direction:column;gap:10px">
+            <legend style="padding:0 0 10px;font:600 13px/1.3 'Archivo',sans-serif">Preferencia de contacto</legend>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <sc-for list="{{ prefs }}" as="pf" hint-placeholder-count="3">
+                <label style="display:flex;align-items:center;gap:10px;min-height:46px;padding:0 16px;border:1px solid {{ pf.border }};background:{{ pf.bg }};border-radius:2px;cursor:pointer;font:500 14px/1 'Archivo',sans-serif;transition:background-color .2s ease">
+                  <input type="radio" name="pref" value="{{ pf.v }}" checked="{{ pf.checked }}" onChange="{{ onField }}" style="width:18px;height:18px;margin:0;accent-color:#14403E">
+                  {{ pf.v }}
+                </label>
+              </sc-for>
+            </div>
+          </fieldset>
+
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+              <input type="checkbox" name="consent" checked="{{ form.consent }}" onChange="{{ onField }}" aria-invalid="{{ inv.consent }}" aria-describedby="e-consent" style="width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:#14403E">
+              <span style="font:400 13px/1.55 'Archivo',sans-serif;color:#14403E">Autorizo el tratamiento de mis datos personales para que el equipo comercial de Urbis EU me contacte con información sobre el proyecto, conforme a la Ley 1581 de 2012 y a la política de tratamiento de datos del proyecto. *</span>
+            </label>
+            <span id="e-consent" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.consent }}</span>
+          </div>
+
+          <sc-if value="{{ hasSubmitMsg }}" hint-placeholder-val="{{ false }}">
+            <div role="alert" style="padding:14px 16px;border:1px solid #8C3B1E;background:#FBEFE6;font:500 14px/1.5 'Archivo',sans-serif;color:#6E2C14">{{ submitMsg }}</div>
+          </sc-if>
+
+          <button type="submit" disabled="{{ isLoading }}" aria-busy="{{ isLoadingStr }}" style="min-height:54px;display:flex;align-items:center;justify-content:center;gap:12px;background:#E66A45;color:#0B2524;border:0;border-radius:2px;font:600 15px/1 'Archivo',sans-serif;cursor:pointer;transition:background-color .25s ease;opacity:{{ btnOpacity }}" style-hover="background-color:#EC8361">
+            <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+              <span aria-hidden="true" style="width:16px;height:16px;border:1.5px solid #0B2524;border-right-color:transparent;border-radius:50%;animation:urbSpin .8s linear infinite"></span>
+            </sc-if>
+            {{ submitLabel }}
+          </button>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer data-screen-label="13 Footer" style="background:#0F3533;color:#F4EDE1;padding:clamp(56px,7vw,96px) 0 {{ footerPad }}">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-wrap:wrap;gap:40px 64px;justify-content:space-between;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <img src="assets/urbis-logo-cal.png" alt="Urbis EU Cartagena" style="height:88px;width:auto;align-self:flex-start">
+        <p style="margin:0;font:300 clamp(30px,3vw,40px)/1.05 'Cormorant Garamond',serif">Lo mejor, para siempre.</p>
+      </div>
+      <nav aria-label="Navegación del pie de página" style="display:grid;grid-template-columns:repeat(2,minmax(0,auto));gap:6px 40px">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" onClick="{{ go }}" style="display:inline-flex;align-items:center;min-height:40px;color:#F4EDE1;text-decoration:none;font:500 14px/1 'Archivo',sans-serif" style-hover="text-decoration:underline;color:#F4EDE1">{{ l.label }}</a>
+        </sc-for>
+        <a href="#contacto" onClick="{{ go }}" data-focus="1" style="display:inline-flex;align-items:center;min-height:40px;color:#F4EDE1;text-decoration:none;font:500 14px/1 'Archivo',sans-serif" style-hover="text-decoration:underline;color:#F4EDE1">Contacto</a>
+      </nav>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px 40px;padding-top:28px;border-top:1px solid rgba(244,237,225,.2)">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <p style="margin:0;font:600 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E7D6BC">Información comercial</p>
+        <p style="margin:0;font:400 13px/1.6 'Archivo',sans-serif;color:#E7D6BC">Urbis EU · Torices, Cartagena de Indias, Colombia. Precio de referencia desde $275 millones, sujeto a tipología, disponibilidad y condiciones comerciales vigentes. Entrega prevista: noviembre de 2028, en obra gris. Imágenes de carácter ilustrativo.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <p style="margin:0;font:600 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E7D6BC">Privacidad y datos personales</p>
+        <sc-for list="{{ legalLinks }}" as="lg" hint-placeholder-count="2">
+          <sc-if value="{{ lg.hasUrl }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ lg.url }}" target="_blank" rel="noopener" style="font:500 13px/1.6 'Archivo',sans-serif;color:#F4EDE1">{{ lg.label }}</a>
+          </sc-if>
+        </sc-for>
+        <sc-if value="{{ legalPending }}" hint-placeholder-val="{{ true }}">
+          <p style="margin:0;font:400 13px/1.6 'Archivo',sans-serif;color:#E7D6BC">La política de privacidad y la política de tratamiento de datos personales están disponibles a solicitud del equipo comercial.</p>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <p style="margin:0;font:600 12px/1.4 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E7D6BC">Contacto</p>
+        <a href="#contacto" onClick="{{ go }}" data-focus="1" style="font:500 13px/1.6 'Archivo',sans-serif;color:#F4EDE1">Escríbenos desde el formulario</a>
+        <sc-if value="{{ hasWa }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ trackWa }}" style="font:500 13px/1.6 'Archivo',sans-serif;color:#F4EDE1">WhatsApp comercial</a>
+        </sc-if>
+      </div>
+    </div>
+    <p style="margin:0;font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">© 2026 Urbis EU. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:8px;animation:urbRise .3s ease">
+    <a href="#contacto" onClick="{{ go }}" data-focus="1" data-track="cta_primary_click" style="flex:1;display:flex;align-items:center;justify-content:center;min-height:52px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;box-shadow:0 6px 20px rgba(11,37,36,.18)">Solicita información</a>
+    <button type="button" onClick="{{ dismissSticky }}" aria-label="Ocultar botón de solicitud" style="width:52px;min-height:52px;display:flex;align-items:center;justify-content:center;background:#14403E;border:0;border-radius:2px;cursor:pointer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+  </div>
+</sc-if>
+
+<sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeTypo }}" style="position:fixed;inset:0;z-index:80;background:rgba(11,37,36,.5);animation:urbFade .25s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="typo-title" ref="{{ drawerRef }}" onClick="{{ stop }}" onKeyDown="{{ trapKeys }}" style="position:absolute;top:0;right:0;bottom:0;width:min(620px,100%);background:#F4EDE1;color:#14403E;overflow-y:auto;display:flex;flex-direction:column;animation:urbDrawer .35s cubic-bezier(.2,.7,.2,1)">
+      <div style="position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,40px);background:#F4EDE1;border-bottom:1px solid rgba(20,64,62,.2)">
+        <span style="font:500 12px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase">{{ cur.counter }}</span>
+        <button type="button" ref="{{ closeRef }}" onClick="{{ closeTypo }}" aria-label="Cerrar detalle de tipología" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(20,64,62,.3);border-radius:2px;cursor:pointer;transition:background-color .2s ease" style-hover="background-color:#E7D6BC">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <div ref="{{ drawerBody }}" style="padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:28px;flex:1">
+        <h2 id="typo-title" style="margin:0;font:300 clamp(44px,6vw,64px)/1 'Cormorant Garamond',serif">{{ cur.label }}</h2>
+        <sc-for list="{{ typos }}" as="t" hint-placeholder-count="0">
+          <div style="display:{{ t.slotDisplay }};position:relative;aspect-ratio:4/3;border:1px solid rgba(20,64,62,.2);background:#EFE5D4">
+            <image-slot id="{{ t.slotId }}" shape="rect" fit="contain" placeholder="Plano oficial · {{ t.label }}"></image-slot>
+          </div>
+        </sc-for>
+        <dl style="margin:0;border-top:1px solid rgba(20,64,62,.2)">
+          <sc-for list="{{ cur.rows }}" as="r" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:16px 0;border-bottom:1px solid rgba(20,64,62,.2)">
+              <dt style="font:600 13px/1.4 'Archivo',sans-serif">{{ r.k }}</dt>
+              <dd style="margin:0;font:400 14px/1.5 'Archivo',sans-serif;color:{{ r.color }}">{{ r.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:auto">
+          <a href="#contacto" onClick="{{ goTypo }}" data-track="inquiry_cta_click" style="display:flex;align-items:center;justify-content:center;min-height:54px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .25s ease" style-hover="background-color:#EC8361;color:#0B2524">Quiero conocer las tipologías</a>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <button type="button" onClick="{{ prevTypo }}" style="min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:1px solid rgba(20,64,62,.35);border-radius:2px;cursor:pointer;font:600 14px/1 'Archivo',sans-serif;color:#14403E" style-hover="background-color:#E7D6BC">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg>Anterior
+            </button>
+            <button type="button" onClick="{{ nextTypo }}" style="min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:1px solid rgba(20,64,62,.35);border-radius:2px;cursor:pointer;font:600 14px/1 'Archivo',sans-serif;color:#14403E" style-hover="background-color:#E7D6BC">
+              Siguiente<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ lightOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLight }}" style="position:fixed;inset:0;z-index:80;background:rgba(11,37,36,.92);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);animation:urbFade .25s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="light-title" onClick="{{ stop }}" onKeyDown="{{ trapKeys }}" ref="{{ lightRef }}" style="width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;gap:16px;animation:urbRise .35s ease">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;color:#F4EDE1">
+        <h2 id="light-title" style="margin:0;font:400 clamp(24px,3vw,34px)/1.1 'Cormorant Garamond',serif">{{ light.name }}</h2>
+        <button type="button" ref="{{ lightClose }}" onClick="{{ closeLight }}" aria-label="Cerrar imagen ampliada" style="width:48px;height:48px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:2px;cursor:pointer" style-hover="background-color:rgba(244,237,225,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <sc-if value="{{ light.hasSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ light.src }}" alt="{{ light.alt }}" style="display:block;width:100%;max-height:calc(100vh - 160px);object-fit:contain;border:1px solid rgba(244,237,225,.2)">
+      </sc-if>
+      <sc-if value="{{ light.noSrc }}" hint-placeholder-val="{{ false }}">
+        <div style="aspect-ratio:16/9;max-height:calc(100vh - 160px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(244,237,225,.25);color:#E7D6BC;font:400 15px/1.5 'Archivo',sans-serif;text-align:center;padding:24px">Pronto compartiremos imágenes de esta zona común.</div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;mobileStickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Móvil&quot;}}">
+const URBIS = {
+  pending: 'Consúltalo con el equipo comercial',
+  // Fill these as the developer confirms them. null = not yet confirmed.
+  typologies: Array.from({ length: 10 }, (_, i) => ({
+    code: String(i + 1).padStart(2, '0'),
+    privateArea: null, builtArea: null, bedsBaths: null, layout: null, finishes: null, price: null
+  })),
+  docs: [
+    { label: 'Nombre legal de la constructora o promotora', url: null },
+    { label: 'Proyectos anteriores verificables', url: null },
+    { label: 'Licencia de construcción', url: null },
+    { label: 'Fiducia o encargo fiduciario', url: null },
+    { label: 'Financiación de la construcción', url: null },
+    { label: 'Documentación contractual', url: null },
+    { label: 'Condiciones de entrega confirmadas', url: null }
+  ],
+  legal: [
+    { label: 'Política de privacidad', url: null },
+    { label: 'Política de tratamiento de datos personales', url: null }
+  ]
+};
+const TOPICS = ['Información de tipologías', 'Valor de separación', 'Cuota inicial y plazo', 'Alternativas de financiación', 'Alcance de la entrega en obra gris', 'Subsidios de vivienda', 'Renta corta', 'Documentación del proyecto', 'Agendar una visita', 'Otra consulta'];
+const PURCHASE = [
+  { n: '01', title: 'Valor de separación', topic: 'Valor de separación', radio: 'Quiero conocer el valor de separación', body: 'Pregunta cuál es el monto para separar tu apartamento, qué documentos necesitas y qué condiciones aplican mientras formalizas la compra.' },
+  { n: '02', title: 'Cuota inicial y plazo', topic: 'Cuota inicial y plazo', radio: 'Quiero consultar la cuota inicial', body: 'Consulta el valor de la cuota inicial, en cuántas cuotas puedes pagarla y cuál es el plazo disponible según la tipología que elijas.' },
+  { n: '03', title: 'Alternativas de financiación', topic: 'Alternativas de financiación', radio: 'Quiero orientación sobre financiación', body: 'Recibe orientación sobre cómo financiar el saldo de tu apartamento y qué opciones puedes revisar con las entidades financieras.' }
+];
+const PLACES = [
+  { n: '1', name: 'Playas de Marbella', km: 0.75, dist: '750 m' },
+  { n: '2', name: 'Mallplaza', km: 0.9, dist: '900 m' },
+  { n: '3', name: 'Torre del Reloj', km: 1.8, dist: '1,8 km' },
+  { n: '4', name: 'Aeropuerto Internacional Rafael Núñez', km: 2.7, dist: '2,7 km' }
+];
+const AMENITIES = [
+  [{ id: 'zc-piscina', name: 'Piscina / rooftop', flex: '1.8 1 300px', h: 'clamp(280px,34vw,520px)' },
+   { id: 'zc-terraza', name: 'Terraza', flex: '1 1 260px', h: 'clamp(280px,34vw,520px)' },
+   { id: 'zc-social', name: 'Salón social', flex: '1 1 260px', h: 'clamp(280px,34vw,520px)' }],
+  [{ id: 'zc-lobby', name: 'Lobby / recepción', flex: '1 1 260px', h: 'clamp(260px,26vw,400px)' },
+   { id: 'zc-gimnasio', name: 'Gimnasio', flex: '1.3 1 260px', h: 'clamp(260px,26vw,400px)' },
+   { id: 'zc-juegos', name: 'Salón de juegos', flex: '1.8 1 300px', h: 'clamp(260px,26vw,400px)' }]
+];
+const DUDAS = [
+  { key: 'sub', title: 'Subsidios de vivienda', topic: 'Subsidios de vivienda', cta: 'Consultar sobre subsidios', body: 'La aplicación de subsidios de vivienda a Urbis EU todavía está en verificación. Antes de incluir un subsidio en tu plan de compra, solicita al equipo comercial la información actualizada sobre programas, requisitos y condiciones.' },
+  { key: 'renta', title: 'Renta corta', topic: 'Renta corta', cta: 'Consultar sobre renta corta', body: 'Las reglas del proyecto sobre arrendamientos de corta estancia todavía están en revisión. Si piensas en este uso, solicita al equipo comercial la información vigente del reglamento antes de tomar una decisión.' }
+];
+const FAQS = [
+  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Los apartamentos tienen un precio de referencia desde $275 millones. El valor final depende de la tipología, la disponibilidad y las condiciones comerciales vigentes. Solicita al equipo comercial el precio actualizado de cada tipología.'],
+  ['¿Qué áreas privadas tienen los apartamentos?', 'Las áreas privadas de los apartamentos están entre 41 y 42 m², según la tipología.'],
+  ['¿Cuántas tipologías hay?', 'Urbis EU tiene 10 tipologías de apartamento. Puedes solicitar los planos y el detalle de cada una al equipo comercial.'],
+  ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, es decir, en el estado de construcción especificado para la entrega y sin acabados finales. El alcance exacto está en confirmación; solicita el detalle actualizado al equipo comercial.'],
+  ['¿Cuándo está prevista la entrega?', 'La entrega está prevista para noviembre de 2028. Consulta con el equipo comercial las condiciones de entrega que quedarán en los documentos del proyecto.'],
+  ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
+  ['¿Cómo se paga la cuota inicial?', 'El valor de la cuota inicial, el plazo y la forma de pago los informa el equipo comercial según la tipología y las condiciones vigentes.'],
+  ['¿Puedo acceder a un subsidio?', 'La aplicación de subsidios de vivienda a Urbis EU está en verificación. Solicita la información actualizada al equipo comercial antes de contar con este apoyo.'],
+  ['¿Está permitida la renta corta?', 'Las reglas del proyecto sobre renta corta todavía están en revisión. Pregunta al equipo comercial por la información vigente.'],
+  ['¿Qué zonas comunes tendrá el proyecto?', 'El proyecto contempla piscina / rooftop, salón de juegos, gimnasio, lobby / recepción, salón social y terraza.']
+];
+const PREFS = ['WhatsApp', 'Llamada', 'Correo electrónico'];
+const MAXKM = 3;
+const HDR_OFFSET = 72;
+
+class Component extends DCLogic {
+  state = {
+    scrolled: false, narrow: false, menuOpen: false,
+    typo: null, lastTypo: null, purchaseOpen: 0, purchaseSel: null, place: 0,
+    light: null, faqOpen: {}, dudasOpen: { sub: true, renta: true },
+    form: { name: '', wa: '', email: '', typo: '', topic: '', pref: 'WhatsApp', consent: false },
+    errors: {}, status: 'idle', stickyHidden: false, formInView: false, pastHero: false, topicFlash: false
+  };
+  heroImg = React.createRef(); drawerRef = React.createRef(); drawerBody = React.createRef();
+  closeRef = React.createRef(); lightRef = React.createRef(); lightClose = React.createRef();
+  nameRef = React.createRef(); topicRef = React.createRef(); contactRef = React.createRef(); successRef = React.createRef();
+  lastFocus = null;
+
+  track(event, params = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event, ...params });
+  }
+  reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const y = window.scrollY;
+      const scrolled = y > 24, pastHero = y > window.innerHeight * 0.6;
+      if (scrolled !== this.state.scrolled || pastHero !== this.state.pastHero) this.setState({ scrolled, pastHero });
+      const el = this.heroImg.current;
+      if (el && !this.state.narrow && !this.reduced()) el.style.transform = `translate3d(0, ${Math.min(y, 900) * 0.04}px, 0)`;
+      else if (el) el.style.transform = '';
+    };
+    this.onResize = () => { const narrow = window.innerWidth < 1100; if (narrow !== this.state.narrow) this.setState({ narrow, menuOpen: false }); };
+    this.onKey = e => {
+      if (e.key !== 'Escape') return;
+      if (this.state.light) this.closeLight();
+      else if (this.state.typo !== null) this.closeTypo();
+      else if (this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+    this.onResize(); this.onScroll();
+    this.setupReveal();
+    if (this.contactRef.current && 'IntersectionObserver' in window) {
+      this.formIO = new IntersectionObserver(([en]) => this.setState({ formInView: en.isIntersecting }), { threshold: 0.05 });
+      this.formIO.observe(this.contactRef.current);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    this.io && this.io.disconnect(); this.formIO && this.formIO.disconnect();
+    document.body.style.overflow = '';
+  }
+
+  setupReveal() {
+    if (this.reduced() || !('IntersectionObserver' in window)) return;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    const hide = el => {
+      const k = el.dataset.reveal;
+      if (k === 'mask') { el.style.clipPath = 'inset(0 0 100% 0)'; el.style.transition = `clip-path 650ms ${ease}`; }
+      else { el.style.opacity = '0'; if (k === 'up') el.style.transform = 'translateY(14px)'; el.style.transition = `opacity 550ms ${ease}, transform 550ms ${ease}`; }
+    };
+    const show = el => {
+      const d = +(el.dataset.delay || 0);
+      el.style.transitionDelay = d + 'ms';
+      requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = 'inset(0 0 0 0)'; });
+      setTimeout(() => { el.style.transition = ''; el.style.transitionDelay = ''; el.style.clipPath = ''; }, 800 + d);
+    };
+    this.io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { this.io.unobserve(en.target); show(en.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.closest('[role="dialog"]')) return;
+      hide(el);
+      if (el.closest('#inicio')) requestAnimationFrame(() => requestAnimationFrame(() => show(el)));
+      else this.io.observe(el);
+    });
+  }
+
+  scrollToId(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - (id === 'inicio' ? 0 : HDR_OFFSET - 1);
+    window.scrollTo({ top: id === 'inicio' ? 0 : top, behavior: this.reduced() ? 'auto' : 'smooth' });
+  }
+  goContact({ topic, typo, focus, flash } = {}) {
+    this.setState(s => ({
+      form: { ...s.form, ...(topic ? { topic } : {}), ...(typo ? { typo } : {}) },
+      errors: topic ? { ...s.errors, topic: '' } : s.errors,
+      topicFlash: !!(topic || flash), menuOpen: false
+    }));
+    this.scrollToId('contacto');
+    setTimeout(() => {
+      const t = focus === 'name' ? this.nameRef.current : (topic ? this.topicRef.current : null);
+      t && t.focus({ preventScroll: true });
+    }, this.reduced() ? 50 : 650);
+    setTimeout(() => this.setState({ topicFlash: false }), 1600);
+  }
+
+  go = e => {
+    const a = e.currentTarget; const href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;
+    e.preventDefault();
+    const id = href.slice(1);
+    if (a.dataset.track) this.track(a.dataset.track, { label: a.textContent.trim(), topic: a.dataset.topic || null });
+    if (id === 'contacto') this.goContact({ topic: a.dataset.topic, focus: a.dataset.focus ? 'name' : null });
+    else { this.setState({ menuOpen: false }); this.scrollToId(id); }
+  };
+
+  openTypo = i => {
+    this.lastFocus = document.activeElement;
+    this.setState({ typo: i, lastTypo: i });
+    document.body.style.overflow = 'hidden';
+    this.track('typology_select', { typology: URBIS.typologies[i].code });
+    setTimeout(() => this.closeRef.current && this.closeRef.current.focus(), 60);
+  };
+  switchTypo = d => {
+    const i = (this.state.typo + d + 10) % 10;
+    this.setState({ typo: i, lastTypo: i });
+    this.track('typology_select', { typology: URBIS.typologies[i].code });
+    const b = this.drawerBody.current;
+    if (b && !this.reduced() && b.animate) b.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 280, easing: 'ease-out' });
+    this.drawerRef.current && (this.drawerRef.current.scrollTop = 0);
+  };
+  closeTypo = () => {
+    this.setState({ typo: null });
+    document.body.style.overflow = '';
+    this.lastFocus && this.lastFocus.focus && this.lastFocus.focus();
+  };
+  openLight = a => {
+    this.lastFocus = document.activeElement;
+    const slot = document.getElementById(a.id);
+    const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('.frame img');
+    const src = img && img.getAttribute('src');
+    this.setState({ light: { name: a.name, alt: a.alt, src: src || '' } });
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => this.lightClose.current && this.lightClose.current.focus(), 60);
+  };
+  closeLight = () => {
+    this.setState({ light: null });
+    document.body.style.overflow = '';
+    this.lastFocus && this.lastFocus.focus && this.lastFocus.focus();
+  };
+  trapKeys = e => {
+    if (e.key !== 'Tab') return;
+    const root = e.currentTarget;
+    const f = [...root.querySelectorAll('a[href],button:not([disabled]),input,select,[tabindex]:not([tabindex="-1"])')].filter(n => n.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+
+  onField = e => {
+    const { name, type, value, checked } = e.target;
+    const v = type === 'checkbox' ? checked : value;
+    this.setState(s => ({ form: { ...s.form, [name]: v }, errors: { ...s.errors, [name]: '' }, status: s.status === 'loading' ? s.status : 'idle' }));
+  };
+  validate(f) {
+    const e = {};
+    if (f.name.trim().length < 2) e.name = 'Escribe tu nombre.';
+    const d = f.wa.replace(/[^\d]/g, '');
+    const ok = (d.length === 10 && d[0] === '3') || (d.length === 12 && d.startsWith('573'));
+    if (!d) e.wa = 'Escribe tu número de WhatsApp.';
+    else if (!ok) e.wa = 'Revisa el número: debe ser un celular colombiano de 10 dígitos.';
+    if (f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Revisa el formato del correo electrónico.';
+    if (!f.email.trim() && f.pref === 'Correo electrónico') e.email = 'Escribe tu correo para contactarte por este medio.';
+    if (!f.topic) e.topic = 'Elige el tema de tu consulta.';
+    if (!f.consent) e.consent = 'Necesitamos tu autorización para poder contactarte.';
+    return e;
+  }
+  submit = async ev => {
+    ev.preventDefault();
+    const f = this.state.form;
+    const errors = this.validate(f);
+    if (Object.keys(errors).length) {
+      this.setState({ errors, status: 'idle' });
+      const first = ['name', 'wa', 'email', 'topic', 'consent'].find(k => errors[k]);
+      const el = ev.currentTarget.querySelector(`[name="${first}"]`);
+      el && el.focus();
+      return;
+    }
+    this.setState({ status: 'loading', errors: {} });
+    const endpoint = (this.props.formEndpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Urbis EU] Formulario sin configurar: define la prop formEndpoint con la URL que recibirá los leads. No se envió ningún dato.');
+      await new Promise(r => setTimeout(r, 500));
+      this.setState({ status: 'unconfigured' });
+      return;
+    }
+    try {
+      const payload = { ...f, whatsapp: f.wa.replace(/[^\d]/g, ''), source: 'landing-urbis-eu', page: location.href, submittedAt: new Date().toISOString() };
+      delete payload.wa;
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ status: 'success' });
+      this.track('form_submit_success', { topic: f.topic, typology: f.typo || null, contact_preference: f.pref });
+      setTimeout(() => this.successRef.current && this.successRef.current.focus(), 60);
+    } catch (err) {
+      console.error('[Urbis EU] Error al enviar el formulario', err);
+      this.setState({ status: 'error' });
+    }
+  };
+
+  renderVals() {
+    const s = this.state, p = this.props;
+    const pend = URBIS.pending;
+    const typos = URBIS.typologies.map((t, i) => {
+      const sel = s.lastTypo === i;
+      return {
+        code: t.code, label: 'Tipología ' + t.code, slotId: 'plano-' + t.code,
+        delay: String((i % 5) * 50),
+        pressed: sel ? 'true' : 'false', mark: sel ? 'Seleccionada' : '',
+        bg: sel ? '#14403E' : 'transparent', fg: sel ? '#F4EDE1' : '#14403E',
+        ring: sel ? 'inset 0 0 0 1px #14403E' : 'none',
+        slotDisplay: s.typo === i ? 'block' : 'none',
+        open: () => this.openTypo(i)
+      };
+    });
+    const ct = s.typo !== null ? URBIS.typologies[s.typo] : URBIS.typologies[0];
+    const row = (k, v, fallback) => ({ k, v: v || fallback, color: v ? '#14403E' : '#41605E' });
+    const cur = {
+      label: 'Tipología ' + ct.code,
+      counter: `Tipología ${ct.code} de 10`,
+      rows: [
+        row('Área privada', ct.privateArea, 'Entre 41 y 42 m² en el proyecto. Consulta el área exacta de esta tipología.'),
+        row('Área construida', ct.builtArea, pend),
+        row('Habitaciones y baños', ct.bedsBaths, pend),
+        row('Distribución y balcón', ct.layout, pend),
+        row('Acabados', ct.finishes, 'Entrega en obra gris'),
+        row('Precio', ct.price, 'Proyecto desde $275 millones. Consulta el valor de esta tipología.')
+      ]
+    };
+    const purchase = PURCHASE.map((o, i) => {
+      const open = s.purchaseOpen === i, sel = s.purchaseSel === i;
+      return {
+        ...o, btnId: 'pc-b' + i, panelId: 'pc-p' + i,
+        expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr', op: open ? '1' : '0', rot: open ? 'rotate(45deg)' : 'none',
+        checked: sel, selText: sel ? 'Seleccionada' : '',
+        selBorder: sel ? '1px solid #F4EDE1' : '1px solid rgba(244,237,225,.3)',
+        selBg: sel ? 'rgba(244,237,225,.1)' : 'transparent',
+        toggle: () => { const next = open ? -1 : i; this.setState({ purchaseOpen: next }); if (!open) this.track('purchase_info_expand', { option: o.title }); },
+        select: () => this.setState(st => ({ purchaseSel: i, purchaseOpen: i, form: { ...st.form, topic: o.topic } }))
+      };
+    });
+    const places = PLACES.map((pl, i) => {
+      const sel = s.place === i;
+      return {
+        ...pl, pressed: sel ? 'true' : 'false',
+        left: (pl.km / MAXKM * 100).toFixed(2) + '%',
+        top: i % 2 === 0 ? '24px' : '75px', dir: i % 2 === 0 ? 'column' : 'column-reverse',
+        bg: sel ? 'rgba(231,214,188,.55)' : 'transparent',
+        dotBg: sel ? '#14403E' : '#F4EDE1', dotFg: sel ? '#F4EDE1' : '#14403E', scale: sel ? 'scale(1.12)' : 'none',
+        select: () => this.setState({ place: i })
+      };
+    });
+    const amenityRows = AMENITIES.map((r, ri) => ({
+      items: r.map((a, ai) => {
+        const n = String(ri * 3 + ai + 1).padStart(2, '0');
+        const alt = `Zona común de Urbis EU: ${a.name.toLowerCase()}`;
+        return { ...a, n, alt, ph: `Render oficial · ${a.name}`, delay: String(ai * 80), open: () => this.openLight({ ...a, alt }) };
+      })
+    }));
+    const dudas = DUDAS.map((d, i) => {
+      const open = !!s.dudasOpen[d.key];
+      return { ...d, btnId: 'dd-b' + i, panelId: 'dd-p' + i, delay: String(i * 80),
+        expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr', op: open ? '1' : '0',
+        rot: open ? 'rotate(180deg)' : 'none', state: open ? 'Ocultar' : 'Ver detalle',
+        toggle: () => this.setState(st => ({ dudasOpen: { ...st.dudasOpen, [d.key]: !open } })) };
+    });
+    const faqs = FAQS.map(([q, a], i) => {
+      const open = !!s.faqOpen[i];
+      return { q, a, btnId: 'fq-b' + i, panelId: 'fq-p' + i,
+        expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr',
+        icon: open ? 'M5 12h14' : 'M5 12h14M12 5v14',
+        iconBg: open ? '#14403E' : 'transparent', iconFg: open ? '#F4EDE1' : '#14403E', iconBorder: '#14403E',
+        toggle: () => this.setState(st => ({ faqOpen: { ...st.faqOpen, [i]: !open } })) };
+    });
+    const docs = URBIS.docs.map(d => ({ ...d, hasUrl: !!d.url, pending: !d.url, status: 'Disponible a solicitud' }));
+    const legalLinks = URBIS.legal.map(l => ({ ...l, hasUrl: !!l.url }));
+
+    const e = s.errors, f = s.form;
+    const border = k => e[k] ? '#8C3B1E' : 'rgba(20,64,62,.4)';
+    const waDigits = String(p.whatsappNumber || '').replace(/[^\d]/g, '');
+    const hasWa = waDigits.length >= 10;
+    const msgs = {
+      unconfigured: 'El formulario todavía no está conectado a un sistema de recepción. Tu solicitud no se envió.',
+      error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.'
+    };
+    const isLoading = s.status === 'loading';
+    const showSticky = s.narrow && (p.mobileStickyCta ?? true) && !s.stickyHidden && !s.formInView && s.pastHero && s.typo === null && !s.light && !s.menuOpen;
+
+    return {
+      wide: !s.narrow, narrow: s.narrow,
+      hdr: {
+        bg: s.scrolled || s.menuOpen ? '#F4EDE1' : 'rgba(244,237,225,0)',
+        border: s.scrolled ? 'rgba(20,64,62,.16)' : 'rgba(20,64,62,0)',
+        pad: s.scrolled ? '8px' : '18px', logo: s.scrolled ? '44px' : '58px'
+      },
+      navLinks: [
+        { href: '#apartamentos', label: 'Apartamentos' }, { href: '#zonas-comunes', label: 'Zonas comunes' },
+        { href: '#ubicacion', label: 'Ubicación' }, { href: '#entrega', label: 'Entrega' },
+        { href: '#preguntas-frecuentes', label: 'Preguntas frecuentes' }
+      ],
+      go: this.go,
+      toggleMenu: () => this.setState(st => ({ menuOpen: !st.menuOpen })),
+      menuOpenStr: s.menuOpen ? 'true' : 'false', menuLabel: s.menuOpen ? 'Cerrar' : 'Menú',
+      menuIcon: s.menuOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 8h16M4 16h16',
+      menuRows: s.menuOpen ? '1fr' : '0fr', menuVis: s.menuOpen ? 'visible' : 'hidden',
+      menuBorder: s.menuOpen ? '1px solid rgba(20,64,62,.16)' : '0',
+      heroImg: this.heroImg,
+      typos, cur, drawerOpen: s.typo !== null,
+      closeTypo: this.closeTypo, prevTypo: () => this.switchTypo(-1), nextTypo: () => this.switchTypo(1),
+      goTypo: e2 => { e2.preventDefault(); const code = cur.label; this.track('inquiry_cta_click', { label: 'Quiero conocer las tipologías', typology: code }); this.closeTypo(); this.goContact({ topic: 'Información de tipologías', typo: code }); },
+      drawerRef: this.drawerRef, drawerBody: this.drawerBody, closeRef: this.closeRef,
+      stop: ev => ev.stopPropagation(), trapKeys: this.trapKeys,
+      purchase,
+      goPurchase: ev => { ev.preventDefault(); const o = s.purchaseSel !== null ? PURCHASE[s.purchaseSel] : null; this.track('inquiry_cta_click', { label: 'Consultar condiciones de compra', topic: o ? o.topic : null }); this.goContact({ topic: o ? o.topic : 'Valor de separación' }); },
+      places, place: PLACES[s.place], placeKey: 'pl' + s.place,
+      ticks: [0, 1, 2, 3].map(k => ({ left: (k / MAXKM * 100) + '%', label: k === 0 ? '0' : k + ' km' })),
+      amenityRows,
+      lightOpen: !!s.light,
+      light: s.light ? { ...s.light, hasSrc: !!s.light.src, noSrc: !s.light.src } : { name: '', hasSrc: false, noSrc: false },
+      closeLight: this.closeLight, lightRef: this.lightRef, lightClose: this.lightClose,
+      dudas, docs, faqs, legalLinks, legalPending: legalLinks.some(l => !l.hasUrl),
+      contactRef: this.contactRef, nameRef: this.nameRef, topicRef: this.topicRef, successRef: this.successRef,
+      form: f, errors: { name: e.name || '', wa: e.wa || '', email: e.email || '', topic: e.topic || '', consent: e.consent || '' }, onField: this.onField, submit: this.submit,
+      inv: { name: e.name ? 'true' : 'false', wa: e.wa ? 'true' : 'false', email: e.email ? 'true' : 'false', topic: e.topic ? 'true' : 'false', consent: e.consent ? 'true' : 'false' },
+      fb: { name: border('name'), wa: border('wa'), email: border('email'), topic: border('topic') },
+      topicBg: s.topicFlash ? '#F3DFC9' : '#FFFCF7',
+      topics: TOPICS,
+      prefs: PREFS.map(v => ({ v, checked: f.pref === v, border: f.pref === v ? '#14403E' : 'rgba(20,64,62,.3)', bg: f.pref === v ? '#E7D6BC' : 'transparent' })),
+      isLoading, isLoadingStr: isLoading ? 'true' : 'false', btnOpacity: isLoading ? '.75' : '1',
+      submitLabel: isLoading ? 'Enviando…' : 'Enviar solicitud',
+      hasSubmitMsg: !!msgs[s.status], submitMsg: msgs[s.status] || '',
+      isSuccess: s.status === 'success', showForm: s.status !== 'success',
+      firstName: f.name.trim().split(' ')[0] || '', prefLower: f.pref.toLowerCase(), topicLower: (f.topic || 'el proyecto').toLowerCase(),
+      hasWa, waHref: hasWa ? 'https://wa.me/' + waDigits : '',
+      trackWa: () => this.track('whatsapp_click'),
+      showSticky, dismissSticky: () => this.setState({ stickyHidden: true }),
+      footerPad: showSticky ? '96px' : '40px'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urbis EU · Apartamentos VIS en Torices, Cartagena</title>
+<meta name="description" content="Apartamentos VIS en Torices, Cartagena. Desde $275 millones, 10 tipologías de 41–42 m² privados. Entrega prevista en noviembre de 2028.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#F4EDE1;color:#14403E;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+::selection{background:#E7D6BC;color:#14403E}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+a:hover{color:inherit}
+:focus-visible{outline:2px solid #C4744C;outline-offset:3px}
+button,input,select{font:inherit;color:inherit}
+@keyframes urbFade{from{opacity:0}to{opacity:1}}
+@keyframes urbDrop{0%{transform:translateY(-100%)}60%,100%{transform:translateY(240%)}}
+@keyframes urbRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes urbSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+
+<a href="#contacto" onClick="{{ go }}" data-focus="1" style="position:absolute;left:12px;top:-60px;z-index:100;background:#14403E;color:#F4EDE1;padding:14px 16px;font-weight:600;text-decoration:none" style-focus="top:12px">Ir al formulario de contacto</a>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ hdr.bg }};border-bottom:1px solid {{ hdr.border }};color:{{ hdr.fg }};transition:background-color .35s ease, border-color .35s ease, color .35s ease">
+  <div style="max-width:1440px;margin:0 auto;padding:{{ hdr.pad }} clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .35s ease">
+    <a href="#inicio" onClick="{{ go }}" aria-label="Urbis EU, volver al inicio" style="display:flex;align-items:center;min-height:44px">
+      <span style="position:relative;display:block">
+        <img src="assets/urbis-logo-cal.png" alt="Urbis EU Cartagena" style="height:{{ hdr.logoH }};width:auto;display:block;opacity:{{ hdr.calOp }};transition:height .35s ease, opacity .35s ease">
+        <img src="assets/urbis-logo.png" alt="" aria-hidden="true" style="position:absolute;inset:0;height:100%;width:auto;display:block;opacity:{{ hdr.verdeOp }};transition:opacity .35s ease">
+      </span>
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Navegación principal" style="display:flex;gap:clamp(20px,2.4vw,40px);align-items:center">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" onClick="{{ go }}" style="color:inherit;text-decoration:none;white-space:nowrap;font:500 13px/1 'Archivo',sans-serif;letter-spacing:.06em;padding:8px 0;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .35s cubic-bezier(.2,.7,.2,1)" style-hover="background-size:100% 1px">{{ l.label }}</a>
+        </sc-for>
+      </nav>
+      <a href="#contacto" onClick="{{ go }}" data-track="cta_primary_click" data-focus="1" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;white-space:nowrap;background:{{ hdr.ctaBg }};border:1px solid {{ hdr.ctaBorder }};color:{{ hdr.ctaFg }};text-decoration:none;font:600 13px/1 'Archivo',sans-serif;letter-spacing:.04em;border-radius:1px;transition:background-color .3s ease, gap .3s ease, padding .3s ease, color .3s ease" style-hover="gap:16px;padding-right:14px">Solicita información<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenStr }}" aria-controls="menu-movil" style="min-height:48px;display:inline-flex;align-items:center;gap:10px;padding:0 6px 0 14px;background:transparent;border:1px solid currentColor;border-radius:1px;cursor:pointer;font:500 13px/1 'Archivo',sans-serif;letter-spacing:.06em;color:inherit">
+        <span>{{ menuLabel }}</span>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="{{ menuIcon }}"></path></svg>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <div id="menu-movil" style="display:grid;grid-template-rows:{{ menuRows }};transition:grid-template-rows .3s ease;background:#14403E;color:#F4EDE1">
+      <nav aria-label="Navegación móvil" style="min-height:0;overflow:hidden;visibility:{{ menuVis }}">
+        <div style="padding:12px clamp(20px,4vw,56px) 28px;display:flex;flex-direction:column">
+          <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+            <a href="{{ l.href }}" onClick="{{ go }}" style="display:flex;align-items:center;justify-content:space-between;min-height:58px;border-bottom:1px solid rgba(244,237,225,.2);color:#F4EDE1;text-decoration:none;font:300 30px/1 'Cormorant Garamond',serif"><span>{{ l.label }}</span><span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.14em;color:#E7D6BC">{{ l.n }}</span></a>
+          </sc-for>
+          <a href="#contacto" onClick="{{ go }}" data-track="cta_primary_click" data-focus="1" style="margin-top:24px;display:flex;justify-content:center;align-items:center;min-height:54px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px">Solicita información</a>
+        </div>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main>
+
+<section id="inicio" data-screen-label="01 Hero" style="position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:#14403E;color:#F4EDE1;overflow:hidden">
+  <div data-reveal="mask-down" style="position:absolute;inset:0">
+    <div ref="{{ heroImg }}" style="position:absolute;inset:-6% 0 -6% 0;will-change:transform">
+      <image-slot id="hero-render" shape="rect" src="assets/urbis-hero-f2.png" placeholder="Render oficial · fachada Urbis EU"></image-slot>
+    </div>
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(20,64,62,.6) 0%,rgba(20,64,62,.3) 38%,rgba(20,64,62,0) 65%),linear-gradient(180deg,rgba(20,64,62,.45) 0%,rgba(20,64,62,0) 18%,rgba(20,64,62,.15) 45%,rgba(20,64,62,.7) 78%,rgba(20,64,62,.92) 100%)"></div>
+  </div>
+
+  <div style="position:relative;max-width:1440px;width:100%;margin:0 auto;padding:clamp(120px,20vh,200px) clamp(20px,4vw,56px) 0;display:flex;flex-direction:column;gap:clamp(40px,6vh,72px)">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(32px,4vw,72px)">
+      <div style="flex:1 1 520px;max-width:660px;min-width:0;display:flex;flex-direction:column;gap:clamp(18px,2vw,26px)">
+        <p data-reveal="up" data-delay="200" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em;color:#F4EDE1;text-shadow:0 1px 24px rgba(20,64,62,.65), 0 1px 2px rgba(20,64,62,.4);"><span style="width:40px;height:1px;background:#C4744C"></span>URBIS EU · CARTAGENA</p>
+        <h1 data-reveal="up" data-delay="260" style="margin:0;font:300 clamp(38px,4.6vw,72px)/1 'Cormorant Garamond',serif;letter-spacing:-.015em;color:#F4EDE1;text-wrap:balance;text-shadow:0 1px 24px rgba(20,64,62,.65), 0 1px 2px rgba(20,64,62,.4);">Tu próximo hogar está más cerca <em style="font-style:italic;font-weight:300">de lo que imaginas.</em></h1>
+        <p data-reveal="up" data-delay="320" style="margin:0;max-width:30em;font:400 clamp(15px,1.15vw,17px)/1.6 'Archivo',sans-serif;color:#F4EDE1;text-wrap:pretty;text-shadow:0 1px 24px rgba(20,64,62,.65), 0 1px 2px rgba(20,64,62,.4);">Descubre apartamentos VIS en Torices y encuentra el espacio que se adapta a tu manera de vivir.</p>
+        <div data-reveal="up" data-delay="380" style="display:flex;flex-wrap:wrap;gap:12px;padding-top:6px">
+          <a href="#compra" onClick="{{ go }}" data-track="cta_primary_click" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 24px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#EC8361;gap:18px">Conoce las opciones de compra<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+          <a href="#apartamentos" onClick="{{ go }}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:54px;padding:0 24px;background:rgba(20,64,62,.6);border:1px solid rgba(244,237,225,.75);color:#F4EDE1;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px;transition:background-color .3s ease, color .3s ease" style-hover="background-color:#F4EDE1;color:#14403E">Explora el proyecto</a>
+        </div>
+      </div>
+      <aside data-reveal="up" data-delay="320" aria-label="Precio de referencia" style="flex:0 1 340px;min-width:min(100%,280px);background:#F4EDE1;color:#14403E;padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:6px">
+        <span style="font:600 11px/1 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase">Desde</span>
+        <span style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font:300 clamp(56px,5.4vw,84px)/.9 'Cormorant Garamond',serif;letter-spacing:-.02em">$275</span><span style="font:400 clamp(24px,2.2vw,32px)/1 'Cormorant Garamond',serif">millones</span></span>
+        <span style="margin-top:8px;padding-top:12px;border-top:1px solid rgba(20,64,62,.22);font:400 12px/1.5 'Archivo',sans-serif;color:#41605E">Precio de referencia sujeto a tipología, disponibilidad y condiciones comerciales vigentes.</span>
+      </aside>
+    </div>
+    <dl aria-label="Datos del proyecto" style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%/2,200px),1fr));border-top:1px solid rgba(244,237,225,.3);padding-bottom:clamp(16px,2vw,28px)">
+      <div data-reveal="up" data-delay="420" style="padding:18px 20px 18px 0;border-left:0;display:flex;flex-direction:column;gap:6px">
+        <dt style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E7D6BC">Área</dt>
+        <dd style="margin:0;font:500 15px/1.35 'Archivo',sans-serif;color:#F4EDE1">41–42 m² privados</dd>
+      </div>
+      <div data-reveal="up" data-delay="460" style="padding:18px 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column;gap:6px">
+        <dt style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E7D6BC">Apartamentos</dt>
+        <dd style="margin:0;font:500 15px/1.35 'Archivo',sans-serif;color:#F4EDE1">10 tipologías</dd>
+      </div>
+      <div data-reveal="up" data-delay="500" style="padding:18px 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column;gap:6px">
+        <dt style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E7D6BC">Modalidad</dt>
+        <dd style="margin:0;font:500 15px/1.35 'Archivo',sans-serif;color:#F4EDE1">Entrega en obra gris</dd>
+      </div>
+      <div data-reveal="up" data-delay="540" style="padding:18px 20px;border-left:1px solid rgba(244,237,225,.22);display:flex;flex-direction:column;gap:6px">
+        <dt style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E7D6BC">Fecha</dt>
+        <dd style="margin:0;font:500 15px/1.35 'Archivo',sans-serif;color:#F4EDE1">Entrega prevista: noviembre de 2028</dd>
+      </div>
+    </dl>
+  </div>
+
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <a href="#apartamentos" onClick="{{ go }}" aria-label="Desliza para conocer el proyecto" style="position:absolute;right:clamp(20px,4vw,56px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;color:#F4EDE1;text-decoration:none;font:500 10px/1 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase;writing-mode:vertical-rl;z-index:1">
+      Desliza
+      <span style="position:relative;width:1px;height:56px;background:rgba(244,237,225,.3);overflow:hidden"><span style="position:absolute;left:0;top:0;width:1px;height:40%;background:#F4EDE1;animation:urbDrop 2.8s cubic-bezier(.6,0,.3,1) 1.4s 4 both"></span></span>
+    </a>
+  </sc-if>
+</section>
+
+<section id="apartamentos" data-screen-label="03 Tipologías" style="scroll-margin-top:64px;padding:clamp(64px,7vw,104px) 0;min-height:{{ secMinH }};display:flex;flex-direction:column;justify-content:center;background:#F4EDE1;color:#14403E">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(24px,2.6vw,36px)">
+    <div style="display:flex;flex-wrap:wrap;gap:12px 56px;align-items:flex-end;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:40px;height:1px;background:#C4744C"></span>ENCUENTRA TU ESPACIO</p>
+        <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em;max-width:14em">Explora las tipologías de <em style="font-style:italic">Urbis EU.</em></h2>
+      </div>
+      <p data-reveal="up" data-delay="100" style="flex:0 1 340px;margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">Conoce la distribución, las áreas y los tipos de apartamento disponibles en cada tipología.</p>
+    </div>
+
+    <div data-reveal="up" data-delay="120" style="display:grid;grid-template-columns:{{ cols.tipo }};grid-template-areas:{{ tp.areas }};gap:clamp(20px,2.4vw,32px) clamp(28px,3.4vw,56px);align-items:start">
+      <div role="tablist" aria-label="Tipologías" style="grid-area:tabs;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid rgba(20,64,62,.2)">
+        <sc-for list="{{ tp.tabs }}" as="tb" hint-placeholder-count="3">
+          <button type="button" role="tab" id="{{ tb.id }}" aria-selected="{{ tb.selected }}" aria-controls="tp-panel" tabindex="{{ tb.tabindex }}" onClick="{{ tb.pick }}" onKeyDown="{{ tp.tabKeys }}" style="position:relative;min-width:0;min-height:116px;padding:16px clamp(10px,1.3vw,18px);display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:10px;text-align:left;background:{{ tb.bg }};color:{{ tb.fg }};border:0;border-left:{{ tb.sep }};cursor:pointer;transition:background-color .3s ease, color .3s ease" style-hover="background-color:{{ tb.hover }}">
+            <span aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:3px;background:#E66A45;transform:scaleX({{ tb.mark }});transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)"></span>
+            <span style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase">Tipología</span><span style="font:300 clamp(34px,3vw,44px)/.85 'Cormorant Garamond',serif">{{ tb.k }}</span></span>
+            <span style="display:flex;flex-direction:column;gap:4px;font:500 12px/1.3 'Archivo',sans-serif"><span>{{ tb.perFloor }}</span><span style="opacity:.8">{{ tb.stages }}</span></span>
+          </button>
+        </sc-for>
+      </div>
+
+      <figure ref="{{ tp.distRef }}" style="grid-area:dist;margin:0;display:flex;flex-direction:column;gap:10px">
+        <div style="background:#FFFFFF;border:1px solid rgba(20,64,62,.2);padding:clamp(14px,1.8vw,24px);display:flex;justify-content:center">
+          <div role="img" aria-label="{{ tp.distAlt }}" style="width:min(100%,290px);height:clamp(280px,26vw,400px);background-image:{{ tp.distBg }};background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+        </div>
+        <figcaption style="display:flex;align-items:center;gap:10px;font:500 12px/1.4 'Archivo',sans-serif;color:#41605E"><span aria-hidden="true" style="width:14px;height:14px;flex:none;background:#E9B8B2;border:1px solid #B5534A"></span>{{ tp.distCaption }}</figcaption>
+      </figure>
+
+      <div id="tp-panel" role="tabpanel" aria-labelledby="{{ tp.tabId }}" style="grid-area:info;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <div ref="{{ tp.infoRef }}" style="display:flex;flex-direction:column;gap:18px">
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 28px;padding-bottom:18px;border-bottom:1px solid rgba(20,64,62,.2)">
+            <div style="display:flex;flex-direction:column;gap:8px"><dt style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#41605E">Tipos de apartamento</dt><dd style="margin:0;font:400 clamp(21px,1.8vw,26px)/1.15 'Cormorant Garamond',serif">{{ tp.typesText }}</dd></div>
+            <div style="display:flex;flex-direction:column;gap:8px"><dt style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#41605E">Etapa</dt><dd style="margin:0;font:400 clamp(21px,1.8vw,26px)/1.15 'Cormorant Garamond',serif">{{ tp.stageText }}</dd></div>
+            <div style="display:flex;flex-direction:column;gap:8px"><dt style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#41605E">Distribución</dt><dd style="margin:0;font:400 clamp(21px,1.8vw,26px)/1.15 'Cormorant Garamond',serif">{{ tp.perFloor }}</dd></div>
+          </dl>
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #14403E;border-bottom:1px solid rgba(20,64,62,.2)">
+            <div style="padding:14px 18px 14px 0;display:flex;flex-direction:column;gap:6px;border-right:1px solid rgba(20,64,62,.2)"><dt style="font:600 12px/1.3 'Archivo',sans-serif">Área construida</dt><dd style="margin:0;font:300 clamp(32px,3vw,46px)/1 'Cormorant Garamond',serif;white-space:nowrap">{{ tp.built }}</dd></div>
+            <div style="padding:14px 0 14px 18px;display:flex;flex-direction:column;gap:6px"><dt style="font:600 12px/1.3 'Archivo',sans-serif">Área útil</dt><dd style="margin:0;font:300 clamp(32px,3vw,46px)/1 'Cormorant Garamond',serif">{{ tp.useful }}</dd></div>
+          </dl>
+          <p style="margin:-6px 0 0;font:400 12px/1.5 'Archivo',sans-serif;color:#41605E">Las áreas construida y útil corresponden a medidas diferentes del apartamento.</p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px">
+          <p id="tp-view-label" style="margin:0;font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#41605E">Plano del apartamento</p>
+          <div role="group" aria-labelledby="tp-view-label" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid rgba(20,64,62,.3)">
+            <sc-for list="{{ tp.views }}" as="vw" hint-placeholder-count="2">
+              <button type="button" aria-pressed="{{ vw.pressed }}" onClick="{{ vw.pick }}" style="min-height:44px;padding:0 16px;background:{{ vw.bg }};color:{{ vw.fg }};border:0;font:{{ vw.font }};cursor:pointer;white-space:nowrap;transition:background-color .25s ease, color .25s ease" style-hover="background-color:{{ vw.hover }}"><span>{{ vw.label }}</span></button>
+            </sc-for>
+          </div>
+        </div>
+
+        <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+          <sc-if value="{{ tp.hasPlan }}" hint-placeholder-val="{{ true }}">
+            <button type="button" ref="{{ tp.planRef }}" onClick="{{ openPlan }}" aria-label="{{ tp.zoomLabel }}" style="position:relative;display:block;width:100%;padding:clamp(12px,1.4vw,20px);background:#FFFFFF;border:1px solid rgba(20,64,62,.2);cursor:zoom-in;transition:border-color .25s ease" style-hover="border-color:#14403E">
+              <span role="img" aria-label="{{ tp.planAlt }}" style="display:block;width:100%;height:clamp(300px,30vw,440px);background-image:{{ tp.planBg }};background-size:contain;background-position:center;background-repeat:no-repeat"></span>
+              <span aria-hidden="true" style="position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;background:#14403E;color:#F4EDE1;font:600 12px/1 'Archivo',sans-serif"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>Ampliar plano</span>
+            </button>
+          </sc-if>
+          <sc-if value="{{ tp.noPlan }}" hint-placeholder-val="{{ false }}">
+            <div style="aspect-ratio:1/1;max-height:420px;display:flex;align-items:center;justify-content:center;padding:24px;background:#FFFFFF;border:1px dashed rgba(20,64,62,.35);text-align:center;font:400 14px/1.5 'Archivo',sans-serif;color:#41605E">El plano de este tipo de apartamento está en confirmación.</div>
+          </sc-if>
+          <figcaption style="display:flex;flex-direction:column;gap:4px;font:400 12px/1.5 'Archivo',sans-serif;color:#41605E"><span style="font-weight:600;color:#14403E">{{ tp.planCaption }}</span><span>{{ tp.viewNote }}</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div data-reveal="up" style="display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;padding:clamp(24px,3vw,40px);background:#14403E;color:#F4EDE1">
+      <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:6px">
+        <h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'Cormorant Garamond',serif">¿Quieres conocer más sobre esta tipología?</h3>
+        <p style="margin:0;font:400 14px/1.55 'Archivo',sans-serif;color:#E7D6BC">Solicita información sobre Urbis EU y consulta las condiciones del proyecto.</p>
+      </div>
+      <a href="#contacto" onClick="{{ tp.goCta }}" style="display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 24px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#EC8361;color:#0B2524;gap:18px">Solicitar información<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+      <p style="flex:1 1 100%;margin:0;padding-top:16px;border-top:1px solid rgba(244,237,225,.2);font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">Imágenes y áreas de referencia. Consulta las condiciones y características vigentes con el equipo comercial. El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Este material no constituye oferta comercial.</p>
+    </div>
+  </div>
+</section>
+
+<section id="compra" data-screen-label="04 Condiciones de compra" style="scroll-margin-top:64px;padding:clamp(64px,7vw,104px) 0;min-height:{{ secMinH }};display:flex;flex-direction:column;justify-content:center;background:#F4EDE1;color:#14403E">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:{{ cols.compra }};gap:clamp(32px,4vw,72px);align-items:start;padding-top:clamp(40px,5vw,64px);border-top:1px solid rgba(20,64,62,.22)">
+      <div style="display:flex;flex-direction:column;gap:clamp(24px,2.6vw,36px);min-width:0">
+        <div style="display:flex;flex-wrap:wrap;gap:12px 48px;align-items:flex-end;justify-content:space-between">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:40px;height:1px;background:#C4744C"></span>CONDICIONES DE COMPRA</p>
+            <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em;max-width:15em;text-wrap:balance">Comprar tu apartamento empieza con <em style="font-style:italic">información clara.</em></h2>
+          </div>
+          <p data-reveal="up" data-delay="100" style="margin:0;flex:0 1 300px;font:400 14px/1.6 'Archivo',sans-serif;color:#41605E">Conoce las condiciones comerciales y recibe orientación para planear tu compra.</p>
+        </div>
+
+        <div data-reveal="up" data-delay="120" style="border-top:1px solid #14403E">
+          <sc-for list="{{ prows }}" as="r" hint-placeholder-count="3">
+            <div style="border-bottom:1px solid rgba(20,64,62,.22)">
+              <h3 style="margin:0">
+                <button type="button" id="{{ r.btnId }}" onClick="{{ r.toggle }}" aria-expanded="{{ r.expanded }}" aria-controls="{{ r.panelId }}" style="width:100%;min-height:72px;display:grid;grid-template-columns:40px minmax(0,1fr) auto 24px;align-items:center;gap:14px;padding:14px 4px 14px 0;background:{{ r.bg }};border:0;text-align:left;cursor:pointer;color:#14403E;transition:background-color .3s ease" style-hover="background-color:rgba(231,214,188,.45)">
+                  <span aria-hidden="true" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid {{ r.iconBorder }};border-radius:50%;background:{{ r.iconBg }};color:{{ r.iconFg }};transition:background-color .3s ease, color .3s ease, border-color .3s ease">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ r.icon }}"></path></svg>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+                    <span style="font:600 15px/1.3 'Archivo',sans-serif">{{ r.title }}</span>
+                    <span style="font:400 13px/1.4 'Archivo',sans-serif;color:#41605E">{{ r.line }}</span>
+                  </span>
+                  <span style="font:600 10px/1 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">{{ r.state }}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="transform:{{ r.rot }};transition:transform .35s cubic-bezier(.2,.7,.2,1)"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+              </h3>
+              <div id="{{ r.panelId }}" role="region" aria-labelledby="{{ r.btnId }}" style="display:grid;grid-template-rows:{{ r.rows }};transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1)">
+                <div style="overflow:hidden;min-height:0">
+                  <div style="padding:4px 0 24px 54px;display:flex;flex-direction:column;gap:16px;opacity:{{ r.op }};transform:{{ r.shift }};transition:opacity .35s ease, transform .35s ease">
+                    <sc-if value="{{ r.hasHl }}" hint-placeholder-val="{{ false }}">
+                      <p style="margin:0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font:600 11px/1 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">Desde</span><span style="font:300 clamp(36px,3.4vw,48px)/1 'Cormorant Garamond',serif;letter-spacing:-.01em">$275 millones</span></p>
+                    </sc-if>
+                    <p style="margin:0;max-width:40em;font:400 14px/1.6 'Archivo',sans-serif;color:#41605E">{{ r.body }}</p>
+                    <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0 24px">
+                      <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="2">
+                        <div style="padding:10px 0;border-top:1px solid rgba(20,64,62,.18);display:flex;flex-direction:column;gap:4px">
+                          <dt style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase">{{ it.k }}</dt>
+                          <dd style="margin:0;font:{{ it.font }};color:{{ it.color }}">{{ it.v }}</dd>
+                        </div>
+                      </sc-for>
+                    </dl>
+                    <button type="button" onClick="{{ r.ask }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;background:transparent;border:0;cursor:pointer;color:#14403E;font:600 13px/1 'Archivo',sans-serif;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left 31px;background-size:100% 1px;transition:gap .3s ease" style-hover="gap:16px">{{ r.askLabel }}<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <aside data-reveal="up" data-delay="160" aria-labelledby="compra-cta-title" style="background:#14403E;color:#F4EDE1;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;gap:20px;position:{{ stickyPos }};top:96px">
+        <p style="margin:0;display:flex;align-items:center;gap:12px;font:600 10px/1 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#E7D6BC"><span style="width:8px;height:8px;border-radius:50%;background:#E66A45"></span>Asesoría personalizada</p>
+        <h3 id="compra-cta-title" style="margin:0;font:300 clamp(28px,2.4vw,36px)/1.05 'Cormorant Garamond',serif">Conoce cómo comprar tu vivienda</h3>
+        <p style="margin:0;font:400 14px/1.6 'Archivo',sans-serif;color:#E7D6BC">Recibe información sobre las condiciones de compra y encuentra la opción que mejor se adapte a ti.</p>
+        <button type="button" onClick="{{ openQuoteBtn }}" aria-haspopup="dialog" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;padding:0 22px;background:#E66A45;color:#0B2524;border:0;border-radius:1px;cursor:pointer;font:600 15px/1 'Archivo',sans-serif;transition:background-color .3s ease, padding .3s ease" style-hover="background-color:#EC8361;padding-right:16px">Consultar condiciones<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+        <p style="margin:0;padding-top:16px;border-top:1px solid rgba(244,237,225,.2);font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">Los valores de separación, cuota inicial y financiación se confirman con el equipo comercial según la tipología y las condiciones vigentes.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion" data-screen-label="05 Ubicación" style="scroll-margin-top:64px;position:relative;min-height:{{ locMinH }};display:flex;background:#14403E;color:#F4EDE1;overflow:hidden">
+  <div data-reveal="fade" style="position:absolute;inset:0">
+    <div data-parallax="0.04" style="position:absolute;inset:-6% 0">
+      <image-slot id="ubicacion-bg" shape="rect" src="assets/urbis-ubicacion-f1.png" placeholder="Imagen oficial · Urbis EU en Torices"></image-slot>
+    </div>
+  </div>
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:{{ locScrim }}"></div>
+
+  <div style="position:relative;max-width:1440px;width:100%;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px) {{ locPadB }};display:flex;flex-direction:column;align-items:flex-start;pointer-events:none">
+    <div style="width:min(100%,520px);display:flex;flex-direction:column;gap:clamp(18px,2vw,24px);pointer-events:auto">
+      <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em;color:#F4EDE1"><span style="width:40px;height:1px;background:#C4744C"></span>UBICACIÓN · TORICES</p>
+      <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em;text-wrap:balance;text-shadow:0 1px 18px rgba(20,64,62,.45)">Cartagena, más cerca <em style="font-style:italic">de lo que importa.</em></h2>
+      <p data-reveal="up" data-delay="110" style="margin:0;max-width:30em;font:400 15px/1.65 'Archivo',sans-serif;color:#F4EDE1;text-shadow:0 1px 14px rgba(20,64,62,.5)">Vive en Torices, con acceso a puntos clave de la ciudad y espacios para disfrutar Cartagena.</p>
+      <ul data-reveal="up" data-delay="160" aria-label="Puntos de referencia cercanos" style="list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(244,237,225,.3)">
+        <sc-for list="{{ locItems }}" as="li" hint-placeholder-count="4">
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:14px 12px 14px 0;border-bottom:1px solid rgba(244,237,225,.3)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7D6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font:500 13px/1.35 'Archivo',sans-serif">{{ li.name }}</span>
+              <sc-if value="{{ li.hasDist }}" hint-placeholder-val="{{ false }}">
+                <span style="font:400 12px/1.3 'Archivo',sans-serif;color:#E7D6BC">{{ li.dist }}</span>
+              </sc-if>
+            </span>
+          </li>
+        </sc-for>
+      </ul>
+      <sc-if value="{{ hasMap }}" hint-placeholder-val="{{ false }}">
+        <a data-reveal="up" data-delay="200" href="{{ mapHref }}" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border:1px solid rgba(244,237,225,.75);color:#F4EDE1;text-decoration:none;font:600 13px/1 'Archivo',sans-serif;letter-spacing:.02em;border-radius:1px;transition:background-color .3s ease, color .3s ease" style-hover="background-color:#F4EDE1;color:#14403E">Explorar ubicación <span aria-hidden="true">↗</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">(se abre en una pestaña nueva)</span></a>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="entrega" data-screen-label="06 Entrega" style="scroll-margin-top: 64px; padding: clamp(64px,7vw,104px) 0; min-height: {{ secMinH }}; display: flex; flex-direction: column; justify-content: center; background: #F4EDE1; color: #14403E; height: {{ mob.entregaH }}">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+    <div style="display:flex;flex-wrap:wrap;gap:12px 56px;align-items:flex-end;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:40px;height:1px;background:#C4744C"></span>ENTREGA</p>
+        <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em">Empieza a planear <em style="font-style:italic">tu próximo capítulo.</em></h2>
+      </div>
+      <p data-reveal="up" data-delay="100" style="flex:0 1 340px;margin:0;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E">Urbis EU contempla la entrega de los apartamentos en obra gris para noviembre de 2028.</p>
+    </div>
+
+    <div data-reveal="mask" style="position:relative;aspect-ratio:{{ entregaRatio }};overflow:hidden;background:#E7D6BC">
+      <div data-parallax="0.05" style="position:absolute;inset:-6% 0">
+        <sc-for list="{{ entSlides }}" as="es" hint-placeholder-count="1">
+          <div role="img" aria-label="{{ es.alt }}" aria-hidden="{{ es.hidden }}" style="position:absolute;inset:0;opacity:{{ es.op }};transform:{{ es.scale }};transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform 1.2s cubic-bezier(.2,.7,.2,1)">
+            <image-slot id="{{ es.id }}" shape="rect" src="{{ es.src }}" placeholder="Render interior · Urbis EU"></image-slot>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:6px">
+        <span aria-live="polite" style="min-height:44px;display:flex;align-items:center;padding:0 12px;background:rgba(244,237,225,.92);font:600 11px/1 'Archivo',sans-serif;letter-spacing:.14em;color:#14403E">{{ entCounter }}</span>
+        <button type="button" onClick="{{ entPrev }}" aria-label="Imagen anterior" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#F4EDE1;border:0;border-radius:1px;cursor:pointer;color:#14403E;transition:background-color .2s ease" style-hover="background-color:#E7D6BC"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button>
+        <button type="button" onClick="{{ entNext }}" aria-label="Imagen siguiente" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#F4EDE1;border:0;border-radius:1px;cursor:pointer;color:#14403E;transition:background-color .2s ease" style-hover="background-color:#E7D6BC"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+      </div>
+      <span style="position:absolute;left:12px;bottom:12px;padding:6px 10px;background:rgba(244,237,225,.92);color:#14403E;font:500 11px/1.3 'Archivo',sans-serif;pointer-events:none">Imagen ilustrativa con acabados y mobiliario de referencia. La entrega es en obra gris.</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:{{ cols.entregaRow }};gap:0 clamp(20px,3vw,48px);align-items:end">
+      <div data-reveal="up" data-delay="60" style="padding:18px 0;border-top:1px solid #14403E;display:flex;flex-direction:column;gap:8px">
+        <span style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase">Modalidad</span>
+        <span style="font:300 clamp(26px,2.4vw,36px)/1 'Cormorant Garamond',serif">Entrega en obra gris</span>
+      </div>
+      <div data-reveal="up" data-delay="120" style="padding:18px 0;border-top:1px solid #14403E;display:flex;flex-direction:column;gap:8px">
+        <span style="font:600 10px/1.4 'Archivo',sans-serif;letter-spacing:.2em;text-transform:uppercase">Fecha prevista</span>
+        <span style="font:300 clamp(26px,2.4vw,36px)/1 'Cormorant Garamond',serif">Noviembre de 2028</span>
+      </div>
+      <div data-reveal="up" data-delay="180" style="padding:18px 0;border-top:1px solid #14403E;display:flex;align-items:flex-end;justify-content:{{ entregaLinkJustify }};min-height:100%">
+        <a href="#contacto" onClick="{{ go }}" data-topic="Alcance de la entrega en obra gris" data-track="inquiry_cta_click" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px/1 'Archivo',sans-serif;color:#14403E;text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left 32px;background-size:100% 1px;transition:gap .3s ease" style-hover="gap:16px">Pregunta qué incluye la entrega<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zonas-comunes" data-screen-label="07 Zonas comunes" style="scroll-margin-top: 64px; padding: clamp(64px,7vw,104px) 0; min-height: {{ secMinH }}; display: flex; flex-direction: column; justify-content: center; background: #F4EDE1; color: #14403E; overflow: hidden; height: {{ mob.zonasH }}">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(28px,3vw,44px)">
+    <div style="display:flex;flex-wrap:wrap;gap:12px 56px;align-items:flex-end;justify-content:space-between;padding-top:clamp(40px,5vw,64px);border-top:1px solid rgba(20,64,62,.22)">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:40px;height:1px;background:#C4744C"></span>ZONAS COMUNES</p>
+        <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em;max-width:14em;text-wrap:balance">Tu hogar continúa <em style="font-style:italic">más allá de tu puerta.</em></h2>
+      </div>
+      <p data-reveal="up" data-delay="100" style="margin:0;flex:0 1 320px;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E">Espacios para desconectarte, compartir y disfrutar cada día</p>
+    </div>
+
+    <div data-reveal="fade" role="region" aria-roledescription="carrusel" aria-label="Galería de zonas comunes" onKeyDown="{{ galKeys }}" style="display:flex;flex-direction:column;gap:clamp(18px,2vw,28px)">
+      <div onPointerDown="{{ galDown }}" onPointerUp="{{ galUp }}" style="position:relative;width:{{ galTrackW }};touch-action:pan-y">
+        <div style="display:flex;gap:{{ galGap }};transform:translateX({{ galX }});transition:transform .7s cubic-bezier(.2,.7,.2,1);will-change:transform">
+          <sc-for list="{{ gslides }}" as="g" hint-placeholder-count="2">
+            <div role="group" aria-roledescription="diapositiva" aria-label="{{ g.aria }}" aria-hidden="{{ g.hidden }}" style="position:relative;flex:0 0 100%;aspect-ratio:{{ galRatio }};overflow:hidden;background:#E7D6BC;opacity:{{ g.op }};transition:opacity .6s ease">
+              <div role="img" aria-label="{{ g.alt }}" style="position:absolute;inset:0;transform:{{ g.scale }};transition:transform 1.1s cubic-bezier(.2,.7,.2,1)">
+                <image-slot id="{{ g.id }}" shape="rect" src="{{ g.src }}" placeholder="{{ g.ph }}"></image-slot>
+              </div>
+              <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,64,62,0) 55%,rgba(20,64,62,.78) 100%);opacity:{{ g.capOp }};transition:opacity .5s ease"></div>
+              <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(18px,2.6vw,36px);display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#F4EDE1;pointer-events:none;opacity:{{ g.capOp }};transform:{{ g.capShift }};transition:opacity .5s ease .15s, transform .5s ease .15s">
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.18em">{{ g.n }}</span>
+                  <span style="font:300 clamp(28px,3vw,46px)/1 'Cormorant Garamond',serif">{{ g.name }}</span>
+                  <span style="font:400 clamp(13px,1vw,15px)/1.45 'Archivo',sans-serif">{{ g.sub }}</span>
+                </div>
+              </div>
+              <button type="button" onClick="{{ g.click }}" tabindex="{{ g.tab }}" aria-label="{{ g.btnLabel }}" style="position:absolute;inset:0;width:100%;height:100%;padding:0;background:transparent;border:0;cursor:{{ g.cursor }}"></button>
+              <span aria-hidden="true" style="position:absolute;top:clamp(14px,1.6vw,22px);right:clamp(14px,1.6vw,22px);width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#F4EDE1;color:#14403E;border-radius:1px;pointer-events:none;opacity:{{ g.capOp }};transition:opacity .4s ease"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:{{ galNavCols }};gap:16px 32px;align-items:center;width:{{ galTrackW }}">
+        <p aria-live="polite" style="margin:0;display:flex;align-items:baseline;gap:12px;white-space:nowrap"><span style="font:300 32px/1 'Cormorant Garamond',serif">{{ gcur.n }}</span><span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.16em;color:#41605E">/ 06</span></p>
+        <div role="group" aria-label="Elegir zona común" style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none">
+          <sc-for list="{{ gslides }}" as="g" hint-placeholder-count="6">
+            <button type="button" onClick="{{ g.select }}" aria-current="{{ g.current }}" aria-label="{{ g.name }}" style="flex:{{ galDotFlex }};position:relative;min-width:44px;min-height:48px;display:flex;align-items:flex-end;padding:0 0 12px;background:transparent;border:0;cursor:pointer;color:#14403E;text-align:left">
+              <span style="font:{{ g.navFont }};opacity:{{ g.navOp }};white-space:nowrap;transition:opacity .3s ease">{{ g.navLabel }}</span>
+              <span aria-hidden="true" style="position:absolute;left:0;right:4px;bottom:0;height:1px;background:rgba(20,64,62,.25)"></span>
+              <span aria-hidden="true" style="position:absolute;left:0;right:4px;bottom:0;height:2px;background:#C4744C;transform-origin:left;transform:{{ g.bar }};transition:transform .5s cubic-bezier(.2,.7,.2,1)"></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button type="button" onClick="{{ galPrev }}" aria-label="Zona común anterior" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(20,64,62,.35);border-radius:1px;cursor:pointer;color:#14403E;transition:background-color .25s ease, color .25s ease" style-hover="background-color:#14403E;color:#F4EDE1"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button>
+          <button type="button" onClick="{{ galNext }}" aria-label="Zona común siguiente" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(20,64,62,.35);border-radius:1px;cursor:pointer;color:#14403E;transition:background-color .25s ease, color .25s ease" style-hover="background-color:#14403E;color:#F4EDE1"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+        </div>
+      </div>
+    </div>
+    <p style="margin:0;font:400 12px/1.6 'Archivo',sans-serif;color:#41605E">Zonas comunes reportadas para el proyecto. Imágenes de carácter ilustrativo.</p>
+  </div>
+</section>
+
+
+
+<section id="dudas" data-screen-label="08 Antes de decidir" style="scroll-margin-top:64px;padding:clamp(64px,7vw,104px) 0;min-height:{{ secMinH }};display:flex;flex-direction:column;justify-content:center;background:#E7D6BC;color:#14403E">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:{{ cols.antes }};gap:clamp(32px,5vw,96px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:20px;align-self:start">
+        <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:16px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:40px;height:1px;background:#C4744C"></span>ANTES DE DECIDIR</p>
+        <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em">Compra con <em style="font-style:italic">claridad.</em></h2>
+        <p data-reveal="up" data-delay="110" style="margin:0;font:400 15px/1.6 'Archivo',sans-serif;white-space:{{ oneLine }}">Conoce los detalles que debes revisar para elegir tu próximo hogar con confianza.</p>
+        <div data-reveal="up" data-delay="150" aria-hidden="true" style="display:flex;gap:6px;margin-top:8px">
+          <span style="width:40px;height:3px;background:#14403E"></span>
+          <span style="width:20px;height:3px;background:#C4744C"></span>
+          <span style="width:10px;height:3px;background:#E66A45"></span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:{{ cols.antesGrid }};gap:0 clamp(20px,3vw,48px);align-items:stretch">
+        <sc-for list="{{ antes }}" as="m" hint-placeholder-count="4">
+          <div data-reveal="up" data-delay="{{ m.delay }}" style="display:flex;flex-direction:column;height:100%;border-top:1px solid #14403E;border-bottom:{{ m.bb }}">
+            <h3 style="margin:0;flex:1;display:flex">
+              <button type="button" id="{{ m.btnId }}" onClick="{{ m.toggle }}" aria-expanded="{{ m.expanded }}" aria-controls="{{ m.panelId }}" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:18px;padding:24px 8px 24px 0;background:transparent;border:0;text-align:left;cursor:pointer;color:#14403E;transition:background-color .3s ease, padding .3s ease" style-hover="background-color:rgba(244,237,225,.5);padding-left:8px">
+                <span style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <span aria-hidden="true" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%;background:{{ m.iconBg }};color:{{ m.iconFg }};transition:background-color .3s ease, color .3s ease">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ m.icon }}"></path></svg>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true" style="transform:{{ m.rot }};transition:transform .35s cubic-bezier(.2,.7,.2,1)"><path d="M5 12h14M12 5v14"></path></svg>
+                </span>
+                <span style="font:600 10px/1 'Archivo',sans-serif;letter-spacing:.18em">{{ m.n }}</span>
+                <span style="margin-top:-8px;min-height:{{ antesTitleH }};display:flex;align-items:flex-start;font:400 clamp(22px,1.9vw,27px)/1.1 'Cormorant Garamond',serif">{{ m.title }}</span>
+                <span style="min-height:{{ antesDescH }};font:400 14px/1.55 'Archivo',sans-serif;color:#14403E">{{ m.desc }}</span>
+              </button>
+            </h3>
+            <div id="{{ m.panelId }}" role="region" aria-labelledby="{{ m.btnId }}" style="display:grid;grid-template-rows:{{ m.rows }};transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1)">
+              <div style="overflow:hidden;min-height:0">
+                <div style="padding:0 8px 24px 0;display:flex;flex-direction:column;gap:14px;opacity:{{ m.op }};transition:opacity .35s ease">
+                  <p style="margin:0;font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">Pregunta al equipo comercial</p>
+                  <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
+                    <sc-for list="{{ m.qs }}" as="q" hint-placeholder-count="2">
+                      <li style="display:flex;gap:10px;align-items:flex-start;font:400 14px/1.5 'Archivo',sans-serif">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C4744C" stroke-width="2" aria-hidden="true" style="flex:none;margin-top:4px"><path d="M5 12l5 5 9-10"></path></svg>{{ q }}
+                      </li>
+                    </sc-for>
+                  </ul>
+                  <a href="#contacto" onClick="{{ go }}" data-topic="{{ m.topic }}" data-track="inquiry_cta_click" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#14403E;text-decoration:none;font:600 13px/1 'Archivo',sans-serif;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left 31px;background-size:100% 1px;transition:gap .3s ease" style-hover="gap:16px">Hacer esta consulta<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section id="preguntas-frecuentes" data-screen-label="09 Preguntas frecuentes" style="scroll-margin-top:64px;padding:clamp(64px,7vw,104px) 0;background:#FFFFFF;color:#14403E">
+  <div style="width:100%;max-width:880px;margin:0 auto;padding:0 clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+      <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:14px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:28px;height:1px;background:#C4744C"></span>RESOLVEMOS TUS DUDAS<span style="width:28px;height:1px;background:#C4744C"></span></p>
+      <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em">Preguntas frecuentes</h2>
+      <p data-reveal="up" data-delay="100" style="margin:0;max-width:30em;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E">Encuentra respuestas claras sobre tu próximo hogar en Urbis EU.</p>
+    </div>
+
+    <div data-reveal="up" data-delay="140" style="border-top:1px solid #E7D6BC">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="10">
+        <div style="border-bottom:1px solid #E7D6BC">
+          <h3 style="margin:0">
+            <button type="button" id="{{ f.btnId }}" onClick="{{ f.toggle }}" aria-expanded="{{ f.expanded }}" aria-controls="{{ f.panelId }}" style="width:100%;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px clamp(4px,1.4vw,16px);background:{{ f.rowBg }};border:0;text-align:left;cursor:pointer;color:#14403E;transition:background-color .3s ease" style-hover="background-color:#FBF7F0">
+              <span style="flex:1;min-width:0;font:500 clamp(15px,1.2vw,17px)/1.45 'Archivo',sans-serif">{{ f.q }}</span>
+              <span aria-hidden="true" style="width:32px;height:32px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%;background:{{ f.iconBg }};color:{{ f.iconFg }};transition:background-color .3s ease, color .3s ease">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="{{ f.icon }}"></path></svg>
+              </span>
+            </button>
+          </h3>
+          <div id="{{ f.panelId }}" role="region" aria-labelledby="{{ f.btnId }}" style="display:grid;grid-template-rows:{{ f.rows }};transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1)">
+            <div style="overflow:hidden;min-height:0">
+              <p style="margin:0;padding:0 clamp(52px,6vw,72px) 22px clamp(4px,1.4vw,16px);font:400 15px/1.65 'Archivo',sans-serif;color:#2B3B3A;opacity:{{ f.op }};transition:opacity .35s ease;text-wrap:pretty">{{ f.a }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div data-reveal="up" style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+      
+      
+    </div>
+  </div>
+</section>
+
+<section id="contacto" ref="{{ contactRef }}" data-screen-label="10 Solicita información" style="scroll-margin-top:64px;padding:clamp(64px,7vw,104px) 0;background:#F4EDE1;color:#14403E">
+  <div style="width:100%;max-width:660px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(28px,3vw,40px)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+      <p data-reveal="up" style="margin:0;display:flex;align-items:center;gap:14px;font:600 11px/1 'Archivo',sans-serif;letter-spacing:.28em"><span style="width:28px;height:1px;background:#C4744C"></span>DA EL SIGUIENTE PASO<span style="width:28px;height:1px;background:#C4744C"></span></p>
+      <h2 data-reveal="up" data-delay="60" style="margin:0;font:300 clamp(32px,3.4vw,52px)/1.02 'Cormorant Garamond',serif;letter-spacing:-.015em">Solicita información</h2>
+      <p data-reveal="up" data-delay="100" style="margin:0;max-width:32em;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E;text-wrap:pretty">Conoce más sobre Urbis EU, sus tipologías y las condiciones de compra. Nuestro equipo puede ayudarte a resolver tus dudas.</p>
+    </div>
+
+    <div data-reveal="up" data-delay="140" style="background:#FFFFFF;border:1px solid #E7D6BC;border-radius:2px;padding:clamp(22px,3.4vw,40px);display:flex;flex-direction:column;gap:28px">
+      <sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+        <div role="status" tabindex="-1" ref="{{ successRef }}" style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding:12px 0;animation:urbRise .45s ease">
+          <span style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+          <h3 style="margin:0;font:400 32px/1.05 'Cormorant Garamond',serif">Recibimos tu solicitud, {{ firstName }}.</h3>
+          <p style="margin:0;max-width:28em;font:400 15px/1.6 'Archivo',sans-serif;color:#41605E">El equipo comercial de Urbis EU se comunicará contigo para ayudarte con {{ interestsLower }}.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+            <ol aria-label="Progreso del formulario" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+              <sc-for list="{{ lfSteps }}" as="st" hint-placeholder-count="3">
+                <li aria-current="{{ st.current }}" style="display:flex;flex-direction:column;gap:10px">
+                  <span style="display:block;height:2px;background:{{ st.bar }};transition:background-color .4s ease"></span>
+                  <span style="display:flex;align-items:baseline;gap:8px;font:{{ st.font }};color:{{ st.color }};transition:color .3s ease"><span style="font:600 11px/1 'Archivo',sans-serif;letter-spacing:.1em">{{ st.n }}</span>{{ st.label }}</span>
+                </li>
+              </sc-for>
+            </ol>
+          </sc-if>
+          <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;font:600 12px/1 'Archivo',sans-serif"><span>{{ lfStepLabel }}</span><span style="font-weight:500;color:#41605E">{{ lfStepName }}</span></div>
+              <div role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="{{ lfStep }}" aria-label="Progreso del formulario" style="height:3px;background:#E7D6BC"><div style="height:100%;width:{{ lfPct }};background:#14403E;transition:width .4s cubic-bezier(.2,.7,.2,1)"></div></div>
+            </div>
+          </sc-if>
+
+          <form novalidate="" onSubmit="{{ lfSubmit }}" aria-labelledby="lf-step-title" style="display:flex;flex-direction:column;gap:22px">
+            <div ref="{{ stepRef }}" style="display:flex;flex-direction:column;gap:22px">
+              <h3 id="lf-step-title" style="margin:0;font:400 clamp(24px,2.2vw,30px)/1.1 'Cormorant Garamond',serif">{{ lfTitle }}</h3>
+
+              <sc-if value="{{ lfIs1 }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="lf-name" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.04em">Nombre completo</label>
+              <input id="lf-name" name="name" ref="{{ nameRef }}" autocomplete="name" placeholder="Escribe tu nombre y apellido" value="{{ form.name }}" onChange="{{ onField }}" aria-invalid="{{ inv.name }}" aria-describedby="lf-name-e" style="width:100%;min-height:52px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ fb.name }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease;scroll-margin-bottom:120px" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+              <span id="lf-name-e" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.name }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="lf-wa" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.04em">Número de WhatsApp</label>
+              <input id="lf-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="300 000 0000" value="{{ form.wa }}" onChange="{{ onField }}" aria-invalid="{{ inv.wa }}" aria-describedby="lf-wa-e" style="width:100%;min-height:52px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ fb.wa }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease;scroll-margin-bottom:120px" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+              <span id="lf-wa-e" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.wa }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label for="lf-email" style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.04em">Correo electrónico <span style="font-weight:400;color:#41605E">(opcional)</span></label>
+              <input id="lf-email" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" value="{{ form.email }}" onChange="{{ onField }}" aria-invalid="{{ inv.email }}" aria-describedby="lf-email-e" style="width:100%;min-height:52px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ fb.email }};border-radius:2px;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease;scroll-margin-bottom:120px" style-focus="border-color:#14403E;box-shadow:0 0 0 3px rgba(20,64,62,.12)">
+              <span id="lf-email-e" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.email }}</span>
+            </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ lfIs2 }}" hint-placeholder-val="{{ false }}">
+                <fieldset aria-describedby="lf-interests-e" style="margin:0;padding:0;border:0;display:flex;flex-direction:column;gap:10px">
+                  <legend style="padding:0 0 12px;font:400 14px/1.5 'Archivo',sans-serif;color:#41605E">Elige una o varias opciones.</legend>
+                  <sc-for list="{{ lfOptions }}" as="op" hint-placeholder-count="5">
+                    <label style="display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 16px;background:{{ op.bg }};border:1px solid {{ op.border }};border-radius:2px;cursor:pointer;transition:background-color .25s ease, border-color .25s ease" style-hover="border-color:#14403E">
+                      <input type="checkbox" checked="{{ op.checked }}" onChange="{{ op.toggle }}" style="position:absolute;opacity:0;width:1px;height:1px">
+                      <span aria-hidden="true" style="width:22px;height:22px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:2px;background:{{ op.boxBg }};transition:background-color .2s ease"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="2.4" style="opacity:{{ op.checkOp }}"><path d="M5 12l5 5 9-10"></path></svg></span>
+                      <span style="flex:1;font:{{ op.font }};color:#14403E">{{ op.label }}</span>
+                    </label>
+                  </sc-for>
+                  <span id="lf-interests-e" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.interests }}</span>
+                </fieldset>
+              </sc-if>
+
+              <sc-if value="{{ lfIs3 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:20px">
+                  <dl style="margin:0;border-top:1px solid #E7D6BC">
+                    <sc-for list="{{ lfSummary }}" as="sm" hint-placeholder-count="4">
+                      <div style="display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid #E7D6BC">
+                        <dt style="font:600 12px/1.3 'Archivo',sans-serif;letter-spacing:.04em;color:#41605E">{{ sm.k }}</dt>
+                        <dd style="margin:0;font:500 15px/1.45 'Archivo',sans-serif;overflow-wrap:anywhere">{{ sm.v }}</dd>
+                        <button type="button" onClick="{{ sm.edit }}" aria-label="{{ sm.editLabel }}" style="min-height:36px;padding:0 4px;background:transparent;border:0;cursor:pointer;font:600 12px/1 'Archivo',sans-serif;color:#14403E;text-decoration:underline;text-underline-offset:4px">Editar</button>
+                      </div>
+                    </sc-for>
+                  </dl>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+                      <input type="checkbox" name="consent" checked="{{ form.consent }}" onChange="{{ onField }}" aria-invalid="{{ inv.consent }}" aria-describedby="lf-consent-e" style="width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:#14403E">
+                      <span style="font:400 13px/1.55 'Archivo',sans-serif">Autorizo el tratamiento de mis datos personales para que el equipo comercial de Urbis EU me contacte con información sobre el proyecto, conforme a la Ley 1581 de 2012 y a la <sc-if value="{{ hasPrivacy }}" hint-placeholder-val="{{ false }}"><a href="{{ privacyHref }}" target="_blank" rel="noopener" style="color:#14403E">política de tratamiento de datos</a></sc-if><sc-if value="{{ noPrivacy }}" hint-placeholder-val="{{ true }}">política de tratamiento de datos del proyecto</sc-if>.</span>
+                    </label>
+                    <span id="lf-consent-e" aria-live="polite" style="font:500 13px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ errors.consent }}</span>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+
+            <sc-if value="{{ hasSubmitMsg }}" hint-placeholder-val="{{ false }}">
+              <div role="alert" style="padding:14px 16px;border:1px solid #8C3B1E;background:#FBEFE6;font:500 14px/1.5 'Archivo',sans-serif;color:#6E2C14">{{ submitMsg }}</div>
+            </sc-if>
+
+            <div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+              <sc-if value="{{ lfNotLast }}" hint-placeholder-val="{{ true }}">
+                <button type="submit" style="width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 24px;background:#14403E;color:#F4EDE1;border:0;border-radius:2px;font:600 15px/1 'Archivo',sans-serif;cursor:pointer;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#0B2524;gap:18px">Continuar<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+              </sc-if>
+              <sc-if value="{{ lfIs3 }}" hint-placeholder-val="{{ false }}">
+                <button type="submit" disabled="{{ isLoading }}" aria-busy="{{ isLoadingStr }}" style="width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 24px;background:#14403E;color:#F4EDE1;border:0;border-radius:2px;font:600 15px/1 'Archivo',sans-serif;cursor:pointer;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#0B2524;gap:18px"><span>{{ submitLabel }}</span></button>
+              </sc-if>
+              <sc-if value="{{ lfHasBack }}" hint-placeholder-val="{{ false }}">
+                <button type="button" onClick="{{ lfBack }}" style="width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;border:1px solid #E7D6BC;border-radius:2px;font:600 14px/1 'Archivo',sans-serif;color:#14403E;cursor:pointer;transition:background-color .25s ease, border-color .25s ease" style-hover="background-color:#FBF7F0;border-color:#C4744C"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg>Volver</button>
+              </sc-if>
+            </div>
+          </form>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ hasWa }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0;text-align:center;font:400 14px/1.5 'Archivo',sans-serif;color:#41605E">¿Prefieres escribirnos? <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ trackWa }}" style="color:#14403E;font-weight:600">Escríbenos por WhatsApp</a></p>
+    </sc-if>
+  </div>
+</section>
+
+</main>
+
+<footer data-screen-label="11 Footer" style="background:#14403E;color:#F4EDE1;padding:clamp(56px,6vw,88px) 0 {{ footerPad }}">
+  <div style="width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:grid;grid-template-columns:{{ cols.footer }};gap:clamp(40px,5vw,88px);align-items:start">
+      
+
+      <div style="display: flex; flex-direction: column; gap: 28px; min-width: 0; width: {{ mob.footW }}; height: {{ mob.footH }}; justify-content: center">
+        <img src="assets/urbis-logo-cal.png" alt="Urbis EU Cartagena" style="height:clamp(96px,9vw,128px);width:auto;align-self:flex-start">
+        <p style="margin:0;max-width:16em;font:300 clamp(28px,2.6vw,38px)/1.08 'Cormorant Garamond',serif">Tu próximo hogar comienza con <br><em style="font-style: italic;">una buena decisión.</em></p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid rgba(244,237,225,.2)">
+          
+          <sc-if value="{{ hasWa }}" hint-placeholder-val="{{ false }}">
+            <li style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(244,237,225,.2)"><span aria-hidden="true" style="width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(244,237,225,.35);border-radius:50%"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"></path></svg></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#E7D6BC">Contacto comercial</span><a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ trackWa }}" style="font:400 14px/1.45 'Archivo',sans-serif;color:#F4EDE1;text-decoration:none" style-hover="text-decoration:underline">{{ waDisplay }}</a></span></li>
+          </sc-if>
+          <sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ false }}">
+            <li style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(244,237,225,.2)"><span aria-hidden="true" style="width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(244,237,225,.35);border-radius:50%"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="m22 6-10 7L2 6"></path></svg></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#E7D6BC">Correo electrónico</span><a href="{{ mailHref }}" style="font:400 14px/1.45 'Archivo',sans-serif;color:#F4EDE1;text-decoration:none;overflow-wrap:anywhere" style-hover="text-decoration:underline">{{ contactEmail }}</a></span></li>
+          </sc-if>
+        </ul>
+        <a href="#contacto" onClick="{{ go }}" data-focus="1" data-track="inquiry_cta_click" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 24px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:2px;transition:background-color .3s ease, gap .3s ease" style-hover="background-color:#EC8361;color:#0B2524;gap:18px">Solicitar información<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></a>
+      </div><div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <h2 style="margin:0;font:400 clamp(26px,2.4vw,34px)/1.05 'Cormorant Garamond',serif">Encuéntranos en Cartagena</h2>
+          <p style="margin:0;font:400 14px/1.55 'Archivo',sans-serif;color:#E7D6BC">Conoce la ubicación de Urbis EU en Torices.</p>
+        </div>
+        <div style="position:relative;aspect-ratio:{{ mapRatio }};border-radius:4px;overflow:hidden;border:1px solid rgba(244,237,225,.2);background:#0F3533">
+          <sc-if value="{{ hasCoords }}" hint-placeholder-val="{{ false }}">
+            <iframe title="Mapa de la ubicación de Urbis EU en Torices, Cartagena" src="{{ mapEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.75)"></iframe>
+          </sc-if>
+          <sc-if value="{{ noCoords }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;background-image:linear-gradient(rgba(244,237,225,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(244,237,225,.06) 1px,transparent 1px);background-size:40px 40px">
+              <span aria-hidden="true" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid #F4EDE1;border-radius:50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg></span>
+              <p style="margin:0;font:400 24px/1.1 'Cormorant Garamond',serif">Urbis EU · Torices</p>
+              <p style="margin:0;max-width:26em;font:400 13px/1.55 'Archivo',sans-serif;color:#E7D6BC">El mapa con la ubicación exacta del proyecto se publicará cuando se confirme la dirección oficial.</p>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ hasDirections }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ directionsHref }}" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#F4EDE1;text-decoration:none;font:600 13px/1 'Archivo',sans-serif;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left 31px;background-size:100% 1px">Cómo llegar <span aria-hidden="true">↗</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">(se abre en una pestaña nueva)</span></a>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding:20px 0 28px;border-top:1px solid rgba(244,237,225,.2)">
+      <p style="margin:0;font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">© {{ year }} Urbis EU. Todos los derechos reservados.</p>
+      <nav aria-label="Enlaces legales" style="display:flex;flex-wrap:wrap;gap:8px 24px">
+        <sc-for list="{{ legalLinks }}" as="lg" hint-placeholder-count="2">
+          <sc-if value="{{ lg.hasUrl }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ lg.url }}" target="_blank" rel="noopener" style="font:500 12px/1.5 'Archivo',sans-serif;color:#F4EDE1;text-decoration:none" style-hover="text-decoration:underline">{{ lg.label }}</a>
+          </sc-if>
+        </sc-for>
+        <sc-if value="{{ legalPending }}" hint-placeholder-val="{{ true }}">
+          <span style="font:400 12px/1.5 'Archivo',sans-serif;color:#E7D6BC">Política de tratamiento de datos disponible a solicitud del equipo comercial.</span>
+        </sc-if>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:8px;animation:urbRise .3s ease">
+    <a href="#contacto" onClick="{{ go }}" data-focus="1" data-track="cta_primary_click" style="flex:1;display:flex;align-items:center;justify-content:center;min-height:52px;background:#E66A45;color:#0B2524;text-decoration:none;font:600 15px/1 'Archivo',sans-serif;border-radius:1px">Solicita información</a>
+    <button type="button" onClick="{{ dismissSticky }}" aria-label="Ocultar botón de solicitud" style="width:52px;min-height:52px;display:flex;align-items:center;justify-content:center;background:#14403E;border:1px solid rgba(244,237,225,.3);border-radius:1px;cursor:pointer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+  </div>
+</sc-if>
+
+<sc-if value="{{ planOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closePlan }}" style="position:fixed;inset:0;z-index:85;background:rgba(11,37,36,.9);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px);animation:urbFade .25s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="plan-title" onClick="{{ stop }}" onKeyDown="{{ planKeys }}" style="width:min(1280px,100%);display:flex;flex-direction:column;gap:14px;color:#F4EDE1">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+          <h2 id="plan-title" style="margin:0;font:300 clamp(26px,3vw,38px)/1 'Cormorant Garamond',serif">{{ tp.planCaption }}</h2>
+          <span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E7D6BC">{{ tp.planCounter }}</span>
+        </div>
+        <div style="display:flex;gap:8px;flex:none">
+          <sc-if value="{{ tp.multi }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;gap:8px"><button type="button" onClick="{{ planPrev }}" aria-label="Estado anterior del plano" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button><button type="button" onClick="{{ planNext }}" aria-label="Estado siguiente del plano" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button></div>
+          </sc-if>
+          <button type="button" ref="{{ planClose }}" onClick="{{ closePlan }}" aria-label="Cerrar plano" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+      </div>
+      <div role="img" aria-label="{{ tp.planAlt }}" style="width:100%;height:calc(100vh - 160px);background-color:#FFFFFF;background-image:{{ tp.fullBg }};background-size:contain;background-position:center;background-repeat:no-repeat;border:1px solid rgba(244,237,225,.2)"></div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ qOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeQuote }}" style="position:fixed;inset:0;z-index:85;background:rgba(11,37,36,.55);display:flex;align-items:center;justify-content:center;padding:16px;animation:urbFade .25s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="q-title" onClick="{{ stop }}" onKeyDown="{{ trapTab }}" style="width:min(480px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#F4EDE1;color:#14403E;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:22px;animation:urbRise .35s cubic-bezier(.2,.7,.2,1)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <p style="margin:0;font:600 10px/1 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase">Condiciones de compra</p>
+          <h2 id="q-title" style="margin:0;font:300 32px/1.05 'Cormorant Garamond',serif">Consultar condiciones</h2>
+        </div>
+        <button type="button" ref="{{ qClose }}" onClick="{{ closeQuote }}" aria-label="Cerrar" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(20,64,62,.3);border-radius:1px;cursor:pointer;color:#14403E;transition:background-color .2s ease" style-hover="background-color:#E7D6BC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <sc-if value="{{ qSuccess }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;flex-direction:column;gap:14px;padding:8px 0 4px">
+          <span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #14403E;border-radius:50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" stroke-width="1.5" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+          <p style="margin:0;font:400 15px/1.6 'Archivo',sans-serif">Recibimos tu solicitud. El equipo comercial de Urbis EU te contactará por WhatsApp para resolver tu consulta sobre {{ qTopicLower }}.</p>
+          <button type="button" onClick="{{ closeQuote }}" style="align-self:flex-start;min-height:48px;padding:0 20px;background:#14403E;color:#F4EDE1;border:0;border-radius:1px;cursor:pointer;font:600 14px/1 'Archivo',sans-serif">Cerrar</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ qShowForm }}" hint-placeholder-val="{{ true }}">
+        <form novalidate="" onSubmit="{{ submitQ }}" style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label for="q-name" style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">Nombre *</label>
+              <input id="q-name" name="name" ref="{{ qName }}" autocomplete="name" value="{{ qform.name }}" onChange="{{ onQField }}" aria-invalid="{{ qinv.name }}" aria-describedby="q-name-e" style="width:100%;min-height:46px;padding:8px 0;background:transparent;border:0;border-bottom:1px solid {{ qfb.name }};border-radius:0;font:400 17px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease" style-focus="border-bottom-color:#14403E;box-shadow:0 1px 0 0 #14403E">
+              <span id="q-name-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ qerr.name }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label for="q-wa" style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">WhatsApp *</label>
+              <input id="q-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="300 000 0000" value="{{ qform.wa }}" onChange="{{ onQField }}" aria-invalid="{{ qinv.wa }}" aria-describedby="q-wa-e" style="width:100%;min-height:46px;padding:8px 0;background:transparent;border:0;border-bottom:1px solid {{ qfb.wa }};border-radius:0;font:400 17px 'Archivo',sans-serif;color:#14403E;outline:none;transition:border-color .25s ease, box-shadow .25s ease" style-focus="border-bottom-color:#14403E;box-shadow:0 1px 0 0 #14403E">
+              <span id="q-wa-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ qerr.wa }}</span>
+            </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label for="q-topic" style="font:600 10px/1.3 'Archivo',sans-serif;letter-spacing:.18em;text-transform:uppercase">Tema de consulta *</label>
+            <select id="q-topic" name="topic" value="{{ qform.topic }}" onChange="{{ onQField }}" aria-invalid="{{ qinv.topic }}" aria-describedby="q-topic-e" style="width:100%;min-height:46px;padding:8px 0;background:transparent;border:0;border-bottom:1px solid {{ qfb.topic }};border-radius:0;font:400 16px 'Archivo',sans-serif;color:#14403E;outline:none;cursor:pointer" style-focus="border-bottom-color:#14403E;box-shadow:0 1px 0 0 #14403E">
+              <option value="">Elige un tema</option>
+              <sc-for list="{{ qTopics }}" as="qt" hint-placeholder-count="4">
+                <option value="{{ qt }}">{{ qt }}</option>
+              </sc-for>
+            </select>
+            <span id="q-topic-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ qerr.topic }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer">
+              <input type="checkbox" name="consent" checked="{{ qform.consent }}" onChange="{{ onQField }}" aria-invalid="{{ qinv.consent }}" aria-describedby="q-consent-e" style="width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:#14403E">
+              <span style="font:400 12px/1.5 'Archivo',sans-serif">Autorizo el tratamiento de mis datos personales para ser contactado por el equipo comercial de Urbis EU, conforme a la Ley 1581 de 2012. *</span>
+            </label>
+            <span id="q-consent-e" aria-live="polite" style="font:500 12px/1.4 'Archivo',sans-serif;color:#8C3B1E">{{ qerr.consent }}</span>
+          </div>
+          <sc-if value="{{ qHasMsg }}" hint-placeholder-val="{{ false }}">
+            <div role="alert" style="padding:12px 14px;border:1px solid #8C3B1E;background:#FBEFE6;font:500 13px/1.5 'Archivo',sans-serif;color:#6E2C14">{{ qMsg }}</div>
+          </sc-if>
+          <button type="submit" disabled="{{ qLoading }}" aria-busy="{{ qLoadingStr }}" style="min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px;background:#E66A45;color:#0B2524;border:0;border-radius:1px;font:600 15px/1 'Archivo',sans-serif;cursor:pointer;transition:background-color .3s ease" style-hover="background-color:#EC8361">
+            <span>{{ qSubmitLabel }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg>
+          </button>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ lightOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLight }}" style="position:fixed;inset:0;z-index:80;background:rgba(11,37,36,.96);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px);animation:urbFade .3s ease">
+    <div role="dialog" aria-modal="true" aria-labelledby="light-title" onClick="{{ stop }}" onKeyDown="{{ lightKeys }}" style="width:min(1280px,100%);max-height:100%;display:flex;flex-direction:column;gap:18px;color:#F4EDE1">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:16px;min-width:0">
+          <span style="font:500 11px/1 'Archivo',sans-serif;letter-spacing:.16em;color:#E7D6BC">{{ light.counter }}</span>
+          <h2 id="light-title" style="margin:0;font:300 clamp(26px,3vw,40px)/1.05 'Cormorant Garamond',serif">{{ light.name }}</h2>
+        </div>
+        <button type="button" ref="{{ lightClose }}" onClick="{{ closeLight }}" aria-label="Cerrar galería" style="width:48px;height:48px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <div ref="{{ lightStage }}" style="position:relative;display:flex;align-items:center;justify-content:center;min-height:0">
+        <sc-if value="{{ light.hasSrc }}" hint-placeholder-val="{{ false }}">
+          <div role="img" aria-label="{{ light.alt }}" style="width:100%;height:calc(100vh - 200px);background-image:{{ light.bg }};background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+        </sc-if>
+        <sc-if value="{{ light.noSrc }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%;aspect-ratio:16/9;max-height:calc(100vh - 200px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(244,237,225,.25);color:#E7D6BC;font:400 15px/1.5 'Archivo',sans-serif;text-align:center;padding:24px">Pronto compartiremos imágenes de esta zona común.</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap" role="group" aria-label="Zonas comunes">
+          <sc-for list="{{ lightDots }}" as="ld" hint-placeholder-count="6">
+            <button type="button" onClick="{{ ld.go }}" aria-label="{{ ld.name }}" aria-current="{{ ld.current }}" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:0">
+              <span style="display:block;height:2px;width:{{ ld.w }};background:{{ ld.bg }};transition:width .35s ease, background-color .35s ease"></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button type="button" onClick="{{ lightPrev }}" aria-label="Imagen anterior" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button>
+          <button type="button" onClick="{{ lightNext }}" aria-label="Imagen siguiente" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(244,237,225,.4);border-radius:1px;cursor:pointer;color:#F4EDE1" style-hover="background-color:rgba(244,237,225,.1)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Integración&quot;},&quot;projectLat&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;projectLng&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;mapUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ubicación verificada&quot;},&quot;simulatorPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Simulador&quot;},&quot;mobileStickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Móvil&quot;}}">
+const URBIS = {
+  pending: 'Por confirmar',
+  // Fill as the developer confirms. null = not yet confirmed.
+  typologies: Array.from({ length: 10 }, (_, i) => ({
+    code: String(i + 1).padStart(2, '0'),
+    privateArea: null, builtArea: null, bedsBaths: null, layout: null, finishes: null, price: null
+  })),
+  docs: [
+    { label: 'Nombre legal de la constructora o promotora', url: null },
+    { label: 'Proyectos anteriores verificables', url: null },
+    { label: 'Licencia de construcción', url: null },
+    { label: 'Fiducia o encargo fiduciario', url: null },
+    { label: 'Financiación de la construcción', url: null },
+    { label: 'Documentación contractual', url: null },
+    { label: 'Condiciones de entrega confirmadas', url: null }
+  ],
+  legal: [
+    { label: 'Política de tratamiento de datos', url: null },
+    { label: 'Aviso de privacidad', url: null }
+  ]
+};
+const TIPOLOGIAS = [
+  { k: 'A', perFloor: 1, types: [3], stages: [1], built: '51,11 m²', useful: '45,59 m²' },
+  { k: 'B', perFloor: 7, types: [1, 2, 4, 5, 6, 9, 10], stages: [1, 2], built: '51,7 m²', useful: '43,9 – 46,9 m²', usefulLong: 'entre 43,9 y 46,9 m²' },
+  { k: 'C', perFloor: 2, types: [7, 8], stages: [2], built: '52,73 m²', useful: '48,05 m²' }
+];
+// Plan per apartment type; set an entry to null if its plan still needs confirmation.
+const pad2 = n => String(n).padStart(2, '0');
+// Source: URBIS-EU-tablones.pdf — one representative plan per typology, in two states.
+const TP_VIEWS = [
+  { id: 'amoblado', label: 'Así se puede ver', note: 'Imagen de referencia. Los muebles y acabados no están incluidos.' },
+  { id: 'entrega', label: 'Así se entrega', note: 'Obra gris, con baño y cocina terminados.' }
+];
+const andList = a => a.length === 1 ? String(a[0]) : a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1];
+const TOPICS = ['Información de tipologías', 'Forma de pago', 'Fecha y condiciones de entrega', 'Valor de separación', 'Cuota inicial y plazo', 'Alternativas de financiación', 'Alcance de la entrega en obra gris', 'Subsidios de vivienda', 'Renta corta', 'Documentación del proyecto', 'Agendar una visita', 'Otra consulta'];
+const PURCHASE = [
+  { n: '01', title: 'Valor de separación', topic: 'Valor de separación', body: 'Pregunta cuál es el monto para separar tu apartamento y qué condiciones aplican mientras formalizas la compra.', asks: ['El valor de separación vigente', 'Los documentos que necesitas para separar', 'Los pasos que siguen después de la separación'] },
+  { n: '02', title: 'Cuota inicial y plazo', topic: 'Cuota inicial y plazo', body: 'Consulta cómo se estructura la cuota inicial y cuánto tiempo tienes para completarla según la tipología que elijas.', asks: ['El valor de la cuota inicial por tipología', 'El número de cuotas y el plazo disponible', 'Las fechas y los medios de pago'] },
+  { n: '03', title: 'Alternativas de financiación', topic: 'Alternativas de financiación', body: 'Recibe orientación sobre cómo financiar el saldo de tu apartamento y qué opciones revisar con las entidades financieras.', asks: ['Las opciones para financiar el saldo', 'Los requisitos que suelen pedir las entidades', 'Cuándo conviene iniciar el estudio de crédito'] }
+];
+const PLACES = [
+  { n: '01', name: 'Playas de Marbella', km: 0.75, dist: '750 m' },
+  { n: '02', name: 'Mallplaza', km: 0.9, dist: '900 m' },
+  { n: '03', name: 'Torre del Reloj', km: 1.8, dist: '1,8 km' },
+  { n: '04', name: 'Aeropuerto Internacional Rafael Núñez', km: 2.7, dist: '2,7 km' }
+];
+const AMEN = [
+  { id: 'zc-piscina', name: 'Piscina y rooftop', sub: 'Un espacio para disfrutar y desconectarte', src: 'assets/amenidades/piscina-rooftop.webp' },
+  { id: 'zc-gimnasio', name: 'Gimnasio', sub: 'Bienestar a tu propio ritmo' },
+  { id: 'zc-social', name: 'Salón social', sub: 'Momentos para compartir' },
+  { id: 'zc-juegos', name: 'Salón de juegos', sub: 'Espacios para disfrutar tu tiempo libre' },
+  { id: 'zc-lobby', name: 'Lobby y recepción', sub: 'Una bienvenida que se siente desde el primer día' },
+  { id: 'zc-terraza', name: 'Terraza', sub: 'Respira, contempla y disfruta', src: 'assets/amenidades/terraza.webp' }
+];
+const DUDAS = [
+  { key: 'sub', n: '01', title: 'Subsidios de vivienda', topic: 'Subsidios de vivienda', cta: 'Consultar sobre subsidios', body: 'La aplicación de subsidios de vivienda a Urbis EU todavía está en verificación. Antes de incluir un subsidio en tu plan de compra, solicita al equipo comercial la información actualizada sobre programas, requisitos y condiciones.' },
+  { key: 'renta', n: '02', title: 'Renta corta', topic: 'Renta corta', cta: 'Consultar sobre renta corta', body: 'Las reglas del proyecto sobre arrendamientos de corta estancia todavía están en revisión. Si piensas en este uso, solicita al equipo comercial la información vigente del reglamento antes de tomar una decisión.' }
+];
+const FAQS = [
+  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Los apartamentos tienen un precio de referencia desde $275 millones. El valor final depende de la tipología, la disponibilidad y las condiciones comerciales vigentes. Solicita al equipo comercial el precio actualizado de cada tipología.'],
+  ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
+  ['¿Cómo se paga la cuota inicial?', 'El valor de la cuota inicial, el plazo y la forma de pago los informa el equipo comercial según la tipología y las condiciones vigentes.'],
+  ['¿Qué áreas privadas tienen los apartamentos?', 'Las áreas privadas de los apartamentos están entre 41 y 42 m², según la tipología.'],
+  ['¿Cuántas tipologías hay?', 'Urbis EU tiene 10 tipologías de apartamento. Puedes solicitar los planos y el detalle de cada una al equipo comercial.'],
+  ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, es decir, en el estado de construcción especificado para la entrega y sin acabados finales. El alcance exacto está en confirmación; solicita el detalle actualizado al equipo comercial.'],
+  ['¿Cuándo está prevista la entrega?', 'La entrega está prevista para noviembre de 2028. Consulta con el equipo comercial las condiciones de entrega que quedarán en los documentos del proyecto.'],
+  ['¿Qué zonas comunes tendrá el proyecto?', 'El proyecto contempla piscina / rooftop, salón de juegos, gimnasio, lobby / recepción, salón social y terraza.'],
+  ['¿Puedo acceder a un subsidio?', 'La aplicación de subsidios de vivienda a Urbis EU está en verificación. Solicita la información actualizada al equipo comercial antes de contar con este apoyo.'],
+  ['¿Está permitida la renta corta?', 'Las reglas del proyecto sobre renta corta todavía están en revisión. Pregunta al equipo comercial por la información vigente.']
+];
+// Purchase terms: fill once officially confirmed. null = shown as "a solicitud".
+const PURCHASE_TERMS = { separacion: null, cuotaInicial: null, plazo: null, financiacion: null };
+const QTOPICS = ['Valor del inmueble', 'Separación y cuota inicial', 'Opciones de financiación', 'Agendar una visita'];
+const PROWS = [
+  { key: 'valor', title: 'Valor del inmueble', line: 'Desde $275 millones', topic: 'Valor del inmueble', icon: 'M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4zM7.5 7.5h.01', hl: true,
+    body: 'Precio de referencia sujeto a tipología, disponibilidad y condiciones comerciales vigentes.',
+    items: () => [{ k: 'Tipologías', v: '10' }, { k: 'Área privada', v: '41–42 m²' }, { k: 'Entrega', v: 'Obra gris' }], askLabel: 'Consultar el valor por tipología' },
+  { key: 'sep', title: 'Separación y cuota inicial', line: 'Valores y plazos con asesoría personalizada', topic: 'Separación y cuota inicial', icon: 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z',
+    body: 'El equipo comercial te informa el valor de separación, la cuota inicial y el plazo disponible según la tipología que elijas.',
+    items: () => [{ k: 'Separación', v: PURCHASE_TERMS.separacion }, { k: 'Cuota inicial', v: PURCHASE_TERMS.cuotaInicial }, { k: 'Plazo', v: PURCHASE_TERMS.plazo }], askLabel: 'Solicitar información personalizada' },
+  { key: 'fin', title: 'Opciones de financiación', line: 'Orientación para financiar el saldo', topic: 'Opciones de financiación', icon: 'M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z',
+    body: 'Recibe orientación sobre cómo financiar el saldo de tu apartamento y qué opciones revisar con las entidades financieras.',
+    items: () => [{ k: 'Alternativas', v: PURCHASE_TERMS.financiacion }], askLabel: 'Solicitar orientación' }
+];
+// Location highlights. Set dist only once verified against the exact project address.
+const LOC_ITEMS = [
+  { name: 'Playas de Marbella', dist: null },
+  { name: 'Mallplaza', dist: null },
+  { name: 'Centro Histórico', dist: null },
+  { name: 'Aeropuerto Internacional Rafael Núñez', dist: null }
+];
+const ANTES = [
+  { n: '01', title: 'Forma de pago', topic: 'Forma de pago', icon: 'M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4',
+    desc: 'Consulta las condiciones de separación, cuota inicial y financiación.', qs: ['¿Cuánto debo pagar para separar?', '¿Cómo se distribuye la cuota inicial?'] },
+  { n: '02', title: 'Entrega del inmueble', topic: 'Fecha y condiciones de entrega', icon: 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM9 16l2 2 4-4',
+    desc: 'Revisa la fecha prevista de entrega y las condiciones del inmueble.', qs: ['¿Cuál es la fecha prevista?', '¿Qué condiciones aplican a la entrega?'] },
+  { n: '03', title: 'Acabados', topic: 'Alcance de la entrega en obra gris', icon: 'M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17',
+    desc: 'Conoce qué incluye la entrega en obra gris y qué debes contemplar para terminar tu vivienda.', qs: ['¿Qué elementos incluye la obra gris?', '¿Qué trabajos quedan a cargo del comprador?'] },
+  { n: '04', title: 'Documentación', topic: 'Documentación del proyecto', icon: 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zM14 2v4a2 2 0 0 0 2 2h4M9 15l2 2 4-4',
+    desc: 'Solicita la información contractual y los documentos del proyecto antes de tomar una decisión.', qs: ['¿Qué documentos puedo consultar antes de firmar?'] }
+];
+const REF_PRICE = 275000000;
+// Official payment terms. Leave null until confirmed by the developer.
+// Shape: { separation: COP, initialMinPct, initialMaxPct, stepPct, installments: [n...], finalMilestone: 'texto' | null }
+const PAYMENT_TERMS = null;
+// Development-only sample terms, used when the simulatorPreview prop is on. Not real Urbis EU conditions.
+const DEMO_TERMS = { separation: 5000000, initialMinPct: 20, initialMaxPct: 40, stepPct: 1, installments: [12, 18, 24, 30, 36], finalMilestone: 'A la entrega del inmueble' };
+const COP = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+const fmt = v => COP.format(Math.max(0, Math.round(v)));
+const ENT_IMGS = [
+  { id: 'entrega-img', src: 'assets/apto-tipo-a-t2.png' },
+  { id: 'entrega-img-2', src: 'assets/apto-tipo-c-t1.png' },
+  { id: 'entrega-img-3', src: 'assets/apto-tipo-a-t1.png' },
+  { id: 'entrega-img-4', src: 'assets/apto-tipo-b-t2.png' }
+];
+const LEAD_OPTIONS = ['Conocer las tipologías', 'Consultar el plan de pagos', 'Conocer las condiciones de compra', 'Agendar una visita', 'Resolver otras dudas'];
+const topicToInterest = t => {
+  if (!t) return null;
+  if (/tipolog/i.test(t)) return LEAD_OPTIONS[0];
+  if (/plan de pagos|cuota|separaci/i.test(t)) return LEAD_OPTIONS[1];
+  if (/condiciones|valor del inmueble|financ|forma de pago/i.test(t)) return LEAD_OPTIONS[2];
+  if (/visita/i.test(t)) return LEAD_OPTIONS[3];
+  return LEAD_OPTIONS[4];
+};
+const MAXKM = 3;
+const HDR_OFFSET = 64;
+const EASE = 'cubic-bezier(.2,.7,.2,1)';
+
+class Component extends DCLogic {
+  state = {
+    scrolled: false, narrow: false, menuOpen: false, onDark: true,
+    typo: 0, purchase: 0, place: 0, light: null, pOpen: 0, gal: 0, ent: 0, antesOpen: {}, zoom: 1, panX: 0, panY: 0, dragging: false, planOpen: false, tpSel: 0, tpView: 0, simPct: null, simN: null,
+    qOpen: false, qform: { name: '', wa: '', topic: '', consent: false }, qerrors: {}, qstatus: 'idle',
+    faqOpen: { 0: true }, dudasOpen: { sub: true, renta: false },
+    form: { name: '', wa: '', email: '', typo: '', topic: '', consent: false, interests: [] }, lfStep: 1,
+    errors: {}, status: 'idle', stickyHidden: false, formInView: false, pastHero: false, topicFlash: false
+  };
+  heroImg = React.createRef(); detailRef = React.createRef(); pcRef = React.createRef(); readoutRef = React.createRef();
+  lightClose = React.createRef(); lightStage = React.createRef(); qName = React.createRef(); qClose = React.createRef(); planRef = React.createRef(); planClose = React.createRef(); simRef = React.createRef();
+  nameRef = React.createRef(); topicRef = React.createRef(); contactRef = React.createRef(); successRef = React.createRef();
+  lastFocus = null;
+
+  track(event, params = {}) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event, ...params }); }
+  reduced() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  pulse(ref) {
+    const el = ref.current;
+    if (el && el.animate && !this.reduced()) el.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: EASE });
+  }
+
+  componentDidMount() {
+    let ticking = false;
+    this.onScroll = () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = window.scrollY, vh = window.innerHeight;
+        const hero = document.getElementById('inicio');
+        const heroH = hero ? hero.offsetHeight : vh;
+        const scrolled = y > 24, pastHero = y > vh * 0.6, onDark = y < heroH - 80;
+        if (scrolled !== this.state.scrolled || pastHero !== this.state.pastHero || onDark !== this.state.onDark) this.setState({ scrolled, pastHero, onDark });
+        const still = this.state.narrow || this.reduced();
+        const h = this.heroImg.current;
+        if (h) h.style.transform = still ? '' : `translate3d(0,${Math.min(y, vh) * 0.12}px,0)`;
+        document.querySelectorAll('[data-parallax]').forEach(el => {
+          if (still) { el.style.transform = ''; return; }
+          const r = el.parentElement.getBoundingClientRect();
+          if (r.bottom < -200 || r.top > vh + 200) return;
+          const d = (r.top + r.height / 2 - vh / 2) * -parseFloat(el.dataset.parallax);
+          el.style.transform = `translate3d(0,${d.toFixed(1)}px,0)`;
+        });
+      });
+    };
+    this.onResize = () => { const narrow = window.innerWidth < 1100; if (narrow !== this.state.narrow) this.setState({ narrow, menuOpen: false }); this.onScroll(); };
+    this.onKey = e => {
+      if (e.key !== 'Escape') return;
+      if (this.state.planOpen) this.closePlan();
+      else if (this.state.qOpen) this.closeQuote();
+      else if (this.state.light !== null) this.closeLight();
+      else if (this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+    if (window.innerWidth < 1100) this.setState({ pOpen: -1 });
+    this.onResize(); this.onScroll();
+    this.setupReveal();
+    if (this.contactRef.current && 'IntersectionObserver' in window) {
+      this.formIO = new IntersectionObserver(([en]) => this.setState({ formInView: en.isIntersecting }), { threshold: 0.02 });
+      this.formIO.observe(this.contactRef.current);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    this.io && this.io.disconnect(); this.formIO && this.formIO.disconnect();
+    document.body.style.overflow = '';
+  }
+
+  setupReveal() {
+    if (this.reduced() || !('IntersectionObserver' in window)) return;
+    const hide = el => {
+      const k = el.dataset.reveal;
+      if (k === 'mask') { el.style.clipPath = 'inset(100% 0 0 0)'; el.style.transition = `clip-path 1000ms ${EASE}`; }
+      else if (k === 'mask-down') { el.style.clipPath = 'inset(0 0 100% 0)'; el.style.transition = `clip-path 1200ms ${EASE}`; }
+      else { el.style.opacity = '0'; if (k === 'up') el.style.transform = 'translateY(18px)'; el.style.transition = `opacity 650ms ${EASE}, transform 650ms ${EASE}`; }
+    };
+    const show = el => {
+      const d = +(el.dataset.delay || 0);
+      el.style.transitionDelay = d + 'ms';
+      requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = 'inset(0 0 0 0)'; });
+      setTimeout(() => { el.style.transition = ''; el.style.transitionDelay = ''; el.style.clipPath = ''; }, 1300 + d);
+    };
+    this.io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { this.io.unobserve(en.target); show(en.target); }
+    }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.closest('[role="dialog"]')) return;
+      hide(el);
+      if (el.closest('#inicio')) requestAnimationFrame(() => requestAnimationFrame(() => show(el)));
+      else this.io.observe(el);
+    });
+  }
+
+  scrollToId(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = id === 'inicio' ? 0 : el.getBoundingClientRect().top + window.scrollY - HDR_OFFSET + 1;
+    window.scrollTo({ top, behavior: this.reduced() ? 'auto' : 'smooth' });
+  }
+  goContact({ topic, typo, focus } = {}) {
+    const intr = topicToInterest(topic);
+    this.setState(s => ({
+      form: { ...s.form, ...(topic ? { topic } : {}), ...(typo ? { typo } : {}), ...(intr && !s.form.interests.includes(intr) ? { interests: [...s.form.interests, intr] } : {}) },
+      errors: topic ? { ...s.errors, topic: '' } : s.errors,
+      topicFlash: !!topic, menuOpen: false, status: s.status === 'success' ? s.status : 'idle'
+    }));
+    this.scrollToId('contacto');
+    setTimeout(() => {
+      const t = focus === 'name' ? this.nameRef.current : (topic ? this.topicRef.current : null);
+      t && t.focus({ preventScroll: true });
+    }, this.reduced() ? 50 : 800);
+    setTimeout(() => this.setState({ topicFlash: false }), 1800);
+  }
+  go = e => {
+    const a = e.currentTarget; const href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;
+    e.preventDefault();
+    const id = href.slice(1);
+    if (a.dataset.track) this.track(a.dataset.track, { label: a.textContent.trim(), topic: a.dataset.topic || null });
+    if (id === 'contacto') this.goContact({ topic: a.dataset.topic, focus: a.dataset.focus ? 'name' : null });
+    else { this.setState({ menuOpen: false }); this.scrollToId(id); }
+  };
+
+  selectTypo = (i, focus) => {
+    if (i === this.state.typo) return;
+    this.setState({ typo: i, zoom: 1, panX: 0, panY: 0 });
+    this.track('typology_select', { typology: URBIS.typologies[i].code });
+    this.pulse(this.detailRef);
+    if (focus) setTimeout(() => { const b = document.getElementById((this.state.narrow ? 'tabm-' : 'tab-') + i); b && b.focus(); }, 0);
+  };
+  tabKeys = e => {
+    const k = e.key, n = 10, i = this.state.typo;
+    const map = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    if (k in map) { e.preventDefault(); this.selectTypo((i + map[k] + n) % n, true); }
+    else if (k === 'Home') { e.preventDefault(); this.selectTypo(0, true); }
+    else if (k === 'End') { e.preventDefault(); this.selectTypo(n - 1, true); }
+  };
+  selectPurchase = (i, focus) => {
+    if (i === this.state.purchase) return;
+    this.setState(s => ({ purchase: i, form: { ...s.form, topic: PURCHASE[i].topic } }));
+    this.track('purchase_info_expand', { option: PURCHASE[i].title });
+    this.pulse(this.pcRef);
+    if (focus) setTimeout(() => { const b = document.getElementById('pc-' + i); b && b.focus(); }, 0);
+  };
+  purchaseKeys = e => {
+    const map = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    if (e.key in map) { e.preventDefault(); this.selectPurchase((this.state.purchase + map[e.key] + 3) % 3, true); }
+  };
+  terms() { return PAYMENT_TERMS || ((this.props.simulatorPreview ?? true) ? DEMO_TERMS : null); }
+  setZoom = z => { const zoom = Math.min(3, Math.max(1, Math.round(z * 100) / 100)); this.setState(s => zoom === 1 ? { zoom, panX: 0, panY: 0 } : { zoom, panX: s.panX * zoom / s.zoom, panY: s.panY * zoom / s.zoom }); };
+  planDown = e => { this.planStart = { x: e.clientX, y: e.clientY, px: this.state.panX, py: this.state.panY, moved: false }; if (this.state.zoom > 1) { this.setState({ dragging: true }); e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId); } };
+  planMove = e => {
+    const st = this.planStart; if (!st) return;
+    const dx = e.clientX - st.x, dy = e.clientY - st.y;
+    if (Math.abs(dx) + Math.abs(dy) > 4) st.moved = true;
+    if (this.state.zoom <= 1) return;
+    const r = e.currentTarget.getBoundingClientRect(), z = this.state.zoom;
+    const lx = r.width * (z - 1) / 2, ly = r.height * (z - 1) / 2;
+    this.setState({ panX: Math.max(-lx, Math.min(lx, st.px + dx)), panY: Math.max(-ly, Math.min(ly, st.py + dy)) });
+  };
+  planUp = e => {
+    const st = this.planStart; this.planStart = null;
+    if (this.state.dragging) this.setState({ dragging: false });
+    if (st && !st.moved && e.type === 'pointerup' && !e.target.closest('button') && this.state.zoom === 1) this.openPlan();
+  };
+  tpInfo = React.createRef(); tpDist = React.createRef(); tpPlan = React.createRef();
+  tpFx(el) { if (el && el.animate && !this.reduced()) el.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }); }
+  pickTipologia = i => {
+    if (i === this.state.tpSel) return;
+    this.setState({ tpSel: i });
+    this.track('typology_select', { typology: TIPOLOGIAS[i].k });
+    requestAnimationFrame(() => { this.tpFx(this.tpInfo.current); this.tpFx(this.tpDist.current); this.tpFx(this.tpPlan.current); });
+  };
+  pickView = i => {
+    if (i === this.state.tpView) return;
+    this.setState({ tpView: i });
+    this.track('plan_view_select', { typology: TIPOLOGIAS[this.state.tpSel].k, view: TP_VIEWS[i].id });
+    requestAnimationFrame(() => this.tpFx(this.tpPlan.current));
+  };
+  stepType = d => this.setState(s => ({ tpView: (s.tpView + d + TP_VIEWS.length) % TP_VIEWS.length }));
+  openPlan = () => { this.lastFocus = document.activeElement; this.setState({ planOpen: true }); document.body.style.overflow = 'hidden'; setTimeout(() => this.planClose.current && this.planClose.current.focus(), 60); };
+  closePlan = () => { this.setState({ planOpen: false }); document.body.style.overflow = ''; this.lastFocus && this.lastFocus.focus && this.lastFocus.focus(); };
+  galGo = i => { const n = AMEN.length; this.setState({ gal: (i + n) % n }); };
+  galKeys = e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); this.galGo(this.state.gal + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); this.galGo(this.state.gal - 1); }
+  };
+  galDown = e => { this.swipeX = e.clientX; this.swiped = false; };
+  galUp = e => {
+    if (this.swipeX == null) return;
+    const dx = e.clientX - this.swipeX; this.swipeX = null;
+    if (Math.abs(dx) > 45) { this.swiped = true; this.galGo(this.state.gal + (dx < 0 ? 1 : -1)); setTimeout(() => { this.swiped = false; }, 50); }
+  };
+  togglePRow = i => {
+    const open = this.state.pOpen === i;
+    this.setState({ pOpen: open ? -1 : i });
+    if (!open) this.track('purchase_info_expand', { option: PROWS[i].title });
+  };
+  openQuote = topic => {
+    this.lastFocus = document.activeElement;
+    this.setState(s => ({ qOpen: true, qform: { ...s.qform, topic: topic || s.qform.topic }, qerrors: {}, qstatus: s.qstatus === 'success' ? 'success' : 'idle' }));
+    document.body.style.overflow = 'hidden';
+    this.track('inquiry_cta_click', { label: 'Consultar condiciones', topic: topic || null });
+    setTimeout(() => { const t = this.qName.current || this.qClose.current; t && t.focus(); }, 60);
+  };
+  closeQuote = () => {
+    this.setState({ qOpen: false });
+    document.body.style.overflow = '';
+    this.lastFocus && this.lastFocus.focus && this.lastFocus.focus();
+  };
+  trapTab = e => {
+    if (e.key !== 'Tab') return;
+    const f = [...e.currentTarget.querySelectorAll('button:not([disabled]),input,select,a[href]')].filter(n => n.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+  onQField = e => {
+    const { name, type, value, checked } = e.target;
+    const v = type === 'checkbox' ? checked : value;
+    this.setState(s => ({ qform: { ...s.qform, [name]: v }, qerrors: { ...s.qerrors, [name]: '' }, qstatus: s.qstatus === 'loading' ? s.qstatus : 'idle' }));
+  };
+  submitQ = async ev => {
+    ev.preventDefault();
+    const f = this.state.qform, er = {};
+    if (f.name.trim().length < 2) er.name = 'Escribe tu nombre.';
+    const d = f.wa.replace(/[^\d]/g, '');
+    if (!d) er.wa = 'Escribe tu número de WhatsApp.';
+    else if (!((d.length === 10 && d[0] === '3') || (d.length === 12 && d.startsWith('573')))) er.wa = 'Revisa el número: debe ser un celular colombiano de 10 dígitos.';
+    if (!f.topic) er.topic = 'Elige el tema de tu consulta.';
+    if (!f.consent) er.consent = 'Necesitamos tu autorización para poder contactarte.';
+    if (Object.keys(er).length) {
+      this.setState({ qerrors: er });
+      const first = ['name', 'wa', 'topic', 'consent'].find(k => er[k]);
+      const el = ev.currentTarget.querySelector('[name="' + first + '"]'); el && el.focus();
+      return;
+    }
+    this.setState({ qstatus: 'loading' });
+    const endpoint = (this.props.formEndpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Urbis EU] Formulario sin configurar: define la prop formEndpoint. No se envió ningún dato.');
+      await new Promise(r => setTimeout(r, 400));
+      this.setState({ qstatus: 'unconfigured' });
+      return;
+    }
+    try {
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: f.name.trim(), whatsapp: d, topic: f.topic, consent: true, source: 'landing-urbis-eu:condiciones-compra', page: location.href, submittedAt: new Date().toISOString() }) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ qstatus: 'success' });
+      this.track('form_submit_success', { topic: f.topic, form: 'condiciones-compra' });
+    } catch (err) {
+      console.error('[Urbis EU] Error al enviar', err);
+      this.setState({ qstatus: 'error' });
+    }
+  };
+  selectPlace = i => { if (i === this.state.place) return; this.setState({ place: i }); this.pulse(this.readoutRef); };
+
+  imgSrc(id) {
+    const slot = document.getElementById(id);
+    const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('.frame img');
+    return (img && img.getAttribute('src')) || '';
+  }
+  openLight = i => {
+    if (this.state.light === null) this.lastFocus = document.activeElement;
+    this.setState({ light: i, lightSrc: this.imgSrc(AMEN[i].id) });
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => this.lightClose.current && this.lightClose.current.focus(), 60);
+  };
+  stepLight = d => {
+    const i = (this.state.light + d + AMEN.length) % AMEN.length;
+    this.setState({ light: i, gal: i, lightSrc: this.imgSrc(AMEN[i].id) });
+    const el = this.lightStage.current;
+    if (el && el.animate && !this.reduced()) el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 320, easing: 'ease-out' });
+  };
+  closeLight = () => {
+    this.setState({ light: null });
+    document.body.style.overflow = '';
+    this.lastFocus && this.lastFocus.focus && this.lastFocus.focus();
+  };
+  lightKeys = e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); this.stepLight(1); return; }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); this.stepLight(-1); return; }
+    if (e.key !== 'Tab') return;
+    const f = [...e.currentTarget.querySelectorAll('button')];
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+
+  onField = e => {
+    const { name, type, value, checked } = e.target;
+    const v = type === 'checkbox' ? checked : value;
+    this.setState(s => ({ form: { ...s.form, [name]: v }, errors: { ...s.errors, [name]: '' }, status: s.status === 'loading' ? s.status : 'idle' }));
+  };
+  validate(f) {
+    const e = {};
+    if (f.name.trim().length < 2) e.name = 'Escribe tu nombre.';
+    const d = f.wa.replace(/[^\d]/g, '');
+    const ok = (d.length === 10 && d[0] === '3') || (d.length === 12 && d.startsWith('573'));
+    if (!d) e.wa = 'Escribe tu número de WhatsApp.';
+    else if (!ok) e.wa = 'Revisa el número: debe ser un celular colombiano de 10 dígitos.';
+    if (f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Revisa el formato del correo electrónico.';
+    if (!f.topic) e.topic = 'Elige el tema de tu consulta.';
+    if (!f.consent) e.consent = 'Necesitamos tu autorización para poder contactarte.';
+    return e;
+  }
+  stepRef = React.createRef();
+  lfGo = n => {
+    this.setState({ lfStep: n, status: this.state.status === 'success' ? 'success' : 'idle' });
+    const el = this.stepRef.current;
+    if (el && el.animate && !this.reduced()) el.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: EASE });
+    setTimeout(() => { const t = this.stepRef.current && this.stepRef.current.querySelector('input,button'); t && t.focus({ preventScroll: true }); }, 40);
+  };
+  lfValidate(step) {
+    const f = this.state.form, e = {};
+    if (step === 1) {
+      if (f.name.trim().length < 2) e.name = 'Escribe tu nombre completo.';
+      const d = f.wa.replace(/[^\d]/g, '');
+      if (!d) e.wa = 'Escribe tu número de WhatsApp.';
+      else if (!((d.length === 10 && d[0] === '3') || (d.length === 12 && d.startsWith('573')))) e.wa = 'Revisa el número: debe ser un celular colombiano de 10 dígitos.';
+      if (f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Revisa el formato del correo electrónico.';
+    }
+    if (step === 2 && !f.interests.length) e.interests = 'Elige al menos una opción.';
+    if (step === 3 && !f.consent) e.consent = 'Necesitamos tu autorización para poder contactarte.';
+    return e;
+  }
+  lfSubmit = async ev => {
+    ev.preventDefault();
+    const step = this.state.lfStep, e = this.lfValidate(step);
+    if (Object.keys(e).length) {
+      this.setState({ errors: e });
+      const first = ['name', 'wa', 'email'].find(k => e[k]);
+      const el = first ? ev.currentTarget.querySelector('[name="' + first + '"]') : ev.currentTarget.querySelector(e.consent ? '[name="consent"]' : 'input[type="checkbox"]');
+      el && el.focus();
+      return;
+    }
+    this.setState({ errors: {} });
+    if (step < 3) { this.lfGo(step + 1); return; }
+    const f = this.state.form;
+    this.setState({ status: 'loading' });
+    const endpoint = (this.props.formEndpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Urbis EU] Formulario sin configurar: define la prop formEndpoint con la URL que recibirá los leads. No se envió ningún dato.');
+      await new Promise(r => setTimeout(r, 500));
+      this.setState({ status: 'unconfigured' });
+      return;
+    }
+    try {
+      const payload = { name: f.name.trim(), whatsapp: f.wa.replace(/[^\d]/g, ''), email: f.email.trim(), interests: f.interests, context: f.topic || null, typology: f.typo || null, consent: true, source: 'landing-urbis-eu', page: location.href, submittedAt: new Date().toISOString() };
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ status: 'success' });
+      this.track('form_submit_success', { interests: f.interests.join('|'), typology: f.typo || null });
+      setTimeout(() => this.successRef.current && this.successRef.current.focus(), 60);
+    } catch (err) {
+      console.error('[Urbis EU] Error al enviar el formulario', err);
+      this.setState({ status: 'error' });
+    }
+  };
+  submit = async ev => {
+    ev.preventDefault();
+    const f = this.state.form;
+    const errors = this.validate(f);
+    if (Object.keys(errors).length) {
+      this.setState({ errors, status: 'idle' });
+      const first = ['name', 'wa', 'email', 'topic', 'consent'].find(k => errors[k]);
+      const el = ev.currentTarget.querySelector(`[name="${first}"]`);
+      el && el.focus();
+      return;
+    }
+    this.setState({ status: 'loading', errors: {} });
+    const endpoint = (this.props.formEndpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Urbis EU] Formulario sin configurar: define la prop formEndpoint con la URL que recibirá los leads. No se envió ningún dato.');
+      await new Promise(r => setTimeout(r, 500));
+      this.setState({ status: 'unconfigured' });
+      return;
+    }
+    try {
+      const payload = { name: f.name.trim(), whatsapp: f.wa.replace(/[^\d]/g, ''), email: f.email.trim(), typology: f.typo, topic: f.topic, consent: f.consent, source: 'landing-urbis-eu', page: location.href, submittedAt: new Date().toISOString() };
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ status: 'success' });
+      this.track('form_submit_success', { topic: f.topic, typology: f.typo || null });
+      setTimeout(() => this.successRef.current && this.successRef.current.focus(), 60);
+    } catch (err) {
+      console.error('[Urbis EU] Error al enviar el formulario', err);
+      this.setState({ status: 'error' });
+    }
+  };
+
+  renderVals() {
+    const s = this.state, p = this.props, N = s.narrow;
+    const light = !s.onDark || s.menuOpen;
+    const solid = s.scrolled && !s.onDark;
+    const typos = URBIS.typologies.map((t, i) => {
+      const sel = s.typo === i;
+      return {
+        code: t.code, label: 'Tipología ' + t.code, slotId: 'plano-' + t.code, src: `assets/plantas/urbis-planta-${t.code}.jpg`, tabId: 'tab-' + i, tabIdM: 'tabm-' + i,
+        selected: sel ? 'true' : 'false', tabindex: sel ? '0' : '-1',
+        numFont: sel ? "400 24px/1 'Cormorant Garamond',serif" : "300 19px/1 'Cormorant Garamond',serif",
+        activeOp: sel ? '1' : '0', bg: sel ? '#14403E' : 'transparent', fg: sel ? '#F4EDE1' : '#14403E',
+        hidden: sel ? 'false' : 'true', stageOp: sel ? '1' : '0', stageScale: sel ? 'none' : 'scale(1.025)', stageVis: sel ? 'visible' : 'hidden',
+        select: () => this.selectTypo(i)
+      };
+    });
+    const ct = URBIS.typologies[s.typo];
+    const big = "300 22px/1.1 'Cormorant Garamond',serif", small = "400 14px/1.45 'Archivo',sans-serif";
+    const row = (k, v, fallback, bigFallback) => ({ k, v: v || fallback, font: v || bigFallback ? big : small });
+    const cur = {
+      code: ct.code, tabId: (N ? 'tabm-' : 'tab-') + s.typo, counter: `${ct.code} / 10`,
+      rows: [
+        row('Área privada', ct.privateArea, 'Entre 41 y 42 m²', true),
+        row('Entrega', ct.finishes, 'Obra gris', true),
+        row('Precio', ct.price, 'Consulta el valor de esta tipología'),
+        row('Área construida', ct.builtArea, URBIS.pending),
+        row('Habitaciones y baños', ct.bedsBaths, URBIS.pending),
+        row('Distribución y balcón', ct.layout, URBIS.pending)
+      ]
+    };
+    const purchase = PURCHASE.map((o, i) => {
+      const sel = s.purchase === i;
+      return { ...o, tabId: 'pc-' + i, selected: sel ? 'true' : 'false', tabindex: sel ? '0' : '-1',
+        titleFont: sel ? "400 clamp(28px,2.8vw,40px)/1.05 'Cormorant Garamond',serif" : "300 clamp(26px,2.6vw,36px)/1.05 'Cormorant Garamond',serif",
+        titleOp: sel ? '1' : '.72', markOp: sel ? '1' : '0', lineScale: sel ? 'scaleX(1)' : 'scaleX(0)',
+        select: () => this.selectPurchase(i) };
+    });
+    const pc = PURCHASE[s.purchase];
+    const prows = PROWS.map((r, i) => {
+      const open = s.pOpen === i;
+      return { title: r.title, line: r.line, icon: r.icon, body: r.body, hasHl: !!r.hl, askLabel: r.askLabel,
+        btnId: 'pr-b' + i, panelId: 'pr-p' + i, expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr',
+        op: open ? '1' : '0', shift: open ? 'none' : 'translateY(-6px)', rot: open ? 'rotate(180deg)' : 'none', state: open ? 'Ocultar' : 'Ver',
+        bg: 'transparent', iconBg: open ? '#14403E' : 'transparent', iconFg: open ? '#F4EDE1' : '#14403E', iconBorder: '#14403E',
+        items: r.items().map(it => ({ k: it.k, v: it.v || 'A solicitud', color: it.v ? '#14403E' : '#41605E',
+          font: it.v ? "400 22px/1.1 'Cormorant Garamond',serif" : "500 13px/1.4 'Archivo',sans-serif" })),
+        toggle: () => this.togglePRow(i), ask: () => this.openQuote(r.topic) };
+    });
+    const qe = s.qerrors, qf = s.qform;
+    const qMsgs = { unconfigured: 'El formulario todavía no está conectado a un sistema de recepción. Tu solicitud no se envió.', error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.' };
+    const places = PLACES.map((pl, i) => {
+      const sel = s.place === i;
+      return { ...pl, pressed: sel ? 'true' : 'false', left: (pl.km / MAXKM * 100).toFixed(2) + '%',
+        top: i % 2 === 0 ? '24px' : '75px', dir: i % 2 === 0 ? 'column' : 'column-reverse',
+        dotBg: sel ? '#E66A45' : '#14403E', dotFg: sel ? '#0B2524' : '#F4EDE1', scale: sel ? 'scale(1.15)' : 'none',
+        lineScale: sel ? 'scaleX(1)' : 'scaleX(0)', select: () => this.selectPlace(i) };
+    });
+    const place = { ...PLACES[s.place], left: (PLACES[s.place].km / MAXKM * 100).toFixed(2) + '%' };
+    const amenities = AMEN.slice(1).map((a, k) => {
+      const i = k + 1;
+      return { ...a, n: String(i + 1).padStart(2, '0'), alt: `Zona común de Urbis EU: ${a.name.toLowerCase()}`, ph: `Render oficial · ${a.name}`,
+        delay: String((k % 2) * 90), col: N ? 'auto' : a.col, h: N ? 'clamp(260px,70vw,420px)' : a.h, mt: N ? '0' : a.mt,
+        open: () => this.openLight(i) };
+    });
+    const gslides = AMEN.map((a, i) => {
+      const act = s.gal === i;
+      return { ...a, n: String(i + 1).padStart(2, '0'), alt: 'Zona común de Urbis EU: ' + a.name.toLowerCase(), ph: 'Render oficial · ' + a.name, src: a.src || '',
+        aria: (i + 1) + ' de ' + AMEN.length + ': ' + a.name, hidden: act ? 'false' : 'true',
+        op: act ? '1' : '.45', scale: act ? 'none' : 'scale(1.04)', capOp: act ? '1' : '0', capShift: act ? 'none' : 'translateY(10px)',
+        tab: act ? '0' : '-1', cursor: act ? 'zoom-in' : 'pointer', btnLabel: act ? 'Ampliar imagen: ' + a.name : 'Ver ' + a.name,
+        current: act ? 'true' : 'false', bar: act ? 'scaleX(1)' : 'scaleX(0)', navOp: act ? '1' : '.6',
+        navLabel: N ? String(i + 1).padStart(2, '0') : a.name,
+        navFont: act ? "600 12px/1.2 'Archivo',sans-serif" : "500 12px/1.2 'Archivo',sans-serif",
+        select: () => this.galGo(i),
+        click: () => { if (this.swiped) return; act ? this.openLight(i) : this.galGo(i); } };
+    });
+    const li = s.light;
+    const lightObj = li !== null ? {
+      name: AMEN[li].name, alt: `Zona común de Urbis EU: ${AMEN[li].name.toLowerCase()}`, bg: s.lightSrc ? `url("${s.lightSrc}")` : 'none',
+      hasSrc: !!s.lightSrc, noSrc: !s.lightSrc, counter: `${String(li + 1).padStart(2, '0')} / ${String(AMEN.length).padStart(2, '0')}`
+    } : { name: '', hasSrc: false, noSrc: false, counter: '' };
+    const dudas = DUDAS.map((d, i) => {
+      const open = !!s.dudasOpen[d.key];
+      return { ...d, btnId: 'dd-b' + i, panelId: 'dd-p' + i, delay: String(i * 80),
+        expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr', op: open ? '1' : '0',
+        rot: open ? 'rotate(45deg)' : 'none', state: open ? 'Ocultar' : 'Ver',
+        toggle: () => this.setState(st => ({ dudasOpen: { ...st.dudasOpen, [d.key]: !open } })) };
+    });
+    const faqs = FAQS.map(([q, a], i) => {
+      const open = !!s.faqOpen[i];
+      return { q, a, n: String(i + 1).padStart(2, '0'), btnId: 'fq-b' + i, panelId: 'fq-p' + i,
+        expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr', rot: open ? 'rotate(45deg)' : 'none',
+        op: open ? '1' : '0', icon: open ? 'M5 12h14' : 'M5 12h14M12 5v14', rowBg: 'transparent',
+        iconBg: open ? '#14403E' : 'transparent', iconFg: open ? '#F4EDE1' : '#14403E',
+        toggle: () => this.setState(st => ({ faqOpen: { ...st.faqOpen, [i]: !open } })) };
+    });
+    const docs = URBIS.docs.map((d, i) => ({ ...d, n: String(i + 1).padStart(2, '0'), hasUrl: !!d.url, pending: !d.url }));
+    const legalLinks = URBIS.legal.map(l => ({ ...l, hasUrl: !!l.url }));
+
+    const e = s.errors, f = s.form;
+    const border = k => e[k] ? '#8C3B1E' : 'rgba(20,64,62,.45)';
+    const waDigits = String(p.whatsappNumber || '').replace(/[^\d]/g, '');
+    const hasWa = waDigits.length >= 10;
+    const msgs = {
+      unconfigured: 'El formulario todavía no está conectado a un sistema de recepción. Tu solicitud no se envió.',
+      error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.'
+    };
+    const isLoading = s.status === 'loading';
+    const showSticky = N && (p.mobileStickyCta ?? true) && !s.stickyHidden && !s.formInView && s.pastHero && s.light === null && !s.menuOpen && !s.qOpen;
+
+    return {
+      wide: !N, narrow: N,
+      hdr: {
+        bg: solid || s.menuOpen ? '#F4EDE1' : (s.scrolled && s.onDark ? '#14403E' : 'rgba(20,64,62,0)'),
+        border: s.scrolled ? (light ? 'rgba(20,64,62,.16)' : 'rgba(244,237,225,.16)') : 'rgba(20,64,62,0)',
+        fg: light ? '#14403E' : '#F4EDE1',
+        calOp: light ? '0' : '1', verdeOp: light ? '1' : '0',
+        pad: s.scrolled ? '8px' : '20px', logoH: s.scrolled ? '42px' : '60px',
+        ctaBg: light ? '#14403E' : 'transparent', ctaFg: '#F4EDE1', ctaBorder: light ? '#14403E' : 'rgba(244,237,225,.7)'
+      },
+      navLinks: [
+        { href: '#apartamentos', label: 'Apartamentos', n: '01' }, { href: '#ubicacion', label: 'Ubicación', n: '02' },
+        { href: '#entrega', label: 'Entrega', n: '03' }, { href: '#zonas-comunes', label: 'Zonas comunes', n: '04' },
+        { href: '#preguntas-frecuentes', label: 'Preguntas frecuentes', n: '05' }
+      ],
+      go: this.go,
+      toggleMenu: () => this.setState(st => ({ menuOpen: !st.menuOpen })),
+      menuOpenStr: s.menuOpen ? 'true' : 'false', menuLabel: s.menuOpen ? 'Cerrar' : 'Menú',
+      menuIcon: s.menuOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 9h16M4 15h16',
+      menuRows: s.menuOpen ? '1fr' : '0fr', menuVis: s.menuOpen ? 'visible' : 'hidden',
+      heroImg: this.heroImg,
+      plateShift: N ? 'none' : 'translateY(clamp(40px,6vw,88px))',
+      cols: {
+        proyecto: N ? 'minmax(0,1fr)' : 'minmax(0,1.25fr) minmax(0,1fr)',
+        explorer: N ? 'minmax(0,1fr)' : '200px minmax(0,1fr)',
+        compra: N ? 'minmax(0,1fr)' : 'minmax(0,1.7fr) minmax(300px,1fr)',
+        gallery: N ? 'minmax(0,1fr)' : 'repeat(12,minmax(0,1fr))',
+        ubicacion: N ? 'minmax(0,1fr)' : 'minmax(0,1.1fr) minmax(0,1fr)',
+        entrega: N ? 'minmax(0,1fr)' : 'minmax(0,1.15fr) minmax(0,1fr)',
+        side: N ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.5fr)',
+        antes: 'minmax(0,1fr)',
+        footer: N ? 'minmax(0,1fr)' : 'minmax(0,40fr) minmax(0,60fr)',
+        tipo: N ? 'minmax(0,1fr)' : 'minmax(0,45fr) minmax(0,55fr)',
+        entregaRow: N ? 'minmax(0,1fr)' : 'repeat(3,minmax(0,1fr))',
+        antesGrid: N ? 'minmax(0,1fr)' : 'repeat(4,minmax(0,1fr))',
+        contacto: N ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.2fr)'
+      },
+      factsOffset: N ? '0' : 'clamp(40px,8vw,140px)',
+      facts: [
+        { n: '01', k: 'Área privada', v: '41–42 m² privados' },
+        { n: '02', k: 'Para conocer y comparar', v: '10 tipologías' },
+        { n: '03', k: 'Modalidad', v: 'Entrega en obra gris' },
+        { n: '04', k: 'Fecha', v: 'Entrega prevista: noviembre de 2028' }
+      ].map((x, i) => ({ ...x, delay: String(i * 90) })),
+      typos, cur, markerY: s.typo * 44 + 'px', stageRatio: N ? '4/3' : '3/2', panelDir: N ? 'column' : 'row', detailFlex: N ? '1 1 auto' : '0 0 300px',
+      tabKeys: this.tabKeys, detailRef: this.detailRef,
+      prevTypo: () => this.selectTypo((s.typo + 9) % 10), nextTypo: () => this.selectTypo((s.typo + 1) % 10),
+      goTypo: ev => { ev.preventDefault(); const lbl = 'Tipología ' + ct.code; this.track('inquiry_cta_click', { label: 'Quiero más información', typology: lbl, price: ct.price || 'desde 275000000' }); this.goContact({ topic: 'Información de tipologías', typo: lbl }); },
+      purchase, pc: { ...pc, tabId: 'pc-' + s.purchase }, pcRef: this.pcRef, purchaseKeys: this.purchaseKeys,
+      goPurchase: ev => { ev.preventDefault(); this.track('inquiry_cta_click', { label: 'Consultar condiciones de compra', topic: pc.topic }); this.goContact({ topic: pc.topic }); },
+      gslides, gcur: gslides[s.gal], galKeys: this.galKeys, galDown: this.galDown, galUp: this.galUp,
+      galPrev: () => this.galGo(s.gal - 1), galNext: () => this.galGo(s.gal + 1),
+      galTrackW: N ? '100%' : '80%', galGap: N ? '12px' : '24px', galRatio: N ? '4/3' : '16/9',
+      galX: 'calc(' + (-s.gal) + ' * (100% + ' + (N ? '12px' : '24px') + '))',
+      galNavCols: N ? 'auto minmax(0,1fr) auto' : '120px minmax(0,1fr) auto', galDotFlex: N ? '1 1 0' : '1 1 0',
+      prows, openQuoteBtn: () => this.openQuote(), qOpen: s.qOpen, closeQuote: this.closeQuote, trapTab: this.trapTab,
+      qName: this.qName, qClose: this.qClose, qform: qf, onQField: this.onQField, submitQ: this.submitQ, qTopics: QTOPICS,
+      qerr: { name: qe.name || '', wa: qe.wa || '', topic: qe.topic || '', consent: qe.consent || '' },
+      qinv: { name: qe.name ? 'true' : 'false', wa: qe.wa ? 'true' : 'false', topic: qe.topic ? 'true' : 'false', consent: qe.consent ? 'true' : 'false' },
+      qfb: { name: qe.name ? '#8C3B1E' : 'rgba(20,64,62,.45)', wa: qe.wa ? '#8C3B1E' : 'rgba(20,64,62,.45)', topic: qe.topic ? '#8C3B1E' : 'rgba(20,64,62,.45)' },
+      qSuccess: s.qstatus === 'success', qShowForm: s.qstatus !== 'success', qHasMsg: !!qMsgs[s.qstatus], qMsg: qMsgs[s.qstatus] || '',
+      qLoading: s.qstatus === 'loading', qLoadingStr: s.qstatus === 'loading' ? 'true' : 'false', qSubmitLabel: s.qstatus === 'loading' ? 'Enviando…' : 'Enviar consulta',
+      qTopicLower: (qf.topic || 'las condiciones de compra').toLowerCase(),
+      antes: ANTES.map((m, i) => {
+        const open = !!s.antesOpen[i];
+        return { ...m, btnId: 'ad-b' + i, panelId: 'ad-p' + i, delay: String((i % 2) * 80),
+          bb: (N ? i === ANTES.length - 1 : true) ? '1px solid #14403E' : '0', delay: String(i * 70),
+          expanded: open ? 'true' : 'false', rows: open ? '1fr' : '0fr', op: open ? '1' : '0', rot: open ? 'rotate(45deg)' : 'none',
+          iconBg: open ? '#14403E' : 'transparent', iconFg: open ? '#F4EDE1' : '#14403E',
+          toggle: () => this.setState(st => ({ antesOpen: { ...st.antesOpen, [i]: !open } })) };
+      }),
+      ...(() => {
+        const TT = TIPOLOGIAS[s.tpSel], V = TP_VIEWS[s.tpView], k = TT.k.toLowerCase(), pl = { crop: 'assets/plantas/' + V.id + '-' + k + '.jpg', full: 'assets/plantas/' + V.id + '-' + k + '.jpg' };
+        const tabKeys = ev => { const k = ev.key; if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(k)) return; ev.preventDefault();
+          const n = k === 'Home' ? 0 : k === 'End' ? 2 : (s.tpSel + (k === 'ArrowRight' ? 1 : 2)) % 3; this.pickTipologia(n);
+          setTimeout(() => { const b = document.getElementById('tp-tab-' + TIPOLOGIAS[n].k); b && b.focus(); }, 20); };
+        return {
+          tp: {
+            areas: N ? '"tabs" "info" "dist"' : '"tabs info" "dist info"',
+            tabs: TIPOLOGIAS.map((t, i) => { const on = i === s.tpSel; return {
+              id: 'tp-tab-' + t.k, k: t.k, selected: on ? 'true' : 'false', tabindex: on ? '0' : '-1', pick: () => this.pickTipologia(i),
+              perFloor: t.perFloor === 1 ? '1 apto. por piso' : t.perFloor + ' aptos. por piso', stages: (t.stages.length > 1 ? 'Etapas ' : 'Etapa ') + andList(t.stages),
+              bg: on ? '#14403E' : 'transparent', fg: on ? '#F4EDE1' : '#14403E', hover: on ? '#14403E' : '#EBE0CC', mark: on ? '1' : '0', sep: i ? '1px solid rgba(20,64,62,.2)' : '0' }; }),
+            tabKeys, tabId: 'tp-tab-' + TT.k,
+            distRef: this.tpDist, infoRef: this.tpInfo, planRef: this.tpPlan,
+            distBg: 'url("assets/plantas/piso-' + k + '.jpg")',
+            distAlt: 'Planta de piso de Urbis EU con los apartamentos de la tipología ' + TT.k + ' resaltados en rosado',
+            distCaption: 'En rosado, los apartamentos ' + TT.k + ' del piso',
+            typesText: (TT.types.length > 1 ? 'Tipos ' : 'Tipo ') + andList(TT.types),
+            stageText: (TT.stages.length > 1 ? 'Etapas ' : 'Etapa ') + andList(TT.stages),
+            perFloor: TT.perFloor === 1 ? '1 apartamento por piso' : TT.perFloor + ' apartamentos por piso',
+            built: TT.built, useful: TT.useful, usefulShort: 'Área útil de la tipología: ' + (TT.usefulLong || TT.useful),
+            views: TP_VIEWS.map((v, i) => { const on = i === s.tpView; return { label: v.label, pressed: on ? 'true' : 'false', pick: () => this.pickView(i),
+              bg: on ? '#14403E' : 'transparent', fg: on ? '#F4EDE1' : '#14403E', hover: on ? '#14403E' : '#EBE0CC',
+              font: on ? "600 13px/1 'Archivo',sans-serif" : "500 13px/1 'Archivo',sans-serif" }; }),
+            viewNote: V.note,
+            hasPlan: !!pl, noPlan: !pl, planBg: pl ? 'url("' + pl.crop + '")' : 'none', fullSrc: pl ? pl.full : '', fullBg: pl ? 'url("' + pl.full + '")' : 'none',
+            planAlt: 'Plano del apartamento ' + TT.k + ' de Urbis EU, ' + (s.tpView ? 'en obra gris, como se entrega' : 'amoblado como referencia'),
+            zoomLabel: 'Ampliar el plano del apartamento ' + TT.k,
+            planCaption: 'Apartamento ' + TT.k + ' · ' + V.label,
+            planCounter: V.note,
+            multi: true,
+            goCta: ev => { ev.preventDefault(); this.track('inquiry_cta_click', { label: 'Solicitar información', typology: TT.k }); this.goContact({ topic: 'Información de tipologías', typo: 'Tipología ' + TT.k + ' (' + (TT.types.length > 1 ? 'tipos ' : 'tipo ') + andList(TT.types) + ')', focus: 'name' }); }
+          },
+          planPrev: () => this.stepType(-1), planNext: () => this.stepType(1),
+          planKeys: ev => { if (ev.key === 'ArrowLeft') this.stepType(-1); else if (ev.key === 'ArrowRight') this.stepType(1); else this.trapTab(ev); },
+          tpPlanOpen: s.planOpen && !!pl
+        };
+      })(),
+      ...(() => {
+        const T = this.terms(), tp = URBIS.typologies[s.typo];
+        const price = tp.price || (T ? REF_PRICE : null);
+        const usesRef = !tp.price;
+        const plan = {
+          code: tp.code, label: 'Tipología ' + tp.code, alt: 'Plano de la tipología ' + tp.code + ' de Urbis EU',
+          bg: 'url("assets/plantas/urbis-planta-' + tp.code + '.jpg")',
+          transform: 'translate(' + s.panX + 'px,' + s.panY + 'px) scale(' + s.zoom + ')',
+          transition: s.dragging ? 'none' : 'transform .35s cubic-bezier(.2,.7,.2,1)',
+          hint: s.zoom > 1 ? 'Arrastra para recorrer el plano' : 'Haz clic para ampliar',
+          priceLabel: tp.price ? 'Precio' : 'Desde', price: tp.price ? fmt(tp.price) : '$275 millones',
+          desc: tp.layout || 'Plano de referencia de la tipología. Solicita la ficha técnica con áreas, distribución y valor actualizado a un asesor comercial.',
+          specs: [
+            tp.privateArea && { icon: 'M3 3h18v18H3zM3 9h18M9 21V9', v: tp.privateArea },
+            tp.beds && { icon: 'M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M2 18h20', v: tp.beds },
+            tp.baths && { icon: 'M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5M2 12h20', v: tp.baths }
+          ].filter(Boolean)
+        };
+        plan.hasSpecs = plan.specs.length > 0;
+        let sim;
+        if (T && price) {
+          const pct = Math.min(T.initialMaxPct, Math.max(T.initialMinPct, s.simPct ?? T.initialMinPct));
+          const n = T.installments.includes(+s.simN) ? +s.simN : T.installments[Math.floor(T.installments.length / 2)];
+          const initial = Math.round(price * pct / 100);
+          const sep = Math.min(T.separation || 0, initial);
+          const monthly = (initial - sep) / n;
+          const finalBal = Math.max(0, price - initial);
+          const preview = !PAYMENT_TERMS;
+          sim = { disabled: false, op: '1', pct, n, min: T.initialMinPct, max: T.initialMaxPct, step: T.stepPct || 1,
+            initial: fmt(initial), initPctLabel: pct + ' % del precio', initAria: fmt(initial) + ', ' + pct + ' por ciento',
+            minLabel: T.initialMinPct + ' % · ' + fmt(price * T.initialMinPct / 100), maxLabel: T.initialMaxPct + ' % · ' + fmt(price * T.initialMaxPct / 100),
+            sep: fmt(sep), sepNote: (price ? (Math.round(sep / price * 1000) / 10).toString().replace('.', ',') : '0') + ' % del precio · incluida en la cuota inicial',
+            nOptions: T.installments.map(v => ({ v: String(v), label: v + ' cuotas' })), monthly: fmt(monthly),
+            hasFinal: !!T.finalMilestone, final: fmt(finalBal), finalNote: T.finalMilestone || '',
+            total: fmt(price),
+            notice: preview || usesRef,
+            noticeText: preview ? 'Vista previa con valores de ejemplo. No corresponden a condiciones reales de Urbis EU.' : 'Cálculo sobre el precio de referencia desde $275 millones. El valor de cada tipología puede variar.',
+            noticeBorder: preview ? '#C4744C' : 'rgba(20,64,62,.25)', noticeBg: preview ? 'rgba(196,116,76,.12)' : 'transparent' };
+        } else {
+          sim = { disabled: true, op: '.55', pct: 0, n: '', min: 0, max: 100, step: 1,
+            initial: '—', initPctLabel: 'Por confirmar', initAria: 'Por confirmar', minLabel: 'Mínimo por confirmar', maxLabel: 'Máximo por confirmar',
+            sep: '—', sepNote: 'Valor por confirmar', nOptions: [{ v: '', label: 'Por confirmar' }], monthly: '—',
+            hasFinal: true, final: '—', finalNote: 'Momento de pago por confirmar', total: tp.price ? fmt(tp.price) : 'Desde $275 millones',
+            notice: true, noticeText: 'Las condiciones de pago de Urbis EU están en confirmación. Cuando se publiquen podrás simular tu plan aquí; mientras tanto, un asesor puede orientarte.',
+            noticeBorder: 'rgba(20,64,62,.25)', noticeBg: 'transparent' };
+        }
+        return {
+          plan, sim, simRef: this.simRef, planRef: this.planRef, planClose: this.planClose,
+          planOpen: s.planOpen, openPlan: this.openPlan, closePlan: this.closePlan,
+          zoomIn: () => this.setZoom(s.zoom + 0.5), zoomOut: () => this.setZoom(s.zoom - 0.5),
+          planDown: this.planDown, planMove: this.planMove, planUp: this.planUp,
+          planCursor: s.zoom > 1 ? (s.dragging ? 'grabbing' : 'grab') : 'zoom-in', planTouch: s.zoom > 1 ? 'none' : 'pan-y',
+          typoValue: String(s.typo),
+          typoOptions: URBIS.typologies.map((t, i) => ({ v: String(i), label: 'Tipología ' + t.code + (t.privateArea ? ' · ' + t.privateArea : '') })),
+          onTypoSelect: ev => this.selectTypo(+ev.target.value),
+          onInitPct: ev => this.setState({ simPct: +ev.target.value }),
+          onInstallments: ev => this.setState({ simN: +ev.target.value }),
+          tipoDivider: N ? '0' : '1px solid rgba(20,64,62,.16)', tipoDividerB: N ? '1px solid rgba(20,64,62,.16)' : '0'
+        };
+      })(),
+      entSlides: ENT_IMGS.map((im, i) => ({ ...im, alt: 'Render interior de referencia de un apartamento Urbis EU, imagen ' + (i + 1) + ' de ' + ENT_IMGS.length,
+        hidden: s.ent === i ? 'false' : 'true', op: s.ent === i ? '1' : '0', scale: s.ent === i ? 'none' : 'scale(1.03)' })),
+      entCounter: String(s.ent + 1).padStart(2, '0') + ' / ' + String(ENT_IMGS.length).padStart(2, '0'),
+      entPrev: () => this.setState(st => ({ ent: (st.ent - 1 + ENT_IMGS.length) % ENT_IMGS.length })),
+      entNext: () => this.setState(st => ({ ent: (st.ent + 1) % ENT_IMGS.length })),
+      entregaRatio: N ? '4/3' : '21/9', entregaLinkJustify: N ? 'flex-start' : 'flex-end',
+      ...(() => {
+        const lat = parseFloat(p.projectLat), lng = parseFloat(p.projectLng);
+        const ok = isFinite(lat) && isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180;
+        const mu = String(p.mapUrl || '').trim();
+        const em = String(p.contactEmail || '').trim();
+        const emOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em);
+        const wd = String(p.whatsappNumber || '').replace(/[^\d]/g, '');
+        return {
+          hasCoords: ok, noCoords: !ok,
+          mapEmbed: ok ? 'https://maps.google.com/maps?q=' + lat + ',' + lng + '&z=16&output=embed' : '',
+          hasDirections: ok || /^https?:\/\//.test(mu),
+          directionsHref: ok ? 'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng : mu,
+          mapRatio: N ? '4/3' : '16/9',
+          hasEmail: emOk, contactEmail: em, mailHref: emOk ? 'mailto:' + em : '',
+          waDisplay: wd.length >= 10 ? '+' + (wd.length === 10 ? '57 ' + wd : wd.slice(0, 2) + ' ' + wd.slice(2)) : '',
+          year: String(new Date().getFullYear())
+        };
+      })(),
+      antesTitleH: N ? '0' : '2.2em', antesDescH: N ? '0' : '4.65em',
+      oneLine: N ? 'normal' : 'nowrap',
+      mob: { footW: N ? 'auto' : '461px', footH: N ? 'auto' : '428px', entregaH: N ? 'auto' : '814px', zonasH: N ? 'auto' : '962px' },
+      secMinH: N ? 'auto' : 'min(100svh,860px)',
+      locItems: LOC_ITEMS.map(l => ({ ...l, hasDist: !!l.dist })),
+      hasMap: /^https?:\/\//.test(String(p.mapUrl || '').trim()), mapHref: String(p.mapUrl || '').trim(),
+      locMinH: N ? 'auto' : 'min(100svh,860px)', locPadB: N ? 'clamp(260px,62vw,420px)' : 'clamp(56px,7vw,96px)',
+      locScrim: N
+        ? 'linear-gradient(180deg,#14403E 0%,rgba(20,64,62,.9) 38%,rgba(20,64,62,.55) 62%,rgba(20,64,62,.05) 85%)'
+        : 'linear-gradient(90deg,#14403E 0%,rgba(20,64,62,.9) 18%,rgba(20,64,62,.55) 36%,rgba(20,64,62,.12) 54%,rgba(20,64,62,0) 64%),linear-gradient(180deg,rgba(20,64,62,.35) 0%,rgba(20,64,62,0) 30%)',
+      places, place, readoutRef: this.readoutRef,
+      ticks: [0, 1, 2, 3].map(k => ({ left: (k / MAXKM * 100) + '%', label: k === 0 ? '' : k + ' km' })),
+      amen0: () => this.openLight(0), amenities,
+      lightOpen: li !== null, light: lightObj, lightStage: this.lightStage, lightClose: this.lightClose,
+      lightDots: AMEN.map((a, i) => ({ name: a.name, current: li === i ? 'true' : 'false', w: li === i ? '28px' : '12px', bg: li === i ? '#F4EDE1' : 'rgba(244,237,225,.4)', go: () => this.openLight(i) })),
+      closeLight: this.closeLight, lightPrev: () => this.stepLight(-1), lightNext: () => this.stepLight(1), lightKeys: this.lightKeys,
+      stop: ev => ev.stopPropagation(),
+      stickyPos: N ? 'static' : 'sticky',
+      dudas, docs, faqs, legalLinks, legalPending: legalLinks.some(l => !l.hasUrl),
+      contactRef: this.contactRef, nameRef: this.nameRef, topicRef: this.topicRef, successRef: this.successRef,
+      formLift: N ? '0' : 'calc(-1 * clamp(80px,9vw,140px))',
+      form: f, errors: { name: e.name || '', wa: e.wa || '', email: e.email || '', topic: e.topic || '', consent: e.consent || '', interests: e.interests || '' },
+      onField: this.onField, submit: this.submit,
+      inv: { name: e.name ? 'true' : 'false', wa: e.wa ? 'true' : 'false', email: e.email ? 'true' : 'false', topic: e.topic ? 'true' : 'false', consent: e.consent ? 'true' : 'false' },
+      fb: { name: border('name'), wa: border('wa'), email: border('email'), topic: border('topic') },
+      topicBg: s.topicFlash ? '#EBDCC4' : 'transparent', topics: TOPICS,
+      isLoading, notLoading: !isLoading, isLoadingStr: isLoading ? 'true' : 'false', btnOpacity: isLoading ? '.75' : '1',
+      submitLabel: isLoading ? 'Enviando…' : 'Enviar solicitud',
+      hasSubmitMsg: !!msgs[s.status], submitMsg: msgs[s.status] || '',
+      isSuccess: s.status === 'success', showForm: s.status !== 'success',
+      ...(() => {
+        const st = s.lfStep, names = ['Tus datos', 'Tu interés', 'Confirmación'], titles = ['Tus datos', '¿Qué te interesa?', 'Confirma tu solicitud'];
+        const toggleI = v => this.setState(x => { const has = x.form.interests.includes(v); return { form: { ...x.form, interests: has ? x.form.interests.filter(i => i !== v) : [...x.form.interests, v] }, errors: { ...x.errors, interests: '' } }; });
+        const priv = URBIS.legal.find(l => /tratamiento/i.test(l.label));
+        return {
+          lfStep: String(st), lfIs1: st === 1, lfIs2: st === 2, lfIs3: st === 3, lfNotLast: st < 3, lfHasBack: st > 1,
+          lfTitle: titles[st - 1], lfStepLabel: 'Paso ' + st + ' de 3', lfStepName: names[st - 1], lfPct: (st / 3 * 100) + '%',
+          lfSteps: names.map((l, i) => ({ n: '0' + (i + 1), label: l, current: st === i + 1 ? 'step' : 'false',
+            bar: i + 1 <= st ? '#14403E' : '#E7D6BC', color: i + 1 <= st ? '#14403E' : '#7A8C8A',
+            font: st === i + 1 ? "600 13px/1.2 'Archivo',sans-serif" : "500 13px/1.2 'Archivo',sans-serif" })),
+          lfOptions: LEAD_OPTIONS.map(v => { const on = f.interests.includes(v); return { label: v, checked: on, toggle: () => toggleI(v),
+            bg: on ? '#F4EDE1' : '#FFFFFF', border: on ? '#14403E' : '#E7D6BC', boxBg: on ? '#14403E' : 'transparent', checkOp: on ? '1' : '0',
+            font: on ? "600 15px/1.35 'Archivo',sans-serif" : "400 15px/1.35 'Archivo',sans-serif" }; }),
+          lfSummary: [
+            { k: 'Nombre', v: f.name.trim(), edit: () => this.lfGo(1), editLabel: 'Editar nombre' },
+            { k: 'WhatsApp', v: f.wa.trim(), edit: () => this.lfGo(1), editLabel: 'Editar WhatsApp' },
+            { k: 'Correo', v: f.email.trim() || 'No indicado', edit: () => this.lfGo(1), editLabel: 'Editar correo electrónico' },
+            { k: 'Interés', v: f.interests.join(' · ') || '—', edit: () => this.lfGo(2), editLabel: 'Editar interés' },
+            ...(f.typo ? [{ k: 'Tipología', v: f.typo, edit: () => this.lfGo(2), editLabel: 'Editar interés' }] : [])
+          ],
+          lfBack: () => this.lfGo(Math.max(1, st - 1)), lfSubmit: this.lfSubmit, stepRef: this.stepRef,
+          hasPrivacy: !!(priv && priv.url), noPrivacy: !(priv && priv.url), privacyHref: (priv && priv.url) || '',
+          interestsLower: (f.interests.length ? f.interests.join(', ') : 'tu consulta').toLowerCase()
+        };
+      })(),
+      firstName: f.name.trim().split(' ')[0] || '', topicLower: (f.topic || 'el proyecto').toLowerCase(),
+      hasWa, waHref: hasWa ? 'https://wa.me/' + waDigits : '', trackWa: () => this.track('whatsapp_click'),
+      showSticky, dismissSticky: () => this.setState({ stickyHidden: true }),
+      footerPad: showSticky ? '80px' : '0'
+    };
+  }
+}
+
+</script>
+</body>
+</html>
