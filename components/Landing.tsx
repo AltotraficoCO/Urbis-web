@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type Mou
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
 import s from './Landing.module.css';
 
-type Status = 'idle' | 'loading' | 'success' | 'error' | 'unconfigured';
+type Status = 'idle' | 'loading' | 'success' | 'error' | 'unconfigured' | 'limited';
 
 const HDR_OFFSET = 64;
 const PRIVACY_URL = process.env.NEXT_PUBLIC_PRIVACY_URL || '';
@@ -13,6 +13,7 @@ const MOBILE_STICKY_CTA = true;
 const FIELDS = ['name', 'wa', 'email', 'consent'] as const;
 const MSGS: Partial<Record<Status, string>> = {
   error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.',
+  limited: 'Ya recibimos varias solicitudes desde tu conexión. Inténtalo de nuevo en unos minutos.',
   unconfigured: 'El formulario todavía no está conectado al sistema de registro, así que tu solicitud no se envió. Inténtalo más tarde.',
 };
 
@@ -40,8 +41,11 @@ export default function Landing() {
   const formRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const honeypot = useRef<HTMLInputElement>(null);
+  const shownAt = useRef(0);
 
   useEffect(() => {
+    shownAt.current = Date.now();
     const mq = window.matchMedia('(max-width: 959px)');
     let ticking = false;
     const onScroll = () => {
@@ -103,9 +107,10 @@ export default function Landing() {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, page: location.href }),
+        body: JSON.stringify({ ...form, page: location.href, company: honeypot.current?.value ?? '', elapsed: Date.now() - shownAt.current }),
       });
       if (res.status === 503) { setStatus('unconfigured'); return; }
+      if (res.status === 429) { setStatus('limited'); return; }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       setStatus('success');
       track('form_submit_success', { interest: 'apartamentos' });
@@ -163,6 +168,10 @@ export default function Landing() {
                     <p className={s.lead}>Déjanos tus datos y recibe información para dar el siguiente paso.</p>
                   </div>
                   <form noValidate onSubmit={submit} aria-label="Solicitud de información de Urbis EU" className={s.form}>
+                    <div aria-hidden="true" className={s.trap}>
+                      <label htmlFor="lf-company">Empresa</label>
+                      <input id="lf-company" name="company" ref={honeypot} tabIndex={-1} autoComplete="off" defaultValue="" />
+                    </div>
                     <div className={s.field}>
                       <label htmlFor="lf-name" className={s.label}>Nombre</label>
                       <input id="lf-name" name="name" ref={nameRef} autoComplete="name" placeholder="Tu nombre y apellido" value={form.name} onChange={onField} aria-invalid={!!errors.name} aria-describedby="lf-name-e" className={s.input} />

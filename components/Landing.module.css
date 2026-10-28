@@ -73,3 +73,6 @@
   .sub { font-size: 18px; }
   .sub strong { font-size: 21px; }
 }
+
+/* Campo trampa: invisible para personas, los bots lo llenan. */
+.trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
