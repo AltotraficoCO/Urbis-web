@@ -10,7 +10,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error' | 'unconfigured' | 'limit
 const HDR_OFFSET = 64;
 const PRIVACY_URL = process.env.NEXT_PUBLIC_PRIVACY_URL || '';
 const MOBILE_STICKY_CTA = true;
-const FIELDS = ['name', 'wa', 'email', 'consent'] as const;
+const FIELDS = ['name', 'wa', 'city', 'email', 'consent'] as const;
 const MSGS: Partial<Record<Status, string>> = {
   error: 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.',
   limited: 'Ya recibimos varias solicitudes desde tu conexión. Inténtalo de nuevo en unos minutos.',
@@ -30,7 +30,7 @@ const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').ma
 const delay = (ms: number) => ({ animationDelay: ms + 'ms' });
 
 export default function Landing() {
-  const [form, setForm] = useState<LeadForm>({ name: '', wa: '', email: '', consent: false });
+  const [form, setForm] = useState<LeadForm>({ name: '', wa: '', city: '', email: '', consent: false });
   const [errors, setErrors] = useState<LeadErrors>({});
   const [status, setStatus] = useState<Status>('idle');
   const [narrow, setNarrow] = useState(false);
@@ -179,8 +179,16 @@ export default function Landing() {
                     </div>
                     <div className={s.field}>
                       <label htmlFor="lf-wa" className={s.label}>Teléfono / WhatsApp</label>
-                      <input id="lf-wa" name="wa" type="tel" inputMode="tel" autoComplete="tel-national" placeholder="300 000 0000" value={form.wa} onChange={onField} aria-invalid={!!errors.wa} aria-describedby="lf-wa-e" className={s.input} />
+                      <div className={s.phone}>
+                        <span className={s.dial} aria-label="Indicativo de Colombia">+57</span>
+                        <input id="lf-wa" name="wa" type="tel" inputMode="tel" autoComplete="tel-national" placeholder="300 000 0000" value={form.wa} onChange={onField} aria-invalid={!!errors.wa} aria-describedby="lf-wa-e" className={s.input} />
+                      </div>
                       <span id="lf-wa-e" aria-live="polite" className={s.error}>{errors.wa}</span>
+                    </div>
+                    <div className={s.field}>
+                      <label htmlFor="lf-city" className={s.label}>Ciudad</label>
+                      <input id="lf-city" name="city" autoComplete="address-level2" placeholder="¿En qué ciudad vives?" value={form.city} onChange={onField} aria-invalid={!!errors.city} aria-describedby="lf-city-e" className={s.input} />
+                      <span id="lf-city-e" aria-live="polite" className={s.error}>{errors.city}</span>
                     </div>
                     <div className={s.field}>
                       <label htmlFor="lf-email" className={s.label}>Correo electrónico</label>

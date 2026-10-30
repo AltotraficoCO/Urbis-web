@@ -48,6 +48,8 @@
 .input { width: 100%; min-height: 48px; padding: 10px 14px; background: #FFFFFF; border: 1px solid #E7D6BC; border-radius: 2px; font: 400 16px var(--sans); color: #14403E; outline: none; transition: border-color .25s ease, box-shadow .25s ease; }
 .input[aria-invalid='true'] { border-color: #8C3B1E; }
 .input:focus { border-color: #14403E; box-shadow: 0 0 0 3px rgba(20,64,62,.12); }
+.phone { display: flex; gap: 8px; }
+.dial { flex: none; display: flex; align-items: center; min-height: 48px; padding: 0 14px; background: #F4EDE1; border: 1px solid #E7D6BC; border-radius: 2px; font: 500 16px var(--sans); color: #14403E; }
 .error { font: 500 12px/1.4 var(--sans); color: #8C3B1E; }
 .consent { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-height: 44px; }
 .consent input { width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: #14403E; }

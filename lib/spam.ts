@@ -18,6 +18,7 @@ export function spamReason(f: LeadForm): string | null {
   const email = f.email.trim().toLowerCase();
   const phone = f.wa.replace(/[^\d]/g, '');
   if (URL_RE.test(name)) return 'url_in_name';
+  if (URL_RE.test(f.city)) return 'url_in_city';
   if (DISPOSABLE.has(email.split('@')[1] ?? '')) return 'disposable_email';
   if (/(\d)\1{6,}/.test(phone)) return 'repeated_digits';
   if (/^(.)\1+$/i.test(name.replace(/\s/g, ''))) return 'repeated_chars';

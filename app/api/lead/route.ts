@@ -22,7 +22,18 @@ const silentOk = (reason: string) => {
   return Response.json({ ok: true });
 };
 
-// Reenvía el lead a LEAD_WEBHOOK_URL (CRM, Zapier, Make, etc.).
+// Separa el indicativo del número local: "573001234567" / "3001234567" → { "+57", "3001234567" }.
+function splitPhone(wa: string) {
+  const d = digits(wa);
+  return { indicativo: '+57', numero: d.length === 12 && d.startsWith('57') ? d.slice(2) : d };
+}
+
+async function send(endpoint: string, payload: object) {
+  const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+}
+
+// Reenvía el lead a LEAD_WEBHOOK_URL (CRM de AT) y a N8N_WEBHOOK_URL (n8n de Urbis).
 export async function POST(req: Request) {
   // 1. Solo peticiones hechas desde esta misma web.
   const origin = req.headers.get('origin');
@@ -47,6 +58,7 @@ export async function POST(req: Request) {
   const form: LeadForm = {
     name: String(body.name ?? ''),
     wa: String(body.wa ?? ''),
+    city: String(body.city ?? ''),
     email: String(body.email ?? ''),
     consent: body.consent === true,
   };
@@ -61,9 +73,10 @@ export async function POST(req: Request) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
   if (rateLimited(ip)) return Response.json({ error: 'rate_limited' }, { status: 429 });
 
-  const endpoint = process.env.LEAD_WEBHOOK_URL?.trim();
-  if (!endpoint) {
-    console.warn('[Urbis EU] Formulario sin configurar: define LEAD_WEBHOOK_URL con la URL que recibirá los leads. No se envió ningún dato.');
+  const atUrl = process.env.LEAD_WEBHOOK_URL?.trim();
+  const n8nUrl = process.env.N8N_WEBHOOK_URL?.trim();
+  if (!atUrl && !n8nUrl) {
+    console.warn('[Urbis EU] Formulario sin configurar: define LEAD_WEBHOOK_URL y/o N8N_WEBHOOK_URL con las URLs que recibirán los leads. No se envió ningún dato.');
     return Response.json({ error: 'unconfigured' }, { status: 503 });
   }
 
@@ -71,6 +84,7 @@ export async function POST(req: Request) {
     name: form.name.trim(),
     whatsapp: digits(form.wa),
     email: form.email.trim(),
+    city: form.city.trim(),
     interest: 'Apartamentos Urbis EU',
     consent: true,
     source: 'landing-urbis-eu',
@@ -78,12 +92,26 @@ export async function POST(req: Request) {
     submittedAt: new Date().toISOString(),
   };
 
-  try {
-    const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-  } catch (err) {
-    console.error('[Urbis EU] Error al reenviar el lead', err);
-    return Response.json({ error: 'upstream' }, { status: 502 });
-  }
+  const { indicativo, numero } = splitPhone(form.wa);
+  const n8nPayload = {
+    ciudad: payload.city,
+    Correo: payload.email,
+    formulario: 'URBIS-EU',
+    id: `${Date.now()}${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`,
+    Nombre: payload.name,
+    Indicativo: indicativo,
+    Numero: numero,
+  };
+
+  const targets = [
+    atUrl && { name: 'AT', run: () => send(atUrl, payload) },
+    n8nUrl && { name: 'n8n', run: () => send(n8nUrl, n8nPayload) },
+  ].filter(t => !!t);
+  const results = await Promise.allSettled(targets.map(t => t.run()));
+  results.forEach((r, i) => {
+    if (r.status === 'rejected') console.error(`[Urbis EU] Error al reenviar el lead a ${targets[i].name}`, r.reason);
+  });
+  // Basta con que un destino reciba el lead para no perderlo.
+  if (results.every(r => r.status === 'rejected')) return Response.json({ error: 'upstream' }, { status: 502 });
   return Response.json({ ok: true });
 }
