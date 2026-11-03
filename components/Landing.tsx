@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
+import TorreDiaNoche from './TorreDiaNoche';
 import s from './Landing.module.css';
 
 type Status = 'idle' | 'loading' | 'success' | 'error' | 'unconfigured' | 'limited';
@@ -218,6 +219,8 @@ export default function Landing() {
             </div>
           </div>
         </section>
+
+        <TorreDiaNoche onCta={goForm} hideCta={showSticky} />
       </main>
 
       {showSticky && (
