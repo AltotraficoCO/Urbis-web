@@ -238,7 +238,7 @@ export default function Landing() {
         <EscenaDiaNoche
           etiqueta="Urbis EU del día a la noche"
           base="/assets/web/torre"
-          alto={4.6}
+          alto={3.4}
           entrada="ventana"
           conSalida
           fondo="#0B2524"
@@ -255,7 +255,7 @@ export default function Landing() {
         <EscenaDiaNoche
           etiqueta="Urbis EU y el mar de Cartagena al amanecer"
           base="/assets/web/mar"
-          alto={5.2}
+          alto={3.8}
           entrada="fundido"
           conSalida
           amanecer

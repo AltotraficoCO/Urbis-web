@@ -31,21 +31,33 @@
 
 .nota { position: absolute; right: clamp(20px, 4vw, 56px); bottom: 12px; z-index: 2; margin: 0; font: 400 11px/1.3 var(--sans); color: #F4EDE1; text-shadow: 0 1px 8px rgba(11,37,36,.9); }
 
-/* Zonas comunes */
-.mediaZonas { position: absolute; inset: 0; background: #0B2524; will-change: clip-path; }
-.zonaImg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-@media (max-aspect-ratio: 1/1) { .zonaImg { object-position: var(--foco) 50%; } }
+/* Zonas comunes: una sola pantalla; las fotos pasan solas o con los controles. */
+.mediaZonas { position: absolute; inset: 0; background: #0B2524; will-change: clip-path; touch-action: pan-y; }
+.zonaFig { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1s ease; }
+.zonaOn { opacity: 1; }
+.zonaFig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.zonaFig figcaption { display: none; }
+@media (max-aspect-ratio: 1/1) { .zonaFig img { object-position: var(--foco) 50%; } }
 .scrimZonas { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.3) 0%, rgba(11,37,36,0) 16%, rgba(11,37,36,0) 42%, rgba(11,37,36,.62) 68%, rgba(11,37,36,.92) 100%); }
-.zonasTitulo::before { content: ''; position: absolute; z-index: -1; top: -80px; left: -60px; width: 100vw; height: calc(100% + 190px); pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.86) 0%, rgba(11,37,36,.74) 62%, rgba(11,37,36,0) 100%); }
-.zonasTitulo { position: absolute; z-index: 1; left: clamp(20px, 4vw, 56px); top: clamp(28px, 7vh, 64px); display: flex; flex-direction: column; gap: 16px; max-width: min(60vw, 720px); }
-.caps { list-style: none; margin: 0; padding: 0; }
-.cap { position: absolute; left: clamp(20px, 4vw, 56px); right: clamp(20px, 4vw, 56px); bottom: clamp(44px, 8vh, 72px); display: grid; grid-template-columns: auto 1fr; column-gap: clamp(20px, 3vw, 44px); align-items: baseline; will-change: opacity, transform; }
+.zonasTitulo::before { content: ''; position: absolute; z-index: -1; top: -80px; left: -60px; width: 200vw; height: calc(100% + 190px); pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.86) 0%, rgba(11,37,36,.74) 62%, rgba(11,37,36,0) 100%); }
+.zonasTitulo { position: absolute; z-index: 1; left: clamp(20px, 4vw, 56px); top: clamp(28px, 7vh, 64px); display: flex; flex-direction: column; gap: 16px; max-width: min(60vw, 720px); transition: opacity .8s ease; }
+.tituloFuera { opacity: 0; }
+.tituloFuera::before { display: none; }
+.pieZonas { position: absolute; z-index: 2; left: clamp(20px, 4vw, 56px); right: clamp(20px, 4vw, 56px); bottom: clamp(30px, 5vh, 44px); display: flex; flex-direction: column; gap: 16px; }
+.filaZonas { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.cap { display: grid; grid-template-columns: auto 1fr; column-gap: clamp(20px, 3vw, 44px); align-items: baseline; animation: urbRise .7s var(--ease) both; }
 .capN { grid-row: span 2; font: 500 13px/1 var(--sans); letter-spacing: .12em; color: #E7D6BC; }
 .capN small { font-size: 11px; opacity: .75; }
 .capName { margin: 0; font: 300 clamp(34px, 4.6vw, 72px)/1.02 var(--serif); letter-spacing: -.015em; }
 .capText { margin: 8px 0 0; font: 400 clamp(15px, 1.2vw, 18px)/1.45 var(--sans); }
-.track { position: absolute; left: clamp(20px, 4vw, 56px); right: clamp(20px, 4vw, 56px); bottom: clamp(22px, 4vh, 34px); height: 1px; background: rgba(244,237,225,.28); }
-.track span { display: block; height: 100%; background: #E66A45; transform: scaleX(.11); transform-origin: left; }
+.ctrls { flex: none; display: flex; gap: 8px; }
+.ctrl { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; padding: 0; background: rgba(11,37,36,.55); border: 1px solid rgba(244,237,225,.55); color: #F4EDE1; cursor: pointer; transition: background-color .25s ease, color .25s ease; }
+.ctrl:hover { background: #F4EDE1; color: #14403E; }
+.segs { display: grid; grid-template-columns: repeat(9, 1fr); gap: 4px; }
+.seg { height: 24px; padding: 0; background: none; border: 0; cursor: pointer; display: flex; align-items: center; }
+.seg i { display: block; width: 100%; height: 2px; background: rgba(244,237,225,.32); overflow: hidden; }
+.seg b { display: block; width: 100%; height: 100%; background: #E66A45; transform: scaleX(0); transform-origin: left; }
+.segVisto b { transform: scaleX(1); }
 
 @media (max-width: 959px), (max-aspect-ratio: 1/1) {
   .layer img { object-position: 50% 50%; }
@@ -55,10 +67,12 @@
   .lugares { font-size: 15px; }
   .lugares li { padding: 8px 0; }
   .zonasTitulo { max-width: none; right: 20px; }
-  .cap { bottom: 96px; grid-template-columns: 1fr; row-gap: 10px; }
+  .pieZonas { bottom: 74px; gap: 8px; }
+  .cap { grid-template-columns: 1fr; row-gap: 8px; }
   .capN { grid-row: auto; }
-  .track { bottom: 80px; }
-  .nota { left: 20px; right: auto; bottom: 66px; font-size: 10px; }
+  .ctrl { width: 44px; height: 44px; }
+  .ctrls .pausa { display: none; }
+  .nota { left: 20px; right: auto; bottom: 62px; font-size: 10px; }
 }
 
 /* Sin movimiento: secciones estáticas, una debajo de otra. */
@@ -73,8 +87,10 @@
   .beat { position: static; opacity: 1 !important; margin: 0 0 24px; width: min(100%, 520px); transform: none !important; }
   .media, .mediaZonas { clip-path: none !important; }
   .zonas .pin { display: block; }
-  .zonas .mediaZonas { position: relative; display: block; }
-  .zonaImg { position: relative; display: block; height: 60vh; opacity: 1 !important; }
-  .zonasTitulo, .cap, .track { position: static; opacity: 1 !important; transform: none !important; padding: 24px clamp(20px, 4vw, 56px); }
-  .scrimZonas, .track, .nota { display: none; }
+  .zonas .mediaZonas { position: relative; display: block; padding-top: 24px; }
+  .zonaFig { position: relative; inset: auto; opacity: 1; margin-bottom: 8px; }
+  .zonaFig img { height: 60vh; }
+  .zonaFig figcaption { display: block; padding: 12px clamp(20px, 4vw, 56px); font: 400 15px/1.4 var(--sans); }
+  .zonasTitulo { position: static; opacity: 1; padding: 24px clamp(20px, 4vw, 56px); max-width: none; }
+  .zonasTitulo::before, .scrimZonas, .pieZonas, .nota { display: none; }
 }

@@ -40,7 +40,7 @@ const FRAG = /* glsl */ `
   }
 `;
 
-export type EscenaGaleria = { setPosicion(f: number): void; setTiempo(t: number): void; resize(): void; render(): void; dispose(): void };
+export type EscenaGaleria = { setEstado(actual: number, siguiente: number, mezcla: number, avance: number): void; lista(i: number): boolean; setTiempo(t: number): void; resize(): void; render(): void; dispose(): void };
 
 export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: string[]; focos: number[] }): Promise<EscenaGaleria> {
   const { canvas, urls, focos } = opts;
@@ -80,26 +80,27 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
   const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const aspecto = (t: Texture) => { const im = t.image as HTMLImageElement; return im.width / im.height; };
   const render = () => renderer.render(scene, camera);
-  let pos = 0;
+  const n = urls.length;
+  let ia = 0, ib = 0, mezcla = 0, avance = 0;
 
   const aplicar = () => {
-    const i = Math.max(0, Math.min(urls.length - 1, Math.floor(pos)));
-    const f = pos - i;
-    [i - 1, i, i + 1, i + 2].forEach(cargar);
-    const a = listas.get(i) ?? primera;
-    const b = listas.get(i + 1) ?? a;
+    [ia, ib, (ib + 1) % n].forEach(cargar);
+    const a = listas.get(ia) ?? primera;
+    const b = listas.get(ib) ?? a;
     u.uA.value = a; u.uB.value = b;
     u.uImgA.value = aspecto(a); u.uImgB.value = aspecto(b);
-    u.uFocusA.value = focos[i]; u.uFocusB.value = focos[Math.min(i + 1, urls.length - 1)];
-    u.uZoomA.value = 1.12 - 0.08 * f; u.uZoomB.value = 1.2 - 0.08 * f;
-    u.uMix.value = b === a ? 0 : Math.min(1, Math.max(0, (f - 0.55) / 0.45));
-    u.uWater.value = i === 0 ? 1 : 0;
+    u.uFocusA.value = focos[ia]; u.uFocusB.value = focos[ib];
+    // Acercamiento lento: la imagen entrante termina con el zoom con que arranca su turno.
+    u.uZoomA.value = 1.12 - 0.08 * avance; u.uZoomB.value = 1.2 - 0.08 * mezcla;
+    u.uMix.value = b === a ? 0 : mezcla;
+    u.uWater.value = ia === 0 ? 1 : 0;
   };
 
   const onLost = (e: Event) => e.preventDefault();
   canvas.addEventListener('webglcontextlost', onLost);
   const api: EscenaGaleria = {
-    setPosicion(f) { pos = f; aplicar(); },
+    setEstado(a, b, m, f) { ia = a; ib = b; mezcla = m; avance = f; aplicar(); },
+    lista: i => { cargar(i); return listas.has(i); },
     setTiempo(t) { u.uTime.value = t; },
     resize() { const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1; u.uAspect.value = w / h; renderer.setSize(w, h, false); },
     render,
