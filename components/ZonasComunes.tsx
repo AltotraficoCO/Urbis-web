@@ -111,7 +111,6 @@ export default function ZonasComunes() {
       if (scene && enter > 0 && !(reposo && ahora - dibujado < 33)) {
         dibujado = ahora;
         scene.setEstado(paso ? paso.a : i, paso ? paso.b : i, mezcla, avance);
-        scene.setTiempo(ahora / 1000);
         scene.render();
       }
       if (visible) raf = requestAnimationFrame(tick);
