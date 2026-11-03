@@ -5,7 +5,7 @@
 }
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: #F4EDE1; color: #14403E; font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { margin: 0; background: #F4EDE1; color: #14403E; font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; font-variant-ligatures: no-contextual; /* Evita el rabito largo de la Q antes de la u en la serif. */ }
 *, *::before, *::after { box-sizing: border-box; }
 ::selection { background: #E7D6BC; color: #14403E; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
