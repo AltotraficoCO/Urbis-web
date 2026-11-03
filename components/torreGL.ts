@@ -90,8 +90,8 @@ const FRAG = /* glsl */ `
 `;
 
 export type EscenaTorre = {
-  /** Progreso 0–1 del día a la noche. */
-  setProgress(p: number): void;
+  /** Luz (0 día, 1 noche) y recorrido de la cámara (0–1). */
+  setProgress(luz: number, camara: number): void;
   /** Cursor normalizado en −1…1. */
   setPointer(x: number, y: number): void;
   resize(): void;
@@ -112,6 +112,8 @@ export async function crearEscenaTorre(opts: {
   mapX: [number, number];
   /** Punto de la imagen (0–1) que se mantiene centrado horizontalmente. */
   focusX: number;
+  /** Recorrido vertical de la cámara, como fracción del margen de imagen disponible. */
+  cam: { low: number; high: number };
   onContextLost(): void;
 }): Promise<EscenaTorre> {
   const { canvas } = opts;
@@ -159,8 +161,8 @@ export async function crearEscenaTorre(opts: {
     let visX = 1 / zoom;
     let visY = visX * (imgAspect / aspect);
     if (visY > 1 / zoom) { visY = 1 / zoom; visX = visY * (aspect / imgAspect); }
-    const low = 0.5 + (1 - visY) * 0.22;
-    const high = 0.5 - (1 - visY) * 0.34;
+    const low = 0.5 + (1 - visY) * opts.cam.low;
+    const high = 0.5 + (1 - visY) * opts.cam.high;
     const cy = low + (high - low) * progress;
     uniforms.uVis.value.set(visX, visY);
     uniforms.uCenter.value.set(
@@ -173,9 +175,9 @@ export async function crearEscenaTorre(opts: {
   canvas.addEventListener('webglcontextlost', onLost);
 
   const scena: EscenaTorre = {
-    setProgress(p) {
-      progress = p;
-      uniforms.uP.value = p;
+    setProgress(luz, camara) {
+      progress = camara;
+      uniforms.uP.value = luz;
       frame();
     },
     setPointer(x, y) { uniforms.uPointer.value.set(x, y); },

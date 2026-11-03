@@ -7,7 +7,7 @@
 .up { animation: urbRevealUp 600ms var(--ease) both; }
 
 /* Hero */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; background: #14403E; color: #F4EDE1; overflow: hidden; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; background: #0B2524; color: #F4EDE1; overflow: hidden; }
 .heroBg { position: absolute; inset: 0; }
 .heroImg { position: absolute; inset: -6% 0 -6% 0; will-change: transform; }
 .heroImg img { object-fit: cover; object-position: center; }
@@ -17,6 +17,8 @@
     linear-gradient(90deg, rgba(20,64,62,.78) 0%, rgba(20,64,62,.5) 40%, rgba(20,64,62,.15) 70%, rgba(20,64,62,.35) 100%),
     linear-gradient(180deg, rgba(20,64,62,.5) 0%, rgba(20,64,62,0) 22%, rgba(20,64,62,0) 70%, rgba(20,64,62,.6) 100%);
 }
+/* Funde el hero hacia el tono de fondo de la escena siguiente: no queda ningún borde visible. */
+.heroFade { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,0) 0%, rgba(11,37,36,.62) 62%, #0B2524 100%); }
 .heroGrid {
   position: relative; width: 100%; max-width: 1440px; margin: 0 auto;
   padding: clamp(104px, 14vh, 140px) clamp(20px, 4vw, 56px) clamp(40px, 6vh, 72px);
@@ -60,6 +62,10 @@
 .submit:hover { background-color: #0B2524; gap: 18px; }
 .submit:disabled { cursor: progress; }
 
+/* CTA fijo en escritorio */
+.pill { position: fixed; top: 20px; right: clamp(20px, 4vw, 56px); z-index: 40; display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; background: #E66A45; color: #0B2524; text-decoration: none; font: 600 14px/1 var(--sans); border-radius: 1px; animation: urbRise .3s ease; transition: background-color .25s ease; }
+.pill:hover { background: #F07E5B; color: #0B2524; }
+
 /* CTA fijo en móvil */
 .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; display: flex; gap: 8px; animation: urbRise .3s ease; }
 .stickyCta { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 52px; background: #E66A45; color: #0B2524; text-decoration: none; font: 600 15px/1 var(--sans); border-radius: 1px; }
@@ -67,6 +73,7 @@
 
 @media (max-width: 959px) {
   .heroOverlay { background: linear-gradient(180deg, rgba(20,64,62,.62) 0%, rgba(20,64,62,.5) 45%, rgba(20,64,62,.72) 100%); }
+  .heroImg img { object-position: 64% 50%; }
   .heroGrid { grid-template-columns: minmax(0, 1fr); }
   .card { max-width: 100%; justify-self: stretch; }
 }
