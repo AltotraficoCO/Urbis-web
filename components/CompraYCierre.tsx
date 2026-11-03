@@ -19,7 +19,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
         <div className={s.wrap}>
           <div className={s.compraHead}>
             <Revela className={s.encabezado}>
-              <p className={s.kicker}><span />CONDICIONES DE COMPRA</p>
+              <p className={s.kicker}>CONDICIONES DE COMPRA</p>
               <h2 id="compra-titulo" className={s.h2}>Comprar empieza con <em>información clara.</em></h2>
             </Revela>
             <Revela className={s.precio} retraso={120}>
@@ -39,7 +39,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
           </ol>
           <div className={s.faqGrid}>
             <Revela className={s.encabezado}>
-              <p className={s.kicker}><span />RESOLVEMOS TUS DUDAS</p>
+              <p className={s.kicker}>RESOLVEMOS TUS DUDAS</p>
               <h2 className={s.h2}>Antes de <em>decidir.</em></h2>
             </Revela>
             <Revela className={s.faqs} retraso={100}>
@@ -60,7 +60,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
           <div aria-hidden="true" className={s.cierreScrim} />
         </div>
         <div className={s.cierreCopy}>
-          <p className={`${s.kicker} ${s.kickerClaro}`}><span />URBIS EU · CARTAGENA</p>
+          <p className={`${s.kicker} ${s.kickerClaro}`}>URBIS EU · CARTAGENA</p>
           <h2 id="cierre-titulo" className={`${s.h2} ${s.h2Claro} ${s.h2Grande}`}>Hablemos de <em>tu próximo hogar.</em></h2>
           <a href="#formulario" onClick={onCta} data-track="cta_primary_click" className={s.botonClaro}>
             <span>Quiero recibir información</span>

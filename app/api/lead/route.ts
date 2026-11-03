@@ -1,5 +1,6 @@
 import { checkBotId } from 'botid/server';
 import { digits, validateLead, type LeadForm } from '@/lib/lead';
+import { TIPOLOGIAS } from '@/lib/proyecto';
 import { MIN_FILL_MS, spamReason } from '@/lib/spam';
 
 // Límite por IP (best-effort: vive en memoria de cada instancia).
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
   const verification = await checkBotId();
   if (verification.isBot) return Response.json({ error: 'forbidden' }, { status: 403 });
 
-  let body: Partial<LeadForm> & { page?: string; company?: string; elapsed?: number };
+  let body: Partial<LeadForm> & { page?: string; company?: string; elapsed?: number; apartamento?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -80,12 +81,17 @@ export async function POST(req: Request) {
     return Response.json({ error: 'unconfigured' }, { status: 503 });
   }
 
+  // Apartamento elegido en el explorador, si vino desde "Pedir valor de este apartamento".
+  const tipoApto = TIPOLOGIAS.find(t => t.tipos.includes(Number(body.apartamento)));
+  const apartamento = tipoApto ? `Apartamento ${Number(body.apartamento)}, tipología ${tipoApto.k}` : '';
+
   const payload = {
     name: form.name.trim(),
     whatsapp: digits(form.wa),
     email: form.email.trim(),
     city: form.city.trim(),
     interest: 'Apartamentos Urbis EU',
+    apartamento,
     consent: true,
     source: 'landing-urbis-eu',
     page: typeof body.page === 'string' ? body.page.slice(0, 500) : '',
@@ -101,6 +107,7 @@ export async function POST(req: Request) {
     Nombre: payload.name,
     Indicativo: indicativo,
     Numero: numero,
+    Apartamento: apartamento,
   };
 
   const targets = [

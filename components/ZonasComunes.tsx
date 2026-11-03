@@ -181,8 +181,8 @@ export default function ZonasComunes() {
           <canvas ref={canvas} aria-hidden="true" className={`${s.canvas} ${modo === 'gl' ? s.canvasOn : ''}`} />
           <div aria-hidden="true" className={s.scrimZonas} />
           <div className={`${s.zonasTitulo} ${yaCambio ? s.tituloFuera : ''}`}>
-            <p className={s.eyebrow}><span />ZONAS COMUNES</p>
-            <h2 className={s.title}>Tu hogar continúa <em>más allá de tu puerta.</em></h2>
+            <p className={s.eyebrow}>ZONAS COMUNES</p>
+            <h2 className={s.title}>Las mejores amenidades <em>de Torices.</em></h2>
           </div>
           <div ref={pie} className={s.pieZonas}>
             <div className={s.filaZonas}>
