@@ -2,6 +2,8 @@
 // PENDIENTE DE CONFIRMAR antes de producción: áreas por tipología, fecha y alcance de
 // entrega, texto legal VIS y las zonas comunes que no estaban en el borrador
 // (BBQ, coworking, guardería y parque infantil, que sí aparecen en los renders).
+// También por validar: "nadie te va a tapar" y "las mejores amenidades de Torices",
+// que vienen de la reunión con el cliente y necesitan respaldo escrito.
 
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
@@ -21,6 +23,12 @@ export const TIPOLOGIAS = [
   { k: 'A', tipos: [3], porPiso: '1 apartamento por piso', etapa: 'Etapa 1', construida: '51,11 m²', util: '45,59 m²' },
   { k: 'B', tipos: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', etapa: 'Etapas 1 y 2', construida: '51,7 m²', util: '43,9 – 46,9 m²' },
   { k: 'C', tipos: [7, 8], porPiso: '2 apartamentos por piso', etapa: 'Etapa 2', construida: '52,73 m²', util: '48,05 m²' },
+];
+
+export const INVERSION = [
+  { titulo: 'Finca raíz en Cartagena', texto: 'Construye patrimonio en Cartagena de Indias, en un barrio conectado con las playas, Mallplaza, el Centro Histórico y el aeropuerto.' },
+  { titulo: 'Compra sobre planos', texto: 'Inviertes con un precio de referencia desde $275 millones y entrega prevista para noviembre de 2028.' },
+  { titulo: 'Atributos que marcan la diferencia', texto: 'Una vista despejada y las mejores amenidades de Torices: lo que busca quien vive aquí y quien invierte aquí.' },
 ];
 
 export const COMPRA = [

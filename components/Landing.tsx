@@ -5,9 +5,12 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type Mou
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
 import Apartamentos from './Apartamentos';
 import CompraYCierre from './CompraYCierre';
-import EscenaDiaNoche, { type Beat } from './EscenaDiaNoche';
+import EscenaDiaNoche from './EscenaDiaNoche';
 import ZonasComunes from './ZonasComunes';
-import { LUGARES } from '@/lib/proyecto';
+import { TIPOLOGIAS } from '@/lib/proyecto';
+import { WHATSAPP } from '@/lib/sitio';
+import Inversion from './Inversion';
+import Vista from './Vista';
 import e from './Escenas.module.css';
 import s from './Landing.module.css';
 
@@ -36,17 +39,25 @@ const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').ma
 const delay = (ms: number) => ({ animationDelay: ms + 'ms' });
 
 // Hero con un recorte propio para móvil: pesa una fracción de la foto de escritorio.
-const HERO_ESCRITORIO = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '100vw', src: '/assets/web/urbis-hero-t1.jpg' }).props;
-const HERO_MOVIL = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '110vw', src: '/assets/web/urbis-hero-t1-movil.jpg' }).props;
+const HERO_ESCRITORIO = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '100vw', src: '/assets/web/urbis-hero-mar.jpg' }).props;
+const HERO_MOVIL = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '110vw', src: '/assets/web/urbis-hero-mar-movil.jpg' }).props;
 // El hero siempre está en pantalla al cargar: se pide de inmediato, sin lazy.
 const HERO_ATRIBUTOS = { ...HERO_MOVIL, srcSet: undefined, sizes: undefined, loading: 'eager' as const };
 
-const FLECHA = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>;
+const WA_BOTON = WHATSAPP && (
+  <a
+    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola, quiero recibir información de Urbis EU.')}`}
+    target="_blank"
+    rel="noopener"
+    aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)"
+    className={s.whatsapp}
+    onClick={() => track('whatsapp_click')}
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z" /></svg>
+  </a>
+);
 
-const BEATS_MAR: Beat[] = [
-  { desde: -1, hasta: 0.34, contenido: <><p className={e.eyebrow}><span />UBICACIÓN · TORICES</p><h2 className={e.title}>Y al amanecer, <em>Cartagena vuelve a empezar.</em></h2></> },
-  { desde: 0.42, hasta: 2, contenido: <><p className={e.title}>Cerca de lo <em>que importa.</em></p><ul className={e.lugares}>{LUGARES.map(l => <li key={l}>{l}</li>)}</ul></> },
-];
+const FLECHA = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>;
 
 export default function Landing() {
   const [form, setForm] = useState<LeadForm>({ name: '', wa: '', city: '', email: '', consent: false });
@@ -55,6 +66,7 @@ export default function Landing() {
   const [narrow, setNarrow] = useState(false);
   const [formInView, setFormInView] = useState(true);
   const [stickyHidden, setStickyHidden] = useState(false);
+  const [apartamento, setApartamento] = useState<number | null>(null);
 
   const heroImg = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
@@ -106,6 +118,11 @@ export default function Landing() {
     setTimeout(() => nameRef.current?.focus({ preventScroll: true }), reduced() ? 50 : 700);
   };
 
+  const pedirApartamento = (tipo: number, e: MouseEvent<HTMLAnchorElement>) => {
+    setApartamento(tipo);
+    goForm(e);
+  };
+
   const onField = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target;
     setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }));
@@ -128,13 +145,13 @@ export default function Landing() {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, page: location.href, company: honeypot.current?.value ?? '', elapsed: Date.now() - shownAt.current }),
+        body: JSON.stringify({ ...form, apartamento, page: location.href, company: honeypot.current?.value ?? '', elapsed: Date.now() - shownAt.current }),
       });
       if (res.status === 503) { setStatus('unconfigured'); return; }
       if (res.status === 429) { setStatus('limited'); return; }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       setStatus('success');
-      track('form_submit_success', { interest: 'apartamentos' });
+      track('form_submit_success', { interest: 'apartamentos', apartamento });
       setTimeout(() => successRef.current?.focus(), 60);
     } catch (err) {
       console.error('[Urbis EU] Error al enviar el formulario', err);
@@ -168,7 +185,7 @@ export default function Landing() {
           <div className={s.heroGrid}>
             <div className={s.copy}>
               <Image className={`${s.logo} ${s.up}`} style={delay(60)} src="/assets/urbis-logo-horizontal-blanco.png" alt="Urbis EU" width={694} height={153} priority />
-              <p className={`${s.eyebrow} ${s.up}`} style={delay(120)}><span />URBIS EU · TORICES, CARTAGENA</p>
+              <p className={`${s.eyebrow} ${s.up}`} style={delay(120)}>URBIS EU · TORICES, CARTAGENA</p>
               <h1 className={`${s.title} ${s.up}`} style={delay(180)}>Tu próximo hogar en Cartagena <em>comienza aquí.</em></h1>
               <p className={`${s.sub} ${s.up}`} style={delay(240)}>
                 Encuentra opciones desde&nbsp;<strong>$275 millones COP</strong> <br />y da el primer paso hacia tu próximo proyecto.
@@ -192,6 +209,12 @@ export default function Landing() {
                     <p className={s.kicker}>Recibe información</p>
                     <h2 className={s.cardTitle}>Conoce Urbis EU</h2>
                     <p className={s.lead}>Déjanos tus datos y recibe información para dar el siguiente paso.</p>
+                    {apartamento !== null && (
+                      <p className={s.consulta}>
+                        <span>Consultas por el apartamento {apartamento}, tipología {TIPOLOGIAS.find(tp => tp.tipos.includes(apartamento))?.k}.</span>
+                        <button type="button" onClick={() => setApartamento(null)}>Quitar</button>
+                      </p>
+                    )}
                   </div>
                   <form noValidate onSubmit={submit} aria-label="Solicitud de información de Urbis EU" className={s.form}>
                     <div aria-hidden="true" className={s.trap}>
@@ -257,36 +280,31 @@ export default function Landing() {
           cam={{ low: 0.22, high: -0.34 }}
           alt={{ dia: 'Torre Urbis EU de día, con el barrio Torices y el cerro de fondo', noche: 'Torre Urbis EU al anochecer, con sus ventanas encendidas' }}
           beats={[
-            { desde: -1, hasta: 0.3, contenido: <><p className={e.eyebrow}><span />URBIS EU · TORICES</p><h2 className={e.title}>Cuando baja el sol, Cartagena <em>cambia de color.</em></h2></> },
+            { desde: -1, hasta: 0.3, contenido: <><p className={e.eyebrow}>URBIS EU · TORICES</p><h2 className={e.title}>Cuando baja el sol, Cartagena <em>cambia de color.</em></h2></> },
             { desde: 0.34, hasta: 0.64, contenido: <p className={e.title}>Y las luces se encienden, <em>una a una.</em></p> },
             { desde: 0.72, hasta: 2, contenido: <><p className={e.title}>Una de ellas <em>puede ser la tuya.</em></p>{!showSticky && <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={e.cta}><span>Quiero recibir información</span>{FLECHA}</a>}</> },
           ]}
         />
-        <EscenaDiaNoche
-          etiqueta="Urbis EU y el mar de Cartagena al amanecer"
-          base="/assets/web/mar"
-          alto={3.8}
-          entrada="fundido"
-          conSalida
-          amanecer
-          mapaMovil={[0, 1]}
-          foco={{ escritorio: 0.5, movil: 0.51 }}
-          cam={{ low: 0.2, high: -0.5 }}
-          alt={{ dia: 'Urbis EU de día, con edificios y el mar de fondo', noche: 'Urbis EU de noche, con edificios iluminados y el mar de fondo' }}
-          beats={BEATS_MAR}
-        />
         <ZonasComunes />
-        <Apartamentos onCta={goForm} />
+        <Vista />
+        <Apartamentos onCta={pedirApartamento} />
+        <Inversion onCta={goForm} />
         <CompraYCierre onCta={goForm} />
       </main>
 
-      {!narrow && !formInView && status !== 'success' && (
-        <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={s.pill}>Solicitar información</a>
+      {!narrow && (
+        <div className={s.fijos}>
+          {WA_BOTON}
+          {!formInView && status !== 'success' && (
+            <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={s.pill}>Solicitar información</a>
+          )}
+        </div>
       )}
 
       {showSticky && (
         <div className={s.sticky}>
           <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={s.stickyCta}>Solicitar información</a>
+          {WA_BOTON}
           <button type="button" onClick={() => setStickyHidden(true)} aria-label="Ocultar botón de solicitud" className={s.stickyClose}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EDE1" strokeWidth="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
           </button>

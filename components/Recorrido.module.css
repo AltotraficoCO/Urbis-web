@@ -5,12 +5,30 @@
 .wrap { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
 .encabezado { display: flex; flex-direction: column; gap: 18px; }
 .kicker { margin: 0; display: flex; align-items: center; gap: 14px; font: 600 11px/1.3 var(--sans); letter-spacing: .26em; color: #8C4A2B; }
-.kicker span { width: 40px; height: 1px; background: #C4744C; flex: none; }
 .kickerClaro { color: #F4EDE1; }
 .h2 { margin: 0; font: 300 clamp(38px, 4.8vw, 76px)/1.02 var(--serif); letter-spacing: -.015em; text-wrap: balance; }
 .h2 em { display: block; font-style: italic; font-weight: 300; }
 .h2Claro { color: #F4EDE1; }
 .h2Grande { font-size: clamp(44px, 6.4vw, 104px); }
+
+/* Vista */
+.vista { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; background: #F4EDE1; color: #F4EDE1; overflow: hidden; }
+.vistaFoto { position: absolute; inset: 0; will-change: clip-path; }
+.vistaFoto img { object-fit: cover; object-position: 78% 50%; }
+.vistaScrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,37,36,.82) 0%, rgba(11,37,36,.62) 30%, rgba(11,37,36,0) 58%); }
+.vistaCopy { position: relative; width: min(100%, 640px); padding: clamp(84px, 14vh, 140px) clamp(20px, 4vw, 56px) clamp(32px, 6vh, 56px); display: flex; flex-direction: column; gap: 20px; }
+.lugares { list-style: none; margin: 0; padding: 0; max-width: 440px; font: 400 16px/1.3 var(--sans); }
+.lugares li { padding: 10px 0; border-top: 1px solid rgba(244,237,225,.4); }
+.vistaNota { margin: 0; font: 400 11px/1.3 var(--sans); }
+
+/* Inversión */
+.inversion { position: relative; z-index: 2; background: #14403E; color: #F4EDE1; padding: clamp(56px, 8vh, 104px) 0; }
+.invLista { list-style: none; margin: clamp(32px, 5vh, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 48px); }
+.invItem { padding-top: 18px; border-top: 1px solid rgba(244,237,225,.4); }
+.invItem h3 { margin: 0 0 10px; font: 400 clamp(24px, 2.2vw, 34px)/1.08 var(--serif); }
+.invItem p { margin: 0; font: 400 15px/1.55 var(--sans); }
+.invPie { margin-top: clamp(28px, 5vh, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.invPie p { margin: 0; font: 400 12px/1.5 var(--sans); color: #E7D6BC; }
 
 /* Explorador de apartamentos */
 .explorador { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(0, 2.1fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
@@ -19,7 +37,7 @@
 .panel { display: flex; flex-direction: column; gap: 22px; }
 .mini { margin: 0; font: 500 13px/1.4 var(--sans); color: #41605E; }
 .numeros { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #E7D6BC; border: 1px solid #E7D6BC; }
-.numero { min-height: 56px; background: #F4EDE1; border: 0; cursor: pointer; font: 300 26px/1 var(--serif); color: #14403E; transition: background-color .25s ease, color .25s ease; }
+.numero { min-height: 56px; background: #F4EDE1; border: 0; cursor: pointer; font: 500 18px/1 var(--sans); color: #14403E; transition: background-color .25s ease, color .25s ease; }
 .numero:hover { background: #E7D6BC; }
 .numero[aria-pressed='true'] { background: #14403E; color: #F4EDE1; }
 .ficha { margin: 0; display: flex; flex-direction: column; animation: urbRise .5s var(--ease); }
@@ -44,7 +62,7 @@
 .entregaFoto img { object-fit: cover; transform: scale(1.06); transition: transform 1.6s var(--ease); }
 .fotoOn { clip-path: circle(150% at 50% 86%); z-index: 1; }
 .fotoOn img { transform: none; }
-.entregaScrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.2) 0%, rgba(11,37,36,0) 34%, rgba(11,37,36,.86) 100%); }
+.entregaScrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.12) 0%, rgba(11,37,36,0) 24%, rgba(11,37,36,.72) 52%, rgba(11,37,36,.92) 100%); }
 .entregaCopy { position: relative; z-index: 3; width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(96px, 16vh, 160px) clamp(20px, 4vw, 56px) clamp(32px, 6vh, 56px); display: flex; flex-direction: column; gap: 22px; }
 .controles { display: flex; flex-wrap: wrap; gap: 12px; }
 .segmento { display: inline-flex; border: 1px solid rgba(244,237,225,.55); background: rgba(11,37,36,.45); }
@@ -55,7 +73,8 @@
 /* Compra */
 .compraHead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 72px); align-items: end; }
 .precio span { font: 500 13px/1.3 var(--sans); color: #41605E; }
-.precio strong { display: block; margin: 8px 0; font: 300 clamp(56px, 7vw, 108px)/.95 var(--serif); letter-spacing: -.02em; }
+/* Las cifras van en la sans: los números de la serif bajan de la línea base. */
+.precio strong { display: block; margin: 8px 0; font: 400 clamp(52px, 6.4vw, 96px)/1 var(--sans); letter-spacing: -.03em; }
 .precio small { font: 500 15px/1 var(--sans); letter-spacing: 0; }
 .precio p { margin: 0; max-width: 380px; font: 400 13px/1.5 var(--sans); color: #41605E; }
 .pasos { list-style: none; margin: clamp(32px, 5vh, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14403E; }
@@ -84,7 +103,10 @@
 .pie p { max-width: 1100px; margin: 0; font: 400 12px/1.6 var(--sans); }
 
 @media (max-width: 959px) {
-  .explorador, .compraHead, .faqGrid { grid-template-columns: minmax(0, 1fr); }
+  .explorador, .compraHead, .faqGrid, .invLista { grid-template-columns: minmax(0, 1fr); }
+  .vistaFoto img { object-position: 82% 50%; }
+  .vistaScrim { background: linear-gradient(180deg, rgba(11,37,36,.1) 20%, rgba(11,37,36,.86) 62%, rgba(11,37,36,.94) 100%); }
+  .vistaCopy, .entregaCopy { padding-bottom: 84px; }
   /* En móvil se muestra el plano a buen tamaño; el recorte deja fuera la planta de ubicación. */
   .columna { display: contents; }
   .columna > :first-child { order: -2; }

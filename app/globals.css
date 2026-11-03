@@ -7,6 +7,8 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: #F4EDE1; color: #14403E; font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
+/* Evita el rabito largo de la Q antes de la u en la serif. Va con !important porque el shorthand `font:` de cada texto reinicia esta propiedad. */
+*, *::before, *::after { font-variant-ligatures: no-contextual !important; }
 ::selection { background: #E7D6BC; color: #14403E; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 a:hover { color: inherit; }

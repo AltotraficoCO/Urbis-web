@@ -12,12 +12,19 @@ const VISTAS = [
   { id: 'entrega', label: 'Así se entrega', nota: 'Obra gris, con baño y cocina terminados.' },
 ] as const;
 
-export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchorElement>): void }) {
+export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEvent<HTMLAnchorElement>): void }) {
   const [tipo, setTipo] = useState(1);
-  const [apto, setApto] = useState<'a' | 'b' | 'c'>('a');
-  const [abiertos, setAbiertos] = useState<string[]>(['a']);
+  const [apto, setApto] = useState<'a' | 'b' | 'c'>('b');
+  const [abiertos, setAbiertos] = useState<string[]>(['b']);
   const [vista, setVista] = useState<'visto' | 'entrega'>('visto');
   const tp = TIPOLOGIAS.find(t => t.tipos.includes(tipo))!;
+  // Las fotos de abajo siguen la tipología del apartamento elegido.
+  const abrir = (a: 'a' | 'b' | 'c') => { setApto(a); setAbiertos(l => (l.includes(a) ? l : [...l, a])); };
+  const elegirTipo = (n: number) => {
+    setTipo(n);
+    const k = TIPOLOGIAS.find(t => t.tipos.includes(n))?.k.toLowerCase();
+    if (k === 'a' || k === 'b' || k === 'c') abrir(k);
+  };
   const seccion = useRef<HTMLElement>(null);
   const fotos = useRef<HTMLDivElement>(null);
   useVentana(seccion, fotos);
@@ -29,14 +36,14 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
           <div className={s.explorador}>
             <div className={s.columna}>
           <Revela className={s.encabezado}>
-            <p className={s.kicker}><span />ENCUENTRA TU ESPACIO</p>
+            <p className={s.kicker}>ENCUENTRA TU ESPACIO</p>
             <h2 id="apt-titulo" className={`${s.h2} ${s.h2Medio}`}>Diez distribuciones. <em>Una es la tuya.</em></h2>
           </Revela>
             <Revela className={s.panel}>
               <p className={s.mini}>Elige un apartamento de la planta</p>
               <div className={s.numeros} role="group" aria-label="Tipo de apartamento">
                 {Array.from({ length: 10 }, (_, i) => i + 1).map(n => (
-                  <button key={n} type="button" aria-pressed={n === tipo} onClick={() => setTipo(n)} className={s.numero}>{n}</button>
+                  <button key={n} type="button" aria-pressed={n === tipo} onClick={() => elegirTipo(n)} className={s.numero}>{n}</button>
                 ))}
               </div>
               <dl key={tp.k} className={s.ficha}>
@@ -46,7 +53,7 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
                 <div><dt>En cada piso</dt><dd>{tp.porPiso}</dd></div>
                 <div><dt>Etapa</dt><dd>{tp.etapa}</dd></div>
               </dl>
-              <a href="#formulario" onClick={onCta} data-track="cta_primary_click" className={s.boton}>
+              <a href="#formulario" onClick={e => onCta(tipo, e)} data-track="cta_primary_click" className={s.boton}>
                 <span>Pedir valor de este apartamento</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
               </a>
@@ -76,7 +83,7 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
         </div>
         <div className={s.entregaCopy}>
           <Revela className={s.encabezado}>
-            <p className={`${s.kicker} ${s.kickerClaro}`}><span />ASÍ SE ENTREGA</p>
+            <p className={`${s.kicker} ${s.kickerClaro}`}>ASÍ SE ENTREGA</p>
             <h2 id="ent-titulo" className={`${s.h2} ${s.h2Claro}`}>Imagínalo terminado. <em>Conoce cómo se entrega.</em></h2>
           </Revela>
           <div className={s.controles}>
@@ -84,7 +91,7 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
               {VISTAS.map(v => <button key={v.id} type="button" aria-pressed={v.id === vista} onClick={() => setVista(v.id)}>{v.label}</button>)}
             </div>
             <div className={s.segmento} role="group" aria-label="Tipología">
-              {(['a', 'b', 'c'] as const).map(a => <button key={a} type="button" aria-pressed={a === apto} aria-label={`Tipología ${a.toUpperCase()}`} onClick={() => { setApto(a); setAbiertos(l => (l.includes(a) ? l : [...l, a])); }}>{a.toUpperCase()}</button>)}
+              {(['a', 'b', 'c'] as const).map(a => <button key={a} type="button" aria-pressed={a === apto} aria-label={`Tipología ${a.toUpperCase()}`} onClick={() => abrir(a)}>{a.toUpperCase()}</button>)}
             </div>
           </div>
           <p role="status" className={s.entregaNota}>{VISTAS.find(v => v.id === vista)!.nota}</p>

@@ -20,7 +20,6 @@
 .beat { position: absolute; left: clamp(20px, 4vw, 56px); top: 50%; transform: translateY(0); margin-top: -96px; width: min(33vw, 500px); display: flex; flex-direction: column; gap: 20px; will-change: opacity, transform; }
 .beat:focus-within { opacity: 1 !important; }
 .eyebrow { margin: 0; display: flex; align-items: center; gap: 16px; font: 600 11px/1.3 var(--sans); letter-spacing: .28em; }
-.eyebrow span { width: 40px; height: 1px; background: #C4744C; flex: none; }
 .title { margin: 0; font: 300 clamp(38px, 3.9vw, 62px)/1.04 var(--serif); letter-spacing: -.015em; text-wrap: balance; text-shadow: 0 1px 24px rgba(11,37,36,.55); }
 .title em { display: block; font-style: italic; font-weight: 300; }
 .cta { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 24px; background: #F4EDE1; color: #14403E; border-radius: 2px; text-decoration: none; font: 600 15px/1 var(--sans); transition: background-color .3s ease, gap .3s ease; }
