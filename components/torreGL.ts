@@ -1,5 +1,6 @@
 // Escena WebGL de la torre. Se importa de forma diferida desde TorreDiaNoche
 // para que Three.js no pese en la carga inicial de la landing.
+import { calidadAdaptativa, esMovil, resolucionInicial } from './calidadGL';
 import {
   LinearFilter,
   LinearSRGBColorSpace,
@@ -38,7 +39,7 @@ const FRAG = /* glsl */ `
   }
   float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
-    for (int i = 0; i < 4; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; }
+    for (int i = 0; i < OCTAVAS; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; }
     return v;
   }
 
@@ -119,7 +120,8 @@ export async function crearEscenaTorre(opts: {
   const { canvas } = opts;
   const renderer = new WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
   renderer.outputColorSpace = LinearSRGBColorSpace; // Sin conversiones: se conserva el color exacto del render.
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(resolucionInicial());
+  const medir = calidadAdaptativa(renderer, canvas);
 
   const loader = new TextureLoader();
   const load = async (url: string): Promise<Texture> => {
@@ -146,13 +148,15 @@ export async function crearEscenaTorre(opts: {
     uPointer: { value: new Vector2(0, 0) },
     uMapX: { value: new Vector2(opts.mapX[0], opts.mapX[1]) },
   };
-  const material = new ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms, depthTest: false, depthWrite: false });
+  const material = new ShaderMaterial({ defines: { OCTAVAS: esMovil() ? 3 : 4 }, vertexShader: VERT, fragmentShader: FRAG, uniforms, depthTest: false, depthWrite: false });
   const geometry = new PlaneGeometry(2, 2);
   const scene = new Scene();
   scene.add(new Mesh(geometry, material));
   const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
   let aspect = 1;
+  let ancho = 0;
+  let alto = 0;
   let progress = 0;
 
   // Encuadre tipo "cover": la cámara sube por la imagen y se abre a medida que anochece.
@@ -184,11 +188,14 @@ export async function crearEscenaTorre(opts: {
     resize() {
       const w = canvas.clientWidth || 1;
       const h = canvas.clientHeight || 1;
+      if (w === ancho && h === alto) return; // La barra del navegador móvil dispara resize sin cambiar el canvas.
+      ancho = w;
+      alto = h;
       aspect = w / h;
       renderer.setSize(w, h, false);
       frame();
     },
-    render() { renderer.render(scene, camera); },
+    render() { medir(performance.now()); renderer.render(scene, camera); },
     dispose() {
       canvas.removeEventListener('webglcontextlost', onLost);
       day.dispose(); night.dispose(); map.dispose();

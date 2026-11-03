@@ -14,7 +14,10 @@ export function useCerca(ref: RefObject<HTMLElement | null>) {
       frame = 0;
       const r = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      setCerca(window.scrollY > 40 && r.top < vh * 1.5 && r.bottom > -vh * 1.5);
+      const dentro = window.scrollY > 40 && r.top < vh * 1.25 && r.bottom > -vh * 1.5;
+      // Mientras alguien escribe en el formulario no se descarga nada nuevo.
+      const escribiendo = document.activeElement?.matches('input') ?? false;
+      setCerca(prev => (dentro ? (escribiendo ? prev : true) : false));
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(check); };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -35,7 +38,9 @@ export const ramp = (a: number, b: number, v: number) => {
 export function soportaEfectos() {
   try {
     const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
-    const baja = (mem !== undefined && mem <= 2) || (navigator.hardwareConcurrency || 8) <= 2;
+    const red = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    const baja = (mem !== undefined && mem <= 2) || (navigator.hardwareConcurrency || 8) <= 2
+      || !!red?.saveData || /(^|-)(2g|3g)$/.test(red?.effectiveType ?? '');
     return !baja && !!document.createElement('canvas').getContext('webgl2');
   } catch {
     return false;

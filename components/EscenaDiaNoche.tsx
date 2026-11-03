@@ -55,6 +55,7 @@ export default function EscenaDiaNoche(p: Props) {
     let target = 0;
     let current = -1;
     let enter = 1;
+    let anchoVentana = window.innerWidth;
     const ptr = { x: 0, y: 0, cx: 0, cy: 0 };
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const luzDe = (v: number) => (amanecer ? 1 - ramp(0.22, 0.86, v) : v);
@@ -118,7 +119,13 @@ export default function EscenaDiaNoche(p: Props) {
       ptr.y = (e.clientY / window.innerHeight) * 2 - 1;
       wake();
     };
-    const onResize = () => { readScroll(); scene?.resize(); current = -1; wake(); };
+    const onResize = () => {
+      readScroll();
+      scene?.resize();
+      // La barra del navegador móvil cambia el alto al hacer scroll: ahí no se reinicia la animación.
+      if (window.innerWidth !== anchoVentana) { anchoVentana = window.innerWidth; current = -1; }
+      wake();
+    };
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);

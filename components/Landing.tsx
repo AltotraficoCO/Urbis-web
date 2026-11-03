@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
 import Apartamentos from './Apartamentos';
@@ -34,6 +34,12 @@ function track(event: string, params: Record<string, unknown> = {}) {
 
 const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const delay = (ms: number) => ({ animationDelay: ms + 'ms' });
+
+// Hero con un recorte propio para móvil: pesa una fracción de la foto de escritorio.
+const HERO_ESCRITORIO = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '100vw', src: '/assets/web/urbis-hero-t1.jpg' }).props;
+const HERO_MOVIL = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '110vw', src: '/assets/web/urbis-hero-t1-movil.jpg' }).props;
+// El hero siempre está en pantalla al cargar: se pide de inmediato, sin lazy.
+const HERO_ATRIBUTOS = { ...HERO_MOVIL, srcSet: undefined, sizes: undefined, loading: 'eager' as const };
 
 const FLECHA = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>;
 
@@ -149,7 +155,11 @@ export default function Landing() {
         <section id="inicio" className={s.hero}>
           <div className={`${s.heroBg} ${s.fade}`}>
             <div ref={heroImg} className={s.heroImg}>
-              <Image src="/assets/web/urbis-hero-t1.jpg" alt="" fill priority sizes="(max-width: 959px) 300vw, 100vw" />
+              <picture>
+                <source media="(max-width: 959px)" srcSet={HERO_MOVIL.srcSet} sizes={HERO_MOVIL.sizes} />
+                <source media="(min-width: 960px)" srcSet={HERO_ESCRITORIO.srcSet} sizes={HERO_ESCRITORIO.sizes} />
+                <img {...HERO_ATRIBUTOS} alt="" />
+              </picture>
             </div>
             <div aria-hidden="true" className={s.heroOverlay} />
             <div aria-hidden="true" className={s.heroFade} />

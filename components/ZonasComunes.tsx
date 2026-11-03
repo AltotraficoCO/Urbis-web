@@ -49,6 +49,8 @@ export default function ZonasComunes() {
     let paso: { a: number; b: number; inicio: number } | null = null;
     let turno = performance.now();
     let previo = turno;
+    let dibujado = 0;
+    const esMovil = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
     const read = () => {
       const r = el.getBoundingClientRect();
@@ -105,7 +107,9 @@ export default function ZonasComunes() {
       }
       const b = barras.current[i];
       if (b) b.style.transform = `scaleX(${paso ? 1 : avance})`;
-      if (scene) {
+      const reposo = !paso && esMovil();
+      if (scene && enter > 0 && !(reposo && ahora - dibujado < 33)) {
+        dibujado = ahora;
         scene.setEstado(paso ? paso.a : i, paso ? paso.b : i, mezcla, avance);
         scene.setTiempo(ahora / 1000);
         scene.render();

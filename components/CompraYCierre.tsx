@@ -56,7 +56,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
 
       <section ref={cierre} className={s.cierre} aria-labelledby="cierre-titulo">
         <div ref={foto} className={s.cierreFoto}>
-          <div className={s.cierreImg}><Image src="/assets/web/cierre.webp" alt="Fachada de Urbis EU al anochecer, vista desde la calle" fill sizes="100vw" /></div>
+          <div className={s.cierreImg}><Image src="/assets/web/cierre.webp" alt="Fachada de Urbis EU al anochecer, vista desde la calle" fill sizes="(max-aspect-ratio: 1/1) 240vw, 100vw" /></div>
           <div aria-hidden="true" className={s.cierreScrim} />
         </div>
         <div className={s.cierreCopy}>

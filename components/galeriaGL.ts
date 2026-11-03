@@ -1,4 +1,5 @@
 // Galería de zonas comunes: una imagen se disuelve en la siguiente como si fuera líquida.
+import { calidadAdaptativa, esMovil, resolucionInicial } from './calidadGL';
 import { LinearFilter, LinearSRGBColorSpace, Mesh, NoColorSpace, OrthographicCamera, PlaneGeometry, Scene, ShaderMaterial, Texture, TextureLoader, WebGLRenderer } from 'three';
 
 const VERT = `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
@@ -12,7 +13,7 @@ const FRAG = /* glsl */ `
     vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
     return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y);
   }
-  float fbm(vec2 p) { float v = 0.0, a = 0.5; for (int i = 0; i < 4; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; } return v; }
+  float fbm(vec2 p) { float v = 0.0, a = 0.5; for (int i = 0; i < OCTAVAS; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; } return v; }
   vec2 cover(vec2 v, float img, float foco, float zoom) {
     vec2 vis = uAspect > img ? vec2(1.0, img / uAspect) : vec2(uAspect / img, 1.0);
     vis /= zoom;
@@ -46,7 +47,9 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
   const { canvas, urls, focos } = opts;
   const renderer = new WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
   renderer.outputColorSpace = LinearSRGBColorSpace;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+  renderer.setPixelRatio(resolucionInicial());
+  const medir = calidadAdaptativa(renderer, canvas);
+  const movil = esMovil();
 
   const loader = new TextureLoader();
   const cache = new Map<number, Promise<Texture>>();
@@ -73,7 +76,7 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
     uA: { value: primera as Texture }, uB: { value: primera as Texture }, uMix: { value: 0 }, uAspect: { value: 1 }, uImgA: { value: 16 / 9 }, uImgB: { value: 16 / 9 },
     uFocusA: { value: 0.5 }, uFocusB: { value: 0.5 }, uZoomA: { value: 1.08 }, uZoomB: { value: 1.08 }, uTime: { value: 0 }, uWater: { value: 0 },
   };
-  const material = new ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false });
+  const material = new ShaderMaterial({ defines: { OCTAVAS: movil ? 3 : 4 }, vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false });
   const geometry = new PlaneGeometry(2, 2);
   const scene = new Scene();
   scene.add(new Mesh(geometry, material));
@@ -81,7 +84,7 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
   const aspecto = (t: Texture) => { const im = t.image as HTMLImageElement; return im.width / im.height; };
   const render = () => renderer.render(scene, camera);
   const n = urls.length;
-  let ia = 0, ib = 0, mezcla = 0, avance = 0;
+  let ia = 0, ib = 0, mezcla = 0, avance = 0, ancho = 0, alto = 0;
 
   const aplicar = () => {
     [ia, ib, (ib + 1) % n].forEach(cargar);
@@ -93,7 +96,7 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
     // Acercamiento lento: la imagen entrante termina con el zoom con que arranca su turno.
     u.uZoomA.value = 1.12 - 0.08 * avance; u.uZoomB.value = 1.2 - 0.08 * mezcla;
     u.uMix.value = b === a ? 0 : mezcla;
-    u.uWater.value = ia === 0 ? 1 : 0;
+    u.uWater.value = ia === 0 && !movil ? 1 : 0; // En teléfonos se ahorra el agua animada.
   };
 
   const onLost = (e: Event) => e.preventDefault();
@@ -102,8 +105,14 @@ export async function crearGaleria(opts: { canvas: HTMLCanvasElement; urls: stri
     setEstado(a, b, m, f) { ia = a; ib = b; mezcla = m; avance = f; aplicar(); },
     lista: i => { cargar(i); return listas.has(i); },
     setTiempo(t) { u.uTime.value = t; },
-    resize() { const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1; u.uAspect.value = w / h; renderer.setSize(w, h, false); },
-    render,
+    resize() {
+      const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
+      if (w === ancho && h === alto) return;
+      ancho = w; alto = h;
+      u.uAspect.value = w / h;
+      renderer.setSize(w, h, false);
+    },
+    render() { medir(performance.now()); render(); },
     dispose() {
       canvas.removeEventListener('webglcontextlost', onLost);
       listas.forEach(t => t.dispose());

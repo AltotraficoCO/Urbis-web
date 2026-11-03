@@ -15,6 +15,7 @@ const VISTAS = [
 export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchorElement>): void }) {
   const [tipo, setTipo] = useState(1);
   const [apto, setApto] = useState<'a' | 'b' | 'c'>('a');
+  const [abiertos, setAbiertos] = useState<string[]>(['a']);
   const [vista, setVista] = useState<'visto' | 'entrega'>('visto');
   const tp = TIPOLOGIAS.find(t => t.tipos.includes(tipo))!;
   const seccion = useRef<HTMLElement>(null);
@@ -62,11 +63,12 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
 
       <section ref={seccion} className={s.entrega} aria-labelledby="ent-titulo">
         <div ref={fotos} className={s.entregaFotos}>
-          {(['a', 'b', 'c'] as const).flatMap(a => VISTAS.map(v => {
+          {/* Solo se piden las fotos de las tipologías que la persona ya abrió. */}
+          {(['a', 'b', 'c'] as const).filter(a => abiertos.includes(a)).flatMap(a => VISTAS.map(v => {
             const on = a === apto && v.id === vista;
             return (
               <div key={a + v.id} className={`${s.entregaFoto} ${on ? s.fotoOn : ''}`} aria-hidden={!on}>
-                <Image src={`/assets/web/aptos/${a}-${v.id}.webp`} alt={on ? `Apartamento tipología ${a.toUpperCase()}: ${v.label.toLowerCase()}` : ''} fill sizes="100vw" />
+                <Image src={`/assets/web/aptos/${a}-${v.id}.webp`} alt={on ? `Apartamento tipología ${a.toUpperCase()}: ${v.label.toLowerCase()}` : ''} fill sizes="(max-aspect-ratio: 1/1) 240vw, 100vw" />
               </div>
             );
           }))}
@@ -82,7 +84,7 @@ export default function Apartamentos({ onCta }: { onCta(e: MouseEvent<HTMLAnchor
               {VISTAS.map(v => <button key={v.id} type="button" aria-pressed={v.id === vista} onClick={() => setVista(v.id)}>{v.label}</button>)}
             </div>
             <div className={s.segmento} role="group" aria-label="Tipología">
-              {(['a', 'b', 'c'] as const).map(a => <button key={a} type="button" aria-pressed={a === apto} aria-label={`Tipología ${a.toUpperCase()}`} onClick={() => setApto(a)}>{a.toUpperCase()}</button>)}
+              {(['a', 'b', 'c'] as const).map(a => <button key={a} type="button" aria-pressed={a === apto} aria-label={`Tipología ${a.toUpperCase()}`} onClick={() => { setApto(a); setAbiertos(l => (l.includes(a) ? l : [...l, a])); }}>{a.toUpperCase()}</button>)}
             </div>
           </div>
           <p role="status" className={s.entregaNota}>{VISTAS.find(v => v.id === vista)!.nota}</p>
