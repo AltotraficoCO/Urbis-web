@@ -1,8 +1,14 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
+import Apartamentos from './Apartamentos';
+import CompraYCierre from './CompraYCierre';
+import EscenaDiaNoche, { type Beat } from './EscenaDiaNoche';
+import ZonasComunes from './ZonasComunes';
+import { LUGARES } from '@/lib/proyecto';
+import e from './Escenas.module.css';
 import s from './Landing.module.css';
 
 type Status = 'idle' | 'loading' | 'success' | 'error' | 'unconfigured' | 'limited';
@@ -28,6 +34,19 @@ function track(event: string, params: Record<string, unknown> = {}) {
 
 const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const delay = (ms: number) => ({ animationDelay: ms + 'ms' });
+
+// Hero con un recorte propio para móvil: pesa una fracción de la foto de escritorio.
+const HERO_ESCRITORIO = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '100vw', src: '/assets/web/urbis-hero-t1.jpg' }).props;
+const HERO_MOVIL = getImageProps({ alt: '', fill: true, fetchPriority: 'high', sizes: '110vw', src: '/assets/web/urbis-hero-t1-movil.jpg' }).props;
+// El hero siempre está en pantalla al cargar: se pide de inmediato, sin lazy.
+const HERO_ATRIBUTOS = { ...HERO_MOVIL, srcSet: undefined, sizes: undefined, loading: 'eager' as const };
+
+const FLECHA = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>;
+
+const BEATS_MAR: Beat[] = [
+  { desde: -1, hasta: 0.34, contenido: <><p className={e.eyebrow}><span />UBICACIÓN · TORICES</p><h2 className={e.title}>Y al amanecer, <em>Cartagena vuelve a empezar.</em></h2></> },
+  { desde: 0.42, hasta: 2, contenido: <><p className={e.title}>Cerca de lo <em>que importa.</em></p><ul className={e.lugares}>{LUGARES.map(l => <li key={l}>{l}</li>)}</ul></> },
+];
 
 export default function Landing() {
   const [form, setForm] = useState<LeadForm>({ name: '', wa: '', city: '', email: '', consent: false });
@@ -81,7 +100,9 @@ export default function Landing() {
     const f = formRef.current;
     if (!f) return;
     const top = f.getBoundingClientRect().top + window.scrollY - HDR_OFFSET - 16;
-    window.scrollTo({ top: Math.max(0, top), behavior: reduced() ? 'auto' : 'smooth' });
+    // Desde lejos se salta directo: un scroll animado atravesaría todas las escenas.
+    const lejos = Math.abs(window.scrollY - top) > window.innerHeight * 2;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduced() || lejos ? 'instant' : 'smooth' });
     setTimeout(() => nameRef.current?.focus({ preventScroll: true }), reduced() ? 50 : 700);
   };
 
@@ -134,9 +155,14 @@ export default function Landing() {
         <section id="inicio" className={s.hero}>
           <div className={`${s.heroBg} ${s.fade}`}>
             <div ref={heroImg} className={s.heroImg}>
-              <Image src="/assets/web/urbis-hero-f2.jpg" alt="" fill priority sizes="100vw" />
+              <picture>
+                <source media="(max-width: 959px)" srcSet={HERO_MOVIL.srcSet} sizes={HERO_MOVIL.sizes} />
+                <source media="(min-width: 960px)" srcSet={HERO_ESCRITORIO.srcSet} sizes={HERO_ESCRITORIO.sizes} />
+                <img {...HERO_ATRIBUTOS} alt="" />
+              </picture>
             </div>
             <div aria-hidden="true" className={s.heroOverlay} />
+            <div aria-hidden="true" className={s.heroFade} />
           </div>
 
           <div className={s.heroGrid}>
@@ -218,7 +244,45 @@ export default function Landing() {
             </div>
           </div>
         </section>
+
+        <EscenaDiaNoche
+          etiqueta="Urbis EU del día a la noche"
+          base="/assets/web/torre"
+          alto={3.4}
+          entrada="ventana"
+          conSalida
+          fondo="#0B2524"
+          mapaMovil={[0.225, 0.5]}
+          foco={{ escritorio: 0.56, movil: 0.5 }}
+          cam={{ low: 0.22, high: -0.34 }}
+          alt={{ dia: 'Torre Urbis EU de día, con el barrio Torices y el cerro de fondo', noche: 'Torre Urbis EU al anochecer, con sus ventanas encendidas' }}
+          beats={[
+            { desde: -1, hasta: 0.3, contenido: <><p className={e.eyebrow}><span />URBIS EU · TORICES</p><h2 className={e.title}>Cuando baja el sol, Cartagena <em>cambia de color.</em></h2></> },
+            { desde: 0.34, hasta: 0.64, contenido: <p className={e.title}>Y las luces se encienden, <em>una a una.</em></p> },
+            { desde: 0.72, hasta: 2, contenido: <><p className={e.title}>Una de ellas <em>puede ser la tuya.</em></p>{!showSticky && <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={e.cta}><span>Quiero recibir información</span>{FLECHA}</a>}</> },
+          ]}
+        />
+        <EscenaDiaNoche
+          etiqueta="Urbis EU y el mar de Cartagena al amanecer"
+          base="/assets/web/mar"
+          alto={3.8}
+          entrada="fundido"
+          conSalida
+          amanecer
+          mapaMovil={[0, 1]}
+          foco={{ escritorio: 0.5, movil: 0.51 }}
+          cam={{ low: 0.2, high: -0.5 }}
+          alt={{ dia: 'Urbis EU de día, con edificios y el mar de fondo', noche: 'Urbis EU de noche, con edificios iluminados y el mar de fondo' }}
+          beats={BEATS_MAR}
+        />
+        <ZonasComunes />
+        <Apartamentos onCta={goForm} />
+        <CompraYCierre onCta={goForm} />
       </main>
+
+      {!narrow && !formInView && status !== 'success' && (
+        <a href="#formulario" onClick={goForm} data-track="cta_primary_click" className={s.pill}>Solicitar información</a>
+      )}
 
       {showSticky && (
         <div className={s.sticky}>

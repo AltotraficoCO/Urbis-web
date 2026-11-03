@@ -1,0 +1,105 @@
+.revela { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.visto { opacity: 1; transform: none; }
+
+.claro { position: relative; z-index: 2; background: #F4EDE1; color: #14403E; padding: clamp(56px, 8vh, 104px) 0; }
+.wrap { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+.encabezado { display: flex; flex-direction: column; gap: 18px; }
+.kicker { margin: 0; display: flex; align-items: center; gap: 14px; font: 600 11px/1.3 var(--sans); letter-spacing: .26em; color: #8C4A2B; }
+.kicker span { width: 40px; height: 1px; background: #C4744C; flex: none; }
+.kickerClaro { color: #F4EDE1; }
+.h2 { margin: 0; font: 300 clamp(38px, 4.8vw, 76px)/1.02 var(--serif); letter-spacing: -.015em; text-wrap: balance; }
+.h2 em { display: block; font-style: italic; font-weight: 300; }
+.h2Claro { color: #F4EDE1; }
+.h2Grande { font-size: clamp(44px, 6.4vw, 104px); }
+
+/* Explorador de apartamentos */
+.explorador { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(0, 2.1fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
+.columna { display: flex; flex-direction: column; gap: clamp(22px, 3.5vh, 36px); min-width: 0; }
+.h2Medio { font-size: clamp(36px, 3.7vw, 60px); }
+.panel { display: flex; flex-direction: column; gap: 22px; }
+.mini { margin: 0; font: 500 13px/1.4 var(--sans); color: #41605E; }
+.numeros { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #E7D6BC; border: 1px solid #E7D6BC; }
+.numero { min-height: 56px; background: #F4EDE1; border: 0; cursor: pointer; font: 300 26px/1 var(--serif); color: #14403E; transition: background-color .25s ease, color .25s ease; }
+.numero:hover { background: #E7D6BC; }
+.numero[aria-pressed='true'] { background: #14403E; color: #F4EDE1; }
+.ficha { margin: 0; display: flex; flex-direction: column; animation: urbRise .5s var(--ease); }
+.ficha > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid #E7D6BC; }
+.ficha dt { font: 400 13px/1.3 var(--sans); color: #41605E; }
+.ficha dd { margin: 0; font: 500 15px/1.3 var(--sans); text-align: right; }
+.ficha .fichaGrande { font: 300 34px/1 var(--serif); }
+.boton, .botonClaro { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 24px; border-radius: 2px; text-decoration: none; font: 600 15px/1 var(--sans); transition: background-color .3s ease, gap .3s ease; }
+.boton { background: #14403E; color: #F4EDE1; }
+.boton:hover { background: #0B2524; color: #F4EDE1; gap: 18px; }
+.botonClaro { background: #F4EDE1; color: #14403E; }
+.botonClaro:hover { background: #fff; color: #14403E; gap: 18px; }
+.plano { position: relative; aspect-ratio: 5994 / 3816; }
+.planoImg { position: absolute; inset: 0; mix-blend-mode: multiply; animation: planoEntra .7s var(--ease) both; }
+.planoImg img { object-fit: contain; }
+@keyframes planoEntra { from { clip-path: inset(0 100% 0 0); opacity: .3; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+
+/* Decorado u obra gris */
+.entrega { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; background: #F4EDE1; overflow: hidden; }
+.entregaFotos { position: absolute; inset: 0; will-change: clip-path; }
+.entregaFoto { position: absolute; inset: 0; clip-path: circle(0% at 50% 86%); transition: clip-path 1.1s var(--ease); }
+.entregaFoto img { object-fit: cover; transform: scale(1.06); transition: transform 1.6s var(--ease); }
+.fotoOn { clip-path: circle(150% at 50% 86%); z-index: 1; }
+.fotoOn img { transform: none; }
+.entregaScrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(11,37,36,.2) 0%, rgba(11,37,36,0) 34%, rgba(11,37,36,.86) 100%); }
+.entregaCopy { position: relative; z-index: 3; width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(96px, 16vh, 160px) clamp(20px, 4vw, 56px) clamp(32px, 6vh, 56px); display: flex; flex-direction: column; gap: 22px; }
+.controles { display: flex; flex-wrap: wrap; gap: 12px; }
+.segmento { display: inline-flex; border: 1px solid rgba(244,237,225,.55); background: rgba(11,37,36,.45); }
+.segmento button { min-height: 48px; padding: 0 18px; background: transparent; border: 0; cursor: pointer; font: 600 14px/1 var(--sans); color: #F4EDE1; transition: background-color .25s ease, color .25s ease; }
+.segmento button[aria-pressed='true'] { background: #F4EDE1; color: #14403E; }
+.entregaNota { margin: 0; font: 400 14px/1.5 var(--sans); color: #F4EDE1; }
+
+/* Compra */
+.compraHead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 72px); align-items: end; }
+.precio span { font: 500 13px/1.3 var(--sans); color: #41605E; }
+.precio strong { display: block; margin: 8px 0; font: 300 clamp(56px, 7vw, 108px)/.95 var(--serif); letter-spacing: -.02em; }
+.precio small { font: 500 15px/1 var(--sans); letter-spacing: 0; }
+.precio p { margin: 0; max-width: 380px; font: 400 13px/1.5 var(--sans); color: #41605E; }
+.pasos { list-style: none; margin: clamp(32px, 5vh, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14403E; }
+.paso { padding: 22px clamp(14px, 1.8vw, 28px) 0 0; display: flex; flex-direction: column; gap: 12px; }
+.paso + .paso { border-left: 1px solid #E7D6BC; padding-left: clamp(14px, 1.8vw, 28px); }
+.pasoN { font: 600 12px/1 var(--sans); letter-spacing: .12em; color: #8C4A2B; }
+.paso h3 { margin: 0; font: 400 clamp(24px, 2.2vw, 34px)/1.05 var(--serif); }
+.paso p { margin: 0; font: 400 14px/1.55 var(--sans); color: #41605E; }
+.faqGrid { margin-top: clamp(56px, 8vh, 96px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr); gap: clamp(28px, 4vw, 72px); }
+.faq { border-top: 1px solid #E7D6BC; }
+.faq:last-child { border-bottom: 1px solid #E7D6BC; }
+.faq summary { display: flex; justify-content: space-between; gap: 16px; align-items: center; min-height: 64px; padding: 14px 0; cursor: pointer; list-style: none; font: 400 clamp(20px, 1.7vw, 25px)/1.2 var(--serif); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; flex: none; font: 300 26px/1 var(--sans); color: #8C4A2B; transition: transform .3s var(--ease); }
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq p { margin: 0; padding: 0 40px 20px 0; font: 400 15px/1.6 var(--sans); color: #41605E; animation: urbRise .35s var(--ease); }
+
+/* Cierre */
+.cierre { position: relative; z-index: 2; height: 100vh; height: 100svh; background: #F4EDE1; display: flex; align-items: flex-end; overflow: hidden; }
+.cierreFoto { position: absolute; inset: 0; will-change: clip-path; }
+.cierreImg { position: absolute; inset: 0; will-change: transform; }
+.cierreImg img { object-fit: cover; object-position: 50% 62%; }
+.cierreScrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,37,36,.1) 30%, rgba(11,37,36,.84) 100%); }
+.cierreCopy { position: relative; width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) clamp(84px, 11vh, 110px); display: flex; flex-direction: column; gap: 22px; }
+.pie { position: relative; z-index: 2; background: #0B2524; color: #E7D6BC; padding: 28px clamp(20px, 4vw, 56px) 96px; }
+.pie p { max-width: 1100px; margin: 0; font: 400 12px/1.6 var(--sans); }
+
+@media (max-width: 959px) {
+  .explorador, .compraHead, .faqGrid { grid-template-columns: minmax(0, 1fr); }
+  /* En móvil se muestra el plano a buen tamaño; el recorte deja fuera la planta de ubicación. */
+  .columna { display: contents; }
+  .columna > :first-child { order: -2; }
+  .plano { order: -1; aspect-ratio: 1.05; overflow: hidden; }
+  .planoImg img { object-fit: cover; object-position: 100% 50%; }
+  .pasos { grid-template-columns: minmax(0, 1fr); border-top: 0; }
+  .paso, .paso + .paso { border-left: 0; padding: 14px 0 16px; gap: 6px; border-top: 1px solid #E7D6BC; }
+  .segmento { width: 100%; }
+  .segmento button { flex: 1; padding: 0 8px; }
+  .boton, .botonClaro { align-self: stretch; justify-content: center; }
+  .numero { min-height: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revela { opacity: 1; transform: none; }
+  .planoImg { animation: none; }
+  .entregaFoto { transition: none; }
+}
