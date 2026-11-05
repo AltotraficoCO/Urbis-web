@@ -11,6 +11,8 @@ import { TIPOLOGIAS } from '@/lib/proyecto';
 import { WHATSAPP } from '@/lib/sitio';
 import Inversion from './Inversion';
 import Vista from './Vista';
+import Ubicacion from './Ubicacion';
+import Respaldo from './Respaldo';
 import e from './Escenas.module.css';
 import s from './Landing.module.css';
 
@@ -287,8 +289,10 @@ export default function Landing() {
         />
         <ZonasComunes />
         <Vista />
+        <Ubicacion />
         <Apartamentos onCta={pedirApartamento} />
         <Inversion onCta={goForm} />
+        <Respaldo />
         <CompraYCierre onCta={goForm} />
       </main>
 
