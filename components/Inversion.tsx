@@ -1,7 +1,7 @@
 'use client';
 
 import type { MouseEvent } from 'react';
-import { INVERSION } from '@/lib/proyecto';
+import { CIUDAD, INVERSION } from '@/lib/proyecto';
 import Revela from './Revela';
 import s from './Recorrido.module.css';
 
@@ -21,6 +21,17 @@ export default function Inversion({ onCta }: { onCta(e: MouseEvent<HTMLAnchorEle
             </Revela>
           ))}
         </ul>
+        <Revela className={s.invCiudad}>
+          <h3 className={s.invSub}>Por qué Cartagena</h3>
+          <ul className={s.invLista}>
+            {CIUDAD.map(it => (
+              <li key={it.titulo} className={s.invItem}>
+                <h3>{it.titulo}</h3>
+                <p>{it.texto}</p>
+              </li>
+            ))}
+          </ul>
+        </Revela>
         <div className={s.invPie}>
           <a href="#formulario" onClick={onCta} data-track="cta_primary_click" className={s.botonClaro}>
             <span>Hablar con el equipo comercial</span>

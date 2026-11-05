@@ -7,15 +7,18 @@
 
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
+// Indicaciones como se dan en Cartagena. POR VALIDAR: la relación exacta con la carrera 16.
+export const INDICACIONES = ['Sobre la calle Bogotá', 'Al lado de la Iglesia de Torices', 'A pasos de la carrera 16'];
+
 export const ZONAS = [
   { slug: 'piscina', nombre: 'Piscina y rooftop', texto: 'Un espacio para disfrutar y desconectarte.', focoMovil: 0.76 },
   { slug: 'bbq', nombre: 'Terraza y BBQ', texto: 'Respira, contempla y disfruta.', focoMovil: 0.62 },
   { slug: 'social', nombre: 'Salón social', texto: 'Momentos para compartir.', focoMovil: 0.46 },
   { slug: 'gym', nombre: 'Gimnasio', texto: 'Bienestar a tu propio ritmo.', focoMovil: 0.56 },
-  { slug: 'coworking', nombre: 'Coworking', texto: 'Un lugar para concentrarte sin salir de casa.', focoMovil: 0.2 },
+  { slug: 'coworking', nombre: 'Coworking', texto: 'En el primer piso, un lugar para concentrarte sin salir de casa.', focoMovil: 0.2 },
   { slug: 'lobby', nombre: 'Lobby y recepción', texto: 'Una bienvenida que se siente desde el primer día.', focoMovil: 0.68 },
   { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Espacios para disfrutar tu tiempo libre.', focoMovil: 0.72 },
-  { slug: 'guarderia', nombre: 'Guardería', texto: 'Un rincón pensado para los más pequeños.', focoMovil: 0.32 },
+  { slug: 'guarderia', nombre: 'Guardería', texto: 'En el primer piso, un rincón pensado para los más pequeños.', focoMovil: 0.32 },
   { slug: 'parque', nombre: 'Parque infantil', texto: 'Aire libre a pocos pasos de tu puerta.', focoMovil: 0.42 },
 ];
 
@@ -29,6 +32,18 @@ export const INVERSION = [
   { titulo: 'Finca raíz en Cartagena', texto: 'Construye patrimonio en Cartagena de Indias, en un barrio conectado con las playas, Mallplaza, el Centro Histórico y el aeropuerto.' },
   { titulo: 'Compra sobre planos', texto: 'Inviertes con un precio de referencia desde $275 millones y entrega prevista para noviembre de 2028.' },
   { titulo: 'Atributos que marcan la diferencia', texto: 'Una vista despejada y las mejores amenidades de Torices: lo que busca quien vive aquí y quien invierte aquí.' },
+];
+
+export const CIUDAD = [
+  { titulo: 'El malecón', texto: 'Caminar frente al Caribe al final del día es parte de la rutina de quien vive en Cartagena.' },
+  { titulo: 'El Centro Histórico', texto: 'La ciudad amurallada, Patrimonio de la Humanidad, es la razón por la que tantos viajeros eligen Cartagena.' },
+  { titulo: 'Una ciudad conectada', texto: 'Playas, comercio y aeropuerto internacional en la misma ciudad, a un recorrido corto de Torices.' },
+];
+
+// POR VALIDAR: el rol exacto de cada empresa y sus logos.
+export const RESPALDO = [
+  { nombre: 'Araujo y Segovia', rol: 'Corredor inmobiliario' },
+  { nombre: 'Entorno Constructor', rol: 'Constructor' },
 ];
 
 export const COMPRA = [
