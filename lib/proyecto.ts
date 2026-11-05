@@ -8,7 +8,7 @@
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
 // Indicaciones como se dan en Cartagena. POR VALIDAR: la relación exacta con la carrera 16.
-export const INDICACIONES = ['Sobre la calle Bogotá', 'Al lado de la Iglesia de Torices', 'A pasos de la carrera 16'];
+export const INDICACIONES = ['Sobre la calle Bogotá (calle 46)', 'Al lado de la Iglesia de Torices', 'A pasos de la carrera 16'];
 
 export const ZONAS = [
   { slug: 'piscina', nombre: 'Piscina y rooftop', texto: 'Un espacio para disfrutar y desconectarte.', focoMovil: 0.76 },

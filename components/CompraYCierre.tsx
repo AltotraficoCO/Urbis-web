@@ -69,7 +69,13 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
         </div>
       </section>
 
-      <footer className={s.pie}><p>{LEGAL}</p></footer>
+      <footer className={s.pie}>
+        <div className={s.pieMarca}>
+          <span>Corredor inmobiliario</span>
+          <Image src="/assets/web/araujo-segovia.svg" alt="Araujo y Segovia" width={208} height={45} unoptimized />
+        </div>
+        <p>{LEGAL}</p>
+      </footer>
     </>
   );
 }
