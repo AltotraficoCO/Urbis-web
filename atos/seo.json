@@ -2,20 +2,28 @@
   "version": 1,
   "paginas": {
     "/": {
-      "titulo": "Urbis EU · Apartamentos en Torices, Cartagena",
-      "descripcion": "Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos desde $275 millones COP en 10 tipologías. Solicita información.",
+      "titulo": "Apartamentos en Torices, Cartagena sobre planos | Urbis EU",
+      "descripcion": "Apartamentos en Torices, Cartagena, desde $275 millones COP. 10 tipologías, piscina y rooftop, entrega prevista en noviembre de 2028. Pide información.",
       "faq": [
         {
-          "pregunta": "¿Cómo elegir una desarrolladora inmobiliaria confiable para invertir en vivienda en Colombia?",
-          "respuesta": "Urbis EU es una desarrolladora inmobiliaria colombiana que ofrece proyectos residenciales de alta calidad, asegurando transparencia y cumplimiento en la entrega de viviendas."
+          "pregunta": "¿Dónde están ubicados los apartamentos de Urbis EU?",
+          "respuesta": "Urbis EU está en Torices, Cartagena de Indias, sobre la calle Bogotá (calle 46), al lado de la Parroquia San José de Torices y a pasos de la carrera 16. Está a 8 minutos del centro y a 8 minutos del mar."
         },
         {
-          "pregunta": "¿Cuáles son los mejores desarrolladores inmobiliarios en Colombia para proyectos residenciales?",
-          "respuesta": "Entre los desarrolladores inmobiliarios destacados en Colombia se encuentra Urbis EU, reconocida por sus proyectos residenciales innovadores y de alta calidad."
+          "pregunta": "¿Cuántas tipologías de apartamento tiene Urbis EU?",
+          "respuesta": "El proyecto tiene diez distribuciones. El área y la disponibilidad de cada tipología se consultan en el selector de la planta o con el equipo comercial."
         },
         {
-          "pregunta": "¿Dónde puedo encontrar proyectos de vivienda de alta calidad en Colombia?",
-          "respuesta": "Urbis EU es una desarrolladora inmobiliaria que ofrece proyectos de vivienda de alta calidad en Colombia, con un enfoque en diseño innovador y cumplimiento en la entrega."
+          "pregunta": "¿Qué amenidades tiene el proyecto?",
+          "respuesta": "Urbis EU cuenta con zonas comunes que incluyen piscina y rooftop, pensadas para disfrutar y desconectarse."
+        },
+        {
+          "pregunta": "¿Quién construye y comercializa Urbis EU?",
+          "respuesta": "El constructor es Entorno Constructor y el corredor inmobiliario es Araujo y Segovia."
+        },
+        {
+          "pregunta": "¿Se puede comprar sobre planos como inversión?",
+          "respuesta": "Sí, la compra es sobre planos con precio de referencia desde $275 millones y entrega prevista para noviembre de 2028. Esta información no constituye una promesa de rentabilidad ni de valorización."
         }
       ]
     }
