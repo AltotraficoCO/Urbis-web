@@ -4,7 +4,20 @@
     "/": {
       "titulo": "Urbis EU · Apartamentos en Torices, Cartagena",
       "descripcion": "Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos desde $275 millones COP en 10 tipologías. Solicita información.",
-      "faq": []
+      "faq": [
+        {
+          "pregunta": "¿Cómo elegir una desarrolladora inmobiliaria confiable para invertir en vivienda en Colombia?",
+          "respuesta": "Urbis EU es una desarrolladora inmobiliaria colombiana que ofrece proyectos residenciales de alta calidad, asegurando transparencia y cumplimiento en la entrega de viviendas."
+        },
+        {
+          "pregunta": "¿Cuáles son los mejores desarrolladores inmobiliarios en Colombia para proyectos residenciales?",
+          "respuesta": "Entre los desarrolladores inmobiliarios destacados en Colombia se encuentra Urbis EU, reconocida por sus proyectos residenciales innovadores y de alta calidad."
+        },
+        {
+          "pregunta": "¿Dónde puedo encontrar proyectos de vivienda de alta calidad en Colombia?",
+          "respuesta": "Urbis EU es una desarrolladora inmobiliaria que ofrece proyectos de vivienda de alta calidad en Colombia, con un enfoque en diseño innovador y cumplimiento en la entrega."
+        }
+      ]
     }
   }
 }
