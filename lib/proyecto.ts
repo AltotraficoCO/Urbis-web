@@ -8,17 +8,17 @@ export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 
 // Indicaciones como las da el brochure del proyecto.
 export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16', 'Al lado de la Parroquia San José de Torices'];
 
-// Amenidades y áreas según el contexto oficial. El render del parque infantil exterior se
+// Amenidades según el contexto oficial, sin áreas ni pisos por pedido del cliente. El render del parque infantil exterior se
 // retiró: no figura en la lista. El parque de mascotas no tiene render.
 export const ZONAS = [
-  { slug: 'piscina', nombre: 'Piscinas', texto: 'Piso 31. Piscina de adultos de 109,96 m² y piscina de niños de 26,18 m².', focoMovil: 0.76 },
-  { slug: 'bbq', nombre: 'Terraza & BBQ', texto: 'Piso 31. 80,50 m² al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
-  { slug: 'social', nombre: 'Salón social', texto: 'Piso 31. 61,09 m² para tus reuniones.', focoMovil: 0.46 },
-  { slug: 'gym', nombre: 'Gimnasio', texto: 'Piso 31. 31,77 m² para entrenar a tu ritmo.', focoMovil: 0.56 },
-  { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Piso 3. 67,01 m² para tu tiempo libre.', focoMovil: 0.72 },
-  { slug: 'coworking', nombre: 'Coworking', texto: 'Piso 1. 45,46 m² para trabajar sin salir del edificio.', focoMovil: 0.2 },
-  { slug: 'guarderia', nombre: 'Juegos infantiles', texto: 'Piso 1. 46,11 m² para los más pequeños.', focoMovil: 0.32 },
-  { slug: 'lobby', nombre: 'Lobby', texto: 'Piso 1. Aquí también está el parque de mascotas.', focoMovil: 0.68 },
+  { slug: 'piscina', nombre: 'Piscinas', texto: 'Piscina de adultos y piscina de niños.', focoMovil: 0.76 },
+  { slug: 'bbq', nombre: 'Terraza & BBQ', texto: 'Al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
+  { slug: 'social', nombre: 'Salón social', texto: 'Un espacio para tus reuniones.', focoMovil: 0.46 },
+  { slug: 'gym', nombre: 'Gimnasio', texto: 'Para entrenar a tu ritmo.', focoMovil: 0.56 },
+  { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Para tu tiempo libre.', focoMovil: 0.72 },
+  { slug: 'coworking', nombre: 'Coworking', texto: 'Para trabajar sin salir del edificio.', focoMovil: 0.2 },
+  { slug: 'guarderia', nombre: 'Juegos infantiles', texto: 'Un espacio para los más pequeños.', focoMovil: 0.32 },
+  { slug: 'lobby', nombre: 'Lobby', texto: 'Aquí también está el parque de mascotas.', focoMovil: 0.68 },
 ];
 
 // Tipos con las letras de la licencia. Solo se publican área construida y área privada.
