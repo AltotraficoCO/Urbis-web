@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef, type MouseEvent } from 'react';
-import { COMPRA, FAQS, LEGAL, PRECIO_DESDE } from '@/lib/proyecto';
+import { COMPRA, FAQS, LEGAL, TOPE_VIS } from '@/lib/proyecto';
 import Revela from './Revela';
 import { useVentana } from './useCerca';
 import s from './Recorrido.module.css';
@@ -23,9 +23,9 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
               <h2 id="compra-titulo" className={s.h2}>Comprar empieza con <em>información clara.</em></h2>
             </Revela>
             <Revela className={s.precio} retraso={120}>
-              <span>Etapa 1 · Precio desde</span>
-              <strong>{PRECIO_DESDE} <small>COP</small></strong>
-              <p>Etapa 2 desde $292.200.000. Sujeto al tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.</p>
+              <span>Vivienda de interés social · Hasta</span>
+              <strong>{TOPE_VIS}</strong>
+              <p>Sujeto al tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.</p>
             </Revela>
           </div>
           <ol className={s.pasos}>

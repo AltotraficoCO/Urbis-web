@@ -10,8 +10,8 @@ export default function Respaldo() {
     <section className={s.claro} aria-labelledby="respaldo-titulo">
       <div className={s.wrap}>
         <Revela className={s.encabezado}>
-          <p className={s.kicker}>QUIÉN ESTÁ DETRÁS</p>
-          <h2 id="respaldo-titulo" className={`${s.h2} ${s.h2Medio}`}>El equipo <em>detrás de Urbis EU.</em></h2>
+          <p className={s.kicker}>URBIS EU</p>
+          <h2 id="respaldo-titulo" className={`${s.h2} ${s.h2Medio}`}>Con el <em>respaldo de</em></h2>
         </Revela>
         <div className={s.respaldo}>
           {RESPALDO.map(g => (
