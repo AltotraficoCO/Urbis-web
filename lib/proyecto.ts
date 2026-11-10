@@ -46,7 +46,7 @@ export const TOPE_VIS = '150 SMLV';
 
 export const INVERSION = [
   { titulo: 'Finca raíz en Cartagena', texto: 'Construye patrimonio en Cartagena de Indias, en un barrio conectado con las playas, Mallplaza, el Centro Histórico y el aeropuerto.' },
-  { titulo: 'Compra sobre planos', texto: 'Vivienda de interés social de hasta 150 SMLV. La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030.' },
+  { titulo: 'Compra sobre planos', texto: 'Vivienda de interés social de hasta 150 SMLV, en dos etapas.' },
   { titulo: 'Balcón y amenidades', texto: 'Todos los apartamentos tienen balcón. El edificio suma piscinas, gimnasio, salón social y coworking.' },
 ];
 
