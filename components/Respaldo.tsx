@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
 import { RESPALDO } from '@/lib/proyecto';
 import Revela from './Revela';
 import s from './Recorrido.module.css';
@@ -19,7 +20,7 @@ export default function Respaldo() {
               <h3>{g.rol}</h3>
               <ul>
                 {g.marcas.map(m => (
-                  <li key={m.nombre}><Image src={`/assets/web/logos/${m.logo}`} alt={m.nombre} width={m.ancho} height={m.alto} unoptimized={m.logo.endsWith('.svg')} style={'tope' in m ? { maxHeight: m.tope } : undefined} /></li>
+                  <li key={m.nombre}><Image src={`/assets/web/logos/${m.logo}`} alt={m.nombre} width={m.ancho} height={m.alto} unoptimized={m.logo.endsWith('.svg')} style={{ '--w': `${m.muestra}px` } as CSSProperties} /></li>
                 ))}
               </ul>
             </div>
