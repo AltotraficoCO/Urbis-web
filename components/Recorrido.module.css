@@ -17,6 +17,7 @@
 .amenidadesLista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(16px, 3vw, 48px); border-bottom: 1px solid rgba(244,237,225,.28); }
 .amenidadesLista li { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 14px 0; border-top: 1px solid rgba(244,237,225,.28); font: 400 16px/1.3 var(--sans); }
 .amenidadesLista svg { flex: none; }
+.amenidadesLista small { font-size: .82em; color: #E7D6BC; white-space: nowrap; }
 
 /* Vista */
 .vista { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; background: #F4EDE1; color: #F4EDE1; overflow: hidden; }
@@ -133,12 +134,11 @@
   .vistaFoto img { object-position: 82% 50%; }
   .vistaScrim { background: linear-gradient(180deg, rgba(11,37,36,.1) 20%, rgba(11,37,36,.86) 62%, rgba(11,37,36,.94) 100%); }
   .vistaCopy, .entregaCopy { padding-bottom: 84px; }
-  /* En móvil el plano va a buen tamaño y recortado; la planta completa del piso es el selector, debajo. */
+  /* En móvil el plano va primero y la planta completa del piso, que es el selector, debajo. */
   .plantaMarco { max-width: 420px; margin: 0 auto; }
   .columna { display: contents; }
   .columna > :first-child { order: -2; }
-  .plano { order: -1; aspect-ratio: 1.05; overflow: hidden; }
-  .planoImg img { object-fit: cover; object-position: 100% 50%; }
+  .plano { order: -1; aspect-ratio: 1.03; }
   .pasos { grid-template-columns: minmax(0, 1fr); border-top: 0; }
   .paso, .paso + .paso { border-left: 0; padding: 14px 0 16px; gap: 6px; border-top: 1px solid #E7D6BC; }
   .segmento { width: 100%; }

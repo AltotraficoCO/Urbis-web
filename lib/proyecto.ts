@@ -11,28 +11,29 @@ export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16'
 // Amenidades según el contexto oficial, sin áreas ni pisos por pedido del cliente. El render del parque infantil exterior se
 // retiró: no figura en la lista. El parque de mascotas no tiene render.
 export const ZONAS = [
-  { slug: 'piscina', nombre: 'Piscinas', texto: 'Piscina de adultos y piscina de niños.', focoMovil: 0.76 },
+  { slug: 'piscina', nombre: 'Piscinas (Etapa 2)', texto: 'Piscina de adultos y piscina de niños.', focoMovil: 0.76 },
   { slug: 'bbq', nombre: 'Terraza & BBQ', texto: 'Al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
   { slug: 'social', nombre: 'Salón social', texto: 'Un espacio para tus reuniones.', focoMovil: 0.46 },
   { slug: 'gym', nombre: 'Gimnasio', texto: 'Para entrenar a tu ritmo.', focoMovil: 0.56 },
   { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Para tu tiempo libre.', focoMovil: 0.72 },
   { slug: 'coworking', nombre: 'Coworking', texto: 'Para trabajar sin salir del edificio.', focoMovil: 0.2 },
-  { slug: 'guarderia', nombre: 'Juegos infantiles', texto: 'Un espacio para los más pequeños.', focoMovil: 0.32 },
+  { slug: 'guarderia', nombre: 'Guardería (Etapa 2)', texto: 'Un espacio para los más pequeños.', focoMovil: 0.32 },
   { slug: 'lobby', nombre: 'Lobby', texto: 'Aquí también está el parque de mascotas.', focoMovil: 0.68 },
 ];
 
-// Lista completa de amenidades, como en el brochure ("Adentro pasa tanto como afuera").
+// Lista completa de amenidades. Piscina, guardería y cafetería son de la Etapa 2 (dato del cliente).
 export const AMENIDADES = [
-  { icono: 'piscina', nombre: 'Piscina de adultos' },
-  { icono: 'ninos', nombre: 'Piscina de niños' },
+  { icono: 'piscina', nombre: 'Piscina de adultos', etapa2: true },
+  { icono: 'ninos', nombre: 'Piscina de niños', etapa2: true },
   { icono: 'terraza', nombre: 'Terraza & BBQ' },
   { icono: 'social', nombre: 'Salón social' },
   { icono: 'gimnasio', nombre: 'Gimnasio' },
   { icono: 'juegos', nombre: 'Salón de juegos' },
   { icono: 'coworking', nombre: 'Coworking' },
-  { icono: 'infantiles', nombre: 'Juegos infantiles' },
+  { icono: 'infantiles', nombre: 'Guardería', etapa2: true },
   { icono: 'mascotas', nombre: 'Parque de mascotas' },
   { icono: 'lobby', nombre: 'Lobby' },
+  { icono: 'cafeteria', nombre: 'Cafetería', etapa2: true },
 ] as const;
 
 // Tipos con las letras de la licencia. Solo se publican área construida y área privada.
