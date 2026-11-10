@@ -18,6 +18,7 @@ const ICONOS: Record<Icono, ReactNode> = {
   coworking: <path d="M5 16V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9M2 18.5h20" />,
   infantiles: <><circle cx="12" cy="9" r="5" /><path d="M12 14v6M9 20h6" /></>,
   mascotas: <><circle cx="7" cy="10.5" r="1.6" /><circle cx="10.4" cy="6.6" r="1.6" /><circle cx="13.6" cy="6.6" r="1.6" /><circle cx="17" cy="10.5" r="1.6" /><path d="M12 12c-2.5 0-4.5 2.5-4.5 4.5 0 1.5 1.2 2.5 2.5 2.5.8 0 1.3-.4 2-.4s1.2.4 2 .4c1.3 0 2.5-1 2.5-2.5 0-2-2-4.5-4.5-4.5z" /></>,
+  cafeteria: <path d="M5 9h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3v3M12 3v3M4 21h14" />,
   lobby: <><path d="M6 20V10a6 6 0 0 1 12 0v10M4 20h16" /><circle cx="14.5" cy="14.5" r=".7" fill="currentColor" /></>,
 };
 
@@ -34,7 +35,7 @@ export default function Amenidades() {
           {AMENIDADES.map(a => (
             <li key={a.nombre}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{ICONOS[a.icono]}</svg>
-              {a.nombre}
+              <span>{a.nombre}{'etapa2' in a && <small> (Etapa 2)</small>}</span>
             </li>
           ))}
         </Revela>

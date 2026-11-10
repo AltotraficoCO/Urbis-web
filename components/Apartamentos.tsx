@@ -87,7 +87,7 @@ export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEv
             </div>
             <Revela className={s.plano} retraso={120}>
               <div key={tipo} className={s.planoImg}>
-                <Image src={`/assets/web/planos/${tipo}.webp`} alt={`Plano amoblado del apartamento ${tipo}, tipo ${tp.k}, con su ubicación en la planta del piso`} fill sizes="(max-width: 959px) 170vw, 62vw" />
+                <Image src={`/assets/web/planos/apto-${tipo}.webp`} alt={`Plano amoblado del apartamento ${tipo}, tipo ${tp.k}`} fill sizes="(max-width: 959px) 100vw, 45vw" />
               </div>
             </Revela>
           </div>
