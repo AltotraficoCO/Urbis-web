@@ -162,12 +162,12 @@
 .mapaNota { margin: 14px auto 0; font: 400 11px/1.3 var(--sans); text-align: right; }
 
 /* Quién está detrás */
-.respaldo { margin: clamp(28px, 4vh, 48px) 0 0; display: grid; grid-template-columns: 2fr 2fr 1.2fr; gap: clamp(24px, 3vw, 56px); }
+.respaldo { margin: clamp(28px, 4vh, 48px) 0 0; display: grid; grid-template-columns: 2.3fr 1.8fr 1.4fr; gap: clamp(24px, 3vw, 56px); }
 .respaldoGrupo { padding-top: 18px; border-top: 1px solid #E7D6BC; }
 .respaldoGrupo h3 { margin: 0 0 22px; font: 600 11px/1.3 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: #41605E; }
 .respaldoGrupo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 24px clamp(24px, 3vw, 44px); }
 /* Los logos vienen sobre blanco: multiplicados se asientan en el fondo Cal. */
-.respaldoGrupo img { display: block; width: auto; height: auto; max-height: 76px; max-width: 200px; mix-blend-mode: multiply; }
+.respaldoGrupo img { display: block; width: var(--w); max-width: 100%; height: auto; mix-blend-mode: multiply; }
 
 /* Cartagena, dentro de inversión */
 .invCiudad { margin-top: clamp(36px, 6vh, 64px); }
@@ -180,5 +180,5 @@
   .amenidadesLista li { gap: 10px; min-height: 56px; font-size: 14px; }
   .mapaEtiqueta { font-size: 10px; padding: 4px 7px; }
   .respaldo { grid-template-columns: 1fr; }
-  .respaldoGrupo img { max-height: 64px; max-width: 170px; }
+  .respaldoGrupo img { width: calc(var(--w) * .86); }
 }

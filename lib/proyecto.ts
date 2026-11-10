@@ -71,19 +71,19 @@ export const CIUDAD = [
   { titulo: 'Una ciudad conectada', texto: 'Playas, comercio y aeropuerto internacional en la misma ciudad, a un recorrido corto de Torices.' },
 ];
 
-// Roles y logos como aparecen en el brochure del proyecto. `tope` baja la altura de un logo
-// que pesa más que el resto (el azul de Soinda).
+// Roles y logos del respaldo. `muestra` es el ancho en pantalla de cada logo, calculado para
+// que todos ocupen un área parecida aunque sus proporciones sean distintas.
 export const RESPALDO = [
   { rol: 'Gerencia y construcción', marcas: [
-    { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200, tope: 46 },
-    { nombre: 'Promotora Entorno 2000', logo: 'entorno-2000.webp', ancho: 320, alto: 320 },
+    { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200, muestra: 175 },
+    { nombre: 'Promotora Entorno 2000', logo: 'entorno-2000-v2.webp', ancho: 1345, alto: 300, muestra: 260 },
   ] },
   { rol: 'Arquitectos', marcas: [
-    { nombre: 'Casalsa', logo: 'casalsa.webp', ancho: 260, alto: 260 },
-    { nombre: 'Iván Turriago Thorrens, arquitecto', logo: 'turriago.webp', ancho: 605, alto: 220 },
+    { nombre: 'Casalsa', logo: 'casalsa.webp', ancho: 260, alto: 260, muestra: 92 },
+    { nombre: 'Iván Turriago Thorrens, arquitecto', logo: 'turriago.webp', ancho: 605, alto: 220, muestra: 203 },
   ] },
   { rol: 'Corredor inmobiliario', marcas: [
-    { nombre: 'Araujo y Segovia', logo: 'araujo-segovia.svg', ancho: 208, alto: 45 },
+    { nombre: 'Araujo y Segovia', logo: 'araujo-segovia.svg', ancho: 208, alto: 45, muestra: 263 },
   ] },
 ];
 
