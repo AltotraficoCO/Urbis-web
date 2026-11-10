@@ -11,6 +11,13 @@
 .h2Claro { color: #F4EDE1; }
 .h2Grande { font-size: clamp(44px, 6.4vw, 104px); }
 
+/* Amenidades: lista completa con iconos */
+.amenidades { position: relative; z-index: 2; background: #14403E; color: #F4EDE1; padding: clamp(56px, 8vh, 104px) 0; }
+.amenidadesGrid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(0, 1.5fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
+.amenidadesLista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(16px, 3vw, 48px); border-bottom: 1px solid rgba(244,237,225,.28); }
+.amenidadesLista li { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 14px 0; border-top: 1px solid rgba(244,237,225,.28); font: 400 16px/1.3 var(--sans); }
+.amenidadesLista svg { flex: none; }
+
 /* Vista */
 .vista { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; background: #F4EDE1; color: #F4EDE1; overflow: hidden; }
 .vistaFoto { position: absolute; inset: 0; will-change: clip-path; }
@@ -169,6 +176,8 @@
 
 @media (max-width: 959px) {
   .ubicacionGrid { grid-template-columns: 1fr; }
+  .amenidadesGrid { grid-template-columns: 1fr; }
+  .amenidadesLista li { gap: 10px; min-height: 56px; font-size: 14px; }
   .mapaEtiqueta { font-size: 10px; padding: 4px 7px; }
   .respaldo { grid-template-columns: 1fr; }
   .respaldoGrupo img { max-height: 64px; max-width: 170px; }

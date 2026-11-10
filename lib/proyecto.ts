@@ -21,6 +21,20 @@ export const ZONAS = [
   { slug: 'lobby', nombre: 'Lobby', texto: 'Aquí también está el parque de mascotas.', focoMovil: 0.68 },
 ];
 
+// Lista completa de amenidades, como en el brochure ("Adentro pasa tanto como afuera").
+export const AMENIDADES = [
+  { icono: 'piscina', nombre: 'Piscina de adultos' },
+  { icono: 'ninos', nombre: 'Piscina de niños' },
+  { icono: 'terraza', nombre: 'Terraza & BBQ' },
+  { icono: 'social', nombre: 'Salón social' },
+  { icono: 'gimnasio', nombre: 'Gimnasio' },
+  { icono: 'juegos', nombre: 'Salón de juegos' },
+  { icono: 'coworking', nombre: 'Coworking' },
+  { icono: 'infantiles', nombre: 'Juegos infantiles' },
+  { icono: 'mascotas', nombre: 'Parque de mascotas' },
+  { icono: 'lobby', nombre: 'Lobby' },
+] as const;
+
 // Tipos con las letras de la licencia. Solo se publican área construida y área privada.
 export const TIPOLOGIAS = [
   { k: 'A', posiciones: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', construida: '51,74 m²', privada: '46,93 m²' },

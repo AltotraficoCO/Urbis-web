@@ -3,6 +3,7 @@
 import Image, { getImageProps } from 'next/image';
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { validateLead, type LeadErrors, type LeadForm } from '@/lib/lead';
+import Amenidades from './Amenidades';
 import Apartamentos from './Apartamentos';
 import CompraYCierre from './CompraYCierre';
 import EscenaDiaNoche from './EscenaDiaNoche';
@@ -288,6 +289,7 @@ export default function Landing() {
           ]}
         />
         <ZonasComunes />
+        <Amenidades />
         <Vista />
         <Ubicacion />
         <Apartamentos onCta={pedirApartamento} />
