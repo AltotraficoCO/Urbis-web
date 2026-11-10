@@ -74,7 +74,7 @@ export const CIUDAD = [
 // Roles y logos como aparecen en el brochure del proyecto. `tope` baja la altura de un logo
 // que pesa más que el resto (el azul de Soinda).
 export const RESPALDO = [
-  { rol: 'Constructores', marcas: [
+  { rol: 'Gerencia y construcción', marcas: [
     { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200, tope: 46 },
     { nombre: 'Promotora Entorno 2000', logo: 'entorno-2000.webp', ancho: 320, alto: 320 },
   ] },
