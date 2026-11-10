@@ -53,6 +53,8 @@
 .plano { position: relative; aspect-ratio: 5994 / 3816; }
 .planoImg { position: absolute; inset: 0; mix-blend-mode: multiply; animation: planoEntra .7s var(--ease) both; }
 .planoImg img { object-fit: contain; }
+/* Planta del piso aparte: solo se usa en móvil. */
+.piso { display: none; }
 @keyframes planoEntra { from { clip-path: inset(0 100% 0 0); opacity: .3; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
 
 /* Decorado u obra gris */
@@ -74,7 +76,8 @@
 .compraHead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 72px); align-items: end; }
 .precio span { font: 500 13px/1.3 var(--sans); color: #41605E; }
 /* Las cifras van en la sans: los números de la serif bajan de la línea base. */
-.precio strong { display: block; margin: 8px 0; font: 400 clamp(52px, 6.4vw, 96px)/1 var(--sans); letter-spacing: -.03em; }
+/* La cifra va completa ($277.200.000), así que el cuerpo es menor que cuando decía "$275". */
+.precio strong { display: block; margin: 8px 0; font: 400 clamp(38px, 4.4vw, 66px)/1 var(--sans); letter-spacing: -.03em; white-space: nowrap; }
 .precio small { font: 500 15px/1 var(--sans); letter-spacing: 0; }
 .precio p { margin: 0; max-width: 380px; font: 400 13px/1.5 var(--sans); color: #41605E; }
 .pasos { list-style: none; margin: clamp(32px, 5vh, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14403E; }
@@ -110,7 +113,11 @@
   .vistaFoto img { object-position: 82% 50%; }
   .vistaScrim { background: linear-gradient(180deg, rgba(11,37,36,.1) 20%, rgba(11,37,36,.86) 62%, rgba(11,37,36,.94) 100%); }
   .vistaCopy, .entregaCopy { padding-bottom: 84px; }
-  /* En móvil se muestra el plano a buen tamaño; el recorte deja fuera la planta de ubicación. */
+  /* En móvil el plano va a buen tamaño y recortado; la planta completa del piso sale bajo el selector. */
+  .piso { display: block; margin: 0; }
+  .pisoImg { position: relative; width: min(62%, 250px); aspect-ratio: 760 / 1024; margin: 0 auto; mix-blend-mode: multiply; animation: urbRise .5s var(--ease); }
+  .pisoImg img { object-fit: contain; }
+  .piso figcaption { margin-top: 8px; font: 400 12px/1.4 var(--sans); color: #41605E; text-align: center; }
   .columna { display: contents; }
   .columna > :first-child { order: -2; }
   .plano { order: -1; aspect-ratio: 1.05; overflow: hidden; }
@@ -125,7 +132,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .revela { opacity: 1; transform: none; }
-  .planoImg { animation: none; }
+  .planoImg, .pisoImg { animation: none; }
   .entregaFoto { transition: none; }
 }
 
@@ -139,10 +146,12 @@
 .mapaNota { margin: 14px auto 0; font: 400 11px/1.3 var(--sans); text-align: right; }
 
 /* Quién está detrás */
-.respaldo { list-style: none; margin: clamp(28px, 4vh, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 48px); }
-.respaldo li { display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #E7D6BC; }
-.respaldo strong { font: 400 clamp(26px, 2.6vw, 40px)/1.08 var(--serif); }
-.respaldo span { font: 400 15px/1.4 var(--sans); color: #41605E; }
+.respaldo { margin: clamp(28px, 4vh, 48px) 0 0; display: grid; grid-template-columns: 2fr 2fr 1.2fr; gap: clamp(24px, 3vw, 56px); }
+.respaldoGrupo { padding-top: 18px; border-top: 1px solid #E7D6BC; }
+.respaldoGrupo h3 { margin: 0 0 22px; font: 600 11px/1.3 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: #41605E; }
+.respaldoGrupo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 24px clamp(24px, 3vw, 44px); }
+/* Los logos vienen sobre blanco: multiplicados se asientan en el fondo Cal. */
+.respaldoGrupo img { display: block; width: auto; height: auto; max-height: 76px; max-width: 200px; mix-blend-mode: multiply; }
 
 /* Cartagena, dentro de inversión */
 .invCiudad { margin-top: clamp(36px, 6vh, 64px); }
@@ -153,4 +162,5 @@
   .ubicacionGrid { grid-template-columns: 1fr; }
   .mapaEtiqueta { font-size: 10px; padding: 4px 7px; }
   .respaldo { grid-template-columns: 1fr; }
+  .respaldoGrupo img { max-height: 64px; max-width: 170px; }
 }

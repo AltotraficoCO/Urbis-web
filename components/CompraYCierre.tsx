@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef, type MouseEvent } from 'react';
-import { COMPRA, FAQS, LEGAL } from '@/lib/proyecto';
+import { COMPRA, FAQS, LEGAL, PRECIO_DESDE } from '@/lib/proyecto';
 import Revela from './Revela';
 import { useVentana } from './useCerca';
 import s from './Recorrido.module.css';
@@ -23,9 +23,9 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
               <h2 id="compra-titulo" className={s.h2}>Comprar empieza con <em>información clara.</em></h2>
             </Revela>
             <Revela className={s.precio} retraso={120}>
-              <span>Precio de referencia desde</span>
-              <strong>$275 <small>millones COP</small></strong>
-              <p>Sujeto a tipología, disponibilidad y condiciones comerciales vigentes.</p>
+              <span>Etapa 1 · Precio desde</span>
+              <strong>{PRECIO_DESDE} <small>COP</small></strong>
+              <p>Etapa 2 desde $292.200.000. Sujeto al tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.</p>
             </Revela>
           </div>
           <ol className={s.pasos}>
@@ -72,7 +72,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
       <footer className={s.pie}>
         <div className={s.pieMarca}>
           <span>Corredor inmobiliario</span>
-          <Image src="/assets/web/araujo-segovia.svg" alt="Araujo y Segovia" width={208} height={45} unoptimized />
+          <Image src="/assets/web/logos/araujo-segovia.svg" alt="Araujo y Segovia" width={208} height={45} unoptimized />
         </div>
         <p>{LEGAL}</p>
       </footer>
