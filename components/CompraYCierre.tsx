@@ -20,7 +20,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
           <div className={s.compraHead}>
             <Revela className={s.encabezado}>
               <p className={s.kicker}>CONDICIONES DE COMPRA</p>
-              <h2 id="compra-titulo" className={s.h2}>Comprar empieza con <em>información clara.</em></h2>
+              <h2 id="compra-titulo" className={s.h2}>Comprar empieza con información clara.</h2>
             </Revela>
             <Revela className={s.precio} retraso={120}>
               <span>Vivienda de interés social · Hasta</span>

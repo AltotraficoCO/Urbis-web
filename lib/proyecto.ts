@@ -30,7 +30,7 @@ export const TIPOLOGIAS = [
 
 // Pisos 2 a 30: en cada piso, 6 apartamentos son de Etapa 1 y 4 de Etapa 2.
 export const ETAPA_2 = [6, 7, 8, 9];
-export const etapaDe = (posicion: number) => (ETAPA_2.includes(posicion) ? { nombre: 'Etapa 2', entrega: '2030' } : { nombre: 'Etapa 1', entrega: '2029' });
+export const etapaDe = (posicion: number) => (ETAPA_2.includes(posicion) ? { nombre: 'Etapa 2' } : { nombre: 'Etapa 1' });
 export const tipoDe = (posicion: number) => TIPOLOGIAS.find(t => t.posiciones.includes(posicion))!;
 
 // Caja de cada apartamento sobre la planta del piso, en % [izquierda, arriba, ancho, alto].
@@ -76,7 +76,7 @@ export const COMPRA = [
   { n: '01', titulo: 'Separa', texto: 'Pregunta el monto para separar tu apartamento y qué condiciones aplican mientras formalizas la compra.' },
   { n: '02', titulo: 'Cuota inicial', texto: 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Pregunta a tu asesor por las cuotas y los plazos.' },
   { n: '03', titulo: 'Saldo a la entrega', texto: 'El saldo se paga a la entrega. Tu asesor te orienta sobre cómo financiarlo.' },
-  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Etapa 1 en 2029 y Etapa 2 en 2030. Se entrega en obra gris, con baño y cocina terminados.' },
+  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Se entrega en obra gris, con baño y cocina terminados.' },
 ];
 
 export const FAQS: [string, string][] = [
@@ -84,7 +84,6 @@ export const FAQS: [string, string][] = [
   ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
   ['¿Cómo se paga la cuota inicial?', 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Tu asesor te informa las cuotas y los plazos de cada plan.'],
   ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
-  ['¿Cuándo está prevista la entrega?', 'La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030. Consulta las condiciones que quedarán en los documentos del proyecto.'],
 ];
 
 export const LEGAL = 'El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Las áreas y los datos aquí publicados pueden variar sin previo aviso. Infórmate en la sala de ventas y con tu asesor comercial antes de tu decisión de compra. Este material no constituye oferta comercial.';
