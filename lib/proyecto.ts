@@ -12,7 +12,7 @@ export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16'
 // retiró: no figura en la lista. El parque de mascotas no tiene render.
 export const ZONAS = [
   { slug: 'piscina', nombre: 'Piscinas', texto: 'Piso 31. Piscina de adultos de 109,96 m² y piscina de niños de 26,18 m².', focoMovil: 0.76 },
-  { slug: 'bbq', nombre: 'Terraza de piscina', texto: 'Piso 31. 80,50 m² al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
+  { slug: 'bbq', nombre: 'Terraza & BBQ', texto: 'Piso 31. 80,50 m² al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
   { slug: 'social', nombre: 'Salón social', texto: 'Piso 31. 61,09 m² para tus reuniones.', focoMovil: 0.46 },
   { slug: 'gym', nombre: 'Gimnasio', texto: 'Piso 31. 31,77 m² para entrenar a tu ritmo.', focoMovil: 0.56 },
   { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Piso 3. 67,01 m² para tu tiempo libre.', focoMovil: 0.72 },
