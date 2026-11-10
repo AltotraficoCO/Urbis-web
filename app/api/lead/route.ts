@@ -1,6 +1,6 @@
 import { checkBotId } from 'botid/server';
 import { digits, validateLead, type LeadForm } from '@/lib/lead';
-import { TIPOLOGIAS } from '@/lib/proyecto';
+import { TIPOLOGIAS, etapaDe } from '@/lib/proyecto';
 import { MIN_FILL_MS, spamReason } from '@/lib/spam';
 
 // Límite por IP (best-effort: vive en memoria de cada instancia).
@@ -82,8 +82,8 @@ export async function POST(req: Request) {
   }
 
   // Apartamento elegido en el explorador, si vino desde "Pedir valor de este apartamento".
-  const tipoApto = TIPOLOGIAS.find(t => t.tipos.includes(Number(body.apartamento)));
-  const apartamento = tipoApto ? `Apartamento ${Number(body.apartamento)}, tipología ${tipoApto.k}` : '';
+  const tipoApto = TIPOLOGIAS.find(t => t.posiciones.includes(Number(body.apartamento)));
+  const apartamento = tipoApto ? `Apartamento ${Number(body.apartamento)} de la planta, tipo ${tipoApto.k}, ${etapaDe(Number(body.apartamento)).nombre}` : '';
 
   const payload = {
     name: form.name.trim(),

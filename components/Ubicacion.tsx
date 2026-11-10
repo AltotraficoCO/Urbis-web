@@ -17,10 +17,10 @@ export default function Ubicacion() {
           </ul>
         </Revela>
         <Revela className={s.mapa} retraso={120}>
-          <Image src="/assets/web/ubicacion.webp" alt="Vista aérea de Torices con Urbis EU, la Parroquia San José de Torices, la calle Bogotá o calle 46, la carrera 16 y el mar al fondo" fill sizes="(max-width: 959px) 100vw, 60vw" />
+          <Image src="/assets/web/ubicacion.webp" alt="Vista aérea de Torices con Urbis EU, la Parroquia San José de Torices, la calle 43 o calle Bogotá, la carrera 16 y el mar al fondo" fill sizes="(max-width: 959px) 100vw, 60vw" />
           <span className={s.mapaEtiqueta} style={{ left: '63%', top: '13%' }}>Urbis EU</span>
           <span className={s.mapaEtiqueta} style={{ left: '71.7%', top: '54.6%' }}>Parroquia San José de Torices</span>
-          <span className={s.mapaEtiqueta} style={{ left: '45.4%', top: '81.1%' }}>Calle Bogotá · Cll 46</span>
+          <span className={s.mapaEtiqueta} style={{ left: '45.4%', top: '81.1%' }}>Calle Bogotá · Cll 43</span>
           <span className={s.mapaEtiqueta} style={{ left: '37%', top: '61.8%' }}>Cra. 16</span>
         </Revela>
       </div>

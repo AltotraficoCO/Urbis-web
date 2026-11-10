@@ -1,37 +1,44 @@
-// Contenido del recorrido, tomado de los borradores del cliente (design/_respaldo).
-// PENDIENTE DE CONFIRMAR antes de producción: áreas por tipología, fecha y alcance de
-// entrega, texto legal VIS y las zonas comunes que no estaban en el borrador
-// (BBQ, coworking, guardería y parque infantil, que sí aparecen en los renders).
-// También por validar: "nadie te va a tapar" y "las mejores amenidades de Torices",
-// que vienen de la reunión con el cliente y necesitan respaldo escrito.
+// Datos oficiales de Urbis EU (contexto del cliente, nov 2026). Las áreas salen de la
+// licencia de construcción RES L-13001-1-26 VIS. Lo que no esté aquí no se publica.
+// PENDIENTE: notas legales adicionales de Araujo y Segovia; que el arquitecto confirme
+// la numeración de las posiciones; "nadie te va a tapar" sigue sin respaldo escrito.
 
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
-// Indicaciones como se dan en Cartagena. POR VALIDAR: la relación exacta con la carrera 16.
-export const INDICACIONES = ['Sobre la calle Bogotá (calle 46)', 'Al lado de la Parroquia San José de Torices', 'A pasos de la carrera 16'];
+// Indicaciones como las da el brochure del proyecto.
+export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16', 'Al lado de la Parroquia San José de Torices'];
 
+// Amenidades y áreas según el contexto oficial. El render del parque infantil exterior se
+// retiró: no figura en la lista. El parque de mascotas no tiene render.
 export const ZONAS = [
-  { slug: 'piscina', nombre: 'Piscina y rooftop', texto: 'Un espacio para disfrutar y desconectarte.', focoMovil: 0.76 },
-  { slug: 'bbq', nombre: 'Terraza y BBQ', texto: 'Respira, contempla y disfruta.', focoMovil: 0.62 },
-  { slug: 'social', nombre: 'Salón social', texto: 'Momentos para compartir.', focoMovil: 0.46 },
-  { slug: 'gym', nombre: 'Gimnasio', texto: 'Bienestar a tu propio ritmo.', focoMovil: 0.56 },
-  { slug: 'coworking', nombre: 'Coworking', texto: 'En el primer piso, un lugar para concentrarte sin salir de casa.', focoMovil: 0.2 },
-  { slug: 'lobby', nombre: 'Lobby y recepción', texto: 'Una bienvenida que se siente desde el primer día.', focoMovil: 0.68 },
-  { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Espacios para disfrutar tu tiempo libre.', focoMovil: 0.72 },
-  { slug: 'guarderia', nombre: 'Guardería', texto: 'En el primer piso, un rincón pensado para los más pequeños.', focoMovil: 0.32 },
-  { slug: 'parque', nombre: 'Parque infantil', texto: 'Aire libre a pocos pasos de tu puerta.', focoMovil: 0.42 },
+  { slug: 'piscina', nombre: 'Piscinas', texto: 'Piso 31. Piscina de adultos de 109,96 m² y piscina de niños de 26,18 m².', focoMovil: 0.76 },
+  { slug: 'bbq', nombre: 'Terraza de piscina', texto: 'Piso 31. 80,50 m² al aire libre, con vista a la ciudad.', focoMovil: 0.62 },
+  { slug: 'social', nombre: 'Salón social', texto: 'Piso 31. 61,09 m² para tus reuniones.', focoMovil: 0.46 },
+  { slug: 'gym', nombre: 'Gimnasio', texto: 'Piso 31. 31,77 m² para entrenar a tu ritmo.', focoMovil: 0.56 },
+  { slug: 'juegos', nombre: 'Salón de juegos', texto: 'Piso 3. 67,01 m² para tu tiempo libre.', focoMovil: 0.72 },
+  { slug: 'coworking', nombre: 'Coworking', texto: 'Piso 1. 45,46 m² para trabajar sin salir del edificio.', focoMovil: 0.2 },
+  { slug: 'guarderia', nombre: 'Juegos infantiles', texto: 'Piso 1. 46,11 m² para los más pequeños.', focoMovil: 0.32 },
+  { slug: 'lobby', nombre: 'Lobby', texto: 'Piso 1. Aquí también está el parque de mascotas.', focoMovil: 0.68 },
 ];
 
+// Tipos con las letras de la licencia. Solo se publican área construida y área privada.
 export const TIPOLOGIAS = [
-  { k: 'A', tipos: [3], porPiso: '1 apartamento por piso', etapa: 'Etapa 1', construida: '51,11 m²', util: '45,59 m²' },
-  { k: 'B', tipos: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', etapa: 'Etapas 1 y 2', construida: '51,7 m²', util: '43,9 – 46,9 m²' },
-  { k: 'C', tipos: [7, 8], porPiso: '2 apartamentos por piso', etapa: 'Etapa 2', construida: '52,73 m²', util: '48,05 m²' },
+  { k: 'A', posiciones: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', construida: '51,74 m²', privada: '46,93 m²', desde: '$277.200.000' },
+  { k: 'B', posiciones: [7, 8], porPiso: '2 apartamentos por piso', construida: '52,73 m²', privada: '48,05 m²', desde: '$292.200.000' },
+  { k: 'C', posiciones: [3], porPiso: '1 apartamento por piso', construida: '51,11 m²', privada: '45,59 m²', desde: '$277.800.000' },
 ];
+
+// Pisos 2 a 30: en cada piso, 6 apartamentos son de Etapa 1 y 4 de Etapa 2.
+const ETAPA_2 = [6, 7, 8, 9];
+export const etapaDe = (posicion: number) => (ETAPA_2.includes(posicion) ? { nombre: 'Etapa 2', entrega: '2030' } : { nombre: 'Etapa 1', entrega: '2029' });
+export const tipoDe = (posicion: number) => TIPOLOGIAS.find(t => t.posiciones.includes(posicion))!;
+
+export const PRECIO_DESDE = '$277.200.000';
 
 export const INVERSION = [
   { titulo: 'Finca raíz en Cartagena', texto: 'Construye patrimonio en Cartagena de Indias, en un barrio conectado con las playas, Mallplaza, el Centro Histórico y el aeropuerto.' },
-  { titulo: 'Compra sobre planos', texto: 'Inviertes con un precio de referencia desde $275 millones y entrega prevista para noviembre de 2028.' },
-  { titulo: 'Atributos que marcan la diferencia', texto: 'Una vista despejada y las mejores amenidades de Torices: lo que busca quien vive aquí y quien invierte aquí.' },
+  { titulo: 'Compra sobre planos', texto: 'Precios desde $277.200.000. La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030.' },
+  { titulo: 'Balcón y amenidades', texto: 'Todos los apartamentos tienen balcón. El edificio suma piscinas, gimnasio, salón social y coworking.' },
 ];
 
 export const CIUDAD = [
@@ -40,27 +47,37 @@ export const CIUDAD = [
   { titulo: 'Una ciudad conectada', texto: 'Playas, comercio y aeropuerto internacional en la misma ciudad, a un recorrido corto de Torices.' },
 ];
 
-// POR VALIDAR: el rol exacto de cada empresa y sus logos.
+// Roles y logos como aparecen en el brochure del proyecto.
 export const RESPALDO = [
-  { nombre: 'Araujo y Segovia', rol: 'Corredor inmobiliario' },
-  { nombre: 'Entorno Constructor', rol: 'Constructor' },
+  { rol: 'Constructores', marcas: [
+    { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200 },
+    { nombre: 'Promotora Entorno 2000', logo: 'entorno-2000.webp', ancho: 320, alto: 320 },
+  ] },
+  { rol: 'Arquitectos', marcas: [
+    { nombre: 'Casalsa', logo: 'casalsa.webp', ancho: 260, alto: 260 },
+    { nombre: 'Iván Turriago Thorrens, arquitecto', logo: 'turriago.webp', ancho: 605, alto: 220 },
+  ] },
+  { rol: 'Corredor inmobiliario', marcas: [
+    { nombre: 'Araujo y Segovia', logo: 'araujo-segovia.svg', ancho: 208, alto: 45 },
+  ] },
 ];
 
+// Plan con cuota inicial del 30 %, sobre los precios desde de cada etapa.
 export const COMPRA = [
   { n: '01', titulo: 'Separa', texto: 'Pregunta el monto para separar tu apartamento y qué condiciones aplican mientras formalizas la compra.' },
-  { n: '02', titulo: 'Cuota inicial', texto: 'Consulta cómo se estructura y cuánto tiempo tienes para completarla según la tipología que elijas.' },
-  { n: '03', titulo: 'Financia el saldo', texto: 'Recibe orientación sobre cómo financiar el saldo y qué opciones revisar con las entidades financieras.' },
-  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Entrega prevista para noviembre de 2028, en obra gris, con baño y cocina terminados.' },
+  { n: '02', titulo: 'Cuota inicial del 30 %', texto: 'Etapa 1: 30 cuotas de $2.772.000. Etapa 2: 36 cuotas de $2.435.000. También hay planes del 35 % y del 40 %: pregunta a tu asesor.' },
+  { n: '03', titulo: 'Saldo a la entrega', texto: 'Etapa 1: $194.040.000. Etapa 2: $204.540.000. Tu asesor te orienta sobre cómo financiarlo.' },
+  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Etapa 1 en 2029 y Etapa 2 en 2030. Se entrega en obra gris, con baño y cocina terminados.' },
 ];
 
 export const FAQS: [string, string][] = [
-  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Los apartamentos tienen un precio de referencia desde $275 millones. El valor final depende de la tipología, la disponibilidad y las condiciones comerciales vigentes.'],
+  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Los precios van desde $277.200.000 en la Etapa 1 y desde $292.200.000 en la Etapa 2. El valor final depende del tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.'],
   ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
-  ['¿Cómo se paga la cuota inicial?', 'El valor de la cuota inicial, el plazo y la forma de pago los informa el equipo comercial según la tipología y las condiciones vigentes.'],
+  ['¿Cómo se paga la cuota inicial?', 'Con cuota inicial del 30 %, la Etapa 1 se paga en 30 cuotas de $2.772.000 y la Etapa 2 en 36 cuotas de $2.435.000, sobre los precios desde. También hay planes con cuota inicial del 35 % y del 40 %: pregunta a tu asesor.'],
   ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
-  ['¿Cuándo está prevista la entrega?', 'La entrega está prevista para noviembre de 2028. Consulta las condiciones que quedarán en los documentos del proyecto.'],
+  ['¿Cuándo está prevista la entrega?', 'La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030. Consulta las condiciones que quedarán en los documentos del proyecto.'],
   ['¿Puedo acceder a un subsidio?', 'La aplicación de subsidios de vivienda a Urbis EU está en verificación. Solicita la información actualizada antes de contar con este apoyo.'],
   ['¿Está permitida la renta corta?', 'Las reglas del proyecto sobre renta corta todavía están en revisión. Pregunta al equipo comercial por la información vigente.'],
 ];
 
-export const LEGAL = 'Imágenes y áreas de referencia. Consulta las condiciones y características vigentes con el equipo comercial. El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Este material no constituye oferta comercial.';
+export const LEGAL = 'El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Las áreas y los datos aquí publicados pueden variar sin previo aviso. Infórmate en la sala de ventas y con tu asesor comercial antes de tu decisión de compra. Este material no constituye oferta comercial.';

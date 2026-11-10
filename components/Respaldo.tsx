@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { RESPALDO } from '@/lib/proyecto';
 import Revela from './Revela';
 import s from './Recorrido.module.css';
@@ -12,11 +13,18 @@ export default function Respaldo() {
           <p className={s.kicker}>QUIÉN ESTÁ DETRÁS</p>
           <h2 id="respaldo-titulo" className={`${s.h2} ${s.h2Medio}`}>El equipo <em>detrás de Urbis EU.</em></h2>
         </Revela>
-        <ul className={s.respaldo}>
-          {RESPALDO.map(r => (
-            <li key={r.nombre}><strong>{r.nombre}</strong><span>{r.rol}</span></li>
+        <div className={s.respaldo}>
+          {RESPALDO.map(g => (
+            <div key={g.rol} className={s.respaldoGrupo}>
+              <h3>{g.rol}</h3>
+              <ul>
+                {g.marcas.map(m => (
+                  <li key={m.nombre}><Image src={`/assets/web/logos/${m.logo}`} alt={m.nombre} width={m.ancho} height={m.alto} unoptimized={m.logo.endsWith('.svg')} /></li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
