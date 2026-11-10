@@ -23,21 +23,30 @@ export const ZONAS = [
 
 // Tipos con las letras de la licencia. Solo se publican área construida y área privada.
 export const TIPOLOGIAS = [
-  { k: 'A', posiciones: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', construida: '51,74 m²', privada: '46,93 m²', desde: '$277.200.000' },
-  { k: 'B', posiciones: [7, 8], porPiso: '2 apartamentos por piso', construida: '52,73 m²', privada: '48,05 m²', desde: '$292.200.000' },
-  { k: 'C', posiciones: [3], porPiso: '1 apartamento por piso', construida: '51,11 m²', privada: '45,59 m²', desde: '$277.800.000' },
+  { k: 'A', posiciones: [1, 2, 4, 5, 6, 9, 10], porPiso: '7 apartamentos por piso', construida: '51,74 m²', privada: '46,93 m²' },
+  { k: 'B', posiciones: [7, 8], porPiso: '2 apartamentos por piso', construida: '52,73 m²', privada: '48,05 m²' },
+  { k: 'C', posiciones: [3], porPiso: '1 apartamento por piso', construida: '51,11 m²', privada: '45,59 m²' },
 ];
 
 // Pisos 2 a 30: en cada piso, 6 apartamentos son de Etapa 1 y 4 de Etapa 2.
-const ETAPA_2 = [6, 7, 8, 9];
+export const ETAPA_2 = [6, 7, 8, 9];
 export const etapaDe = (posicion: number) => (ETAPA_2.includes(posicion) ? { nombre: 'Etapa 2', entrega: '2030' } : { nombre: 'Etapa 1', entrega: '2029' });
 export const tipoDe = (posicion: number) => TIPOLOGIAS.find(t => t.posiciones.includes(posicion))!;
 
-export const PRECIO_DESDE = '$277.200.000';
+// Caja de cada apartamento sobre la planta del piso, en % [izquierda, arriba, ancho, alto].
+export const PLANTA: Record<number, [number, number, number, number]> = {
+  1: [64.2, 5.3, 20.6, 15.5], 2: [42.8, 5.3, 20.3, 15.5], 3: [21.3, 1.2, 20.5, 19.5],
+  4: [14.7, 17.5, 19.3, 20.1], 5: [14.7, 38.5, 19.3, 20.8], 6: [14.7, 60.1, 19.3, 19.7],
+  7: [14.7, 80.9, 20.9, 18.4], 8: [39.4, 80.9, 20.9, 18.4], 9: [40.7, 60.3, 18.2, 19.5],
+  10: [40.6, 31.9, 18.3, 20.1],
+};
+
+// Por pedido del cliente no se publica ningún precio: solo el tope VIS.
+export const TOPE_VIS = '150 SMLV';
 
 export const INVERSION = [
   { titulo: 'Finca raíz en Cartagena', texto: 'Construye patrimonio en Cartagena de Indias, en un barrio conectado con las playas, Mallplaza, el Centro Histórico y el aeropuerto.' },
-  { titulo: 'Compra sobre planos', texto: 'Precios desde $277.200.000. La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030.' },
+  { titulo: 'Compra sobre planos', texto: 'Vivienda de interés social de hasta 150 SMLV. La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030.' },
   { titulo: 'Balcón y amenidades', texto: 'Todos los apartamentos tienen balcón. El edificio suma piscinas, gimnasio, salón social y coworking.' },
 ];
 
@@ -62,22 +71,19 @@ export const RESPALDO = [
   ] },
 ];
 
-// Plan con cuota inicial del 30 %, sobre los precios desde de cada etapa.
 export const COMPRA = [
   { n: '01', titulo: 'Separa', texto: 'Pregunta el monto para separar tu apartamento y qué condiciones aplican mientras formalizas la compra.' },
-  { n: '02', titulo: 'Cuota inicial del 30 %', texto: 'Etapa 1: 30 cuotas de $2.772.000. Etapa 2: 36 cuotas de $2.435.000. También hay planes del 35 % y del 40 %: pregunta a tu asesor.' },
-  { n: '03', titulo: 'Saldo a la entrega', texto: 'Etapa 1: $194.040.000. Etapa 2: $204.540.000. Tu asesor te orienta sobre cómo financiarlo.' },
+  { n: '02', titulo: 'Cuota inicial', texto: 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Pregunta a tu asesor por las cuotas y los plazos.' },
+  { n: '03', titulo: 'Saldo a la entrega', texto: 'El saldo se paga a la entrega. Tu asesor te orienta sobre cómo financiarlo.' },
   { n: '04', titulo: 'Recibe tu apartamento', texto: 'Etapa 1 en 2029 y Etapa 2 en 2030. Se entrega en obra gris, con baño y cocina terminados.' },
 ];
 
 export const FAQS: [string, string][] = [
-  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Los precios van desde $277.200.000 en la Etapa 1 y desde $292.200.000 en la Etapa 2. El valor final depende del tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.'],
+  ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Urbis EU es vivienda de interés social (VIS): cada apartamento vale hasta 150 SMLV. El valor final depende del tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.'],
   ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
-  ['¿Cómo se paga la cuota inicial?', 'Con cuota inicial del 30 %, la Etapa 1 se paga en 30 cuotas de $2.772.000 y la Etapa 2 en 36 cuotas de $2.435.000, sobre los precios desde. También hay planes con cuota inicial del 35 % y del 40 %: pregunta a tu asesor.'],
+  ['¿Cómo se paga la cuota inicial?', 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Tu asesor te informa las cuotas y los plazos de cada plan.'],
   ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
   ['¿Cuándo está prevista la entrega?', 'La Etapa 1 se entrega en 2029 y la Etapa 2 en 2030. Consulta las condiciones que quedarán en los documentos del proyecto.'],
-  ['¿Puedo acceder a un subsidio?', 'La aplicación de subsidios de vivienda a Urbis EU está en verificación. Solicita la información actualizada antes de contar con este apoyo.'],
-  ['¿Está permitida la renta corta?', 'Las reglas del proyecto sobre renta corta todavía están en revisión. Pregunta al equipo comercial por la información vigente.'],
 ];
 
 export const LEGAL = 'El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Las áreas y los datos aquí publicados pueden variar sin previo aviso. Infórmate en la sala de ventas y con tu asesor comercial antes de tu decisión de compra. Este material no constituye oferta comercial.';

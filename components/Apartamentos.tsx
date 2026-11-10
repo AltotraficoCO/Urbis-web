@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef, useState, type MouseEvent } from 'react';
-import { etapaDe, tipoDe } from '@/lib/proyecto';
+import { ETAPA_2, PLANTA, etapaDe, tipoDe } from '@/lib/proyecto';
 import Revela from './Revela';
 import { useVentana } from './useCerca';
 import s from './Recorrido.module.css';
@@ -42,25 +42,37 @@ export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEv
           </Revela>
             <Revela className={s.panel}>
               <p className={s.mini}>Elige un apartamento de la planta</p>
-              <div className={s.numeros} role="group" aria-label="Posición del apartamento en el piso">
-                {Array.from({ length: 10 }, (_, i) => i + 1).map(n => (
-                  <button key={n} type="button" aria-pressed={n === tipo} onClick={() => elegirTipo(n)} className={s.numero}>{n}</button>
-                ))}
+              {/* La planta completa del piso es el selector. La Etapa 2 sale sombreada y bloqueada. */}
+              <div className={s.planta} role="group" aria-label="Apartamentos del piso">
+                <Image src="/assets/web/planos/planta.webp" alt="" fill sizes="(max-width: 959px) 100vw, 34vw" />
+                {Array.from({ length: 10 }, (_, i) => i + 1).map(n => {
+                  const [x, y, w, h] = PLANTA[n];
+                  const bloqueado = ETAPA_2.includes(n);
+                  return (
+                    <button
+                      key={n}
+                      type="button"
+                      disabled={bloqueado}
+                      aria-pressed={n === tipo}
+                      aria-label={`Apartamento ${n}, tipo ${tipoDe(n).k}${bloqueado ? ', Etapa 2, aún no disponible' : ''}`}
+                      onClick={() => elegirTipo(n)}
+                      className={s.plantaApto}
+                      style={{ left: `${x}%`, top: `${y}%`, width: `${w}%`, height: `${h}%` }}
+                    />
+                  );
+                })}
               </div>
-              {/* Solo en móvil: allí el plano grande recorta la planta del piso. */}
-              <figure className={s.piso}>
-                <div key={tipo} className={s.pisoImg}>
-                  <Image src={`/assets/web/planos/piso/${tipo}.webp`} alt={`Planta completa del piso con el apartamento ${tipo} resaltado`} fill sizes="(max-width: 959px) 60vw, 1px" />
-                </div>
-                <figcaption>Ubicación en el piso. Planta de referencia.</figcaption>
-              </figure>
+              <p className={s.plantaLeyenda}>
+                <span><i className={s.swE1} />Etapa 1</span>
+                <span><i className={s.swC} />Tipo C</span>
+                <span><i className={s.swE2} />Etapa 2 · próxima etapa</span>
+              </p>
               <dl key={tipo} className={s.ficha}>
                 <div><dt>Tipo</dt><dd className={s.fichaGrande}>{tp.k}</dd></div>
                 <div><dt>Área construida</dt><dd>{tp.construida}</dd></div>
                 <div><dt>Área privada</dt><dd>{tp.privada}</dd></div>
                 <div><dt>En cada piso</dt><dd>{tp.porPiso}</dd></div>
                 <div><dt>Etapa y entrega</dt><dd>{etapa.nombre} · {etapa.entrega}</dd></div>
-                <div><dt>Tipo {tp.k} desde</dt><dd>{tp.desde}</dd></div>
               </dl>
               <a href="#formulario" onClick={e => onCta(tipo, e)} data-track="cta_primary_click" className={s.boton}>
                 <span>Pedir valor de este apartamento</span>

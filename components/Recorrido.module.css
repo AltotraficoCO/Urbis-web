@@ -36,10 +36,6 @@
 .h2Medio { font-size: clamp(36px, 3.7vw, 60px); }
 .panel { display: flex; flex-direction: column; gap: 22px; }
 .mini { margin: 0; font: 500 13px/1.4 var(--sans); color: #41605E; }
-.numeros { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #E7D6BC; border: 1px solid #E7D6BC; }
-.numero { min-height: 56px; background: #F4EDE1; border: 0; cursor: pointer; font: 500 18px/1 var(--sans); color: #14403E; transition: background-color .25s ease, color .25s ease; }
-.numero:hover { background: #E7D6BC; }
-.numero[aria-pressed='true'] { background: #14403E; color: #F4EDE1; }
 .ficha { margin: 0; display: flex; flex-direction: column; animation: urbRise .5s var(--ease); }
 .ficha > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid #E7D6BC; }
 .ficha dt { font: 400 13px/1.3 var(--sans); color: #41605E; }
@@ -53,8 +49,20 @@
 .plano { position: relative; aspect-ratio: 5994 / 3816; }
 .planoImg { position: absolute; inset: 0; mix-blend-mode: multiply; animation: planoEntra .7s var(--ease) both; }
 .planoImg img { object-fit: contain; }
-/* Planta del piso aparte: solo se usa en móvil. */
-.piso { display: none; }
+/* Planta completa del piso: es el selector de apartamentos. */
+.planta { position: relative; width: 100%; max-width: 460px; aspect-ratio: 3664 / 3752; mix-blend-mode: multiply; }
+.planta img { object-fit: contain; }
+.plantaApto { position: absolute; padding: 0; border: 0; background: transparent; cursor: pointer; transition: box-shadow .25s ease, background-color .25s ease; }
+.plantaApto:hover:not(:disabled) { background: rgba(20, 64, 62, .1); }
+.plantaApto[aria-pressed='true'] { box-shadow: inset 0 0 0 3px #14403E; }
+.plantaApto:focus-visible { outline: 2px solid #14403E; outline-offset: 2px; }
+/* Etapa 2: velo rayado y sin selección. */
+.plantaApto:disabled { cursor: not-allowed; background: repeating-linear-gradient(135deg, rgba(20, 64, 62, .3) 0 2px, rgba(20, 64, 62, .1) 2px 9px); }
+.plantaLeyenda { margin: -8px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 12px/1.4 var(--sans); color: #41605E; }
+.plantaLeyenda span { display: inline-flex; align-items: center; gap: 7px; }
+.plantaLeyenda i { width: 12px; height: 12px; }
+.swE1 { background: #E7D6BC; } .swC { background: #C4744C; }
+.swE2 { background: repeating-linear-gradient(135deg, #7F9A94 0 2px, #A9BDB6 2px 5px); }
 @keyframes planoEntra { from { clip-path: inset(0 100% 0 0); opacity: .3; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
 
 /* Decorado u obra gris */
@@ -76,7 +84,6 @@
 .compraHead { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 72px); align-items: end; }
 .precio span { font: 500 13px/1.3 var(--sans); color: #41605E; }
 /* Las cifras van en la sans: los números de la serif bajan de la línea base. */
-/* La cifra va completa ($277.200.000), así que el cuerpo es menor que cuando decía "$275". */
 .precio strong { display: block; margin: 8px 0; font: 400 clamp(38px, 4.4vw, 66px)/1 var(--sans); letter-spacing: -.03em; white-space: nowrap; }
 .precio small { font: 500 15px/1 var(--sans); letter-spacing: 0; }
 .precio p { margin: 0; max-width: 380px; font: 400 13px/1.5 var(--sans); color: #41605E; }
@@ -113,11 +120,8 @@
   .vistaFoto img { object-position: 82% 50%; }
   .vistaScrim { background: linear-gradient(180deg, rgba(11,37,36,.1) 20%, rgba(11,37,36,.86) 62%, rgba(11,37,36,.94) 100%); }
   .vistaCopy, .entregaCopy { padding-bottom: 84px; }
-  /* En móvil el plano va a buen tamaño y recortado; la planta completa del piso sale bajo el selector. */
-  .piso { display: block; margin: 0; }
-  .pisoImg { position: relative; width: min(62%, 250px); aspect-ratio: 760 / 1024; margin: 0 auto; mix-blend-mode: multiply; animation: urbRise .5s var(--ease); }
-  .pisoImg img { object-fit: contain; }
-  .piso figcaption { margin-top: 8px; font: 400 12px/1.4 var(--sans); color: #41605E; text-align: center; }
+  /* En móvil el plano va a buen tamaño y recortado; la planta completa del piso es el selector, debajo. */
+  .planta { max-width: 420px; margin: 0 auto; }
   .columna { display: contents; }
   .columna > :first-child { order: -2; }
   .plano { order: -1; aspect-ratio: 1.05; overflow: hidden; }
@@ -127,12 +131,11 @@
   .segmento { width: 100%; }
   .segmento button { flex: 1; padding: 0 8px; }
   .boton, .botonClaro { align-self: stretch; justify-content: center; }
-  .numero { min-height: 52px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .revela { opacity: 1; transform: none; }
-  .planoImg, .pisoImg { animation: none; }
+  .planoImg { animation: none; }
   .entregaFoto { transition: none; }
 }
 

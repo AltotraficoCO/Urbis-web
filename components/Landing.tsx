@@ -7,7 +7,7 @@ import Apartamentos from './Apartamentos';
 import CompraYCierre from './CompraYCierre';
 import EscenaDiaNoche from './EscenaDiaNoche';
 import ZonasComunes from './ZonasComunes';
-import { PRECIO_DESDE, tipoDe } from '@/lib/proyecto';
+import { TOPE_VIS, tipoDe } from '@/lib/proyecto';
 import { WHATSAPP } from '@/lib/sitio';
 import Inversion from './Inversion';
 import Vista from './Vista';
@@ -190,7 +190,7 @@ export default function Landing() {
               <p className={`${s.eyebrow} ${s.up}`} style={delay(120)}>URBIS EU · TORICES, CARTAGENA</p>
               <h1 className={`${s.title} ${s.up}`} style={delay(180)}>Tu próximo hogar en Cartagena <em>comienza aquí.</em></h1>
               <p className={`${s.sub} ${s.up}`} style={delay(240)}>
-                Encuentra opciones desde&nbsp;<strong>{PRECIO_DESDE} COP</strong> <br />y da el primer paso hacia tu próximo proyecto.
+                Apartamentos VIS de hasta&nbsp;<strong>{TOPE_VIS}</strong>. <br />Conócelos y da el primer paso hacia tu próximo proyecto.
               </p>
               <p className={`${s.place} ${s.up}`} style={delay(300)}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><path d="M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0" /></svg>

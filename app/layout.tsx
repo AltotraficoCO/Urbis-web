@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 // Título y descripción de la portada: los mantiene AT OS en atos/seo.json
 const portada = seoDe('/');
 const title = portada.titulo ?? 'Urbis EU · Apartamentos en Torices, Cartagena';
-const description = portada.descripcion ?? 'Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos VIS de 2 habitaciones desde $277.200.000 COP. Solicita información.';
+const description = portada.descripcion ?? 'Urbis EU, proyecto residencial en Torices, Cartagena. Apartamentos VIS de 2 habitaciones, hasta 150 SMLV. Solicita información.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
