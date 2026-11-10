@@ -75,8 +75,8 @@ export const CIUDAD = [
 // que todos ocupen un área parecida aunque sus proporciones sean distintas.
 export const RESPALDO = [
   { rol: 'Gerencia y construcción', marcas: [
-    { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200, muestra: 175 },
     { nombre: 'Promotora Entorno 2000', logo: 'entorno-2000-v2.webp', ancho: 1345, alto: 300, muestra: 260 },
+    { nombre: 'Soinda', logo: 'soinda.webp', ancho: 527, alto: 200, muestra: 175 },
   ] },
   { rol: 'Arquitectos', marcas: [
     { nombre: 'Casalsa', logo: 'casalsa.webp', ancho: 260, alto: 260, muestra: 92 },
