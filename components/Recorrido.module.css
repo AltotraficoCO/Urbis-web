@@ -50,7 +50,13 @@
 .planoImg { position: absolute; inset: 0; mix-blend-mode: multiply; animation: planoEntra .7s var(--ease) both; }
 .planoImg img { object-fit: contain; }
 /* Planta completa del piso: es el selector de apartamentos. */
-.planta { position: relative; width: 100%; max-width: 460px; aspect-ratio: 3664 / 3752; mix-blend-mode: multiply; }
+/* Calles que rodean el edificio: carrera 16 arriba y calle 43 a la izquierda, como en el brochure. */
+.plantaMarco { position: relative; width: 100%; max-width: 460px; padding-top: 26px; }
+.calleArriba, .calleIzq { position: absolute; display: flex; align-items: center; gap: 10px; font: 600 10px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: #14403E; white-space: nowrap; }
+.calleArriba::before, .calleArriba::after, .calleIzq::before, .calleIzq::after { content: ''; flex: 1; height: 1px; background: #C4744C; }
+.calleArriba { top: 4px; left: 15%; width: 70%; }
+.calleIzq { left: 5%; top: calc(26px + (100% - 26px) / 2); width: 62%; transform: translate(-50%, -50%) rotate(-90deg); }
+.planta { position: relative; width: 100%; aspect-ratio: 3664 / 3752; mix-blend-mode: multiply; }
 .planta img { object-fit: contain; }
 .plantaApto { position: absolute; padding: 0; border: 0; background: transparent; cursor: pointer; transition: box-shadow .25s ease, background-color .25s ease; }
 .plantaApto:hover:not(:disabled) { background: rgba(20, 64, 62, .1); }
@@ -121,7 +127,7 @@
   .vistaScrim { background: linear-gradient(180deg, rgba(11,37,36,.1) 20%, rgba(11,37,36,.86) 62%, rgba(11,37,36,.94) 100%); }
   .vistaCopy, .entregaCopy { padding-bottom: 84px; }
   /* En móvil el plano va a buen tamaño y recortado; la planta completa del piso es el selector, debajo. */
-  .planta { max-width: 420px; margin: 0 auto; }
+  .plantaMarco { max-width: 420px; margin: 0 auto; }
   .columna { display: contents; }
   .columna > :first-child { order: -2; }
   .plano { order: -1; aspect-ratio: 1.05; overflow: hidden; }

@@ -43,6 +43,9 @@ export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEv
             <Revela className={s.panel}>
               <p className={s.mini}>Elige un apartamento de la planta</p>
               {/* La planta completa del piso es el selector. La Etapa 2 sale sombreada y bloqueada. */}
+              <div className={s.plantaMarco}>
+              <span className={s.calleArriba}>Cra 16</span>
+              <span className={s.calleIzq}>Calle 43 · Calle Bogotá</span>
               <div className={s.planta} role="group" aria-label="Apartamentos del piso">
                 <Image src="/assets/web/planos/planta.webp" alt="" fill sizes="(max-width: 959px) 100vw, 34vw" />
                 {Array.from({ length: 10 }, (_, i) => i + 1).map(n => {
@@ -62,6 +65,7 @@ export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEv
                   );
                 })}
               </div>
+              </div>
               <p className={s.plantaLeyenda}>
                 <span><i className={s.swE1} />Etapa 1</span>
                 <span><i className={s.swC} />Tipo C</span>
@@ -72,7 +76,7 @@ export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEv
                 <div><dt>Área construida</dt><dd>{tp.construida}</dd></div>
                 <div><dt>Área privada</dt><dd>{tp.privada}</dd></div>
                 <div><dt>En cada piso</dt><dd>{tp.porPiso}</dd></div>
-                <div><dt>Etapa y entrega</dt><dd>{etapa.nombre} · {etapa.entrega}</dd></div>
+                <div><dt>Etapa</dt><dd>{etapa.nombre}</dd></div>
               </dl>
               <a href="#formulario" onClick={e => onCta(tipo, e)} data-track="cta_primary_click" className={s.boton}>
                 <span>Pedir valor de este apartamento</span>
