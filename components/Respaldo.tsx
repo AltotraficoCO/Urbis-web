@@ -19,7 +19,7 @@ export default function Respaldo() {
               <h3>{g.rol}</h3>
               <ul>
                 {g.marcas.map(m => (
-                  <li key={m.nombre}><Image src={`/assets/web/logos/${m.logo}`} alt={m.nombre} width={m.ancho} height={m.alto} unoptimized={m.logo.endsWith('.svg')} /></li>
+                  <li key={m.nombre}><Image src={`/assets/web/logos/${m.logo}`} alt={m.nombre} width={m.ancho} height={m.alto} unoptimized={m.logo.endsWith('.svg')} style={'tope' in m ? { maxHeight: m.tope } : undefined} /></li>
                 ))}
               </ul>
             </div>
