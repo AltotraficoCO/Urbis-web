@@ -204,7 +204,7 @@ export default function Landing() {
                 <div role="status" tabIndex={-1} ref={successRef} className={s.success}>
                   <span className={s.successIcon}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14403E" strokeWidth="1.5" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg></span>
                   <h2 className={s.successTitle}>Recibimos tu solicitud, {firstName}.</h2>
-                  <p className={s.muted}>El equipo comercial de Urbis EU se comunicará contigo con la información de Urbis EU.</p>
+                  <p className={s.muted}>El equipo comercial de Urbis EU se comunicará contigo con la información del proyecto.</p>
                 </div>
               ) : (
                 <>

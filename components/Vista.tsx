@@ -19,7 +19,7 @@ export default function Vista() {
       </div>
       <div className={s.vistaCopy}>
         <p className={`${s.kicker} ${s.kickerClaro}`}>LA VISTA · TORICES</p>
-        <h2 id="vista-titulo" className={`${s.h2} ${s.h2Claro}`}>Una vista que <em>nadie te va a tapar.</em></h2>
+        <h2 id="vista-titulo" className={`${s.h2} ${s.h2Claro}`}>Cartagena, <em>desde tu balcón.</em></h2>
         <ul className={s.lugares} aria-label="Lugares cercanos">
           {LUGARES.map(l => <li key={l}>{l}</li>)}
         </ul>

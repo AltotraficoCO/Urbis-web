@@ -1,7 +1,7 @@
 // Datos oficiales de Urbis EU (contexto del cliente, nov 2026). Las áreas salen de la
 // licencia de construcción RES L-13001-1-26 VIS. Lo que no esté aquí no se publica.
 // PENDIENTE: notas legales adicionales de Araujo y Segovia; que el arquitecto confirme
-// la numeración de las posiciones; "nadie te va a tapar" sigue sin respaldo escrito.
+// la numeración de las posiciones.
 
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
@@ -98,7 +98,7 @@ export const COMPRA = [
 
 export const FAQS: [string, string][] = [
   ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Urbis EU es vivienda de interés social (VIS): cada apartamento vale hasta 150 SMLV. El valor final depende del tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.'],
-  ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos vigentes.'],
+  ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos siguientes.'],
   ['¿Cómo se paga la cuota inicial?', 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Tu asesor te informa las cuotas y los plazos de cada plan.'],
   ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
 ];
