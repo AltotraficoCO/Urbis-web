@@ -159,6 +159,10 @@
 .indicaciones li { padding: 12px 0; border-top: 1px solid #E7D6BC; }
 .mapa { position: relative; aspect-ratio: 1080 / 790; overflow: hidden; }
 .mapa img { object-fit: cover; }
+.mapaLink { position: absolute; inset: 0; z-index: 1; display: block; }
+.mapaLink:focus-visible { outline: 2px solid #E66A45; outline-offset: -4px; }
+.mapaChip { position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; background: #F4EDE1; color: #14403E; font: 600 12px/1 var(--sans); border-radius: 2px; box-shadow: 0 2px 12px rgba(11,37,36,.25); transition: background-color .25s ease, gap .25s ease; }
+.mapaLink:hover .mapaChip { background: #fff; gap: 12px; }
 .mapaEtiqueta { position: absolute; transform: translate(-50%, -50%); padding: 6px 10px; background: #14403E; color: #F4EDE1; font: 600 12px/1 var(--sans); white-space: nowrap; border-radius: 2px; }
 .mapaNota { margin: 14px auto 0; font: 400 11px/1.3 var(--sans); text-align: right; }
 
@@ -181,6 +185,7 @@
   .amenidadesGrid { grid-template-columns: 1fr; }
   .amenidadesLista li { gap: 10px; min-height: 56px; font-size: 14px; }
   .mapaEtiqueta { font-size: 10px; padding: 4px 7px; }
+  .mapaChip { display: none; }
   .respaldo { grid-template-columns: 1fr; }
   .respaldoGrupo img { width: calc(var(--w) * .86); }
 }

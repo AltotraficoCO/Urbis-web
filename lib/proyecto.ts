@@ -6,6 +6,8 @@
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
 // Indicaciones como las da el brochure del proyecto.
+/** Ficha «Urbis EU» en Google Maps (10.4304, -75.5345), enlace dado por Victor. */
+export const MAPS_URL = 'https://maps.app.goo.gl/iicUcW2Pgb8Jcqrr8';
 export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16', 'Al lado de la Parroquia San José de Torices'];
 
 // Amenidades según el contexto oficial, sin áreas ni pisos por pedido del cliente. El render del parque infantil exterior se
