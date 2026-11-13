@@ -1,0 +1,31 @@
+/* Pestaña vertical pegada al borde derecho, centrada en la pantalla. */
+.pista {
+  position: fixed; z-index: 39; right: 0; top: 50%; transform: translate(100%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 18px 11px 16px; border: 0; border-radius: 2px 0 0 2px;
+  background: rgba(11,37,36,.86); color: #F4EDE1; cursor: pointer;
+  box-shadow: -2px 4px 16px rgba(11,37,36,.25);
+  opacity: 0; pointer-events: none;
+  transition: transform .45s var(--ease), opacity .3s ease, background-color .25s ease;
+}
+.on { transform: translate(0, -50%); opacity: 1; pointer-events: auto; }
+.pista:hover { background: #14403E; }
+.pista:focus-visible { outline: 2px solid #E66A45; outline-offset: 2px; }
+
+.texto { writing-mode: vertical-rl; font: 600 12px/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; white-space: nowrap; }
+.linea { position: relative; display: block; width: 1px; height: 34px; background: rgba(244,237,225,.3); overflow: hidden; }
+.linea::after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 45%; background: #F4EDE1; animation: bajar 1.8s var(--ease) infinite; }
+.flecha { color: #E66A45; animation: rebote 1.8s var(--ease) infinite; }
+
+@keyframes bajar { from { transform: translateY(-100%); } to { transform: translateY(230%); } }
+@keyframes rebote { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+
+@media (max-width: 959px) {
+  .pista { padding: 12px 6px 10px; gap: 9px; }
+  .texto { font-size: 10px; letter-spacing: .22em; }
+  .linea { height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linea::after, .flecha { animation: none; }
+}

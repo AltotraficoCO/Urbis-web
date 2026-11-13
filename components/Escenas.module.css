@@ -30,11 +30,6 @@
 
 .nota { position: absolute; right: clamp(20px, 4vw, 56px); bottom: 12px; z-index: 2; margin: 0; font: 400 11px/1.3 var(--sans); color: #F4EDE1; text-shadow: 0 1px 8px rgba(11,37,36,.9); }
 
-/* Pista de scroll: aparece con la escena fija y se va al empezar a bajar. */
-.pista { position: absolute; z-index: 2; left: 50%; bottom: 32px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 18px 14px 21px; background: rgba(11,37,36,.62); opacity: 0; pointer-events: none; color: #F4EDE1; font: 600 11px/1.3 var(--sans); letter-spacing: .28em; text-transform: uppercase; text-shadow: 0 1px 10px rgba(11,37,36,.9); will-change: opacity; }
-.pista i { position: relative; display: block; width: 1px; height: 36px; background: rgba(244,237,225,.35); overflow: hidden; }
-.pista i::after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 45%; background: #F4EDE1; animation: urbPista 1.8s var(--ease) infinite; }
-@keyframes urbPista { from { transform: translateY(-100%); } to { transform: translateY(230%); } }
 
 /* Zonas comunes: una sola pantalla; las fotos pasan solas o con los controles. */
 .mediaZonas { position: absolute; inset: 0; background: #0B2524; will-change: clip-path; touch-action: pan-y; }
@@ -72,14 +67,12 @@
   .lugares { font-size: 15px; }
   .lugares li { padding: 8px 0; }
   .zonasTitulo { max-width: none; right: 20px; }
-  .pieZonas { bottom: 74px; gap: 8px; }
+  .pieZonas { bottom: 142px; gap: 8px; }
   .cap { grid-template-columns: 1fr; row-gap: 8px; }
   .capN { grid-row: auto; }
   .ctrl { width: 44px; height: 44px; }
   .ctrls .pausa { display: none; }
   .nota { left: 20px; right: auto; bottom: 62px; font-size: 10px; }
-  .pista { left: auto; right: 20px; bottom: 58px; transform: none; flex-direction: row; gap: 10px; padding: 0; background: none; font-size: 10px; letter-spacing: .22em; }
-  .pista i { height: 18px; }
 }
 
 /* Sin movimiento: secciones estáticas, una debajo de otra. */
@@ -99,5 +92,5 @@
   .zonaFig img { height: 60vh; }
   .zonaFig figcaption { display: block; padding: 12px clamp(20px, 4vw, 56px); font: 400 15px/1.4 var(--sans); }
   .zonasTitulo { position: static; opacity: 1; padding: 24px clamp(20px, 4vw, 56px); max-width: none; }
-  .zonasTitulo::before, .scrimZonas, .pieZonas, .nota, .pista { display: none; }
+  .zonasTitulo::before, .scrimZonas, .pieZonas, .nota { display: none; }
 }
