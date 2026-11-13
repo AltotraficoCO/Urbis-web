@@ -277,6 +277,7 @@ export default function Landing() {
           alto={3.4}
           entrada="ventana"
           conSalida
+          pista="Sigue bajando"
           fondo="#0B2524"
           mapaMovil={[0.225, 0.5]}
           foco={{ escritorio: 0.56, movil: 0.5 }}

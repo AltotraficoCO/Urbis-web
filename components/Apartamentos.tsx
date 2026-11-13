@@ -9,7 +9,7 @@ import s from './Recorrido.module.css';
 
 const VISTAS = [
   { id: 'visto', label: 'Así se puede ver', nota: 'Imagen de referencia. Los muebles y acabados no están incluidos.' },
-  { id: 'entrega', label: 'Así se entrega', nota: 'Obra gris, con baño y cocina terminados.' },
+  { id: 'entrega', label: 'Así se entrega', nota: 'Obra blanca, con baño y cocina terminados.' },
 ] as const;
 
 export default function Apartamentos({ onCta }: { onCta(tipo: number, e: MouseEvent<HTMLAnchorElement>): void }) {
