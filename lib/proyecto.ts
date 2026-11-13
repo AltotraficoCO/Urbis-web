@@ -6,6 +6,8 @@
 export const LUGARES = ['Playas de Marbella', 'Mallplaza', 'Centro Histórico', 'Aeropuerto Rafael Núñez'];
 
 // Indicaciones como las da el brochure del proyecto.
+/** Ficha «Urbis EU» en Google Maps (10.4304, -75.5345), enlace dado por Victor. */
+export const MAPS_URL = 'https://maps.app.goo.gl/iicUcW2Pgb8Jcqrr8';
 export const INDICACIONES = ['Entre la calle 43 (calle Bogotá) y la carrera 16', 'Al lado de la Parroquia San José de Torices'];
 
 // Amenidades según el contexto oficial, sin áreas ni pisos por pedido del cliente. El render del parque infantil exterior se
@@ -91,16 +93,16 @@ export const RESPALDO = [
 
 export const COMPRA = [
   { n: '01', titulo: 'Separa', texto: 'Pregunta el monto para separar tu apartamento y qué condiciones aplican mientras formalizas la compra.' },
-  { n: '02', titulo: 'Cuota inicial', texto: 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Pregunta a tu asesor por las cuotas y los plazos.' },
+  { n: '02', titulo: 'Cuota inicial', texto: 'Hay planes con cuota inicial del 30%, del 35% y del 40%. Pregunta a tu asesor por las cuotas y los plazos.' },
   { n: '03', titulo: 'Saldo a la entrega', texto: 'El saldo se paga a la entrega. Tu asesor te orienta sobre cómo financiarlo.' },
-  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Se entrega en obra gris, con baño y cocina terminados.' },
+  { n: '04', titulo: 'Recibe tu apartamento', texto: 'Se entrega en obra blanca, con baño y cocina terminados.' },
 ];
 
 export const FAQS: [string, string][] = [
   ['¿Cuánto cuesta un apartamento en Urbis EU?', 'Urbis EU es vivienda de interés social (VIS): cada apartamento vale hasta 150 SMLV. El valor final depende del tipo de apartamento, la disponibilidad y las condiciones comerciales vigentes.'],
   ['¿Cómo puedo separar mi apartamento?', 'El valor y el proceso de separación se confirman directamente con el equipo comercial. Déjanos tus datos y te contamos los pasos siguientes.'],
-  ['¿Cómo se paga la cuota inicial?', 'Hay planes con cuota inicial del 30 %, del 35 % y del 40 %. Tu asesor te informa las cuotas y los plazos de cada plan.'],
-  ['¿Qué incluye la entrega en obra gris?', 'Los apartamentos se entregan en obra gris, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
+  ['¿Cómo se paga la cuota inicial?', 'Hay planes con cuota inicial del 30%, del 35% y del 40%. Tu asesor te informa las cuotas y los plazos de cada plan.'],
+  ['¿Qué incluye la entrega en obra blanca?', 'Los apartamentos se entregan en obra blanca, con baño y cocina terminados. Solicita al equipo comercial el detalle actualizado del alcance.'],
 ];
 
 export const LEGAL = 'El valor de la vivienda corresponderá al menor valor entre el precio pactado y el tope máximo establecido para Vivienda de Interés Social, equivalente a 150 SMMLV vigentes al momento de la escrituración. Las imágenes son representaciones digitales del diseño y pueden variar en su construcción final. Las áreas y los datos aquí publicados pueden variar sin previo aviso. Infórmate en la sala de ventas y con tu asesor comercial antes de tu decisión de compra. Este material no constituye oferta comercial.';

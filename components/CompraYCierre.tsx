@@ -61,7 +61,7 @@ export default function CompraYCierre({ onCta }: { onCta(e: MouseEvent<HTMLAncho
         </div>
         <div className={s.cierreCopy}>
           <p className={`${s.kicker} ${s.kickerClaro}`}>URBIS EU · CARTAGENA</p>
-          <h2 id="cierre-titulo" className={`${s.h2} ${s.h2Claro} ${s.h2Grande}`}>Hablemos de <em>tu próximo hogar.</em></h2>
+          <h2 id="cierre-titulo" className={`${s.h2} ${s.h2Claro} ${s.h2Grande}`}>Hablemos de <em className={s.recta}>tu próximo hogar.</em></h2>
           <a href="#formulario" onClick={onCta} data-track="cta_primary_click" className={s.botonClaro}>
             <span>Quiero recibir información</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
