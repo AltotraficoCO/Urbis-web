@@ -26,8 +26,6 @@ type Props = {
   cam: { low: number; high: number };
   alt: { dia: string; noche: string };
   fondo?: string;
-  /** Texto que invita a seguir bajando mientras la escena está fija sin avanzar. */
-  pista?: string;
 };
 
 export default function EscenaDiaNoche(p: Props) {
@@ -37,7 +35,6 @@ export default function EscenaDiaNoche(p: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const nightImg = useRef<HTMLDivElement>(null);
   const beats = useRef<(HTMLDivElement | null)[]>([]);
-  const pista = useRef<HTMLDivElement>(null);
   const cerca = useCerca(root);
   const [gl, setGl] = useState(false);
 
@@ -88,11 +85,6 @@ export default function EscenaDiaNoche(p: Props) {
         b.style.transform = `translate3d(0,${(1 - (a < 0 ? gate : ramp(a, a + 0.07, v))) * 22}px,0)`;
         b.style.pointerEvents = o > 0.5 ? 'auto' : 'none';
       });
-      // «Sigue bajando»: solo con la escena ya fija y antes de avanzar; se va al primer scroll.
-      if (pista.current) {
-        const o = ramp(0.85, 1, enter) * (1 - ramp(0.015, 0.07, v));
-        pista.current.style.opacity = String(o);
-      }
       if (entrada === 'ventana' && media.current) {
         const i = 1 - enter;
         media.current.style.clipPath = i > 0.001 ? `inset(${i * 16}% ${i * 24}% ${i * 16}% ${i * 24}%)` : 'none';
@@ -203,12 +195,6 @@ export default function EscenaDiaNoche(p: Props) {
           <div aria-hidden="true" className={s.scrim} />
         </div>
         <p className={s.nota}>Imágenes de carácter ilustrativo.</p>
-        {p.pista && (
-          <div ref={pista} aria-hidden="true" className={s.pista}>
-            <span>{p.pista}</span>
-            <i />
-          </div>
-        )}
         <div className={s.copy}>
           {p.beats.map((b, i) => (
             <div key={i} ref={el => { beats.current[i] = el; }} className={s.beat} style={{ opacity: i === 0 ? 1 : 0 }}>{b.contenido}</div>
