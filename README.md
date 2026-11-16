@@ -6,7 +6,7 @@ Landing de captación de leads de Urbis EU (Torices, Cartagena), construida con 
 
 ```bash
 npm install
-cp .env.example .env.local   # configura LEAD_WEBHOOK_URL
+cp .env.example .env.local   # configura LEAD_WEBHOOK_URL y LEAD_WEBHOOK_API_KEY
 npm run dev
 ```
 
@@ -14,7 +14,7 @@ npm run dev
 
 - `app/page.tsx`: página principal.
 - `components/Landing.tsx`: hero con el formulario y el CTA fijo en móvil.
-- `app/api/lead/route.ts`: valida el formulario y reenvía el lead a `LEAD_WEBHOOK_URL`. Si la variable no está definida, responde 503 y el formulario muestra el aviso de "no conectado".
+- `app/api/lead/route.ts`: valida el formulario y reenvía el lead a `LEAD_WEBHOOK_URL` (`https://<dominio de AT OS>/api/webhook`) con la API key del cliente en `LEAD_WEBHOOK_API_KEY` (se envía como `Authorization: Bearer`; la key se crea en AT OS y debe tener el cliente Urbis EU asignado). Si la variable no está definida, responde 503 y el formulario muestra el aviso de "no conectado".
 - `lib/lead.ts`: validación compartida entre cliente y servidor.
 - `public/assets/`: imágenes usadas por la landing.
 - `design/`: fuente original del diseño (`Urbis EU Landing v2.dc.html` es la versión que se implementó; `export/` es la exportación standalone).
