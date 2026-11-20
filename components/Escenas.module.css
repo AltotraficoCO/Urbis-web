@@ -67,7 +67,7 @@
   .lugares { font-size: 15px; }
   .lugares li { padding: 8px 0; }
   .zonasTitulo { max-width: none; right: 20px; }
-  .pieZonas { bottom: 142px; gap: 8px; }
+  .pieZonas { bottom: 74px; gap: 8px; }
   .cap { grid-template-columns: 1fr; row-gap: 8px; }
   .capN { grid-row: auto; }
   .ctrl { width: 44px; height: 44px; }
