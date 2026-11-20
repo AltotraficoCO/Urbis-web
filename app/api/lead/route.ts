@@ -29,8 +29,11 @@ function splitPhone(wa: string) {
   return { indicativo: '+57', numero: d.length === 12 && d.startsWith('57') ? d.slice(2) : d };
 }
 
-async function send(endpoint: string, payload: object) {
-  const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+async function send(endpoint: string, payload: object, apiKey?: string) {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  // El CRM de AT (/api/webhook) exige la API key del cliente; n8n no la usa.
+  if (apiKey) headers.Authorization = `Bearer ${apiKey}`;
+  const res = await fetch(endpoint, { method: 'POST', headers, body: JSON.stringify(payload) });
   if (!res.ok) throw new Error('HTTP ' + res.status);
 }
 
@@ -75,6 +78,7 @@ export async function POST(req: Request) {
   if (rateLimited(ip)) return Response.json({ error: 'rate_limited' }, { status: 429 });
 
   const atUrl = process.env.LEAD_WEBHOOK_URL?.trim();
+  const atKey = process.env.LEAD_WEBHOOK_API_KEY?.trim();
   const n8nUrl = process.env.N8N_WEBHOOK_URL?.trim();
   if (!atUrl && !n8nUrl) {
     console.warn('[Urbis EU] Formulario sin configurar: define LEAD_WEBHOOK_URL y/o N8N_WEBHOOK_URL con las URLs que recibirán los leads. No se envió ningún dato.');
@@ -111,7 +115,7 @@ export async function POST(req: Request) {
   };
 
   const targets = [
-    atUrl && { name: 'AT', run: () => send(atUrl, payload) },
+    atUrl && { name: 'AT', run: () => send(atUrl, payload, atKey) },
     n8nUrl && { name: 'n8n', run: () => send(n8nUrl, n8nPayload) },
   ].filter(t => !!t);
   const results = await Promise.allSettled(targets.map(t => t.run()));
