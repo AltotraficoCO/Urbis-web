@@ -9,7 +9,7 @@ import CompraYCierre from './CompraYCierre';
 import EscenaDiaNoche from './EscenaDiaNoche';
 import ZonasComunes from './ZonasComunes';
 import { TOPE_VIS, tipoDe } from '@/lib/proyecto';
-import { WHATSAPP_URL } from '@/lib/sitio';
+import { WHATSAPP_URL, WHATSAPP_VISIBLE } from '@/lib/sitio';
 import PistaScroll from './PistaScroll';
 import Inversion from './Inversion';
 import Vista from './Vista';
@@ -48,7 +48,7 @@ const HERO_MOVIL = getImageProps({ alt: '', fill: true, fetchPriority: 'high', s
 // El hero siempre está en pantalla al cargar: se pide de inmediato, sin lazy.
 const HERO_ATRIBUTOS = { ...HERO_MOVIL, srcSet: undefined, sizes: undefined, loading: 'eager' as const };
 
-const WA_BOTON = WHATSAPP_URL && (
+const WA_BOTON = WHATSAPP_VISIBLE && WHATSAPP_URL && (
   <a
     href={WHATSAPP_URL}
     target="_blank"
