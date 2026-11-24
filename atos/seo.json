@@ -2,28 +2,28 @@
   "version": 1,
   "paginas": {
     "/": {
-      "titulo": "Apartamentos en Torices, Cartagena sobre planos | Urbis EU",
-      "descripcion": "Apartamentos en Torices, Cartagena, de hasta 150 SMLV. Apartamentos VIS de 2 habitaciones, 3 tipos, todos con balcón. Pide información.",
+      "titulo": "Urbis EU: apartamentos VIS en Torices, Cartagena",
+      "descripcion": "Urbis EU: apartamentos VIS de hasta 150 SMLV en Torices, Cartagena, sobre planos. Todos con balcón, piscinas y gimnasio. Pide información.",
       "faq": [
         {
-          "pregunta": "¿Dónde están ubicados los apartamentos de Urbis EU?",
-          "respuesta": "Urbis EU está en Torices, Cartagena de Indias, entre la calle 43 (calle Bogotá) y la carrera 16, al lado de la Parroquia San José de Torices. Está a 8 minutos del centro y a 8 minutos del mar."
+          "pregunta": "¿Dónde queda Urbis EU?",
+          "respuesta": "Urbis EU está en Torices, Cartagena de Indias, entre la calle 43 (calle Bogotá) y la carrera 16, al lado de la Parroquia San José de Torices, a 8 minutos del centro y a 8 minutos del mar."
         },
         {
-          "pregunta": "¿Cuántas tipologías de apartamento tiene Urbis EU?",
-          "respuesta": "El proyecto tiene 3 tipos de apartamento: A, B y C, con área privada de 45,59 a 48,05 m². Cada piso tiene 10 apartamentos. La disponibilidad se consulta con el equipo comercial."
+          "pregunta": "¿Qué amenidades tiene Urbis EU?",
+          "respuesta": "Terraza y BBQ, salón social, gimnasio, salón de juegos, coworking, parque de mascotas y lobby. En la Etapa 2 se suman piscina de adultos, piscina de niños, guardería y cafetería."
         },
         {
-          "pregunta": "¿Qué amenidades tiene el proyecto?",
-          "respuesta": "Urbis EU tiene terraza y BBQ, salón social, gimnasio, salón de juegos, coworking, parque de mascotas y lobby. En la Etapa 2 se suman piscina de adultos, piscina de niños, guardería y cafetería."
+          "pregunta": "¿Todos los apartamentos de Urbis EU tienen balcón?",
+          "respuesta": "Sí. Todos los apartamentos de Urbis EU tienen balcón, con vista hacia puntos de Cartagena como las playas de Marbella, Mallplaza, el Centro Histórico y el aeropuerto Rafael Núñez."
         },
         {
-          "pregunta": "¿Quién construye y comercializa Urbis EU?",
-          "respuesta": "La gerencia es de Promotora Entorno 2000, la construcción de Soinda y el corredor inmobiliario es Araujo y Segovia."
+          "pregunta": "¿Cuánto mide un apartamento Tipo C de Urbis EU?",
+          "respuesta": "El Tipo C de la Etapa 1 tiene 51,74 m² de área construida y 46,93 m² de área privada. Puedes pedir el valor de este apartamento al equipo comercial."
         },
         {
-          "pregunta": "¿Se puede comprar sobre planos como inversión?",
-          "respuesta": "Sí, la compra es sobre planos y es vivienda de interés social de hasta 150 SMLV. Esta información no constituye una promesa de rentabilidad ni de valorización."
+          "pregunta": "¿Cómo se paga un apartamento en Urbis EU?",
+          "respuesta": "Primero separas el apartamento, luego pagas la cuota inicial con planes del 30%, del 35% o del 40%, y el saldo se paga a la entrega. Tu asesor te orienta sobre cuotas, plazos y financiación."
         }
       ]
     }
